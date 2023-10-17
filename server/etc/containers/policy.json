@@ -1,0 +1,23 @@
+{
+  "default": [
+    {
+      "type": "reject"
+    }
+  ],
+  "transports": {
+    "docker": {
+      "git.strypsteen.me": [
+        {
+          "type": "sigstoreSigned",
+          "keyPath": "/etc/cosign.pub"
+        }
+      ],
+      "quay.io/mathieustrypsteen": [
+        {
+          "type": "sigstoreSigned",
+          "keyPath": "/etc/cosign.pub"
+        }
+      ]
+    }
+  }
+}

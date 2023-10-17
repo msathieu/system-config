@@ -1,0 +1,14 @@
+[Unit]
+Requires=postgresql.service
+After=postgresql.service
+[Container]
+Image=git.strypsteen.me/mathieu/synapse
+UserNS=keep-id:uid=100,gid=101
+Network=synapse.network
+Volume=/home/synapse/data:/var/lib/synapse:Z
+Tmpfs=/etc/synapse
+PublishPort=[::1]:8000:8080
+EnvironmentFile=/home/synapse/synapse.cfg
+AutoUpdate=registry
+[Install]
+WantedBy=default.target

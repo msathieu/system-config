@@ -1,0 +1,10 @@
+[Match]
+Name=external
+[Network]
+DHCP=true
+[DHCP]
+UseDNS=false
+[DHCPv6]
+WithoutRA=solicit
+[IPv6AcceptRA]
+UseDNS=false

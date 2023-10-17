@@ -1,0 +1,8 @@
+[Container]
+Image=git.strypsteen.me/mathieu/postgresql
+UserNS=keep-id:uid=70,gid=70
+Network=synapse.network
+Volume=/home/synapse/db:/var/lib/postgres:Z
+AutoUpdate=registry
+[Install]
+WantedBy=default.target

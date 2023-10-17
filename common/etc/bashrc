@@ -1,0 +1,30 @@
+#!/bin/bash
+# shellcheck disable=1091
+mesg n
+. /etc/environment
+export VIMINIT
+unset HISTFILE
+export LESSHISTFILE=-
+unset LESSOPEN LESSCLOSE
+export PATH=$PATH:~/.local/bin
+if [[ $- != *i* ]]; then
+  return
+fi
+stty -ixon
+shopt -s checkwinsize
+shopt -s no_empty_cmd_completion
+COLOR=32
+if [ "$USER" = root ] || [ "$USER" = admin ]; then
+  COLOR=31
+fi
+PROMPT="\u@\h"
+if [ "$USER" = root ] || [ "$USER" = user ]; then
+  PROMPT="\h"
+fi
+PS1="\[\e[1;${COLOR}m\]$PROMPT \[\e[1;34m\]\w \[\e[m\]$ "
+PS1="$PS1\[\e]0;$PROMPT\a\]"
+if [ -f /usr/share/bash-completion/bash_completion ]; then
+  . /usr/share/bash-completion/bash_completion
+fi
+alias ls="ls --color=auto"
+alias grep="grep --color=auto"

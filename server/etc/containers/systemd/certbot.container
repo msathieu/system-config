@@ -1,0 +1,9 @@
+[Container]
+Image=git.strypsteen.me/mathieu/certbot
+Volume=/etc/certificates:/etc/certificates:z
+Tmpfs=/etc/letsencrypt
+Tmpfs=/var/lib/letsencrypt
+Tmpfs=/var/log/letsencrypt
+AutoUpdate=registry
+[Install]
+WantedBy=multi-user.target

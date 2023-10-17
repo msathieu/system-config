@@ -1,0 +1,12 @@
+[Container]
+Image=git.strypsteen.me/mathieu/hostapd
+Network=host
+User=5000
+Group=5000
+NoNewPrivileges=true
+AddCapability=NET_ADMIN
+EnvironmentFile=/etc/hostapd.cfg
+Tmpfs=/etc/hostapd
+AutoUpdate=registry
+[Install]
+WantedBy=multi-user.target

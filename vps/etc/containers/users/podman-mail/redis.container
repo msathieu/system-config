@@ -1,0 +1,8 @@
+[Container]
+Image=git.strypsteen.me/mathieu/redis
+Network=rspamd.network
+UserNS=keep-id:uid=100,gid=101
+Volume=redis.volume:/var/lib/redis:Z
+AutoUpdate=registry
+[Install]
+WantedBy=default.target

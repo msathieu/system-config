@@ -1,0 +1,14 @@
+ServerAliveInterval 10
+ServerAliveCountMax 2
+UpdateHostKeys yes
+VerifyHostKeyDNS ask
+HashKnownHosts yes
+AddKeysToAgent yes
+Host home
+  HostName home.strypsteen.com
+Host home-gw
+  HostName home-gw.strypsteen.com
+Host vps
+  HostName vps.strypsteen.com
+Host *
+  User root

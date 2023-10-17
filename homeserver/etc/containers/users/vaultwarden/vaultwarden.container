@@ -1,0 +1,8 @@
+[Container]
+Image=git.strypsteen.me/mathieu/vaultwarden
+UserNS=keep-id:uid=100,gid=101
+Volume=/home/vaultwarden/data:/data:Z
+PublishPort=[::1]:8002:8000
+AutoUpdate=registry
+[Install]
+WantedBy=default.target

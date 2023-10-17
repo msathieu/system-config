@@ -1,0 +1,48 @@
+{
+  "policies": {
+    "CaptivePortal": false,
+    "DisableAppUpdate": true,
+    "DisableFirefoxAccounts": true,
+    "DisableFirefoxStudies": true,
+    "DisablePocket": true,
+    "DisableTelemetry": true,
+    "DisplayBookmarksToolbar": "never",
+    "DNSOverHTTPS": {
+      "Enabled": true,
+      "Locked": true,
+      "ProviderURL": "https://dns10.quad9.net/dns-query"
+    },
+    "ExtensionSettings": {
+      "amazon@search.mozilla.org": {
+        "installation_mode": "blocked"
+      },
+      "bing@search.mozilla.org": {
+        "installation_mode": "blocked"
+      },
+      "ebay@search.mozilla.org": {
+        "installation_mode": "blocked"
+      },
+      "google@search.mozilla.org": {
+        "installation_mode": "blocked"
+      },
+      "wikipedia@search.mozilla.org": {
+        "installation_mode": "blocked"
+      },
+      "uBlock0@raymondhill.net": {
+        "installation_mode": "force_installed",
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/install.xpi"
+      }
+    },
+    "Homepage": {
+      "URL": "about:blank",
+      "Locked": true
+    },
+    "NetworkPrediction": false,
+    "NewTabPage": false,
+    "NoDefaultBookmarks": true,
+    "PasswordManagerEnabled": false,
+    "SanitizeOnShutdown": true,
+    "SearchSuggestEnabled": false,
+    "ShowHomeButton": true
+  }
+}

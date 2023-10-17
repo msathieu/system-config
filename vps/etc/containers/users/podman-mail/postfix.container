@@ -1,0 +1,12 @@
+[Unit]
+Requires=dovecot.service rspamd.service
+After=dovecot.service rspamd.service
+[Container]
+Image=git.strypsteen.me/mathieu/postfix
+Network=host
+Volume=/etc/certificates:/etc/certificates:O
+Volume=spool.volume:/var/spool/postfix:Z
+Tmpfs=/var/lib/postfix
+AutoUpdate=registry
+[Install]
+WantedBy=default.target

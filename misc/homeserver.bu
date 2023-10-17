@@ -1,0 +1,11 @@
+variant: fcos
+version: 1.5.0
+boot_device:
+  luks:
+    tpm2: true
+    discard: true
+passwd:
+  users:
+    - name: root
+      ssh_authorized_keys:
+        - ssh-ed25519 REPLACEME

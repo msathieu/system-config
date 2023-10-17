@@ -1,0 +1,10 @@
+[Container]
+Image=git.strypsteen.me/mathieu/nginx-vps
+Volume=/etc/certificates:/etc/certificates:O
+Tmpfs=/var/lib/nginx/tmp
+Tmpfs=/var/lib/nginx/logs
+PublishPort=80:80
+PublishPort=443:443
+AutoUpdate=registry
+[Install]
+WantedBy=default.target

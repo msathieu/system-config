@@ -1,0 +1,14 @@
+[Container]
+Image=git.strypsteen.me/mathieu/dovecot
+UserNS=keep-id:uid=1000,gid=1000
+User=0
+Volume=/etc/certificates:/etc/certificates:O
+Volume=/home/podman-mail/dovecot:/etc/dovecot-local:O
+Volume=/home/podman-mail/mail:/srv/mail:Z
+Tmpfs=/var/lib/dovecot
+PublishPort=[::1]:24:24
+PublishPort=[::1]:500:500
+PublishPort=993:993
+AutoUpdate=registry
+[Install]
+WantedBy=default.target

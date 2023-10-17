@@ -1,0 +1,12 @@
+body {
+  background-color: #000000;
+  color: #fafafafa;
+  margin: auto;
+  max-width: 1000px;
+}
+header, footer {
+  text-align: center;
+}
+a {
+  color: #00dbff;
+}

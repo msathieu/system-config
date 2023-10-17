@@ -1,0 +1,9 @@
+[Container]
+Image=quay.io/mathieustrypsteen/gitea
+UserNS=keep-id:uid=100,gid=82
+Volume=/home/gitea/app.ini:/etc/gitea/app.ini:Z,ro
+Volume=/home/gitea/data:/var/lib/gitea:Z
+PublishPort=[::1]:8001:3000
+AutoUpdate=registry
+[Install]
+WantedBy=default.target

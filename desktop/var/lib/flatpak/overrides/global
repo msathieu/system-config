@@ -1,0 +1,6 @@
+[Context]
+shared=!ipc
+sockets=!x11;!session-bus;!system-bus;!ssh-auth;!pcsc;!cups;!gpg-agent
+devices=dri;!all
+features=!bluetooth;!canbus
+filesystems=!host;!host-os;!host-etc;!home

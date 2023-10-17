@@ -1,0 +1,16 @@
+[Match]
+Name=wifi
+[Network]
+Address=192.168.254.1/24
+Address=fc00::1/128
+DHCPServer=true
+IPv6SendRA=true
+IPForward=true
+IPMasquerade=ipv4
+DHCPPrefixDelegation=true
+[DHCPServer]
+DNS=_server_address
+[IPv6SendRA]
+DNS=_link_local
+[DHCPPrefixDelegation]
+SubnetId=1

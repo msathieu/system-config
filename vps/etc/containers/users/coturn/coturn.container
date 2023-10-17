@@ -1,0 +1,11 @@
+[Container]
+Image=git.strypsteen.me/mathieu/coturn
+Network=pasta
+PublishPort=3478:3478
+PublishPort=3478:3478/udp
+PublishPort=50000-50100:50000-50100
+PublishPort=50000-50100:50000-50100/udp
+EnvironmentFile=/home/coturn/coturn.cfg
+Label=io.containers.autoupdate=registry
+[Install]
+WantedBy=default.target

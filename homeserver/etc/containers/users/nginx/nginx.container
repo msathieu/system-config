@@ -1,0 +1,9 @@
+[Container]
+Image=quay.io/mathieustrypsteen/nginx-home
+Network=host
+Volume=/etc/certificates:/etc/certificates:O
+Tmpfs=/var/lib/nginx/tmp
+Tmpfs=/var/lib/nginx/logs
+AutoUpdate=registry
+[Install]
+WantedBy=default.target

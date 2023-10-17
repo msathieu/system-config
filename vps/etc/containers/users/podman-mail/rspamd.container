@@ -1,0 +1,13 @@
+[Unit]
+Requires=redis.service
+After=redis.service
+[Container]
+Image=git.strypsteen.me/mathieu/rspamd
+Network=rspamd.network
+UserNS=keep-id:uid=100,gid=101
+Volume=rspamd.volume:/var/lib/rspamd:Z
+Volume=/home/podman-mail/dkim:/var/lib/rspamd/dkim:O
+PublishPort=[::1]:11332:11332
+AutoUpdate=registry
+[Install]
+WantedBy=default.target
