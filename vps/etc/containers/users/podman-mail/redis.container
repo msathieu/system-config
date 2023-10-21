@@ -1,8 +1,8 @@
 [Container]
-Image=git.strypsteen.me/mathieu/redis
+Image=cgr.dev/chainguard/redis
 Network=rspamd.network
-UserNS=keep-id:uid=100,gid=101
-Volume=redis.volume:/var/lib/redis:Z
+UserNS=keep-id:uid=65532,gid=65532
+Volume=redis.volume:/data:Z
 AutoUpdate=registry
 [Install]
 WantedBy=default.target

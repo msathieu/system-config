@@ -1,6 +1,6 @@
 [Container]
-Image=quay.io/mathieustrypsteen/gitea
-UserNS=keep-id:uid=100,gid=82
+Image=docker.io/gitea/gitea:latest-rootless
+UserNS=keep-id:uid=1000,gid=1000
 Volume=/home/gitea/app.ini:/etc/gitea/app.ini:Z,ro
 Volume=/home/gitea/data:/var/lib/gitea:Z
 PublishPort=[::1]:8001:3000

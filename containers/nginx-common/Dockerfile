@@ -1,4 +1,2 @@
-FROM git.strypsteen.me/mathieu/alpine
-RUN apk add nginx
+FROM cgr.dev/chainguard/nginx
 COPY nginx /etc/nginx
-CMD nginx -g 'daemon off;'

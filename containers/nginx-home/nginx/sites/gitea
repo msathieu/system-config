@@ -1,7 +1,7 @@
 server {
   server_name git.strypsteen.me;
-  listen 443 ssl http2;
-  listen [::]:443 ssl http2;
+  listen 443 ssl;
+  listen [::]:443 ssl;
   include snippets/headers.conf;
   add_header Content-Security-Policy "default-src 'self'; font-src 'self' data:; img-src 'self' data:; script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'";
   location / {
