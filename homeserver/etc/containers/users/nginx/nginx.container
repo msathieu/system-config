@@ -1,9 +1,11 @@
 [Container]
 Image=quay.io/mathieustrypsteen/nginx-home
-Network=host
+Network=pasta:-T,8000,-T,8001,-T,8002
 Volume=/etc/certificates:/etc/certificates:O
 Tmpfs=/var/lib/nginx/tmp
 Tmpfs=/var/lib/nginx/logs
+PublishPort=80:80
+PublishPort=443:443
 AutoUpdate=registry
 [Install]
 WantedBy=default.target

@@ -3,7 +3,7 @@ Wants=network-online.target
 After=network-online.target
 StartLimitIntervalSec=0
 [Service]
-ExecStart=/usr/local/bin/ssh -NTR 80:localhost:80 -R 443:localhost:443 -R 18089:localhost:18089 tunnel@home-gw
+ExecStart=/bin/sh -c "/usr/bin/ssh -NTR 80:localhost:80 -R 443:localhost:443 -R 18089:localhost:18089 tunnel@home-gw"
 Restart=always
 RestartSec=10
 [Install]

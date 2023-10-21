@@ -15,7 +15,6 @@ tls_ssl_options = NO_RENEGOTIATION
 tls_preempt_cipherlist = yes
 virtual_transport = lmtp:inet:localhost:24
 message_size_limit = 50000000
-smtp_address_preference = ipv4
 
 smtpd_tls_security_level = may
 smtpd_tls_auth_only = yes
