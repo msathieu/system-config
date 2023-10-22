@@ -5,11 +5,6 @@ if [ "$USER" != root ]; then
   echo "Needs to be run as root" >&2
   exit 1
 fi
-if [ "$PWD" != /root/system-config ]; then
-  rm -rf /root/system-config
-  cp -R . /root/system-config
-  cd /root/system-config
-fi
 if [ -f /etc/qubes-release ]; then
   sh setup-qubes.sh
   exit

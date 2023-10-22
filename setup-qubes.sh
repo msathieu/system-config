@@ -5,5 +5,5 @@ qvm-pool set varlibqubes -o ephemeral_volatile=True
 qvm-features dom0 gui-default-secure-copy-sequence Ctrl-Mod4-c
 qvm-features dom0 gui-default-secure-paste-sequence Ctrl-Mod4-v
 sudo qubes-dom0-update bash-completion kernel-latest kernel-latest-qubes-vm pipewire pipewire-pulseaudio qubes-screenshot-helper
-sudo dnf remove kernel kernel-qubes-vm
+sudo dnf remove kernel
 qvm-features sys-net ipv6 1

@@ -12,15 +12,8 @@ mv alpine.tar alpine
 if ! podman login --get-login git.strypsteen.me; then
   podman login git.strypsteen.me --username mathieu
 fi
-if ! podman login --get-login quay.io; then
-  podman login quay.io --username mathieustrypsteen
-fi
 for container in */; do
   container=${container%/}
   id=$(podman build --no-cache --squash -q "$container")
-  if [ "$container" = gitea ] || [ "$container" = nginx-home ]; then
-    echo | podman push --sign-by-sigstore-private-key ~/Documents/cosign.key "$id" quay.io/mathieustrypsteen/"$container"
-  else
-    echo | podman push --sign-by-sigstore-private-key ~/Documents/cosign.key "$id" git.strypsteen.me/mathieu/"$container"
-  fi
+  echo | podman push --sign-by-sigstore-private-key ~/Documents/cosign.key "$id" git.strypsteen.me/mathieu/"$container"
 done
