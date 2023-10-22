@@ -2,7 +2,7 @@ server {
   server_name strypsteen.me;
   listen 443 ssl;
   listen [::]:443 ssl;
-  root /var/www/site;
+  root /var/www;
   location = /.well-known/matrix/client {
     include snippets/headers.conf;
     include snippets/csp.conf;

@@ -1,6 +1,9 @@
 [Container]
-Image=git.strypsteen.me/mathieu/nginx-vps
+Image=cgr.dev/chainguard/nginx
+Network=pasta:-T,8000,-T,8001,-T,8002
 AddCapability=CAP_NET_BIND_SERVICE
+Volume=/var/lib/system-config/container-config/nginx:/etc/nginx:O
+Volume=/var/lib/system-config/container-config/nginx-home:/etc/nginx/sites:O
 Volume=/etc/certificates:/etc/certificates:O
 Tmpfs=/var/lib/nginx/tmp
 Tmpfs=/var/lib/nginx/logs
