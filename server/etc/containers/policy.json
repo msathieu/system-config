@@ -11,12 +11,6 @@
           "type": "sigstoreSigned",
           "keyPath": "/etc/cosign.pub"
         }
-      ],
-      "quay.io/mathieustrypsteen": [
-        {
-          "type": "sigstoreSigned",
-          "keyPath": "/etc/cosign.pub"
-        }
       ]
     }
   }

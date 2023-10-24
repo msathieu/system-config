@@ -1,8 +1,11 @@
 [Container]
-Image=git.strypsteen.me/mathieu/vaultwarden
-UserNS=keep-id:uid=100,gid=101
+Image=docker.io/vaultwarden/server:alpine
 Volume=/home/vaultwarden/data:/data:Z
-PublishPort=[::1]:8002:8000
+PublishPort=[::1]:8002:80
+Environment=DOMAIN=https://vault.strypsteen.com
+Environment=LOG_LEVEL=warn
+Environment=SIGNUPS_ALLOWED=false
+Environment=TRASH_AUTO_DELETE_DAYS=14
 AutoUpdate=registry
 [Install]
 WantedBy=default.target

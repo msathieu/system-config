@@ -1,2 +1,1 @@
-type = console;
 level = notice;
