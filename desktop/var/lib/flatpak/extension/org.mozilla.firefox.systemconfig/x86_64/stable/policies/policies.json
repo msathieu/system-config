@@ -12,6 +12,10 @@
       "Locked": true,
       "ProviderURL": "https://dns10.quad9.net/dns-query"
     },
+    "EnableTrackingProtection": {
+      "Value": true,
+      "Locked": true
+    },
     "ExtensionSettings": {
       "amazon@search.mozilla.org": {
         "installation_mode": "blocked"

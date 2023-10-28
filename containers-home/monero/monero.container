@@ -1,7 +1,6 @@
 [Container]
 Image=git.strypsteen.me/mathieu/monero
-UserNS=keep-id:uid=100,gid=101
-Volume=/home/monero/data:/.bitmonero:Z
+Volume=/home/monero/data:/.bitmonero:U,Z
 PublishPort=18089:18089
 AutoUpdate=registry
 [Install]

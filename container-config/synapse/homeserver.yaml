@@ -1,15 +1,15 @@
 server_name: strypsteen.me
 report_stats: false
 log_config: /etc/synapse/log_config.yaml
-signing_key_path: /var/lib/synapse/signing.key
+signing_key_path: /data/signing.key
 database:
   name: psycopg2
   args:
     host: systemd-postgresql.
     user: synapse
-    password: DB_PASS
+    password: synapse
     database: synapse
-media_store_path: /var/lib/synapse/media
+media_store_path: /data/media
 listeners:
   - type: http
     bind_addresses: ['::']
@@ -22,5 +22,4 @@ trusted_key_servers:
 suppress_key_server_warning: true
 turn_uris: ["turn:vps.strypsteen.com"]
 turn_allow_guests: false
-turn_shared_secret: TURN_SECRET
 delete_stale_devices_after: 1y

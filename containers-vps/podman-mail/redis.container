@@ -1,8 +1,7 @@
 [Container]
 Image=cgr.dev/chainguard/redis
 Network=rspamd.network
-UserNS=keep-id:uid=65532,gid=65532
-Volume=redis.volume:/data:Z
+Volume=redis.volume:/data:U,Z
 AutoUpdate=registry
 [Install]
 WantedBy=default.target

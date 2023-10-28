@@ -2,13 +2,13 @@
 Requires=postgresql.service
 After=postgresql.service
 [Container]
-Image=git.strypsteen.me/mathieu/synapse
-UserNS=keep-id:uid=100,gid=101
+Image=docker.io/matrixdotorg/synapse
 Network=synapse.network
-Volume=/home/synapse/data:/var/lib/synapse:Z
-Tmpfs=/etc/synapse
+User=991
+Exec=run --config-path /etc/synapse/homeserver.yaml --config-path /data/turn.yaml
+Volume=/var/lib/system-config/container-config/synapse:/etc/synapse:O
+Volume=/home/synapse/data:/data:U,Z
 PublishPort=[::1]:8000:8080
-EnvironmentFile=/home/synapse/synapse.cfg
 AutoUpdate=registry
 [Install]
 WantedBy=default.target

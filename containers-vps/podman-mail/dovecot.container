@@ -1,7 +1,5 @@
 [Container]
 Image=git.strypsteen.me/mathieu/dovecot
-UserNS=keep-id:uid=1000,gid=1000
-User=0
 Volume=/etc/certificates:/etc/certificates:O
 Volume=/home/podman-mail/dovecot:/etc/dovecot-local:O
 Volume=/home/podman-mail/mail:/srv/mail:Z
