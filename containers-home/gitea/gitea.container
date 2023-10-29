@@ -1,7 +1,7 @@
 [Container]
 Image=docker.io/gitea/gitea:latest-rootless
 Volume=/home/gitea/app.ini:/etc/gitea/app.ini:Z,ro
-Volume=/home/gitea/data:/var/lib/gitea:U,Z
+Volume=gitea.volume:/var/lib/gitea:U,Z
 PublishPort=[::1]:8001:3000
 AutoUpdate=registry
 [Install]

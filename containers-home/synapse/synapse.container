@@ -7,7 +7,7 @@ Network=synapse.network
 User=991
 Exec=run --config-path /etc/synapse/homeserver.yaml --config-path /data/turn.yaml
 Volume=/var/lib/system-config/container-config/synapse:/etc/synapse:O
-Volume=/home/synapse/data:/data:U,Z
+Volume=synapse.volume:/data:U,Z
 PublishPort=[::1]:8000:8080
 AutoUpdate=registry
 [Install]

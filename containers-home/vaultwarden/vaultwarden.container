@@ -1,6 +1,6 @@
 [Container]
 Image=docker.io/vaultwarden/server:alpine
-Volume=/home/vaultwarden/data:/data:Z
+Volume=vaultwarden.volume:/data:Z
 PublishPort=[::1]:8002:80
 Environment=DOMAIN=https://vault.strypsteen.com
 Environment=LOG_LEVEL=warn

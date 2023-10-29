@@ -1,7 +1,7 @@
 [Container]
 Image=docker.io/postgres:16-alpine
 Network=synapse.network
-Volume=/home/synapse/db:/var/lib/postgresql/data:U,Z
+Volume=postgresql.volume:/var/lib/postgresql/data:U,Z
 AutoUpdate=registry
 [Install]
 WantedBy=default.target
