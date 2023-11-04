@@ -1,0 +1,13 @@
+[Unit]
+Requires=redis.service
+After=redis.service
+[Container]
+Image=docker.io/rspamd/rspamd
+UserNS=auto
+Network=mail.network
+Volume=/var/lib/system-config/container-config/rspamd:/etc/rspamd/local.d:z,ro
+Volume=rspamd.volume:/var/lib/rspamd:U,Z
+Volume=/etc/dkim:/var/lib/rspamd/dkim:z,ro
+AutoUpdate=registry
+[Install]
+WantedBy=multi-user.target

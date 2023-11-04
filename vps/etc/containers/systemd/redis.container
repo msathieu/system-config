@@ -1,7 +1,8 @@
 [Container]
 Image=cgr.dev/chainguard/redis
-Network=rspamd.network
+UserNS=auto
+Network=mail.network
 Volume=redis.volume:/data:U,Z
 AutoUpdate=registry
 [Install]
-WantedBy=default.target
+WantedBy=multi-user.target

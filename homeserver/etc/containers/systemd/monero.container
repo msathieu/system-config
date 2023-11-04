@@ -1,0 +1,13 @@
+[Unit]
+Wants=network-online.target
+After=network-online.target
+[Container]
+Image=git.strypsteen.me/mathieu/monero
+UserNS=auto
+Network=monero.network
+Volume=monero.volume:/.bitmonero:U,Z
+PublishPort=18089:18089
+PublishPort=[::]:18089:18089
+AutoUpdate=registry
+[Install]
+WantedBy=multi-user.target

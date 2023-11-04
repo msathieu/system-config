@@ -1,7 +1,0 @@
-[Container]
-Image=git.strypsteen.me/mathieu/monero
-Volume=monero.volume:/.bitmonero:U,Z
-PublishPort=18089:18089
-AutoUpdate=registry
-[Install]
-WantedBy=default.target

@@ -13,7 +13,7 @@ recipient_delimiter = +
 delay_warning_time = 1h
 tls_ssl_options = NO_RENEGOTIATION
 tls_preempt_cipherlist = yes
-virtual_transport = lmtp:inet:localhost:24
+virtual_transport = lmtp:inet:systemd-dovecot:24
 message_size_limit = 50000000
 
 smtpd_tls_security_level = may
@@ -37,7 +37,7 @@ smtp_tls_mandatory_ciphers = high
 
 smtpd_sasl_auth_enable = yes
 smtpd_sasl_type = dovecot
-smtpd_sasl_path = inet:localhost:500
+smtpd_sasl_path = inet:systemd-dovecot:500
 
 smtpd_relay_restrictions = permit_sasl_authenticated reject_unauth_destination
 smtpd_recipient_restrictions = reject_non_fqdn_recipient reject_unknown_recipient_domain permit_sasl_authenticated reject_unauth_destination
@@ -46,6 +46,6 @@ smtpd_helo_required = yes
 smtpd_helo_restrictions = reject_invalid_helo_hostname reject_non_fqdn_helo_hostname permit_sasl_authenticated reject_unknown_helo_hostname
 smtpd_client_restrictions = permit_sasl_authenticated reject_unknown_reverse_client_hostname
 
-smtpd_milters = inet:localhost:11332
+smtpd_milters = inet:systemd-rspamd:11332
 non_smtpd_milters = $smtpd_milters
 header_checks = regexp:/etc/postfix/header_checks

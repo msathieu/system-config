@@ -1,5 +1,6 @@
 [Container]
 Image=git.strypsteen.me/mathieu/certbot
+Network=certbot.network
 Volume=/etc/certificates:/etc/certificates:z
 Tmpfs=/etc/letsencrypt
 Tmpfs=/var/lib/letsencrypt

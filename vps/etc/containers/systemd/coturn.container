@@ -1,12 +1,17 @@
 [Container]
 Image=docker.io/coturn/coturn:alpine
-Network=pasta
+UserNS=auto
+Network=coturn.network
 Exec=turnserver --log-file=stdout --listening-ip=0.0.0.0 --listening-ip=:: --min-port=50000 --max-port=50100 --no-dtls --no-multicast-peers --no-rfc5780 --no-stun-backward-compatibility --no-tcp-relay --no-tls --realm=strypsteen.me --response-origin-only-with-rfc5780 --static-auth-secret=$COTURN_SECRET --total-quota=16 --use-auth-secret
 PublishPort=3478:3478
+PublishPort=[::]:3478:3478
 PublishPort=3478:3478/udp
+PublishPort=[::]:3478:3478/udp
 PublishPort=50000-50100:50000-50100
+PublishPort=[::]:50000-50100:50000-50100
 PublishPort=50000-50100:50000-50100/udp
-EnvironmentFile=/home/coturn/coturn.cfg
+PublishPort=[::]:50000-50100:50000-50100/udp
+EnvironmentFile=/etc/coturn.cfg
 Label=io.containers.autoupdate=registry
 [Install]
-WantedBy=default.target
+WantedBy=multi-user.target
