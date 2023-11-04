@@ -2,7 +2,7 @@
 Image=git.strypsteen.me/mathieu/dovecot
 Volume=/etc/certificates:/etc/certificates:O
 Volume=/home/podman-mail/dovecot:/etc/dovecot-local:O
-Volume=/home/podman-mail/mail:/srv/mail:Z
+Volume=dovecot.volume:/srv/mail:Z
 Tmpfs=/var/lib/dovecot
 PublishPort=[::1]:24:24
 PublishPort=[::1]:500:500

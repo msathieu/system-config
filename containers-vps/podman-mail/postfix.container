@@ -5,7 +5,7 @@ After=dovecot.service rspamd.service
 Image=git.strypsteen.me/mathieu/postfix
 Network=host
 Volume=/etc/certificates:/etc/certificates:O
-Volume=spool.volume:/var/spool/postfix:Z
+Volume=postfix.volume:/var/spool/postfix:Z
 Tmpfs=/var/lib/postfix
 AutoUpdate=registry
 [Install]
