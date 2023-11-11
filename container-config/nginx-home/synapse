@@ -7,7 +7,7 @@ server {
     return 307 https://matrix-client.matrix.org$request_uri;
   }
   location / {
-    proxy_pass http://localhost:8000;
+    proxy_pass http://systemd-synapse.:8080;
     include snippets/proxy.conf;
   }
 }

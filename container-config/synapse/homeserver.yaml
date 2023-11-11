@@ -2,13 +2,6 @@ server_name: strypsteen.me
 report_stats: false
 log_config: /etc/synapse/log_config.yaml
 signing_key_path: /data/signing.key
-database:
-  name: psycopg2
-  args:
-    host: systemd-postgresql.
-    user: synapse
-    password: synapse
-    database: synapse
 media_store_path: /data/media
 listeners:
   - type: http

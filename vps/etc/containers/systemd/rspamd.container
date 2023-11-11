@@ -7,7 +7,7 @@ UserNS=auto
 Network=mail.network
 Volume=/var/lib/system-config/container-config/rspamd:/etc/rspamd/local.d:z,ro
 Volume=rspamd.volume:/var/lib/rspamd:U,Z
-Volume=/etc/dkim:/var/lib/rspamd/dkim:z,ro
+Secret=dkim.key
 AutoUpdate=registry
 [Install]
 WantedBy=multi-user.target

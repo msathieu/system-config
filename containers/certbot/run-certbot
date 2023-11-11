@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
-certbot register --agree-tos --no-eff-email -m mathieu@strypsteen.me
-certbot certonly --dns-cloudflare --dns-cloudflare-credentials /tmp/cloudflare.ini -d strypsteen.com -d '*.strypsteen.com' -d strypsteen.me -d '*.strypsteen.me'
+certbot register --agree-tos --no-eff-email -m mathieu@strypsteen.me || true
+certbot certonly --dns-cloudflare --dns-cloudflare-credentials /tmp/cloudflare.ini --dns-cloudflare-propagation-seconds 30 -d strypsteen.com -d '*.strypsteen.com' -d strypsteen.me -d '*.strypsteen.me'
 cp /etc/letsencrypt/live/strypsteen.com/fullchain.pem /etc/certificates
 chmod 644 /etc/letsencrypt/live/strypsteen.com/privkey.pem
 cp /etc/letsencrypt/live/strypsteen.com/privkey.pem /etc/certificates

@@ -4,7 +4,6 @@ UserNS=auto
 Network=nginx.network
 Volume=/var/lib/container-data/gitea.ini:/etc/gitea/app.ini:Z,ro
 Volume=gitea.volume:/var/lib/gitea:U,Z
-PublishPort=127.0.0.1:8001:3000
 AutoUpdate=registry
 [Install]
 WantedBy=multi-user.target

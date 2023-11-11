@@ -3,7 +3,6 @@ Image=docker.io/vaultwarden/server:alpine
 UserNS=auto
 Network=nginx.network
 Volume=vaultwarden.volume:/data:U,Z
-PublishPort=127.0.0.1:8002:80
 Environment=DOMAIN=https://vault.strypsteen.com
 Environment=LOG_LEVEL=warn
 Environment=SIGNUPS_ALLOWED=false

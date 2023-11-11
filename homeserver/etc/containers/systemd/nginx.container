@@ -1,10 +1,12 @@
+[Unit]
+Requires=gitea.service synapse.service vaultwarden.service
+After=gitea.service synapse.service vaultwarden.service
 [Container]
 Image=cgr.dev/chainguard/nginx
 UserNS=auto
 Network=nginx.network
 Volume=/var/lib/system-config/container-config/nginx:/etc/nginx:z,ro
-Volume=/var/lib/system-config/container-config/nginx-vps:/etc/nginx-sites:z,ro
-Volume=/var/lib/system-config/container-config/site:/var/www:z,ro
+Volume=/var/lib/system-config/container-config/nginx-home:/etc/nginx-sites:z,ro
 Volume=/etc/certificates:/etc/certificates:z,ro
 Tmpfs=/var/lib/nginx/tmp
 Tmpfs=/var/lib/nginx/logs

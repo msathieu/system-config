@@ -5,7 +5,7 @@ User=5000
 Group=5000
 NoNewPrivileges=true
 AddCapability=NET_ADMIN
-EnvironmentFile=/etc/hostapd.cfg
+EnvironmentFile=/var/lib/container-data/hostapd.cfg
 Tmpfs=/etc/hostapd
 AutoUpdate=registry
 [Install]

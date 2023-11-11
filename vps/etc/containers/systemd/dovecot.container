@@ -2,7 +2,7 @@
 Image=git.strypsteen.me/mathieu/dovecot
 Network=mail.network
 Volume=/etc/certificates:/etc/certificates:z,ro
-Volume=/etc/dovecot:/etc/dovecot-local:z,ro
+Volume=/var/lib/container-data/dovecot:/etc/dovecot-local:z,ro
 Volume=dovecot.volume:/srv/mail:Z
 Tmpfs=/var/lib/dovecot
 PublishPort=993:993

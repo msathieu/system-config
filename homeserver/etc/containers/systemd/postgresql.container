@@ -1,7 +1,8 @@
 [Container]
 Image=docker.io/postgres:16-alpine
-Network=synapse.network
+UserNS=auto
+Network=nginx.network
 Volume=postgresql.volume:/var/lib/postgresql/data:U,Z
 AutoUpdate=registry
 [Install]
-WantedBy=default.target
+WantedBy=multi-user.target
