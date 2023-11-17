@@ -1,9 +1,10 @@
 [Container]
 Image=git.strypsteen.me/mathieu/dovecot
+UserNS=auto
 Network=mail.network
 Volume=/etc/certificates:/etc/certificates:z,ro
 Volume=/var/lib/container-data/dovecot:/etc/dovecot-local:z,ro
-Volume=dovecot.volume:/srv/mail:Z
+Volume=dovecot.volume:/srv/mail:U,Z
 Tmpfs=/var/lib/dovecot
 PublishPort=993:993
 PublishPort=[::]:993:993

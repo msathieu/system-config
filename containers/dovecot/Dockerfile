@@ -3,4 +3,4 @@ RUN apk add dovecot-lmtpd dovecot-pigeonhole-plugin
 COPY dovecot.conf /etc/dovecot/dovecot.conf
 COPY default.sieve /etc/dovecot/default.sieve
 RUN sievec /etc/dovecot/default.sieve
-CMD dovecot -F
+CMD chown -Rh 1000:1000 /srv/mail && dovecot -F
