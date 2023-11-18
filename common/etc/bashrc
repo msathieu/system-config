@@ -6,7 +6,6 @@ export VIMINIT
 unset HISTFILE
 export LESSHISTFILE=-
 unset LESSOPEN LESSCLOSE
-export PATH=$PATH:~/.local/bin
 if [[ $- != *i* ]]; then
   return
 fi
