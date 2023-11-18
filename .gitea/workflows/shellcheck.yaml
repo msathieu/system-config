@@ -1,0 +1,12 @@
+name: ShellCheck
+on: [push]
+jobs:
+  shellcheck:
+    runs-on: debian-12
+    steps:
+      - name: Install ShellCheck
+        run: apt-get update && apt-get install shellcheck
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Run ShellCheck
+        run: shellcheck *.sh
