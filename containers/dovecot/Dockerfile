@@ -1,4 +1,4 @@
-FROM git.strypsteen.me/mathieu/alpine
+FROM alpine
 RUN apk add dovecot-lmtpd dovecot-pigeonhole-plugin
 COPY dovecot.conf /etc/dovecot/dovecot.conf
 COPY default.sieve /etc/dovecot/default.sieve

@@ -1,4 +1,4 @@
-FROM git.strypsteen.me/mathieu/alpine
+FROM alpine
 RUN apk add postfix
 COPY postfix /etc/postfix
 RUN sed "s/#submissions/submissions/" -i /etc/postfix/master.cf
