@@ -2,7 +2,7 @@
 Wants=network-online.target
 After=network-online.target
 [Container]
-Image=git.strypsteen.me/mathieu/monero
+Image=git.strypsteen.com/mathieu/monero
 UserNS=auto
 Network=monero.network
 Volume=monero.volume:/.bitmonero:U,Z

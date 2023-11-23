@@ -1,5 +1,5 @@
 [Container]
-Image=git.strypsteen.me/mathieu/hostapd
+Image=git.strypsteen.com/mathieu/hostapd
 Network=host
 User=5000
 Group=5000

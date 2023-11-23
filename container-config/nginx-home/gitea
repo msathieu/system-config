@@ -1,5 +1,5 @@
 server {
-  server_name git.strypsteen.me;
+  server_name git.strypsteen.com;
   listen 443 ssl;
   listen [::]:443 ssl;
   include snippets/headers.conf;

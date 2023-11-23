@@ -2,7 +2,7 @@
 Requires=dovecot.service rspamd.service
 After=dovecot.service rspamd.service
 [Container]
-Image=git.strypsteen.me/mathieu/postfix
+Image=git.strypsteen.com/mathieu/postfix
 UserNS=auto
 Network=mail.network
 Volume=/etc/certificates:/etc/certificates:z,ro

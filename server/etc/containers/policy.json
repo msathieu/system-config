@@ -6,7 +6,7 @@
   ],
   "transports": {
     "docker": {
-      "git.strypsteen.me": [
+      "git.strypsteen.com": [
         {
           "type": "sigstoreSigned",
           "keyPath": "/etc/cosign.pub"

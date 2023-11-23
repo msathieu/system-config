@@ -1,5 +1,5 @@
 [Container]
-Image=git.strypsteen.me/mathieu/dovecot
+Image=git.strypsteen.com/mathieu/dovecot
 UserNS=auto
 Network=mail.network
 Volume=/etc/certificates:/etc/certificates:z,ro

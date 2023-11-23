@@ -9,7 +9,7 @@ Volume=/var/lib/system-config/container-config/act-runner:/etc/act-runner:O
 Volume=act-runner.volume:/data:U,Z
 Tmpfs=/root/.cache
 Environment=CONFIG_FILE=/etc/act-runner/config.yaml
-Environment=GITEA_INSTANCE_URL=https://git.strypsteen.me
+Environment=GITEA_INSTANCE_URL=https://git.strypsteen.com
 Environment=GITEA_RUNNER_NAME=home
 Environment=GITEA_RUNNER_LABELS=debian-12:docker://node:bookworm
 Secret=GITEA_RUNNER_REGISTRATION_TOKEN,type=env

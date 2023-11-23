@@ -1,5 +1,3 @@
 docker:
-  git.strypsteen.me:
-    use-sigstore-attachments: true
-  quay.io:
+  git.strypsteen.com:
     use-sigstore-attachments: true
