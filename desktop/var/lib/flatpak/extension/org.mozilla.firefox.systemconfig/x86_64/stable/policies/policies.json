@@ -1,6 +1,5 @@
 {
   "policies": {
-    "CaptivePortal": false,
     "DisableFirefoxAccounts": true,
     "DisableFirefoxStudies": true,
     "DisablePocket": true,
@@ -24,7 +23,6 @@
       "URL": "about:blank",
       "Locked": true
     },
-    "NetworkPrediction": false,
     "NewTabPage": false,
     "NoDefaultBookmarks": true,
     "PasswordManagerEnabled": false,
