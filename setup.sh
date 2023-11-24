@@ -19,7 +19,7 @@ elif [ -d /usr/lib/coreos ]; then
   if systemd-detect-virt; then
     sh setup-vps.sh
   else
-    sh setup-homeserver.sh
+    sh setup-home.sh
   fi
 elif [ -d /ostree ]; then
   sh setup-laptop.sh

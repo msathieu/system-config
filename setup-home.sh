@@ -1,6 +1,6 @@
 #!/bin/sh
 set -e
-cp -R homeserver/* /
+cp -R home/* /
 sh setup-server.sh
 rpm-ostree install --idempotent systemd-networkd wireless-regdb
 systemctl enable --now nftables systemd-networkd
