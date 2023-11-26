@@ -6,3 +6,6 @@ passwd:
       ssh_authorized_keys_local:
         - ssh/desktop.pub
         - ssh/laptop.pub
+    - name: tunnel
+      ssh_authorized_keys_local:
+        - ssh/home.pub

@@ -7,5 +7,5 @@ boot_device:
 passwd:
   users:
     - name: root
-      ssh_authorized_keys:
-        - ssh-ed25519 REPLACEME
+      ssh_authorized_keys_local:
+        - ssh/desktop-sk.pub
