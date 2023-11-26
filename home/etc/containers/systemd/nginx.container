@@ -1,6 +1,6 @@
 [Unit]
-Requires=gitea.service synapse.service vaultwarden.service
-After=gitea.service synapse.service vaultwarden.service
+Requires=forgejo.service synapse.service vaultwarden.service
+After=forgejo.service synapse.service vaultwarden.service
 [Container]
 Image=cgr.dev/chainguard/nginx
 UserNS=auto
