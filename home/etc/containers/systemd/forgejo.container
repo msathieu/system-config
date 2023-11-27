@@ -1,9 +1,9 @@
 [Container]
-Image=docker.io/gitea/gitea:latest-rootless
+Image=codeberg.org/forgejo/forgejo:1.21-rootless
 UserNS=auto
 Network=nginx.network
 Volume=/var/lib/system-config/container-config/forgejo/app.ini:/etc/gitea/app.ini:Z,ro
-Volume=forgejo.volume:/data:U,Z
+Volume=forgejo.volume:/var/lib/gitea:U,Z
 Secret=forgejo-token
 AutoUpdate=registry
 [Install]

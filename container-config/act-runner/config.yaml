@@ -1,3 +1,2 @@
 container:
   docker_host: '-'
-  options: --oom-score-adj=200
