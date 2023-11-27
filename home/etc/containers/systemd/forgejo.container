@@ -5,6 +5,8 @@ Network=nginx.network
 Volume=/var/lib/system-config/container-config/forgejo/app.ini:/etc/gitea/app.ini:Z,ro
 Volume=forgejo.volume:/var/lib/gitea:U,Z
 Secret=forgejo-token
+PublishPort=2222:2222
+PublishPort=[::]:2222:2222
 AutoUpdate=registry
 [Install]
 WantedBy=multi-user.target
