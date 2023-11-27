@@ -3,7 +3,6 @@ server {
   listen 443 ssl;
   listen [::]:443 ssl;
   include snippets/headers.conf;
-  add_header Content-Security-Policy "default-src 'self'; img-src 'self' data:" always;
   location / {
     proxy_pass http://systemd-vaultwarden.;
     include snippets/proxy.conf;

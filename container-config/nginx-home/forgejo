@@ -7,5 +7,6 @@ server {
   location / {
     proxy_pass http://systemd-forgejo.:3000;
     include snippets/proxy.conf;
+    proxy_hide_header Content-Security-Policy;
   }
 }

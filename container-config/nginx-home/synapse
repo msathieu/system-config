@@ -9,5 +9,6 @@ server {
   location / {
     proxy_pass http://systemd-synapse.:8080;
     include snippets/proxy.conf;
+    proxy_hide_header Content-Security-Policy;
   }
 }
