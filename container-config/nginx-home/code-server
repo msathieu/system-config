@@ -1,0 +1,13 @@
+server {
+  server_name code.strypsteen.com;
+  listen 443 ssl;
+  listen [::]:443 ssl;
+  include snippets/headers.conf;
+  location / {
+    proxy_pass http://systemd-code-server.:8080;
+    include snippets/proxy.conf;
+    proxy_http_version 1.1;
+    proxy_set_header Connection upgrade;
+    proxy_set_header Upgrade $http_upgrade;
+  }
+}

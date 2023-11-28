@@ -1,0 +1,14 @@
+[Service]
+ExecStartPost=podman exec -du0 systemd-code-server sh -c "apt-get update && apt-get install -y bash-completion gcc make vim"
+[Container]
+Image=docker.io/codercom/code-server
+UserNS=auto:size=65536
+ReadOnly=false
+Network=nginx.network
+Exec=--disable-telemetry
+Volume=code-server.volume:/home/coder:U,Z
+Volume=/etc/gitconfig:/etc/gitconfig:z,ro
+Secret=CODE_SERVER_PASSWORD,type=env,target=PASSWORD
+AutoUpdate=registry
+[Install]
+WantedBy=multi-user.target
