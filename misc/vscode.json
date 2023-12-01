@@ -11,16 +11,19 @@
   "editor.selectionClipboard": false,
   "editor.smoothScrolling": true,
   "editor.tabSize": 2,
+  "explorer.confirmDragAndDrop": false,
   "files.autoSave": "off",
   "files.enableTrash": false,
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
+  "git.confirmSync": false,
   "github.gitAuthentication": false,
   "search.smartCase": true,
   "telemetry.telemetryLevel": "off",
   "window.menuBarVisibility": "visible",
   "workbench.colorTheme": "Default Dark Modern",
   "workbench.enableExperiments": false,
-  "workbench.settings.enableNaturalLanguageSearch": false
+  "workbench.settings.enableNaturalLanguageSearch": false,
+  "workbench.startupEditor": "none"
 }

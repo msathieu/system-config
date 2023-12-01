@@ -1,7 +1,10 @@
 [Container]
-Image=git.strypsteen.com/mathieu/certbot
+Image=docker.io/certbot/dns-cloudflare
 Network=certbot.network
+PodmanArgs=--entrypoint=sleep
+Exec=infinity
 Volume=/etc/certificates:/etc/certificates:z
+Volume=/var/lib/system-config/container-config/certbot/run-certbot:/usr/local/bin/run-certbot:Z,ro
 Tmpfs=/etc/letsencrypt
 Tmpfs=/var/lib/letsencrypt
 Tmpfs=/var/log/letsencrypt
