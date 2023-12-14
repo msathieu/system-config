@@ -8,13 +8,10 @@ show-battery-percentage=true
 show-in-lock-screen=false
 [org/gnome/desktop/peripherals/touchpad]
 disable-while-typing=false
-natural-scroll=false
 [org/gnome/desktop/privacy]
 remember-recent-files=false
 remove-old-temp-files=true
 remove-old-trash-files=true
-[org/gnome/desktop/search-providers]
-disable-external=true
 [org/gnome/shell]
 disable-user-extensions=true
 [org/gnome/shell/app-switcher]

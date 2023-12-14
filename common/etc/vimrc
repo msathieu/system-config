@@ -3,13 +3,11 @@ set autoindent
 set backspace=eol,indent,start
 set expandtab
 set hlsearch
-set ignorecase
 set incsearch
 set mouse=a
 set noswapfile
 set nowrap
 set shiftwidth=2
-set smartcase
 set tabstop=2
 set viminfo=""
 set whichwrap=<>[]
