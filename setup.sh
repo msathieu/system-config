@@ -18,6 +18,8 @@ if [ -f /usr/share/qubes/marker-vm ]; then
 elif [ -d /usr/lib/coreos ]; then
   if systemd-detect-virt; then
     sh setup-vps.sh
+  elif [ -f /usr/bin/networkctl ]; then
+    sh setup-router.sh
   else
     sh setup-home.sh
   fi
