@@ -4,7 +4,7 @@ After=podman-container.service
 [Container]
 Image=docker.io/gitea/act_runner
 LogDriver=none
-Volume=podman.volume:/run/podman:z
+Volume=podman-run.volume:/run/podman:z
 Volume=/var/lib/system-config/container-config/act-runner:/etc/act-runner:O
 Volume=act-runner.volume:/data:U,Z
 Tmpfs=/root/.cache

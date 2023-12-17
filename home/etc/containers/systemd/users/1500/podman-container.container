@@ -1,10 +1,12 @@
 [Container]
 Image=quay.io/containers/podman
 SecurityLabelDisable=true
+Unmask=/proc/sys
 User=1000
 AddDevice=/dev/net/tun
 Exec=podman system service -t0 unix:///run/podman/podman.sock
-Volume=podman.volume:/run/podman:U,z
+Volume=podman-storage.volume:/home/podman/.local/share/containers:U,Z
+Volume=podman-run.volume:/run/podman:U,z
 AutoUpdate=registry
 [Install]
 WantedBy=default.target
