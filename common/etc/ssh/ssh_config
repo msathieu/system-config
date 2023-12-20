@@ -4,6 +4,7 @@ UpdateHostKeys yes
 VerifyHostKeyDNS ask
 HashKnownHosts yes
 AddKeysToAgent yes
+ExitOnForwardFailure yes
 Host home
   HostName home.strypsteen.com
 Host home-gw

@@ -9,6 +9,7 @@ pref("browser.download.useDownloadDir", false);
 pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false);
 pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false);
 pref("browser.privatebrowsing.autostart", true);
+pref("browser.urlbar.suggest.topsites", false);
 pref("browser.tabs.firefox-view", false);
 pref("browser.tabs.searchclipboardfor.middleclick", false);
 pref("browser.uidensity", 1);

@@ -2,6 +2,7 @@
 set -e
 cp -R home/* /
 sh setup-server.sh
-rpm-ostree install --idempotent hostapd systemd-networkd wireless-regdb
-systemctl enable --now nftables systemd-networkd
-systemctl disable --now NetworkManager
+rpm-ostree install --idempotent hostapd systemd-networkd unbound wireless-regdb
+systemctl enable --now nftables systemd-networkd unbound
+systemctl disable --now NetworkManager systemd-resolved
+systemctl mask unbound-anchor
