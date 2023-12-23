@@ -1,5 +1,5 @@
 [Service]
-ExecStartPost=podman exec -du0 systemd-code-server sh -c "apt-get update && apt-get install -y bash-completion gcc make vim"
+ExecStartPost=podman exec -du0 systemd-code-server sh -c "apt-get update && apt-get install -y bash-completion gcc make python-is-python3 vim"
 [Container]
 Image=docker.io/codercom/code-server
 UserNS=auto:size=65536

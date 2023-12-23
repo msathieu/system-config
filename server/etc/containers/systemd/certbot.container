@@ -1,6 +1,5 @@
 [Container]
 Image=docker.io/certbot/dns-cloudflare
-Network=certbot.network
 PodmanArgs=--entrypoint=sleep
 Exec=infinity
 Volume=/etc/certificates:/etc/certificates:z
