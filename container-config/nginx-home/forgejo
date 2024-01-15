@@ -5,7 +5,8 @@ server {
   include snippets/headers.conf;
   add_header Content-Security-Policy "default-src 'self'; font-src 'self' data:; img-src 'self' data:; script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'";
   location / {
-    proxy_pass http://systemd-forgejo.:3000;
+    set $upstream systemd-forgejo.;
+    proxy_pass http://$upstream:3000;
     include snippets/proxy.conf;
     proxy_hide_header Content-Security-Policy;
   }

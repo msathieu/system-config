@@ -6,8 +6,7 @@
     "DisableTelemetry": true,
     "DNSOverHTTPS": {
       "Enabled": true,
-      "Locked": true,
-      "ProviderURL": "https://dns10.quad9.net/dns-query"
+      "ProviderURL": "https://dns.quad9.net/dns-query"
     },
     "EnableTrackingProtection": {
       "Value": true,

@@ -1,6 +1,3 @@
-[Unit]
-Requires=code-server.service forgejo.service synapse.service vaultwarden.service
-After=code-server.service forgejo.service synapse.service vaultwarden.service
 [Container]
 Image=cgr.dev/chainguard/nginx
 UserNS=auto
