@@ -3,6 +3,8 @@ server {
   listen 443 ssl;
   listen [::]:443 ssl;
   location ~ ^/_matrix/media/[^/]+/(download|thumbnail)/(?!(strypsteen\.me)/) {
+    include snippets/headers.conf;
+    include snippets/csp.conf;
     add_header Access-Control-Allow-Origin *;
     return 307 https://matrix-client.matrix.org$request_uri;
   }

@@ -12,6 +12,6 @@ PublishPort=[::]:50000-50100:50000-50100
 PublishPort=50000-50100:50000-50100/udp
 PublishPort=[::]:50000-50100:50000-50100/udp
 Secret=COTURN_SECRET,type=env
-Label=io.containers.autoupdate=registry
+AutoUpdate=registry
 [Install]
 WantedBy=multi-user.target

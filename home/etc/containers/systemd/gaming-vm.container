@@ -1,0 +1,19 @@
+[Container]
+Image=docker.io/qemux/qemu-docker
+PodmanArgs=--entrypoint=sh
+UserNS=auto
+RunInit=true
+Network=nginx.network
+AddDevice=/dev/kvm
+AddDevice=/dev/vfio
+Ulimit=memlock=-1:-1
+Exec=-c 'qemu-system-x86_64 $QEMU_ARGS'
+Volume=gaming-vm.volume:/data:U,Z
+PublishPort=47984:47984
+PublishPort=47989:47989
+PublishPort=48010:48010
+PublishPort=47998-48010:47998-48010/udp
+Secret=QEMU_ARGS,type=env
+AutoUpdate=registry
+[Install]
+WantedBy=multi-user.target
