@@ -1,4 +1,5 @@
 FROM alpine
+RUN apk upgrade
 RUN apk add postfix
 COPY postfix /etc/postfix
 RUN sed "s/#submissions/submissions/" -i /etc/postfix/master.cf
