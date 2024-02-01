@@ -15,5 +15,3 @@ PublishPort=48010:48010
 PublishPort=47998-48010:47998-48010/udp
 Secret=QEMU_ARGS,type=env
 AutoUpdate=registry
-[Install]
-WantedBy=multi-user.target
