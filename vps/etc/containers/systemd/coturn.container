@@ -2,15 +2,20 @@
 Image=docker.io/coturn/coturn:alpine
 UserNS=auto
 Network=coturn.network
-Exec=turnserver --log-file=stdout --listening-ip=0.0.0.0 --listening-ip=:: --min-port=50000 --max-port=50100 --no-dtls --no-multicast-peers --no-rfc5780 --no-stun-backward-compatibility --no-tcp-relay --no-tls --realm=strypsteen.me --response-origin-only-with-rfc5780 --static-auth-secret=$COTURN_SECRET --total-quota=16 --use-auth-secret
+Exec=--log-file=stdout --external-ip=$(detect-external-ip) --listening-ip=0.0.0.0 --listening-ip=:: --cert=/etc/certificates/fullchain.pem --pkey=/etc/certificates/privkey.pem --min-port=50000 --max-port=51000 --no-multicast-peers --no-tcp-relay --realm=strypsteen.me --static-auth-secret=$COTURN_SECRET --user-quota=16 --total-quota=256 --use-auth-secret
+Volume=/etc/certificates:/etc/certificates:z,ro
 PublishPort=3478:3478
 PublishPort=[::]:3478:3478
 PublishPort=3478:3478/udp
 PublishPort=[::]:3478:3478/udp
-PublishPort=50000-50100:50000-50100
-PublishPort=[::]:50000-50100:50000-50100
-PublishPort=50000-50100:50000-50100/udp
-PublishPort=[::]:50000-50100:50000-50100/udp
+PublishPort=5349:5349
+PublishPort=[::]:5349:5349
+PublishPort=5349:5349/udp
+PublishPort=[::]:5349:5349/udp
+PublishPort=50000-51000:50000-51000
+PublishPort=[::]:50000-51000:50000-51000
+PublishPort=50000-51000:50000-51000/udp
+PublishPort=[::]:50000-51000:50000-51000/udp
 Secret=COTURN_SECRET,type=env
 AutoUpdate=registry
 [Install]
