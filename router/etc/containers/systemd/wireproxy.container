@@ -1,0 +1,12 @@
+[Unit]
+Wants=network-online.target
+After=network-online.target
+[Container]
+Image=ghcr.io/pufferffish/wireproxy
+UserNS=auto
+Network=slirp4netns
+Volume=/var/lib/container-data/wireproxy:/etc/wireproxy/config:z,ro
+PublishPort=1080:1080
+AutoUpdate=registry
+[Install]
+WantedBy=multi-user.target
