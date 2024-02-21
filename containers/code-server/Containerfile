@@ -1,0 +1,13 @@
+FROM ghcr.io/coder/code-server:fedora
+RUN mkdir -p /home/coder/.config/systemd/user/default.target.wants
+RUN ln -s /etc/systemd/user/code-server.service /home/coder/.config/systemd/user/default.target.wants
+USER root
+RUN dnf up -y
+RUN dnf install -y bash-color-prompt bash-completion cargo hostname nodejs-npm python-unversioned-command systemd-container vim-enhanced
+RUN authselect select minimal
+RUN mkdir /etc/systemd/system/user@.service.d
+COPY override.conf /etc/systemd/system/user@.service.d
+COPY code-server.service /etc/systemd/user
+RUN mkdir /var/lib/systemd/linger
+RUN touch /var/lib/systemd/linger/coder
+ENTRYPOINT /sbin/init
