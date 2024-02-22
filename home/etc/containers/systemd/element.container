@@ -1,0 +1,9 @@
+[Container]
+Image=docker.io/vectorim/element-web
+UserNS=auto
+Network=nginx.network
+Volume=/var/lib/system-config/container-config/element/config.json:/app/config.json:z,ro
+Tmpfs=/var/cache/nginx
+AutoUpdate=registry
+[Install]
+WantedBy=multi-user.target

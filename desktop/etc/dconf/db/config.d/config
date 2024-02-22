@@ -4,8 +4,6 @@ color-scheme='prefer-dark'
 enable-animations=false
 gtk-enable-primary-paste=false
 show-battery-percentage=true
-[org/gnome/desktop/notifications]
-show-in-lock-screen=false
 [org/gnome/desktop/peripherals/touchpad]
 disable-while-typing=false
 [org/gnome/desktop/privacy]
