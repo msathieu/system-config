@@ -1,0 +1,14 @@
+[Unit]
+Requires=postgresql.service
+After=postgresql.service
+[Container]
+Image=docker.io/nextcloud
+PodmanArgs=--entrypoint=sh
+UserNS=auto
+Network=nginx.network
+Exec=-c "chown -Rh www-data:www-data /var/www/html && /entrypoint.sh apache2-foreground"
+Volume=nextcloud.volume:/var/www/html:U,Z
+Environment=OVERWRITEPROTOCOL=https
+AutoUpdate=registry
+[Install]
+WantedBy=multi-user.target

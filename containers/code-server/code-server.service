@@ -1,4 +1,5 @@
 [Service]
-ExecStart=/usr/bin/code-server --bind-addr 0.0.0.0:8080 --disable-telemetry
+ExecStartPre=-sudo chown -Rh coder:coder /home/coder
+ExecStart=code-server --bind-addr 0.0.0.0:8080 --disable-telemetry
 [Install]
 WantedBy=default.target

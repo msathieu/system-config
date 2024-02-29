@@ -1,0 +1,10 @@
+[Container]
+Image=docker.io/collabora/code
+UserNS=auto
+ReadOnly=false
+AddCapability=CAP_MKNOD
+Network=nginx.network
+Volume=/var/lib/container-data/collabora.xml:/etc/coolwsd/coolwsd.xml:U,Z
+AutoUpdate=registry
+[Install]
+WantedBy=multi-user.target
