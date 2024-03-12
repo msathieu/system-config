@@ -4,11 +4,11 @@ RUN ln -s /etc/systemd/user/code-server.service /home/coder/.config/systemd/user
 USER root
 RUN sed /^tsflags/d -i /etc/dnf/dnf.conf
 RUN dnf up -y
-RUN dnf install -y bash-color-prompt bash-completion cargo hostname man-db man-pages nodejs-npm python-unversioned-command systemd-container vim-enhanced
+RUN dnf install -y bash-color-prompt bash-completion cargo hostname man-db man-pages nodejs-npm postgresql-server python-unversioned-command systemd-container vim-enhanced
 RUN authselect select minimal
 RUN mkdir /etc/systemd/system/user@.service.d
-COPY override.conf /etc/systemd/system/user@.service.d
-COPY code-server.service /etc/systemd/user
 RUN mkdir /var/lib/systemd/linger
 RUN touch /var/lib/systemd/linger/coder
+COPY override.conf /etc/systemd/system/user@.service.d
+COPY code-server.service /etc/systemd/user
 ENTRYPOINT /sbin/init

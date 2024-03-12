@@ -1,0 +1,5 @@
+[Container]
+Image=git.strypsteen.com/mathieu/sandboxed-toolbox
+Network=host
+Volume=%h/sandbox:/root/sandbox:Z
+AutoUpdate=registry

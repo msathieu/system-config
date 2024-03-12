@@ -8,5 +8,5 @@ fi
 for container in */; do
   container=${container%/}
   id=$(podman build --no-cache -q "$container")
-  echo | podman push --sign-by-sigstore-private-key ~/Documents/cosign.key "$id" git.strypsteen.com/mathieu/"$container"
+  echo | podman push --compress --sign-by-sigstore-private-key ~/Documents/cosign.key "$id" git.strypsteen.com/mathieu/"$container"
 done
