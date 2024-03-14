@@ -1,5 +1,8 @@
 [Container]
 Image=git.strypsteen.com/mathieu/sandboxed-toolbox
+SecurityLabelDisable=true
+UserNS=keep-id:uid=1000,gid=1000
+User=0
 Network=host
-Volume=%h/sandbox:/root/sandbox:Z
+Volume=%h/sandbox:/home/mathieu/sandbox
 AutoUpdate=registry
