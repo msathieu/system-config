@@ -1,8 +1,11 @@
 FROM quay.io/fedora/fedora-toolbox
 RUN dnf up -y
-RUN dnf install -y bash-color-prompt gcc-gdb-plugin gdb netcat nodejs-npm python3-pip systemd-container vim-enhanced
+RUN dnf install -y bash-color-prompt gcc-gdb-plugin gdb nautilus netcat nodejs-npm python3-pip systemd-container vim-enhanced wine-core xdg-desktop-portal-gtk xdg-utils
+RUN authselect select minimal
 RUN systemctl disable systemd-resolved
 RUN pip install frida-tools
 RUN useradd mathieu
 RUN echo "mathieu ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+RUN echo WAYLAND_DISPLAY=/tmp/wayland-0 >> /etc/environment
+RUN echo XDG_CURRENT_DESKTOP=GNOME >> /etc/environment
 ENTRYPOINT /sbin/init

@@ -9,7 +9,6 @@
   "DnsOverHttpsTemplates": "https://dns.quad9.net/dns-query",
   "ExtensionInstallForcelist": ["ddkjiahejlhfcafbddmgiahcphecmpfh"],
   "HttpsOnlyMode": "force_enabled",
-  "SafeBrowsingProtectionLevel": 0,
   "ShowFullUrlsInAddressBar": true,
   "ShowHomeButton": true
 }

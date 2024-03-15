@@ -4,5 +4,7 @@ SecurityLabelDisable=true
 UserNS=keep-id:uid=1000,gid=1000
 User=0
 Network=host
-Volume=%h/sandbox:/home/mathieu/sandbox
+AddDevice=/dev/dri
+Volume=%h/sandbox:/home/mathieu
+Volume=%t/wayland-0:/tmp/wayland-0
 AutoUpdate=registry
