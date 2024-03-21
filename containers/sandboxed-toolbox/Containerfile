@@ -1,6 +1,6 @@
 FROM quay.io/fedora/fedora-toolbox
 RUN dnf up -y
-RUN dnf install -y bash-color-prompt gcc-gdb-plugin gdb nautilus netcat nodejs-npm python3-pip systemd-container vim-enhanced wine-desktop wine-fonts xdg-desktop-portal-gtk xdg-utils
+RUN dnf install -y bash-color-prompt gcc-gdb-plugin gdb libglvnd-opengl nautilus netcat nodejs-npm python3-pip systemd-container vim-enhanced wine-desktop wine-fonts xdg-desktop-portal-gtk xdg-utils
 RUN authselect select minimal
 RUN systemctl disable systemd-resolved
 RUN pip install frida-tools
