@@ -1,4 +1,4 @@
-FROM alpine
+FROM alpine:3.19
 RUN apk upgrade
 RUN apk add postfix
 COPY postfix /etc/postfix

@@ -1,8 +1,6 @@
-FROM quay.io/fedora/fedora-toolbox
+FROM quay.io/fedora/fedora-toolbox:40
 RUN dnf up -y
-RUN dnf install -y bash-color-prompt gcc-gdb-plugin gdb libglvnd-opengl nautilus netcat nodejs-npm pipx systemd-container vim-enhanced wine-desktop wine-fonts xdg-desktop-portal-gtk xdg-utils
-RUN authselect select minimal
-RUN systemctl disable systemd-resolved
+RUN dnf install -y bash-color-prompt gcc-gdb-plugin gdb java libglvnd-opengl nautilus netcat nodejs-npm pipx systemd-container vim-enhanced wine-desktop wine-fonts xdg-desktop-portal-gtk xdg-utils
 RUN PIPX_HOME=/opt/pipx PIPX_BIN_DIR=/usr/local/bin pipx install frida-tools
 RUN useradd mathieu
 RUN echo "mathieu ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
