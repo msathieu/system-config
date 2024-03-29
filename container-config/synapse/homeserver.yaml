@@ -13,7 +13,7 @@ listeners:
 trusted_key_servers:
   - server_name: matrix.org
 suppress_key_server_warning: true
-turn_uris: ['turn:vps.strypsteen.com']
+turn_uris: ['turn:turn.strypsteen.com']
 turn_allow_guests: false
 delete_stale_devices_after: 1y
 max_upload_size: 500M
