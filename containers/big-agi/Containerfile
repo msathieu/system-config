@@ -1,0 +1,10 @@
+FROM node:20-alpine
+RUN apk upgrade
+ENV NEXT_TELEMETRY_DISABLED 1
+RUN wget -O - https://github.com/enricoros/big-AGI/archive/refs/tags/v1.14.0.tar.gz | tar xz
+RUN mv big-AGI-* big-AGI
+WORKDIR /big-AGI
+RUN mv middleware_BASIC_AUTH.ts middleware.ts
+RUN npm ci
+RUN npm run build
+CMD npx next start

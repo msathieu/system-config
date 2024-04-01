@@ -1,0 +1,9 @@
+[Container]
+Image=ghcr.io/browserless/chromium
+UserNS=auto
+Network=nginx.network
+Tmpfs=/home/blessuser:mode=1777
+Environment=DEBUG=-*
+AutoUpdate=registry
+[Install]
+WantedBy=multi-user.target

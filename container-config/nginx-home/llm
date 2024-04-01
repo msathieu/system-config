@@ -1,0 +1,11 @@
+server {
+  server_name llm.strypsteen.com;
+  listen 443 ssl;
+  listen [::]:443 ssl;
+  include snippets/headers.conf;
+  location / {
+    set $upstream systemd-big-agi.;
+    proxy_pass http://$upstream:3000;
+    include snippets/proxy.conf;
+  }
+}
