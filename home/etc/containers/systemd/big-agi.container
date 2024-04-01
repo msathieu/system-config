@@ -1,6 +1,7 @@
 [Container]
 Image=git.strypsteen.com/mathieu/big-agi
 UserNS=auto
+Network=browserless.network
 Network=nginx.network
 Environment=HTTP_BASIC_AUTH_USERNAME=mathieu
 Environment=PUPPETEER_WSS_ENDPOINT=ws://systemd-browserless.:3000

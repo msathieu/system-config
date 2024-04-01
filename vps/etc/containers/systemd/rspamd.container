@@ -5,6 +5,7 @@ After=redis.service
 Image=docker.io/rspamd/rspamd
 UserNS=auto
 Network=mail.network
+Network=redis.network
 Volume=/var/lib/system-config/container-config/rspamd:/etc/rspamd/local.d:z,ro
 Volume=rspamd.volume:/var/lib/rspamd:U,Z
 Secret=dkim.key
