@@ -3,9 +3,10 @@ Requires=postgresql.service
 After=postgresql.service
 [Container]
 Image=docker.io/nextcloud
-PodmanArgs=--entrypoint=sh
 UserNS=auto
 Network=nginx.network
+Network=postgresql.network
+Entrypoint=sh
 Exec=-c "chown -Rh www-data:www-data /var/www/html && busybox crond && /entrypoint.sh apache2-foreground > /dev/null"
 Volume=nextcloud.volume:/var/www/html:U,Z
 Environment=OVERWRITEPROTOCOL=https
