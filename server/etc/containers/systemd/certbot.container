@@ -1,6 +1,6 @@
 [Container]
 Image=docker.io/certbot/dns-cloudflare
-PodmanArgs=--entrypoint=run-certbot
+Entrypoint=run-certbot
 Volume=/etc/certificates:/etc/certificates:z
 Volume=/var/lib/system-config/container-config/certbot/run-certbot:/usr/local/bin/run-certbot:Z,ro
 Tmpfs=/etc/letsencrypt

@@ -4,7 +4,6 @@ After=dovecot.service rspamd.service
 [Container]
 Image=git.strypsteen.com/mathieu/postfix
 Network=mail.network
-PodmanArgs=--stop-timeout=20
 Volume=/etc/certificates:/etc/certificates:z,ro
 Volume=postfix.volume:/var/spool/postfix:Z
 Tmpfs=/var/lib/postfix
@@ -12,6 +11,7 @@ PublishPort=25:25
 PublishPort=[::]:25:25
 PublishPort=465:465
 PublishPort=[::]:465:465
+StopTimeout=20
 AutoUpdate=registry
 [Install]
 WantedBy=multi-user.target
