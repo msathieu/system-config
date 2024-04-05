@@ -1,0 +1,8 @@
+[Container]
+Image=docker.io/jacobalberty/unifi
+Network=host
+HealthCmd=none
+Volume=unifi.volume:/unifi/data:U,Z
+AutoUpdate=registry
+[Install]
+WantedBy=multi-user.target
