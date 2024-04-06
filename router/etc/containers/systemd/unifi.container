@@ -1,8 +1,9 @@
 [Container]
 Image=docker.io/jacobalberty/unifi
-Network=host
 HealthCmd=none
 Volume=unifi.volume:/unifi/data:U,Z
+PublishPort=8080:8080
+PublishPort=8443:8443
 AutoUpdate=registry
 [Install]
 WantedBy=multi-user.target
