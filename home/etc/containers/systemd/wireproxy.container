@@ -4,8 +4,10 @@ After=network-online.target
 [Container]
 Image=ghcr.io/pufferffish/wireproxy
 UserNS=auto
+Network=wireproxy.network
 Volume=/var/lib/container-data/wireproxy:/etc/wireproxy/config:z,ro
 PublishPort=1080:1080
+PublishPort=[::]:1080:1080
 AutoUpdate=registry
 [Install]
 WantedBy=multi-user.target
