@@ -1,5 +1,6 @@
 [Container]
 Image=docker.io/mvance/unbound
+UserNS=auto
 Network=host
 HealthCmd=none
 Volume=/var/lib/system-config/container-config/unbound/unbound.conf:/opt/unbound/etc/unbound/unbound.conf:z,ro

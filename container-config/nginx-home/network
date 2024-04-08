@@ -1,0 +1,12 @@
+server {
+  server_name network.strypsteen.com;
+  listen 443 ssl;
+  listen [::]:443 ssl;
+  include snippets/headers.conf;
+  location / {
+    set $upstream systemd-unifi.;
+    proxy_pass https://$upstream:8443;
+    proxy_ssl_verify off;
+    include snippets/proxy.conf;
+  }
+}
