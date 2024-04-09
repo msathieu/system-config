@@ -1,5 +1,5 @@
 [Service]
 ExecStartPre=-sudo chown -Rh coder:coder /home/coder
-ExecStart=code-server --bind-addr 0.0.0.0:8080 --disable-telemetry
+ExecStart=code-server --bind-addr 0.0.0.0:8080 --disable-telemetry --proxy-domain code-proxy.strypsteen.com
 [Install]
 WantedBy=default.target

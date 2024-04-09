@@ -1,5 +1,6 @@
 server {
   server_name code.strypsteen.com;
+  server_name *.code-proxy.strypsteen.com;
   listen 443 ssl;
   listen [::]:443 ssl;
   include snippets/headers.conf;

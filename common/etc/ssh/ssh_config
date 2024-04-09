@@ -11,6 +11,7 @@ Host home-gw
   HostName home-gw.strypsteen.com
 Host router
   HostName 192.168.255.1
+  User vyos
 Host vps
   HostName vps.strypsteen.com
 Host *
