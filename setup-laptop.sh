@@ -2,6 +2,7 @@
 set -e
 cp -R desktop/* laptop/* /
 sh setup-desktop.sh
+systemctl disable auditd
 systemctl enable --now sshd
 systemctl mask --global grub-boot-success.timer
 flatpak remote-add --if-not-exists flathub /usr/lib/fedora-third-party/conf.d/fedora-flathub.flatpakrepo
