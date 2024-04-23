@@ -3,7 +3,6 @@ Requires=postgresql.service
 After=postgresql.service
 [Container]
 Image=docker.io/nextcloud
-UserNS=auto
 Network=nginx.network
 Network=postgresql.network
 Entrypoint=sh

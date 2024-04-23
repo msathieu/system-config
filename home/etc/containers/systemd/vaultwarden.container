@@ -1,6 +1,5 @@
 [Container]
 Image=docker.io/vaultwarden/server:latest-alpine
-UserNS=auto
 Network=nginx.network
 Volume=vaultwarden.volume:/data:U,Z
 Environment=DOMAIN=https://vault.strypsteen.com

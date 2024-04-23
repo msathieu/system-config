@@ -1,6 +1,5 @@
 [Container]
 Image=docker.io/vectorim/element-web
-UserNS=auto
 Network=nginx.network
 LogDriver=none
 Volume=/var/lib/system-config/container-config/element/config.json:/app/config.json:z,ro

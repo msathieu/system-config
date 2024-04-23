@@ -3,7 +3,6 @@ Wants=network-online.target
 After=network-online.target
 [Container]
 Image=ghcr.io/pufferffish/wireproxy
-UserNS=auto
 Network=wireproxy.network
 Volume=/var/lib/container-data/wireproxy:/etc/wireproxy/config:z,ro
 Tmpfs=/dev/log

@@ -1,6 +1,5 @@
 [Container]
 Image=docker.io/jacobalberty/unifi
-UserNS=auto
 Network=nginx.network
 HealthCmd=none
 Volume=unifi.volume:/unifi/data:U,Z

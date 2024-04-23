@@ -1,5 +1,6 @@
 [Container]
 Image=quay.io/containers/podman
+UserNS=host
 SecurityLabelDisable=true
 Unmask=/proc/sys
 User=1000

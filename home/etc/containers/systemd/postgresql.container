@@ -1,6 +1,5 @@
 [Container]
 Image=docker.io/postgres:16-alpine
-UserNS=auto
 Network=postgresql.network
 Volume=postgresql.volume:/var/lib/postgresql/data:U,Z
 AutoUpdate=registry

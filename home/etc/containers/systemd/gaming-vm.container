@@ -1,7 +1,6 @@
 [Container]
 Image=docker.io/qemux/qemu-docker
 PodmanArgs=-t
-UserNS=auto
 RunInit=true
 Network=nginx.network
 AddDevice=/dev/kvm

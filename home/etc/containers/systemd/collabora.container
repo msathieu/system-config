@@ -1,5 +1,6 @@
 [Container]
 Image=docker.io/collabora/code
+UserNS=host
 ReadOnly=false
 AddCapability=CAP_MKNOD
 Network=nginx.network

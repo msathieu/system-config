@@ -1,6 +1,5 @@
 [Container]
 Image=cgr.dev/chainguard/nginx
-UserNS=auto
 Network=nginx.network
 Volume=/var/lib/system-config/container-config/nginx:/etc/nginx:z,ro
 Volume=/var/lib/system-config/container-config/nginx-vps:/etc/nginx-sites:z,ro
