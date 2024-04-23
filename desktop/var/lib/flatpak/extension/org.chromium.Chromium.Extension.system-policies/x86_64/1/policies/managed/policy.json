@@ -5,8 +5,6 @@
   "DefaultCookiesSetting": 4,
   "DefaultSearchProviderEnabled": true,
   "DefaultSearchProviderSearchURL": "https://duckduckgo.com/?q={searchTerms}",
-  "DnsOverHttpsMode": "secure",
-  "DnsOverHttpsTemplates": "https://dns.quad9.net/dns-query",
   "ExtensionInstallForcelist": ["ddkjiahejlhfcafbddmgiahcphecmpfh"],
   "HttpsOnlyMode": "force_enabled",
   "ShowFullUrlsInAddressBar": true,
