@@ -1,5 +1,5 @@
 [Container]
-Image=codeberg.org/forgejo/forgejo:1.21-rootless
+Image=codeberg.org/forgejo/forgejo:7-rootless
 Network=nginx.network
 Volume=/var/lib/system-config/container-config/forgejo:/etc/gitea:z,ro
 Volume=forgejo.volume:/var/lib/gitea:U,Z
