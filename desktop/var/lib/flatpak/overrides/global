@@ -1,3 +1,0 @@
-[Context]
-sockets=!x11;!session-bus;!system-bus;!ssh-auth;!gpg-agent
-filesystems=!host;!host-os;!host-etc;!home

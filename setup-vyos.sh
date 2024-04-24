@@ -35,8 +35,8 @@ set service router-advert interface eth3 prefix ::/64
 set service dns forwarding listen-address 0.0.0.0
 set service dns forwarding name-server 9.9.9.9
 set service dns forwarding dnssec validate
+set service dns forwarding allow-from 127.0.0.1/32
 set service dns forwarding allow-from 192.168.0.0/16
-set service dns forwarding exclude-throttle-address 9.9.9.9
 
 set nat source rule 1 outbound-interface name eth0
 set nat source rule 1 translation address masquerade
