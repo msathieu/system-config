@@ -24,6 +24,7 @@ set service dhcp-server shared-network-name lan option name-server 192.168.254.1
 set service dhcp-server shared-network-name lan subnet 192.168.254.0/24 subnet-id 2
 set service dhcp-server shared-network-name lan subnet 192.168.254.0/24 range 0 start 192.168.254.2
 set service dhcp-server shared-network-name lan subnet 192.168.254.0/24 range 0 stop 192.168.254.254
+set service dhcp-server shared-network-name lan subnet 192.168.254.0/24 lease 3600
 set service dhcp-server shared-network-name server option default-router 192.168.253.1
 set service dhcp-server shared-network-name server option name-server 192.168.253.1
 set service dhcp-server shared-network-name server subnet 192.168.253.0/24 subnet-id 3

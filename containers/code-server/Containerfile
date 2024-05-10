@@ -1,14 +1,16 @@
-FROM ghcr.io/coder/code-server:fedora
-RUN mkdir -p /home/coder/.config/systemd/user/default.target.wants
-RUN ln -s /etc/systemd/user/code-server.service /home/coder/.config/systemd/user/default.target.wants
-USER root
-RUN sed /^tsflags/d -i /etc/dnf/dnf.conf
+FROM quay.io/fedora/fedora-toolbox:40
 RUN dnf up -y
-RUN dnf install -y bash-color-prompt bash-completion cargo hostname hyperfine man-db man-pages nodejs-npm poetry postgresql-server python-unversioned-command rustfmt rust-src systemd-container vim-enhanced
-RUN authselect select minimal
+RUN dnf install -y bash-color-prompt cargo hyperfine nodejs-npm poetry postgresql-server python3-ipykernel python3-pip rustfmt rust-src systemd-container vim-enhanced
+RUN dnf install -y https://github.com/coder/code-server/releases/download/v4.89.0/code-server-4.89.0-amd64.rpm
 RUN mkdir /etc/systemd/system/user@.service.d
 RUN mkdir /var/lib/systemd/linger
 RUN touch /var/lib/systemd/linger/coder
+RUN useradd coder
+RUN echo "coder ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+USER coder
+RUN mkdir -p /home/coder/.config/systemd/user/default.target.wants
+RUN ln -s /etc/systemd/user/code-server.service /home/coder/.config/systemd/user/default.target.wants
+USER root
 COPY override.conf /etc/systemd/system/user@.service.d
 COPY code-server.service /etc/systemd/user
 ENTRYPOINT /sbin/init

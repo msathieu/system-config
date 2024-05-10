@@ -1,0 +1,8 @@
+[Container]
+Image=docker.io/mongo:7.0
+UserNS=host
+Network=mongodb.network
+Volume=mongodb.volume:/data/db:Z
+AutoUpdate=registry
+[Install]
+WantedBy=multi-user.target

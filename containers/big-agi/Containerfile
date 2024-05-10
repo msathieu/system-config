@@ -1,7 +1,7 @@
 FROM node:20-alpine
 RUN apk upgrade
 ENV NEXT_TELEMETRY_DISABLED 1
-RUN wget -O - https://github.com/enricoros/big-AGI/archive/refs/tags/v1.15.1.tar.gz | tar xz
+RUN wget -O - https://github.com/enricoros/big-AGI/archive/refs/tags/v1.16.0.tar.gz | tar xz
 RUN mv big-AGI-* big-AGI
 WORKDIR /big-AGI
 RUN mv middleware_BASIC_AUTH.ts middleware.ts
