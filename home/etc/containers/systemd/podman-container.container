@@ -2,12 +2,14 @@
 Image=quay.io/containers/podman
 UserNS=host
 SecurityLabelDisable=true
+Network=act-runner.network
 Unmask=/proc/sys
 User=1000
 AddDevice=/dev/net/tun
 Exec=podman system service -t0 unix:///run/podman/podman.sock
 Volume=podman-storage.volume:/home/podman/.local/share/containers:U,Z
 Volume=podman-run.volume:/run/podman:U,z
+Tmpfs=/home/podman/.cache
 AutoUpdate=registry
 [Install]
-WantedBy=default.target
+WantedBy=multi-user.target
