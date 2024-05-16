@@ -1,6 +1,7 @@
 [Container]
 Image=docker.io/mongo:7.0
 UserNS=host
+Exec=--logpath /dev/null
 Network=mongodb.network
 Volume=mongodb.volume:/data/db:Z
 AutoUpdate=registry

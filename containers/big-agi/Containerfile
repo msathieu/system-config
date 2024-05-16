@@ -1,7 +1,8 @@
-FROM node:20-alpine
+FROM registry.access.redhat.com/ubi9 AS builder
+RUN curl -L https://github.com/enricoros/big-AGI/archive/refs/tags/v1.16.1.tar.gz | tar xz && mv big-AGI-* big-AGI
+FROM registry.access.redhat.com/ubi9/nodejs-20-minimal
 ENV NEXT_TELEMETRY_DISABLED 1
-RUN wget -O - https://github.com/enricoros/big-AGI/archive/refs/tags/v1.16.0.tar.gz | tar xz && mv big-AGI-* big-AGI
-WORKDIR /big-AGI
+COPY --from=builder /big-AGI .
 RUN mv middleware_BASIC_AUTH.ts middleware.ts
 RUN npm ci
 RUN npm run build

@@ -1,5 +1,5 @@
 [Container]
-Image=cgr.dev/chainguard/redis
+Image=cgr.dev/chainguard/valkey
 Network=redis.network
 Volume=redis.volume:/data:U,Z
 AutoUpdate=registry
