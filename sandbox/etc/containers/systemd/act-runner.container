@@ -5,7 +5,6 @@ After=podman-container.service
 ExecStartPre=sleep 2
 [Container]
 Image=docker.io/gitea/act_runner
-Network=act-runner.network
 Volume=podman-run.volume:/run/podman:U,z
 Volume=/var/lib/system-config/container-config/act-runner/config.yaml:/etc/act-runner/config.yaml:z,ro
 Volume=act-runner.volume:/data:U,Z

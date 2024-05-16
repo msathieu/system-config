@@ -2,13 +2,14 @@
 Image=git.strypsteen.com/mathieu/code-server
 UserNS=auto:size=65536
 ReadOnly=false
-Network=nginx.network
 Volume=/var/lib/system-config/misc/vscode.json:/home/coder/.local/share/code-server/Machine/settings.json:z,ro
 Volume=code-server-settings.volume:/home/coder/.local/share/code-server:U,Z
 Volume=code-server-ssh.volume:/home/coder/.ssh:U,Z
 Volume=code-server-projects.volume:/home/coder/projects:U,Z
 Volume=/etc/gitconfig:/etc/gitconfig:z,ro
 Secret=CODE_SERVER_PASSWORD,type=env,target=PASSWORD
+PublishPort=8080:8080
+PublishPort=[::]:8080:8080
 AutoUpdate=registry
 [Install]
 WantedBy=multi-user.target

@@ -2,7 +2,6 @@
 Image=quay.io/containers/podman
 UserNS=host
 SecurityLabelDisable=true
-Network=act-runner.network
 Unmask=/proc/sys
 User=1000
 AddDevice=/dev/net/tun
