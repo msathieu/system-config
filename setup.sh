@@ -20,6 +20,8 @@ elif [ -d /usr/lib/coreos ]; then
     sh setup-vps.sh
   elif [ "$1" = home ]; then
     sh setup-home.sh
+  elif [ "$1" = sandbox ]; then
+    sh setup-sandbox.sh
   fi
 elif [ -d /ostree ]; then
   sh setup-laptop.sh
