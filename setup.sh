@@ -16,9 +16,9 @@ sh setup-common.sh
 if [ -f /usr/share/qubes/marker-vm ]; then
   sh setup-qubes-fedora.sh
 elif [ -d /usr/lib/coreos ]; then
-  if systemd-detect-virt; then
+  if [ "$1" = vps ]; then
     sh setup-vps.sh
-  else
+  elif [ "$1" = home ]; then
     sh setup-home.sh
   fi
 elif [ -d /ostree ]; then

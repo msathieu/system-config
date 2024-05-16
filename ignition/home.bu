@@ -8,4 +8,5 @@ passwd:
   users:
     - name: root
       ssh_authorized_keys_local:
-        - ssh/desktop-sk.pub
+        - ssh/yubikey.pub
+        - ssh/yubikey-c.pub

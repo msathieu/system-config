@@ -5,6 +5,8 @@ VerifyHostKeyDNS ask
 HashKnownHosts yes
 AddKeysToAgent yes
 ExitOnForwardFailure yes
+Host pve
+  HostName pve.strypsteen.com
 Host home
   HostName home.strypsteen.com
 Host home-gw

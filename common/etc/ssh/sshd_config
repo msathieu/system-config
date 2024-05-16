@@ -11,3 +11,4 @@ Ciphers chacha20-poly1305@openssh.com
 AllowUsers root
 Subsystem sftp internal-sftp
 ClientAliveInterval 60
+Include /usr/etc/ssh/sshd_config.d/40-ssh-key-dir.conf
