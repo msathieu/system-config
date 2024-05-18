@@ -1,8 +1,9 @@
 [Container]
 Image=ghcr.io/browserless/chromium
-Network=browserless.network
 Tmpfs=/home/blessuser:mode=1777
 Environment=DEBUG=-*
+PublishPort=3000:3000
+PublishPort=[::]:3000:3000
 AutoUpdate=registry
 [Install]
 WantedBy=multi-user.target
