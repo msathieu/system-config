@@ -14,6 +14,7 @@ set interfaces ethernet eth3 address 192.168.253.1/24
 set interfaces ethernet eth3 address fc02::1/64
 
 set service ssh disable-password-authentication
+set service dhcp-server hostfile-update
 set service dhcp-server shared-network-name mgmt option default-router 192.168.255.1
 set service dhcp-server shared-network-name mgmt option name-server 192.168.255.1
 set service dhcp-server shared-network-name mgmt subnet 192.168.255.0/24 subnet-id 1
@@ -26,6 +27,7 @@ set service dhcp-server shared-network-name lan subnet 192.168.254.0/24 range 0 
 set service dhcp-server shared-network-name lan subnet 192.168.254.0/24 range 0 stop 192.168.254.254
 set service dhcp-server shared-network-name lan subnet 192.168.254.0/24 lease 3600
 set service dhcp-server shared-network-name server option default-router 192.168.253.1
+set service dhcp-server shared-network-name server option domain-name server.home.arpa
 set service dhcp-server shared-network-name server option name-server 192.168.253.1
 set service dhcp-server shared-network-name server subnet 192.168.253.0/24 subnet-id 3
 set service dhcp-server shared-network-name server subnet 192.168.253.0/24 range 0 start 192.168.253.2

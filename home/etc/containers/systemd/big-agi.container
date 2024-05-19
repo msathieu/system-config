@@ -2,7 +2,7 @@
 Image=git.strypsteen.com/mathieu/big-agi
 Network=nginx.network
 Environment=HTTP_BASIC_AUTH_USERNAME=mathieu
-Environment=PUPPETEER_WSS_ENDPOINT=ws://sandbox.strypsteen.com:3000
+Environment=PUPPETEER_WSS_ENDPOINT=ws://sandbox.server.home.arpa:3000
 Secret=HTTP_BASIC_AUTH_PASSWORD,type=env
 Secret=OPENAI_API_KEY,type=env
 AutoUpdate=registry
