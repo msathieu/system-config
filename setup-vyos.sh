@@ -1,6 +1,7 @@
 #!/bin/bash
 # shellcheck disable=SC2121
 set system name-server 9.9.9.9
+set system static-host-mapping host-name pve.strypsteen.com inet 192.168.253.2
 set system sysctl parameter net.ipv6.conf.eth0.use_tempaddr value 2
 set system time-zone Europe/Brussels
 
@@ -26,12 +27,14 @@ set service dhcp-server shared-network-name lan subnet 192.168.254.0/24 subnet-i
 set service dhcp-server shared-network-name lan subnet 192.168.254.0/24 range 0 start 192.168.254.2
 set service dhcp-server shared-network-name lan subnet 192.168.254.0/24 range 0 stop 192.168.254.254
 set service dhcp-server shared-network-name lan subnet 192.168.254.0/24 lease 3600
+set service dhcp-server shared-network-name server option bootfile-name netboot.xyz.efi
+set service dhcp-server shared-network-name server option bootfile-server 192.168.253.1
 set service dhcp-server shared-network-name server option default-router 192.168.253.1
 set service dhcp-server shared-network-name server option domain-name server.home.arpa
 set service dhcp-server shared-network-name server option name-server 192.168.253.1
 set service dhcp-server shared-network-name server subnet 192.168.253.0/24 subnet-id 3
-set service dhcp-server shared-network-name server subnet 192.168.253.0/24 range 0 start 192.168.253.2
-set service dhcp-server shared-network-name server subnet 192.168.253.0/24 range 0 stop 192.168.253.254
+set service dhcp-server shared-network-name server subnet 192.168.253.0/24 range 0 start 192.168.253.3
+set service dhcp-server shared-network-name server subnet 192.168.253.0/24 range 0 stop 192.168.253.253
 set service router-advert interface eth1 prefix ::/64
 set service router-advert interface eth2 prefix ::/64
 set service router-advert interface eth3 prefix ::/64
@@ -40,6 +43,8 @@ set service dns forwarding name-server 9.9.9.9
 set service dns forwarding dnssec validate
 set service dns forwarding allow-from 127.0.0.1/32
 set service dns forwarding allow-from 192.168.0.0/16
+set service tftp-server directory /config/tftp
+set service tftp-server listen-address 192.168.253.1
 
 set nat source rule 1 outbound-interface name eth0
 set nat source rule 1 translation address masquerade

@@ -3,6 +3,6 @@ version: 1.5.0
 passwd:
   users:
     - name: root
-      ssh_authorized_keys_local:
-        - ssh/yubikey.pub
-        - ssh/yubikey-c.pub
+      ssh_authorized_keys:
+        - sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIHSZEZAdsx64pSt+2uSHU25K6m3peo2nt2oQJW3jm6i6AAAABHNzaDo= mathieu@yubikey
+        - sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIIH33pRp93TOK5OyidgYVYtWBNKawKFzUilOA7Nb2NWzAAAABHNzaDo= mathieu@yubikey-c
