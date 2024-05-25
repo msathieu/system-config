@@ -1,13 +1,12 @@
 [Container]
-Image=quay.io/containers/podman
+Image=registry.access.redhat.com/ubi9/podman
 UserNS=host
 SecurityLabelDisable=true
 Unmask=/proc/sys
-User=1000
 AddDevice=/dev/net/tun
-Exec=podman system service -t0 unix:///run/podman/podman.sock
-Volume=podman-storage.volume:/home/podman/.local/share/containers:U,Z
+Exec=sh -c "echo podman:10000:70000 > /etc/subuid && echo podman:10000:70000 > etc/subgid && chmod 777 /run/podman && su podman -c 'podman system service -t0 unix:///run/podman/podman.sock'"
 Volume=podman-run.volume:/run/podman:U,z
+Tmpfs=/etc
 Tmpfs=/home/podman/.cache
 AutoUpdate=registry
 [Install]
