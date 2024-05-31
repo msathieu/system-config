@@ -1,7 +1,11 @@
 #!/bin/sh
 set -e
-certbot register --agree-tos --no-eff-email -m mathieu@strypsteen.me || true
-certbot certonly --dns-cloudflare --dns-cloudflare-credentials /run/secrets/cloudflare --dns-cloudflare-propagation-seconds 30 -d strypsteen.com -d '*.strypsteen.com' -d strypsteen.me -d '*.strypsteen.me' -d '*.code-proxy.strypsteen.com'
-cp /etc/letsencrypt/live/strypsteen.com/fullchain.pem /etc/certificates
-chmod 644 /etc/letsencrypt/live/strypsteen.com/privkey.pem
-cp /etc/letsencrypt/live/strypsteen.com/privkey.pem /etc/certificates
+certbot register --agree-tos --no-eff-email -m mathieu@strypsteen.me
+if [ "$CERTBOT_TYPE" = vps ]; then
+  certbot certonly --dns-cloudflare --dns-cloudflare-credentials /run/secrets/cloudflare -d vps.strypsteen.com
+else
+  certbot certonly --dns-cloudflare --dns-cloudflare-credentials /run/secrets/cloudflare -d strypsteen.com -d '*.strypsteen.com' -d strypsteen.me -d '*.strypsteen.me' -d '*.code-proxy.strypsteen.com'
+fi
+cp /etc/letsencrypt/live/*/fullchain.pem /etc/certificates
+chmod 644 /etc/letsencrypt/live/*/privkey.pem
+cp /etc/letsencrypt/live/*/privkey.pem /etc/certificates
