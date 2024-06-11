@@ -1,6 +1,6 @@
 [Unit]
-Requires=redis.service
-After=redis.service
+Requires=clamav.service redis.service
+After=clamav.service redis.service
 [Container]
 Image=docker.io/rspamd/rspamd
 Network=mail.network

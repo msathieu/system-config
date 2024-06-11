@@ -2,7 +2,7 @@
 Requires=podman-container.service
 After=podman-container.service
 [Service]
-ExecStartPre=sleep 2
+ExecStartPre=sleep 5
 [Container]
 Image=docker.io/gitea/act_runner
 Volume=podman-run.volume:/run/podman:U,z
