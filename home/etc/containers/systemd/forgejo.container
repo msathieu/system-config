@@ -4,6 +4,7 @@ Network=nginx.network
 Volume=/var/lib/system-config/container-config/forgejo:/etc/gitea:z,ro
 Volume=forgejo.volume:/var/lib/gitea:U,Z
 Secret=forgejo-token
+Secret=forgejo-jwt-secret
 PublishPort=2222:2222
 PublishPort=[::]:2222:2222
 AutoUpdate=registry
