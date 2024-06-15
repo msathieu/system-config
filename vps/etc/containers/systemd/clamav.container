@@ -1,4 +1,5 @@
 [Container]
+HealthCmd=none
 Image=docker.io/clamav/clamav
 Network=mail.network
 Tmpfs=/var/lib/clamav
