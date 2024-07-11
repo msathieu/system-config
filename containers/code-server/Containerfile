@@ -1,7 +1,7 @@
 FROM quay.io/fedora/fedora-toolbox:40
 RUN dnf up -y
-RUN dnf install -y bash-color-prompt cargo hyperfine nodejs-npm openssl-devel poetry postgresql-server python3-ipykernel python3-pip rustfmt rust-src systemd-container vim-enhanced
-RUN dnf install -y https://github.com/coder/code-server/releases/download/v4.90.3/code-server-4.90.3-amd64.rpm
+RUN dnf install -y bash-color-prompt clang gcc hyperfine llvm mtools nodejs-npm openssl-devel parted poetry postgresql-server python3-ipykernel python3-pip rustup systemd-container vim-enhanced
+RUN dnf install -y https://github.com/coder/code-server/releases/download/v4.91.0/code-server-4.91.0-amd64.rpm
 RUN mkdir /etc/systemd/system/user@.service.d
 RUN mkdir /var/lib/systemd/linger
 RUN touch /var/lib/systemd/linger/coder
@@ -10,6 +10,7 @@ RUN echo "coder ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 USER coder
 RUN mkdir -p /home/coder/.config/systemd/user/default.target.wants
 RUN ln -s /etc/systemd/user/code-server.service /home/coder/.config/systemd/user/default.target.wants
+RUN rustup-init -y
 USER root
 COPY override.conf /etc/systemd/system/user@.service.d
 COPY code-server.service /etc/systemd/user
