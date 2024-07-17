@@ -17,6 +17,7 @@ pref("browser.urlbar.dnsResolveSingleWordsAfterSearch", 0);
 pref("cookiebanners.service.mode", 1);
 pref("cookiebanners.service.mode.privateBrowsing", 1);
 pref("devtools.theme", "dark");
+pref("dom.private-attribution.submission.enabled", false);
 pref("dom.security.https_only_mode", true);
 pref("extensions.getAddons.discovery.api_url", "");
 pref("extensions.htmlaboutaddons.recommendations.enabled", false);

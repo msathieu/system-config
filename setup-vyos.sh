@@ -13,6 +13,8 @@ set interfaces ethernet eth2 address 192.168.254.1/24
 set interfaces ethernet eth2 address fc01::1/64
 set interfaces ethernet eth3 address 192.168.253.1/24
 set interfaces ethernet eth3 address fc02::1/64
+set interfaces wireguard wg0 address 10.0.0.1/24
+set interfaces wireguard wg0 port 51820
 
 set service ssh disable-password-authentication
 set service dhcp-server hostfile-update
@@ -70,4 +72,6 @@ for i in ${firewall_types}; do
   set firewall "$i" forward filter rule 5 action accept
   set firewall "$i" forward filter rule 5 inbound-interface name eth3
   set firewall "$i" forward filter rule 5 outbound-interface name eth2
+  set firewall "$i" forward filter rule 6 action accept
+  set firewall "$i" forward filter rule 6 inbound-interface name wg0
 done
