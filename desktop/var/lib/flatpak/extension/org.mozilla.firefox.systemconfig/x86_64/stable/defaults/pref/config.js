@@ -25,6 +25,7 @@ pref("media.videocontrols.picture-in-picture.video-toggle.has-used", true);
 pref("middlemouse.paste", false);
 pref("network.IDN_show_punycode", true);
 pref("network.http.referer.XOriginTrimmingPolicy", 2);
+pref("network.trr.excluded-domains", "strypsteen.com");
 pref("permissions.manager.defaultsUrl", "");
 pref("privacy.donottrackheader.enabled", true);
 pref("privacy.globalprivacycontrol.enabled", true);
