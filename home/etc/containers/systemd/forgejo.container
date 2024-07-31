@@ -1,10 +1,11 @@
 [Container]
-Image=codeberg.org/forgejo/forgejo:7-rootless
+Image=codeberg.org/forgejo/forgejo:8-rootless
 Network=nginx.network
 Volume=/var/lib/system-config/container-config/forgejo:/etc/gitea:z,ro
 Volume=forgejo.volume:/var/lib/gitea:U,Z
 Secret=forgejo-token
 Secret=forgejo-jwt-secret
+Environment=GITEA_APP_INI=/etc/gitea/app.ini
 PublishPort=2222:2222
 PublishPort=[::]:2222:2222
 AutoUpdate=registry
