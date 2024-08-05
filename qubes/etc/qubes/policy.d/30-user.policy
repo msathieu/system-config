@@ -18,6 +18,7 @@ qubes.OpenURL * @anyvm @dispvm allow
 qubes.OpenURL * @anyvm @anyvm deny
 qubes.StartApp * @anyvm @dispvm allow
 qubes.StartApp * @anyvm @anyvm deny
+qubes.Filecopy +allow-all-names @anyvm @anyvm deny
 qubes.Filecopy * system-config @anyvm ask
 qubes.Filecopy * @anyvm @type:TemplateVM deny
 qubes.Filecopy * @anyvm default-mgmt-dvm deny

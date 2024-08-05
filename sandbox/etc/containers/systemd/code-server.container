@@ -8,7 +8,6 @@ Volume=code-server-projects.volume:/home/coder/projects:U,Z
 Volume=/etc/gitconfig:/etc/gitconfig:z,ro
 Secret=CODE_SERVER_PASSWORD,type=env,target=PASSWORD
 PublishPort=8080:8080
-PublishPort=[::]:8080:8080
 AutoUpdate=registry
 [Install]
 WantedBy=multi-user.target
