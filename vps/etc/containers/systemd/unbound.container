@@ -1,0 +1,8 @@
+[Container]
+Image=docker.io/alpinelinux/unbound
+Network=mail.network
+Volume=/var/lib/system-config/container-config/unbound/unbound.conf:/etc/unbound/unbound.conf:z,ro
+Tmpfs=/etc/unbound
+AutoUpdate=registry
+[Install]
+WantedBy=multi-user.target

@@ -1,6 +1,6 @@
 [Unit]
-Requires=dovecot.service rspamd.service
-After=dovecot.service rspamd.service
+Requires=dovecot.service rspamd.service unbound.service
+After=dovecot.service rspamd.service unbound.service
 [Container]
 Image=git.strypsteen.com/mathieu/postfix
 UserNS=host

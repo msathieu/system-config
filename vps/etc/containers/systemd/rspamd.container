@@ -1,10 +1,9 @@
 [Unit]
-Requires=redis.service
-After=redis.service
+Requires=redis.service unbound.service
+After=redis.service unbound.service
 [Container]
 Image=docker.io/rspamd/rspamd
 Network=mail.network
-Network=redis.network
 Volume=/var/lib/system-config/container-config/rspamd:/etc/rspamd/local.d:z,ro
 Volume=rspamd.volume:/var/lib/rspamd:U,Z
 Secret=dkim.key
