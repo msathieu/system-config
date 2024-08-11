@@ -19,10 +19,7 @@
   "git.confirmSync": false,
   "github.gitAuthentication": false,
   "search.smartCase": true,
-  "telemetry.telemetryLevel": "off",
-  "window.menuBarVisibility": "visible",
   "workbench.colorTheme": "Default Dark Modern",
-  "workbench.enableExperiments": false,
   "workbench.settings.enableNaturalLanguageSearch": false,
   "workbench.startupEditor": "none"
 }

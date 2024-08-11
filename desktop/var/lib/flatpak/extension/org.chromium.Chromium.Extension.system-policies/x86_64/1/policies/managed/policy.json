@@ -1,7 +1,7 @@
 {
   "BlockThirdPartyCookies": true,
   "ClearBrowsingDataOnExitList": ["browsing_history", "download_history", "autofill"],
-  "CookiesAllowedForUrls": ["[*.]strypsteen.com"],
+  "CookiesAllowedForUrls": ["localhost", "[*.]strypsteen.com"],
   "DefaultCookiesSetting": 4,
   "DefaultSearchProviderEnabled": true,
   "DefaultSearchProviderSearchURL": "https://duckduckgo.com/?q={searchTerms}",

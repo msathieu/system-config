@@ -1,5 +1,5 @@
 FROM registry.access.redhat.com/ubi9 AS builder
-RUN curl -L https://github.com/enricoros/big-AGI/archive/refs/tags/v1.16.5.tar.gz | tar xz && mv big-AGI-* big-AGI
+RUN curl -L https://github.com/enricoros/big-AGI/archive/refs/tags/v1.16.7.tar.gz | tar xz && mv big-AGI-* big-AGI
 FROM registry.access.redhat.com/ubi9/nodejs-20-minimal
 ENV NEXT_TELEMETRY_DISABLED 1
 COPY --from=builder /big-AGI .
