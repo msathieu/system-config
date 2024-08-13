@@ -12,6 +12,7 @@ RUN mkdir -p /home/coder/.config/systemd/user/default.target.wants
 RUN ln -s /etc/systemd/user/code-server.service /home/coder/.config/systemd/user/default.target.wants
 RUN rustup-init -y
 USER root
+COPY polkit.service /etc/systemd/system
 COPY override.conf /etc/systemd/system/user@.service.d
 COPY code-server.service /etc/systemd/user
 ENTRYPOINT /sbin/init

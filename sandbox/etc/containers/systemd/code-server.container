@@ -1,11 +1,15 @@
 [Container]
 Image=git.strypsteen.com/mathieu/code-server
 ReadOnly=false
+AddDevice=/dev/kvm
+AddDevice=/dev/net/tun
 Volume=/var/lib/system-config/container-config/code-server/settings.json:/home/coder/.local/share/code-server/Machine/settings.json:z,ro
 Volume=code-server-settings.volume:/home/coder/.local/share/code-server:U,Z
 Volume=code-server-ssh.volume:/home/coder/.ssh:U,Z
 Volume=code-server-projects.volume:/home/coder/projects:U,Z
-Volume=/etc/gitconfig:/etc/gitconfig:z,ro
+Volume=/var/lib/system-config/common/etc/gitconfig:/etc/gitconfig:z,ro
+Volume=/var/lib/system-config/common/etc/ssh/ssh_config:/etc/ssh/ssh_config:z,ro
+Volume=/var/lib/system-config/common/etc/vimrc:/etc/vimrc:z,ro
 Secret=CODE_SERVER_PASSWORD,type=env,target=PASSWORD
 PublishPort=8080:8080
 AutoUpdate=registry
