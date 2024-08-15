@@ -6,7 +6,6 @@ Image=git.strypsteen.com/mathieu/monero
 Network=monero.network
 Volume=monero.volume:/root/.bitmonero:U,Z
 PublishPort=18089:18089
-PublishPort=[::]:18089:18089
 AutoUpdate=registry
 [Install]
 WantedBy=multi-user.target

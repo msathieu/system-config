@@ -8,9 +8,7 @@ Volume=/etc/certificates:/etc/certificates:z,ro
 Tmpfs=/var/lib/nginx/tmp
 Tmpfs=/var/lib/nginx/logs
 PublishPort=80:80
-PublishPort=[::]:80:80
 PublishPort=443:443
-PublishPort=[::]:443:443
 Sysctl=net.ipv4.ip_unprivileged_port_start=80
 AutoUpdate=registry
 [Install]

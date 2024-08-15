@@ -6,7 +6,6 @@ Volume=/var/lib/container-data/dovecot:/etc/dovecot-local:z,ro
 Volume=dovecot.volume:/srv/mail:U,Z
 Tmpfs=/var/lib/dovecot
 PublishPort=993:993
-PublishPort=[::]:993:993
 AutoUpdate=registry
 [Install]
 WantedBy=multi-user.target

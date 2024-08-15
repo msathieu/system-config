@@ -9,9 +9,7 @@ Volume=/etc/certificates:/etc/certificates:z,ro
 Volume=postfix.volume:/var/spool/postfix:Z
 Tmpfs=/var/lib/postfix
 PublishPort=25:25
-PublishPort=[::]:25:25
 PublishPort=465:465
-PublishPort=[::]:465:465
 StopTimeout=20
 AutoUpdate=registry
 [Install]
