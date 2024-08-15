@@ -2,10 +2,14 @@
 # shellcheck disable=SC2121
 set system name-server 9.9.9.9
 set system static-host-mapping host-name pve.strypsteen.com inet 192.168.253.2
+set system static-host-mapping host-name home.strypsteen.com alias cloud.strypsteen.com
 set system static-host-mapping host-name home.strypsteen.com alias code.strypsteen.com
 set system static-host-mapping host-name home.strypsteen.com alias element.strypsteen.com
+set system static-host-mapping host-name home.strypsteen.com alias git.strypsteen.com
 set system static-host-mapping host-name home.strypsteen.com alias llm.strypsteen.com
+set system static-host-mapping host-name home.strypsteen.com alias matrix.strypsteen.com
 set system static-host-mapping host-name home.strypsteen.com alias network.strypsteen.com
+set system static-host-mapping host-name home.strypsteen.com alias office.strypsteen.com
 set system static-host-mapping host-name home.strypsteen.com alias remote-desktop.strypsteen.com
 set system static-host-mapping host-name home.strypsteen.com alias vault.strypsteen.com
 set system sysctl parameter net.ipv6.conf.eth0.use_tempaddr value 2
