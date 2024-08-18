@@ -3,7 +3,7 @@ prometheus.exporter.unix "local" {
 }
 prometheus.scrape "scraper" {
   targets = prometheus.exporter.unix.local.targets
-  forward_to [prometheus.remote_write.writer.receiver]
+  forward_to = [prometheus.remote_write.writer.receiver]
 }
 prometheus.remote_write "writer" {
   endpoint {
