@@ -1,0 +1,11 @@
+server {
+  server_name metrics.strypsteen.com;
+  listen 443 ssl;
+  listen [::]:443 ssl;
+  include snippets/headers.conf;
+  location / {
+    set $upstream systemd-prometheus.:9090;
+    proxy_pass http://$upstream;
+    include snippets/proxy.conf;
+  }
+}

@@ -17,7 +17,6 @@
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
   "git.confirmSync": false,
-  "github.gitAuthentication": false,
   "search.smartCase": true,
   "workbench.colorTheme": "Default Dark Modern",
   "workbench.settings.enableNaturalLanguageSearch": false,

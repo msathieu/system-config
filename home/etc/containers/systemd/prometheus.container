@@ -1,0 +1,10 @@
+[Container]
+Image=cgr.dev/chainguard/prometheus
+Network=nginx.network
+Exec=--web.config.file=/run/secrets/prometheus-config --web.enable-remote-write-receiver
+Volume=/var/lib/system-config/container-config/prometheus/prometheus.yml:/prometheus.yml:z,ro
+Volume=prometheus.volume:/data:U,Z
+Secret=prometheus-config
+AutoUpdate=registry
+[Install]
+WantedBy=multi-user.target

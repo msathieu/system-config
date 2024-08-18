@@ -8,6 +8,8 @@ set system static-host-mapping host-name home.strypsteen.com alias element.stryp
 set system static-host-mapping host-name home.strypsteen.com alias git.strypsteen.com
 set system static-host-mapping host-name home.strypsteen.com alias llm.strypsteen.com
 set system static-host-mapping host-name home.strypsteen.com alias matrix.strypsteen.com
+set system static-host-mapping host-name home.strypsteen.com alias metrics.strypsteen.com
+set system static-host-mapping host-name home.strypsteen.com alias monitoring.strypsteen.com
 set system static-host-mapping host-name home.strypsteen.com alias network.strypsteen.com
 set system static-host-mapping host-name home.strypsteen.com alias office.strypsteen.com
 set system static-host-mapping host-name home.strypsteen.com alias remote-desktop.strypsteen.com

@@ -1,0 +1,16 @@
+server {
+  server_name monitoring.strypsteen.com;
+  listen 443 ssl;
+  listen [::]:443 ssl;
+  deny 10.0.0.1;
+  deny fd00::1;
+  include snippets/headers.conf;
+  location / {
+    set $upstream systemd-grafana.:3000;
+    proxy_pass http://$upstream;
+    include snippets/proxy.conf;
+    proxy_http_version 1.1;
+    proxy_set_header Connection upgrade;
+    proxy_set_header Upgrade $http_upgrade;
+  }
+}

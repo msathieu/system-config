@@ -1,0 +1,15 @@
+prometheus.exporter.unix "local" {
+  rootfs_path = "/run/host"
+}
+prometheus.scrape "scraper" {
+  targets = prometheus.exporter.unix.local.targets
+  forward_to [prometheus.remote_write.writer.receiver]
+prometheus.remote_write "writer" {
+  endpoint {
+    url = "https://metrics.strypsteen.com/api/v1/write"
+    basic_auth {
+      username = "admin"
+      password = env("PROMETHEUS_PASSWORD")
+    }
+  }
+}

@@ -1,0 +1,7 @@
+[Container]
+Image=cgr.dev/chainguard/grafana
+Network=nginx.network
+Volume=grafana.volume:/var/lib/grafana:U,Z
+AutoUpdate=registry
+[Install]
+WantedBy=multi-user.target
