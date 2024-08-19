@@ -1,6 +1,6 @@
 [Unit]
-Requires=redis.service unbound.service
-After=redis.service unbound.service
+Requires=valkey.service unbound.service
+After=valkey.service unbound.service
 [Container]
 Image=docker.io/rspamd/rspamd
 Network=mail.network

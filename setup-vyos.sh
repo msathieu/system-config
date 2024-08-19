@@ -62,6 +62,7 @@ set service dns forwarding allow-from 192.168.0.0/16
 set service dns forwarding allow-from 10.255.0.0/16
 set service tftp-server directory /config/tftp
 set service tftp-server listen-address 192.168.253.1
+set service monitoring telegraf prometheus-client
 
 set nat source rule 1 outbound-interface name eth0
 set nat source rule 1 translation address masquerade
