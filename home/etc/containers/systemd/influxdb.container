@@ -1,0 +1,8 @@
+[Container]
+Image=cgr.dev/chainguard/influxdb
+Volume=influxdb.volume:/var/lib/influxdb2:U,Z
+Tmpfs=/home/influxdb/.influxdbv2
+PublishPort=8086:8086
+AutoUpdate=registry
+[Install]
+WantedBy=multi-user.target

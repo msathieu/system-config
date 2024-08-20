@@ -22,6 +22,7 @@
       "URL": "about:blank",
       "Locked": true
     },
+    "HttpsOnlyMode": "force_enabled",
     "NewTabPage": false,
     "NoDefaultBookmarks": true,
     "PasswordManagerEnabled": false,
