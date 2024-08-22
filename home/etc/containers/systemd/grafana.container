@@ -1,5 +1,5 @@
 [Container]
-Image=cgr.dev/chainguard/grafana
+Image=docker.io/grafana/grafana-oss
 Network=nginx.network
 Volume=grafana.volume:/var/lib/grafana:U,Z
 AutoUpdate=registry

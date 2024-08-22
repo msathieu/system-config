@@ -1,7 +1,7 @@
 [Container]
-Image=cgr.dev/chainguard/influxdb
+Image=docker.io/influxdb
 Volume=influxdb.volume:/var/lib/influxdb2:U,Z
-Tmpfs=/home/influxdb/.influxdbv2
+Tmpfs=/etc/influxdb2
 PublishPort=8086:8086
 AutoUpdate=registry
 [Install]
