@@ -1,0 +1,14 @@
+[Container]
+Image=ghcr.io/borgmatic-collective/borgmatic
+SecurityLabelDisable=true
+UserNS=host
+HostName=borgmatic
+Volume=/var/lib/system-config/container-config/borgmatic/config.yaml:/etc/borgmatic/config.yaml:z,ro
+Volume=/var/lib/container-data/borgmatic.yaml:/etc/borgmatic/local.yaml:z,ro
+Volume=/:/run/host:ro
+Volume=borgmatic-cache.volume:/root/.cache/borg:U,Z
+Volume=borgmatic-config.volume:/root/.config/borg:U,Z
+Volume=borgmatic-ssh.volume:/root/.ssh:U,Z
+Tmpfs=/etc/crontabs
+Environment=BACKUP_CRON="0 0 * * *"
+AutoUpdate=registry
