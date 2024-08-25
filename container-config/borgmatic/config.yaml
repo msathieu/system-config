@@ -3,10 +3,14 @@ source_directories:
   - /run/host/var/home
   - /run/host/var/lib/container-data
   - /run/host/var/lib/containers/storage/secrets
-  - /run/host/var/lib/containers/storage/volumes
+  - /run/host/var/lib/containers/storage/volumes/systemd-*
   - /run/host/var/roothome
 exclude_patterns:
   - /run/host/var/lib/containers/storage/volumes/systemd-monero
+repositories:
+  - label: remote
+    path: ${BORG_REMOTE}
+encryption_passphrase: ${BORG_PASSWORD}
 keep_daily: 7
 keep_weekly: 4
 keep_monthly: 3

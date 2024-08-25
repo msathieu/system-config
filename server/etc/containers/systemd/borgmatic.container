@@ -11,6 +11,8 @@ Volume=borgmatic-config.volume:/root/.config/borg:U,Z
 Volume=borgmatic-ssh.volume:/root/.ssh:U,Z
 Tmpfs=/etc/crontabs
 Environment=BACKUP_CRON="0 0 * * *"
+Secret=BORG_PASSWORD,type=env
+Secret=BORG_REMOTE,type=env
 AutoUpdate=registry
 [Install]
 WantedBy=multi-user.target
