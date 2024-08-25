@@ -1,9 +1,10 @@
 source_directories:
   - /run/host/etc
+  - /run/host/var/home
   - /run/host/var/lib/container-data
   - /run/host/var/lib/containers/storage/secrets
   - /run/host/var/lib/containers/storage/volumes
-  - /run/host/root
+  - /run/host/var/roothome
 exclude_patterns:
   - /run/host/var/lib/containers/storage/volumes/systemd-monero
 keep_daily: 7

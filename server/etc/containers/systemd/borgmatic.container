@@ -12,3 +12,5 @@ Volume=borgmatic-ssh.volume:/root/.ssh:U,Z
 Tmpfs=/etc/crontabs
 Environment=BACKUP_CRON="0 0 * * *"
 AutoUpdate=registry
+[Install]
+WantedBy=multi-user.target
