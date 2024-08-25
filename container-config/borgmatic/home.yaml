@@ -1,0 +1,5 @@
+postgresql_databases:
+  - name: all
+    hostname: systemd-postgresql
+    username: postgres
+    password: ${POSTGRES_PASSWORD}
