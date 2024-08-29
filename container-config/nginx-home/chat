@@ -1,9 +1,7 @@
 server {
-  server_name element.strypsteen.com;
+  server_name chat.strypsteen.com;
   listen 443 ssl;
   listen [::]:443 ssl;
-  deny 10.0.0.1;
-  deny fd00::1;
   include snippets/headers.conf;
   location / {
     set $upstream systemd-element.;
