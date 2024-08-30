@@ -1,8 +1,10 @@
 prometheus.exporter.unix "local" {
   rootfs_path = "/run/host"
+  enable_collectors = ["systemd"]
 }
 prometheus.scrape "scraper" {
   targets = prometheus.exporter.unix.local.targets
+  scrape_interval = "15s"
   forward_to = [prometheus.remote_write.writer.receiver]
 }
 prometheus.remote_write "writer" {
