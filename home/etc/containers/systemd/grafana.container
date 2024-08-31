@@ -2,6 +2,7 @@
 Image=docker.io/grafana/grafana-oss
 Network=nginx.network
 Volume=grafana.volume:/var/lib/grafana:U,Z
+Environment=GF_DATABASE_WAL=true
 Environment=GF_SERVER_ROOT_URL=https://monitoring.strypsteen.com
 Environment=GF_SMTP_ENABLED=true
 Environment=GF_SMTP_HOST=vps.strypsteen.com:465
