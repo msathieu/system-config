@@ -3,7 +3,7 @@ server {
   listen 443 ssl;
   listen [::]:443 ssl;
   include snippets/headers.conf;
-  location / {
+  location = /api/v1/write {
     set $upstream systemd-prometheus.:9090;
     proxy_pass http://$upstream;
     include snippets/proxy.conf;

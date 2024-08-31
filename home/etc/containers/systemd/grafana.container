@@ -2,6 +2,12 @@
 Image=docker.io/grafana/grafana-oss
 Network=nginx.network
 Volume=grafana.volume:/var/lib/grafana:U,Z
+Environment=GF_SERVER_ROOT_URL=https://monitoring.strypsteen.com
+Environment=GF_SMTP_ENABLED=true
+Environment=GF_SMTP_HOST=vps.strypsteen.com:465
+Environment=GF_SMTP_USER=monitoring
+Environment=GF_SMTP_FROM_ADDRESS=monitoring@strypsteen.me
+Secret=GF_SMTP_PASSWORD,type=env
 AutoUpdate=registry
 [Install]
 WantedBy=multi-user.target
