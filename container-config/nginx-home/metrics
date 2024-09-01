@@ -8,4 +8,9 @@ server {
     proxy_pass http://$upstream;
     include snippets/proxy.conf;
   }
+  location = /loki/api/v1/push {
+    set $upstream systemd-loki.:3100;
+    proxy_pass http://$upstream;
+    include snippets/proxy.conf;
+  }
 }

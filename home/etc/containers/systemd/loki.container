@@ -1,0 +1,8 @@
+[Container]
+Image=docker.io/grafana/loki
+Network=nginx.network
+Exec=-config.file=/etc/loki/local-config.yaml -log.level=warn -reporting.enabled=false
+Volume=loki.volume:/loki:U,Z
+AutoUpdate=registry
+[Install]
+WantedBy=multi-user.target

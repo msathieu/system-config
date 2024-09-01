@@ -16,3 +16,24 @@ prometheus.remote_write "writer" {
     }
   }
 }
+loki.source.journal "journald" {
+  path = "/run/host/var/log/journal"
+  relabel_rules = loki.relabel.journald.rules
+  forward_to = [loki.write.writer.receiver]
+}
+loki.relabel "journald" {
+  rule {
+    source_labels = ["__journal__systemd_unit"]
+    target_label = "unit"
+  }
+  rule {
+    source_labels = ["__journal_priority_keyword"]
+    target_label = "level"
+  }
+  forward_to = []
+}
+loki.write "writer" {
+  endpoint {
+    url = "https://metrics.strypsteen.com/loki/api/v1/push"
+  }
+}
