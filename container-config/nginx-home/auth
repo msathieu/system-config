@@ -1,0 +1,11 @@
+server {
+  server_name auth.strypsteen.com;
+  listen 443 ssl;
+  listen [::]:443 ssl;
+  include snippets/headers.conf;
+  location / {
+    set $upstream systemd-keycloak.;
+    proxy_pass http://$upstream:8080;
+    include snippets/proxy.conf;
+  }
+}

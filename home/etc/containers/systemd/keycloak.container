@@ -1,0 +1,13 @@
+[Unit]
+Requires=postgresql.service
+After=postgresql.service
+[Container]
+Image=quay.io/keycloak/keycloak
+Network=nginx.network
+Network=postgresql.network
+Exec=start --hostname=auth.strypsteen.com --http-enabled=true --proxy-headers=xforwarded --db=postgres --db-url-host=systemd-postgresql --db-username=keycloak --db-url-database=keycloak
+Tmpfs=/opt/keycloak
+Secret=KC_DB_PASSWORD,type=env
+AutoUpdate=registry
+[Install]
+WantedBy=multi-user.target
