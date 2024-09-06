@@ -5,6 +5,7 @@ AddDevice=/dev/kvm
 AddDevice=/dev/net/tun
 PidsLimit=-1
 Volume=/var/lib/system-config/container-config/code-server/settings.json:/home/coder/.local/share/code-server/Machine/settings.json:z,ro
+Volume=code-server-continue.volume:/home/coder/.continue:U,Z
 Volume=code-server-settings.volume:/home/coder/.local/share/code-server:U,Z
 Volume=code-server-ssh.volume:/home/coder/.ssh:U,Z
 Volume=code-server-projects.volume:/home/coder/projects:U,Z
