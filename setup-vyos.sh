@@ -15,6 +15,7 @@ set system static-host-mapping host-name home.strypsteen.com alias network.stryp
 set system static-host-mapping host-name home.strypsteen.com alias office.strypsteen.com
 set system static-host-mapping host-name home.strypsteen.com alias remote-desktop.strypsteen.com
 set system static-host-mapping host-name home.strypsteen.com alias vault.strypsteen.com
+set system static-host-mapping host-name home.strypsteen.com alias xmr.strypsteen.com
 set system sysctl parameter net.ipv6.conf.eth0.use_tempaddr value 2
 set system time-zone Europe/Brussels
 

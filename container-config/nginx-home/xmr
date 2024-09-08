@@ -1,0 +1,11 @@
+server {
+  server_name xmr.strypsteen.com;
+  listen 443 ssl;
+  listen [::]:443 ssl;
+  include snippets/headers.conf;
+  location / {
+    set $upstream systemd-monero.;
+    proxy_pass http://$upstream:18089;
+    include snippets/proxy.conf;
+  }
+}
