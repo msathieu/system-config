@@ -22,6 +22,8 @@ elif [ -d /usr/lib/coreos ]; then
     sh setup-home.sh
   elif [ "$1" = sandbox ]; then
     sh setup-sandbox.sh
+  elif [ "$1" = infra ]; then
+    sh setup-infra.sh
   fi
 elif [ -d /ostree ]; then
   sh setup-laptop.sh
