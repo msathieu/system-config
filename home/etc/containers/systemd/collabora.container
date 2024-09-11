@@ -4,6 +4,7 @@ UserNS=host
 ReadOnly=false
 Network=nginx.network
 Volume=/var/lib/container-data/collabora.xml:/etc/coolwsd/coolwsd.xml:U,Z
+PublishPort=8010:9980
 AutoUpdate=registry
 [Install]
 WantedBy=multi-user.target

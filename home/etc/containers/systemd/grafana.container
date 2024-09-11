@@ -12,6 +12,7 @@ Environment=GF_SMTP_HOST=vps.strypsteen.com:465
 Environment=GF_SMTP_USER=monitoring
 Environment=GF_SMTP_FROM_ADDRESS=monitoring@strypsteen.me
 Secret=GF_SMTP_PASSWORD,type=env
+PublishPort=8008:3000
 AutoUpdate=registry
 [Install]
 WantedBy=multi-user.target

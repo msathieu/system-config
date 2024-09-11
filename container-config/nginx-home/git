@@ -5,8 +5,8 @@ server {
   include snippets/headers.conf;
   add_header Content-Security-Policy "default-src 'self'; font-src 'self' data:; img-src 'self' data:; script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'";
   location / {
-    set $upstream systemd-forgejo.;
-    proxy_pass http://$upstream:3000;
+    set $upstream home.server.home.arpa;
+    proxy_pass http://$upstream:8003;
     include snippets/proxy.conf;
     proxy_hide_header Content-Security-Policy;
   }

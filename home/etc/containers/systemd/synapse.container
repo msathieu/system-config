@@ -10,6 +10,7 @@ Exec=run --config-path /etc/synapse/homeserver.yaml --config-path /etc/synapse.y
 Volume=/var/lib/system-config/container-config/synapse:/etc/synapse:z,ro
 Volume=/var/lib/container-data/synapse.yaml:/etc/synapse.yaml:z,ro
 Volume=synapse.volume:/data:U,Z
+PublishPort=8005:8080
 AutoUpdate=registry
 [Install]
 WantedBy=multi-user.target

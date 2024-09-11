@@ -7,6 +7,7 @@ Secret=forgejo-token
 Secret=forgejo-jwt-secret
 Environment=GITEA_APP_INI=/etc/gitea/app.ini
 PublishPort=2222:2222
+PublishPort=8003:80
 AutoUpdate=registry
 [Install]
 WantedBy=multi-user.target

@@ -6,8 +6,8 @@ server {
   deny fd00::1;
   include snippets/headers.conf;
   location / {
-    set $upstream systemd-big-agi.;
-    proxy_pass http://$upstream:3000;
+    set $upstream home.server.home.arpa;
+    proxy_pass http://$upstream:8004;
     include snippets/proxy.conf;
   }
 }

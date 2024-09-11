@@ -10,6 +10,7 @@ Entrypoint=sh
 Exec=-c "chown -Rh www-data:www-data /var/www/html && busybox crond && /entrypoint.sh apache2-foreground > /dev/null"
 Volume=nextcloud.volume:/var/www/html:U,Z
 Environment=OVERWRITEPROTOCOL=https
+PublishPort=8002:80
 AutoUpdate=registry
 [Install]
 WantedBy=multi-user.target

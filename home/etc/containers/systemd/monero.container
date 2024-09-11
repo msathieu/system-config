@@ -5,6 +5,7 @@ After=network-online.target
 Image=git.strypsteen.com/mathieu/monero
 Network=nginx.network
 Volume=monero.volume:/root/.bitmonero:U,Z
+PublishPort=8012:18089
 AutoUpdate=registry
 [Install]
 WantedBy=multi-user.target

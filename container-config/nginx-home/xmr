@@ -4,8 +4,8 @@ server {
   listen [::]:443 ssl;
   include snippets/headers.conf;
   location / {
-    set $upstream systemd-monero.;
-    proxy_pass http://$upstream:18089;
+    set $upstream home.server.home.arpa;
+    proxy_pass http://$upstream:8012;
     include snippets/proxy.conf;
   }
 }

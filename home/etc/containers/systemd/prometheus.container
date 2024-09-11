@@ -6,6 +6,7 @@ Volume=/var/lib/system-config/container-config/prometheus/prometheus.yml:/promet
 Volume=prometheus.volume:/prometheus/data:U,Z
 Tmpfs=/prometheus
 Secret=prometheus-config
+PublishPort=8006:9090
 AutoUpdate=registry
 [Install]
 WantedBy=multi-user.target

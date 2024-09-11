@@ -6,6 +6,7 @@ Environment=DOMAIN=https://vault.strypsteen.com
 Environment=LOG_LEVEL=warn
 Environment=SIGNUPS_ALLOWED=false
 Environment=TRASH_AUTO_DELETE_DAYS=14
+PublishPort=8011:80
 AutoUpdate=registry
 [Install]
 WantedBy=multi-user.target
