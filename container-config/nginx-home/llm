@@ -2,9 +2,8 @@ server {
   server_name llm.strypsteen.com;
   listen 443 ssl;
   listen [::]:443 ssl;
-  deny 10.0.0.1;
-  deny fd00::1;
   include snippets/headers.conf;
+  include snippets/local-only.conf;
   location / {
     set $upstream home.server.home.arpa;
     proxy_pass http://$upstream:8004;

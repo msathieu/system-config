@@ -7,7 +7,7 @@ AddKeysToAgent yes
 ExitOnForwardFailure yes
 Host pve
   HostName pve.strypsteen.com
-Host
+Host infra
   HostName infra.server.home.arpa
 Host home
   HostName home.server.home.arpa

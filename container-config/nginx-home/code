@@ -3,9 +3,8 @@ server {
   server_name *.code-proxy.strypsteen.com;
   listen 443 ssl;
   listen [::]:443 ssl;
-  deny 10.0.0.1;
-  deny fd00::1;
   include snippets/headers.conf;
+  include snippets/local-only.conf;
   location / {
     set $upstream sandbox.server.home.arpa;
     proxy_pass http://$upstream:8080;
