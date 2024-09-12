@@ -4,8 +4,8 @@ server {
   listen [::]:443 ssl;
   include snippets/headers.conf;
   location / {
-    set $upstream home.server.home.arpa;
-    proxy_pass http://$upstream:8000;
+    set $upstream systemd-keycloak.;
+    proxy_pass http://$upstream:8080;
     include snippets/proxy.conf;
   }
 }
