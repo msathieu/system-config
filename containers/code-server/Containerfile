@@ -8,8 +8,9 @@ RUN touch /var/lib/systemd/linger/coder
 RUN useradd coder
 RUN echo "coder ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 USER coder
-RUN mkdir -p /home/coder/.config/systemd/user/default.target.wants
+RUN mkdir -p /home/coder/.config/systemd/user/default.target.wants /home/coder/.config/systemd/user/sockets.target.wants
 RUN ln -s /etc/systemd/user/code-server.service /home/coder/.config/systemd/user/default.target.wants
+RUN ln -s /usr/lib/systemd/user/sockets.target.wants/ssh-agent.socket /home/coder/.config/systemd/user/sockets.target.wants
 RUN rustup-init -y
 USER root
 COPY polkit.service /etc/systemd/system
