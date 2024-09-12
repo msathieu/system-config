@@ -27,7 +27,7 @@ set interfaces ethernet eth2 address 192.168.254.1/24
 set interfaces ethernet eth2 address fc01::1/64
 set interfaces ethernet eth3 address 192.168.253.1/24
 set interfaces ethernet eth3 address fc02::1/64
-set interfaces wireguard wg0 address 10.255.0.1/24
+set interfaces wireguard wg0 address 192.168.252.1/24
 set interfaces wireguard wg0 port 51820
 
 set service ssh disable-password-authentication
@@ -61,7 +61,6 @@ set service dns forwarding name-server 9.9.9.9
 set service dns forwarding dnssec validate
 set service dns forwarding allow-from 127.0.0.1/32
 set service dns forwarding allow-from 192.168.0.0/16
-set service dns forwarding allow-from 10.255.0.0/16
 set service tftp-server directory /config/tftp
 set service tftp-server listen-address 192.168.253.1
 set service monitoring telegraf influxdb url http://home.strypsteen.com
