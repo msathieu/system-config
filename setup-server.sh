@@ -1,5 +1,5 @@
-#!/bin/sh
-set -e
+#!/bin/bash
+set -euo pipefail
 cp -R server/* /
 systemctl disable auditd
 systemctl disable --now docker.socket rpm-ostree-countme.timer

@@ -1,5 +1,5 @@
-#!/bin/sh
-set -e
+#!/bin/bash
+set -euo pipefail
 helm upgrade --install metallb metallb --repo https://metallb.github.io/metallb --namespace metallb-system --create-namespace
 kubectl label namespaces metallb-system pod-security.kubernetes.io/enforce=privileged
 kubectl apply -f k8s/metallb.yaml

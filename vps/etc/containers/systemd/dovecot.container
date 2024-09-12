@@ -1,7 +1,7 @@
 [Container]
 Image=git.strypsteen.com/mathieu/dovecot
 Network=mail.network
-Volume=/etc/certificates:/etc/certificates:z,ro
+Volume=/etc/certificates/certificates:/etc/certificates:z,ro
 Volume=/var/lib/container-data/dovecot:/etc/dovecot-local:z,ro
 Volume=/var/lib/container-data/dovecot/local.sieve:/tmp/local.sieve:z,ro
 Volume=dovecot.volume:/srv/mail:U,Z

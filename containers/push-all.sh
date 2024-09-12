@@ -1,5 +1,5 @@
-#!/bin/sh
-set -e
+#!/bin/bash
+set -euo pipefail
 cd "$(dirname "$0")"
 for container in */; do
   container=${container%/}

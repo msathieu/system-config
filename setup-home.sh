@@ -1,4 +1,4 @@
-#!/bin/sh
-set -e
+#!/bin/bash
+set -euo pipefail
 cp -R home/* /
 sh setup-server.sh

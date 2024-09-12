@@ -1,5 +1,5 @@
-#!/bin/sh
-set -e
+#!/bin/bash
+set -euo pipefail
 cd "$(dirname "$0")"
 if [ "$USER" != root ]; then
   echo "Needs to be run as root" >&2

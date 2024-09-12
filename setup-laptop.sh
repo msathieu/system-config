@@ -1,5 +1,5 @@
-#!/bin/sh
-set -e
+#!/bin/bash
+set -euo pipefail
 cp -R desktop/* laptop/* /
 sh setup-desktop.sh
 systemctl disable auditd
