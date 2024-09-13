@@ -14,7 +14,7 @@ Environment=DB_MONGO_LOCAL=false
 Environment=DB_MONGO_URI=mongodb://systemd-mongodb/unifi
 Environment=STATDB_MONGO_URI=mongodb://systemd-mongodb/unifi_stat
 PublishPort=8080:8080
-PublishPort=8009:8443
+PublishPort=10.0.1.2:8009:8443
 AutoUpdate=registry
 [Install]
 WantedBy=multi-user.target
