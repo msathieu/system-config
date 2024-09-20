@@ -3,6 +3,7 @@ logging {
 }
 prometheus.exporter.unix "local" {
   rootfs_path = "/run/host"
+  udev_data_path = "/run/host/run/udev/data"
   enable_collectors = ["systemd"]
 }
 prometheus.scrape "scraper" {
