@@ -5,8 +5,8 @@ server {
   include snippets/headers.conf;
   include snippets/local-only.conf;
   location / {
-    set $upstream home.server.home.arpa;
-    proxy_pass http://$upstream:8008;
+    set $upstream systemd-grafana.;
+    proxy_pass http://$upstream:3000;
     include snippets/proxy.conf;
     proxy_http_version 1.1;
     proxy_set_header Connection upgrade;
