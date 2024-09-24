@@ -1,7 +1,7 @@
 FROM quay.io/fedora/fedora-toolbox:41
 RUN dnf up -y
 RUN dnf install -y bash-color-prompt clang gcc hyperfine java-devel libvirt llvm mtools nodejs-npm openssl-devel parted poetry postgresql-server python3-ipykernel python3-pip qemu-system-x86-core rustup systemd-container vim-enhanced
-RUN dnf install -y https://github.com/coder/code-server/releases/download/v4.93.1-rc.1/code-server-4.93.1-rc.1-amd64.rpm
+RUN dnf install -y https://github.com/coder/code-server/releases/download/v4.93.1/code-server-4.93.1-amd64.rpm
 RUN mkdir /etc/systemd/system/user@.service.d
 RUN mkdir /var/lib/systemd/linger
 RUN touch /var/lib/systemd/linger/coder
