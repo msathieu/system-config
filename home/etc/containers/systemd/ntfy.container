@@ -1,0 +1,15 @@
+[Container]
+Image=docker.io/binwiederhier/ntfy
+Network=nginx.network
+Exec=serve
+Volume=ntfy.volume:/var/lib/ntfy:U,Z
+Environment=NTFY_AUTH_DEFAULT_ACCESS=write-only
+Environment=NTFY_AUTH_FILE=/var/lib/ntfy/auth.db
+Environment=NTFY_BASE_URL=https://push.strypsteen.com
+Environment=NTFY_BEHIND_PROXY=true
+Environment=NTFY_CACHE_FILE=/var/lib/ntfy/cache.db
+Environment=NTFY_ENABLE_LOGIN=true
+PublishPort=10.0.1.2:8003:80
+AutoUpdate=registry
+[Install]
+WantedBy=multi-user.target
