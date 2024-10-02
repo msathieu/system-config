@@ -1,0 +1,10 @@
+[Container]
+Image=code.forgejo.org/forgejo/runner:3.5.1
+SecurityLabelDisable=true
+Exec=forgejo-runner daemon -c /etc/forgejo-runner/config.yaml
+Volume=/run/podman:/run/podman:U
+Volume=/var/lib/system-config/container-config/forgejo-runner/config.yaml:/etc/forgejo-runner/config.yaml:z,ro
+Volume=forgejo-runner.volume:/data:U,Z
+AutoUpdate=registry
+[Install]
+WantedBy=multi-user.target
