@@ -1,4 +1,4 @@
-compatibility_level = 3.8
+compatibility_level = 3.9
 maillog_file = /dev/stdout
 myhostname = vps.strypsteen.com
 mydestination =

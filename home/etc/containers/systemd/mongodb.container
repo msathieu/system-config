@@ -1,5 +1,5 @@
 [Container]
-Image=docker.io/mongo:7.0
+Image=docker.io/mongo:8.0
 UserNS=host
 Exec=--logpath /dev/null
 Network=mongodb.network
