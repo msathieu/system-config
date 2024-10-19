@@ -56,10 +56,12 @@ set service dhcp-server shared-network-name server subnet 192.168.253.0/24 lease
 set service router-advert interface eth1 prefix ::/64
 set service router-advert interface eth2 prefix ::/64
 set service router-advert interface eth3 prefix ::/64
-set service dns forwarding listen-address 0.0.0.0
-set service dns forwarding name-server 9.9.9.9
+set service dns forwarding listen-address 192.168.252.1
+set service dns forwarding listen-address 192.168.253.1
+set service dns forwarding listen-address 192.168.254.1
+set service dns forwarding listen-address 192.168.255.1
+set service dns forwarding name-server 127.0.0.1
 set service dns forwarding dnssec validate
-set service dns forwarding allow-from 127.0.0.1/32
 set service dns forwarding allow-from 192.168.0.0/16
 set service tftp-server directory /config/tftp
 set service tftp-server listen-address 192.168.253.1
