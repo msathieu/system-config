@@ -7,5 +7,6 @@ server {
     set $upstream home.server.home.arpa;
     proxy_pass http://$upstream:8012;
     include snippets/proxy.conf;
+    proxy_set_header Connection "";
   }
 }

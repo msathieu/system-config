@@ -1,5 +1,4 @@
 container:
-  docker_host: '-'
   options: --userns=host
 runner:
   labels: ["debian-12:docker://node:bookworm"]
