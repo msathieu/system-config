@@ -1,7 +1,8 @@
 #!/bin/bash
 set -euo pipefail
 cp -R desktop/* qubes-fedora/* /
-dnf config-manager --set-enabled qubes-vm-r4.2-security-testing qubes-vm-r4.2-current-testing
+dnf config-manager setopt qubes-vm-r4.2-security-testing.enabled=true
+dnf config-manager setopt qubes-vm-r4.2-current-testing.enabled=true
 dnf install --allowerasing bash-color-prompt bash-completion borgbackup bind-utils butane default-fonts fcitx5-anthy fcitx5-autostart fedora-flathub-remote ffmpeg-free file-roller fuse-sshfs gcc gcc-gdb-plugin glibc-all-langpacks helm htop kubernetes-client nautilus netcat nodejs-npm pipx qubes-ctap ShellCheck toolbox wireguard-tools whois xdg-desktop-portal-gtk yt-dlp
 dnf remove cheese evolution-data-server firefox gnome-software gnome-weather PackageKit-command-not-found rpmfusion-nonfree-release thunderbird totem
 sh setup-desktop.sh
