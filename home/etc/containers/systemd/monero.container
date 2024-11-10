@@ -2,7 +2,7 @@
 Wants=network-online.target
 After=network-online.target
 [Container]
-Image=git.strypsteen.com/mathieu/monero
+Image=git.strypsteen.com/infra/monero
 Network=nginx.network
 Volume=monero.volume:/root/.bitmonero:U,Z
 PublishPort=10.0.1.2:8012:18089

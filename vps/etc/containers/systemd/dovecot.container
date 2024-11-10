@@ -1,5 +1,5 @@
 [Container]
-Image=git.strypsteen.com/mathieu/dovecot
+Image=git.strypsteen.com/infra/dovecot
 Network=mail.network
 Volume=/etc/certificates/certificates:/etc/certificates:z,ro
 Volume=/var/lib/container-data/dovecot:/etc/dovecot-local:z,ro

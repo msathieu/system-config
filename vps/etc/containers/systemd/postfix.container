@@ -2,7 +2,7 @@
 Requires=dovecot.service rspamd.service unbound.service
 After=dovecot.service rspamd.service unbound.service
 [Container]
-Image=git.strypsteen.com/mathieu/postfix
+Image=git.strypsteen.com/infra/postfix
 UserNS=host
 Network=mail.network
 Volume=/etc/certificates/certificates:/etc/certificates:z,ro

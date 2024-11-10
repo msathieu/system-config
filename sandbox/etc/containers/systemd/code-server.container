@@ -1,5 +1,5 @@
 [Container]
-Image=git.strypsteen.com/mathieu/code-server
+Image=git.strypsteen.com/infra/code-server
 ReadOnly=false
 AddDevice=/dev/kvm
 AddDevice=/dev/net/tun
