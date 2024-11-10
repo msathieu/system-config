@@ -1,10 +1,8 @@
-[Unit]
-Wants=network-online.target
-After=network-online.target
 [Container]
-Image=git.strypsteen.com/infra/monero
+Image=docker.io/btcpayserver/monero:0.18.3.4
 Network=nginx.network
-Volume=monero.volume:/root/.bitmonero:U,Z
+Exec=monerod --non-interactive --prune-blockchain --rpc-use-ipv6 --rpc-restricted-bind-ip=0.0.0.0 --rpc-restricted-bind-ipv6-address=:: --rpc-restricted-bind-port=18089
+Volume=monero.volume:/home/monero/.bitmonero:U,Z
 PublishPort=10.0.1.2:8012:18089
 AutoUpdate=registry
 [Install]

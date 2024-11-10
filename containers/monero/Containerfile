@@ -1,4 +1,0 @@
-FROM alpine:3.20
-RUN apk upgrade
-RUN apk add monero
-CMD monerod --non-interactive --prune-blockchain --rpc-use-ipv6 --rpc-restricted-bind-ip=0.0.0.0 --rpc-restricted-bind-ipv6-address=:: --rpc-restricted-bind-port=18089
