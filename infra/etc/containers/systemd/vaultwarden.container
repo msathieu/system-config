@@ -3,6 +3,7 @@ Image=docker.io/vaultwarden/server:latest-alpine
 Network=nginx.network
 Volume=vaultwarden.volume:/data:U,Z
 Environment=DOMAIN=https://vault.strypsteen.com
+Environment=ICON_SERVICE=bitwarden
 Environment=LOG_LEVEL=warn
 Environment=SIGNUPS_ALLOWED=false
 Environment=TRASH_AUTO_DELETE_DAYS=14
