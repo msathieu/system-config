@@ -1,5 +1,5 @@
 [Container]
-Image=code.forgejo.org/forgejo/runner:4.0.1
+Image=code.forgejo.org/forgejo/runner:5
 SecurityLabelDisable=true
 Exec=forgejo-runner daemon -c /etc/forgejo-runner/config.yaml
 Volume=/run/podman:/run/podman:U

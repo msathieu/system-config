@@ -2,8 +2,8 @@
 Image=docker.io/mongo:8.0
 UserNS=host
 Exec=--logpath /dev/null
-Network=mongodb.network
-Volume=mongodb.volume:/data/db:Z
+Network=unifi.network
+Volume=unifi-mongodb.volume:/data/db:Z
 AutoUpdate=registry
 [Install]
 WantedBy=multi-user.target

@@ -1,11 +1,10 @@
 [Unit]
-Requires=postgresql.service valkey.service
-After=postgresql.service valkey.service
+Requires=postgresql.service nextcloud-valkey.service
+After=postgresql.service nextcloud-valkey.service
 [Container]
 Image=docker.io/nextcloud
-Network=nginx.network
+Network=nextcloud.network
 Network=postgresql.network
-Network=valkey.network
 Entrypoint=sh
 Exec=-c "chown -Rh www-data:www-data /var/www/html && busybox crond && /entrypoint.sh apache2-foreground > /dev/null"
 Volume=nextcloud.volume:/var/www/html:U,Z
