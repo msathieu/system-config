@@ -13,6 +13,7 @@ set system static-host-mapping host-name home.strypsteen.com alias metrics.stryp
 set system static-host-mapping host-name home.strypsteen.com alias monitoring.strypsteen.com
 set system static-host-mapping host-name home.strypsteen.com alias network.strypsteen.com
 set system static-host-mapping host-name home.strypsteen.com alias office.strypsteen.com
+set system static-host-mapping host-name home.strypsteen.com alias photos.strypsteen.com
 set system static-host-mapping host-name home.strypsteen.com alias remote-desktop.strypsteen.com
 set system static-host-mapping host-name home.strypsteen.com alias vault.strypsteen.com
 set system static-host-mapping host-name home.strypsteen.com alias xmr.strypsteen.com

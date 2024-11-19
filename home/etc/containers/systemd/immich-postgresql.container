@@ -1,0 +1,8 @@
+[Container]
+Image=docker.io/tensorchord/pgvecto-rs:pg16-v0.3.0
+Network=immich.network
+Volume=immich-postgresql.volume:/var/lib/postgresql/data:U,Z
+Secret=POSTGRES_PASSWORD,type=env
+AutoUpdate=registry
+[Install]
+WantedBy=multi-user.target

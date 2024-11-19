@@ -1,0 +1,7 @@
+[Container]
+Image=cgr.dev/chainguard/valkey
+Network=immich.network
+Volume=immich-valkey.volume:/data:U,Z
+AutoUpdate=registry
+[Install]
+WantedBy=multi-user.target
