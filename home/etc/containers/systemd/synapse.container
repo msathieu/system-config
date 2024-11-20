@@ -3,8 +3,7 @@ Requires=postgresql.service
 After=postgresql.service
 [Container]
 Image=docker.io/matrixdotorg/synapse
-Network=nginx.network
-Network=postgresql.network
+Network=synapse.network
 User=991
 Exec=run --config-path /etc/synapse/homeserver.yaml --config-path /etc/synapse.yaml
 Volume=/var/lib/system-config/container-config/synapse:/etc/synapse:z,ro

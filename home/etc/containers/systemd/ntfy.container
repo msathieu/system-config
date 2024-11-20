@@ -1,6 +1,5 @@
 [Container]
 Image=docker.io/binwiederhier/ntfy
-Network=nginx.network
 Exec=serve
 Volume=ntfy.volume:/var/lib/ntfy:U,Z
 Environment=NTFY_AUTH_DEFAULT_ACCESS=write-only

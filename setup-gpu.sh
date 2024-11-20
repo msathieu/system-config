@@ -2,7 +2,7 @@
 set -euo pipefail
 cp -R desktop/* gpu/* /
 sh setup-desktop.sh
-systemctl enable --now sshd
+systemctl enable --now podman-auto-update.timer sshd
 systemctl disable auditd
 sed "s/SUB_UID_COUNT.*/SUB_UID_COUNT 16777216/" -i /etc/login.defs
 sed "s/SUB_GID_COUNT.*/SUB_GID_COUNT 16777216/" -i /etc/login.defs

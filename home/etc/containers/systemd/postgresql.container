@@ -1,6 +1,7 @@
 [Container]
 Image=docker.io/postgres:16-alpine
-Network=postgresql.network
+Network=nextcloud.network
+Network=synapse.network
 Volume=postgresql.volume:/var/lib/postgresql/data:U,Z
 Secret=POSTGRES_PASSWORD,type=env
 AutoUpdate=registry
