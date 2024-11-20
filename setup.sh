@@ -26,5 +26,9 @@ elif [ -d /usr/lib/coreos ]; then
     sh setup-infra.sh
   fi
 elif [ -d /ostree ]; then
-  sh setup-laptop.sh
+  if [ "$1" = laptop ]; then
+    sh setup-laptop.sh
+  elif [ "$1" = gpu ]; then
+    sh setup-gpu.sh
+  fi
 fi

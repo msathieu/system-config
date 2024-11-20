@@ -9,6 +9,8 @@ Host pve
   HostName pve.strypsteen.com
 Host infra
   HostName infra.server.home.arpa
+Host gpu
+  HostName gpu.server.home.arpa
 Host home
   HostName home.server.home.arpa
 Host home-gw
