@@ -1,5 +1,9 @@
 [Container]
 Image=docker.io/ollama/ollama
+AddDevice=nvidia.com/gpu=all
+Volume=ollama.volume:/root/.ollama/models:U,Z
+Environment=OLLAMA_NOHISTORY=true
+PublishPort=11434:11434
 AutoUpdate=registry
 [Install]
 WantedBy=multi-user.target
