@@ -1,3 +1,4 @@
 #!/bin/sh
 set -e
+systemctl --user start sandboxed-toolbox
 podman exec -it -e TERM=xterm-256color systemd-sandboxed-toolbox machinectl shell mathieu@
