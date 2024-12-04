@@ -5,8 +5,6 @@ source_directories:
   - /run/host/var/lib/containers/storage/secrets
   - /run/host/var/lib/containers/storage/volumes/systemd-*
   - /run/host/var/roothome
-exclude_patterns:
-  - /run/host/var/lib/containers/storage/volumes/systemd-monero
 repositories:
   - label: remote
     path: ${BORG_REMOTE}
@@ -15,4 +13,9 @@ keep_daily: 7
 keep_weekly: 4
 keep_monthly: 3
 read_special: true
+loki:
+  url: https://metrics.strypsteen.com/loki/api/v1/push
+  labels:
+    host: __hostname
+    job: borgmatic
 <<: !include /etc/borgmatic/local.yaml
