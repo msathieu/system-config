@@ -17,17 +17,17 @@ set system static-host-mapping host-name home.strypsteen.com alias photos.stryps
 set system static-host-mapping host-name home.strypsteen.com alias remote-desktop.strypsteen.com
 set system static-host-mapping host-name home.strypsteen.com alias vault.strypsteen.com
 set system static-host-mapping host-name home.strypsteen.com alias xmr.strypsteen.com
-set system sysctl parameter net.ipv6.conf.eth0.use_tempaddr value 2
 set system time-zone Europe/Brussels
 
 set interfaces ethernet eth0 address dhcp
 set interfaces ethernet eth0 ipv6 address autoconf
+set interfaces ethernet eth0 dhcpv6-options pd 0 length 56
+set interfaces ethernet eth0 dhcpv6-options pd 0 interface eth1 sla-id 0
+set interfaces ethernet eth0 dhcpv6-options pd 0 interface eth2 sla-id 1
+set interfaces ethernet eth0 dhcpv6-options pd 0 interface eth3 sla-id 2
 set interfaces ethernet eth1 address 192.168.255.1/24
-set interfaces ethernet eth1 address fc00::1/64
 set interfaces ethernet eth2 address 192.168.254.1/24
-set interfaces ethernet eth2 address fc01::1/64
 set interfaces ethernet eth3 address 192.168.253.1/24
-set interfaces ethernet eth3 address fc02::1/64
 set interfaces wireguard wg0 address 192.168.252.1/24
 set interfaces wireguard wg0 port 51820
 
@@ -69,14 +69,18 @@ set service tftp-server listen-address 192.168.253.1
 set service monitoring telegraf influxdb url http://home.server.home.arpa
 set service monitoring telegraf influxdb bucket vyos
 set service monitoring telegraf influxdb authentication organization metrics
+set service lldp interface all
 
 set nat source rule 1 outbound-interface name eth0
 set nat source rule 1 translation address masquerade
-set nat66 source rule 1 outbound-interface name eth0
-set nat66 source rule 1 translation address masquerade
+
+delete firewall
 
 set firewall global-options source-validation strict
 set firewall global-options ipv6-source-validation strict
+
+set firewall ipv6 forward filter rule 6 action accept
+set firewall ipv6 forward filter rule 6 protocol ipv6-icmp
 
 firewall_types="ipv4 ipv6"
 
@@ -93,8 +97,6 @@ for i in ${firewall_types}; do
   set firewall "$i" forward filter rule 4 inbound-interface name eth2
   set firewall "$i" forward filter rule 4 outbound-interface name eth3
   set firewall "$i" forward filter rule 5 action accept
-  set firewall "$i" forward filter rule 5 inbound-interface name eth3
-  set firewall "$i" forward filter rule 5 outbound-interface name eth2
-  set firewall "$i" forward filter rule 6 action accept
-  set firewall "$i" forward filter rule 6 inbound-interface name wg0
+  set firewall "$i" forward filter rule 5 inbound-interface name wg0
+  set firewall "$i" forward filter rule 5 outbound-interface name eth3
 done
