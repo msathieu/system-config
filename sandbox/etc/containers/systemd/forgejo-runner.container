@@ -1,3 +1,5 @@
+[Service]
+Restart=on-failure
 [Container]
 Image=code.forgejo.org/forgejo/runner:5
 SecurityLabelDisable=true

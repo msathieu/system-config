@@ -1,6 +1,8 @@
 [Unit]
 Requires=postgresql.service
 After=postgresql.service
+[Service]
+Restart=on-failure
 [Container]
 Image=docker.io/matrixdotorg/synapse
 Network=synapse.network

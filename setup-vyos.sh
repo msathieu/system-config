@@ -55,15 +55,22 @@ set service dhcp-server shared-network-name server subnet 192.168.253.0/24 range
 set service dhcp-server shared-network-name server subnet 192.168.253.0/24 range 0 stop 192.168.253.253
 set service dhcp-server shared-network-name server subnet 192.168.253.0/24 lease 1800
 set service router-advert interface eth1 prefix ::/64
+set service router-advert interface eth1 name-server fc00::1
 set service router-advert interface eth2 prefix ::/64
+set service router-advert interface eth2 name-server fc01::1
 set service router-advert interface eth3 prefix ::/64
+set service router-advert interface eth3 name-server fc02::1
 set service dns forwarding listen-address 192.168.252.1
 set service dns forwarding listen-address 192.168.253.1
 set service dns forwarding listen-address 192.168.254.1
 set service dns forwarding listen-address 192.168.255.1
+set service dns forwarding listen-address fc00::1
+set service dns forwarding listen-address fc01::1
+set service dns forwarding listen-address fc02::1
 set service dns forwarding name-server 127.0.0.1
 set service dns forwarding dnssec validate
 set service dns forwarding allow-from 192.168.0.0/16
+set service dns forwarding allow-from fc00::/7
 set service tftp-server directory /config/tftp
 set service tftp-server listen-address 192.168.253.1
 set service monitoring telegraf influxdb url http://home.server.home.arpa
