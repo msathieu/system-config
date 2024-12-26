@@ -1,8 +1,0 @@
-[Container]
-Image=docker.io/influxdb
-Volume=influxdb.volume:/var/lib/influxdb2:U,Z
-Tmpfs=/etc/influxdb2
-PublishPort=8086:8086
-AutoUpdate=registry
-[Install]
-WantedBy=multi-user.target

@@ -73,9 +73,7 @@ set service dns forwarding allow-from 192.168.0.0/16
 set service dns forwarding allow-from fc00::/7
 set service tftp-server directory /config/tftp
 set service tftp-server listen-address 192.168.253.1
-set service monitoring telegraf influxdb url http://home.server.home.arpa
-set service monitoring telegraf influxdb bucket vyos
-set service monitoring telegraf influxdb authentication organization metrics
+set service monitoring node-exporter listen-address 192.168.253.1
 set service lldp interface all
 
 set nat source rule 1 outbound-interface name eth0
