@@ -1,7 +1,7 @@
 [Container]
 Image=docker.io/binwiederhier/ntfy
 Exec=serve
-Volume=ntfy.volume:/var/lib/ntfy:U,Z
+Volume=systemd-ntfy:/var/lib/ntfy:U,Z
 Environment=NTFY_AUTH_DEFAULT_ACCESS=write-only
 Environment=NTFY_AUTH_FILE=/var/lib/ntfy/auth.db
 Environment=NTFY_BASE_URL=https://push.strypsteen.com

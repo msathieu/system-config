@@ -5,7 +5,7 @@ After=valkey.service unbound.service
 Image=docker.io/rspamd/rspamd
 Network=mail.network
 Volume=/var/lib/system-config/container-config/rspamd:/etc/rspamd/local.d:z,ro
-Volume=rspamd.volume:/var/lib/rspamd:U,Z
+Volume=systemd-rspamd:/var/lib/rspamd:U,Z
 Secret=dkim.key
 AutoUpdate=registry
 [Install]

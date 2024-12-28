@@ -6,7 +6,7 @@ Unmask=ALL
 Network=host
 Exec=run /etc/alloy/config.alloy --storage.path=/var/lib/alloy/data --disable-reporting
 Volume=/var/lib/system-config/container-config/alloy/config.alloy:/etc/alloy/config.alloy:z,ro
-Volume=alloy.volume:/var/lib/alloy/data:U,Z
+Volume=systemd-alloy:/var/lib/alloy/data:U,Z
 Volume=/:/run/host:ro
 Volume=/run/systemd:/run/systemd
 Tmpfs=/var/lib/alloy

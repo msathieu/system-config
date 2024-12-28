@@ -4,7 +4,7 @@ After=immich-ml.service immich-postgresql.service immich-valkey.service
 [Container]
 Image=ghcr.io/immich-app/immich-server:release
 Network=immich.network
-Volume=immich.volume:/usr/src/app/upload:U,Z
+Volume=systemd-immich:/usr/src/app/upload:U,Z
 Environment=DB_HOSTNAME=systemd-immich-postgresql
 Environment=DB_USERNAME=immich
 Environment=REDIS_HOSTNAME=systemd-immich-valkey

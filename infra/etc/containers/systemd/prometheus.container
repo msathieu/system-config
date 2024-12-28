@@ -3,7 +3,7 @@ Image=docker.io/prom/prometheus
 Network=nginx.network
 Exec=--web.config.file=/run/secrets/prometheus-config --web.enable-remote-write-receiver
 Volume=/var/lib/system-config/container-config/prometheus/prometheus.yml:/prometheus/prometheus.yml:z,ro
-Volume=prometheus.volume:/prometheus/data:U,Z
+Volume=systemd-prometheus:/prometheus/data:U,Z
 Tmpfs=/prometheus
 Secret=prometheus-config
 AutoUpdate=registry

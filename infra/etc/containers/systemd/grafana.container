@@ -1,7 +1,7 @@
 [Container]
 Image=docker.io/grafana/grafana-oss
 Network=nginx.network
-Volume=grafana.volume:/var/lib/grafana:U,Z
+Volume=systemd-grafana:/var/lib/grafana:U,Z
 Environment=GF_ANALYTICS_REPORTING_ENABLED=false
 Environment=GF_AUTH_DISABLE_LOGIN_FORM=true
 Environment=GF_AUTH_GENERIC_OAUTH_ENABLED=true

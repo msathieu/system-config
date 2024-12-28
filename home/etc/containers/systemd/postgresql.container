@@ -2,7 +2,7 @@
 Image=docker.io/postgres:17-alpine
 Network=nextcloud.network
 Network=synapse.network
-Volume=postgresql.volume:/var/lib/postgresql/data:U,Z
+Volume=systemd-postgresql:/var/lib/postgresql/data:U,Z
 Secret=POSTGRES_PASSWORD,type=env
 AutoUpdate=registry
 [Install]

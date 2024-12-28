@@ -6,7 +6,7 @@ Image=docker.io/nextcloud
 Network=nextcloud.network
 Entrypoint=sh
 Exec=-c "chown -Rh www-data:www-data /var/www/html && busybox crond && /entrypoint.sh apache2-foreground > /dev/null"
-Volume=nextcloud.volume:/var/www/html:U,Z
+Volume=systemd-nextcloud:/var/www/html:U,Z
 Environment=OVERWRITEPROTOCOL=https
 PublishPort=10.0.1.2:8002:80
 AutoUpdate=registry

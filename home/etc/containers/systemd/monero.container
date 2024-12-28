@@ -1,7 +1,7 @@
 [Container]
 Image=docker.io/btcpayserver/monero:0.18.3.4
 Exec=monerod --non-interactive --prune-blockchain --rpc-restricted-bind-ip=0.0.0.0 --rpc-restricted-bind-port=18089
-Volume=monero.volume:/home/monero/.bitmonero:U,Z
+Volume=systemd-monero:/home/monero/.bitmonero:U,Z
 PublishPort=10.0.1.2:8012:18089
 AutoUpdate=registry
 [Install]
