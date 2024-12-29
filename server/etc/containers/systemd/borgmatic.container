@@ -13,6 +13,7 @@ Tmpfs=/root/.cache/borg
 Environment=BACKUP_CRON="0 0 * * *"
 Secret=BORG_PASSWORD,type=env
 Secret=BORG_REMOTE,type=env
+Secret=BORG_REMOTE2,type=env
 AutoUpdate=registry
 [Install]
 WantedBy=multi-user.target
