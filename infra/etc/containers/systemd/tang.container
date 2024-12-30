@@ -1,0 +1,7 @@
+[Container]
+Image=docker.io/padhihomelab/tang
+Volume=systemd-tang:/db:U,Z
+PublishPort=8080:8080
+AutoUpdate=registry
+[Install]
+WantedBy=multi-user.target

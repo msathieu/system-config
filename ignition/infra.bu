@@ -2,9 +2,7 @@ variant: fcos
 version: 1.6.0
 boot_device:
   luks:
-    tang:
-      - url: "http://infra.server.home.arpa:8080"
-        thumbprint: "MKYiehPjYLcEz6o1yKCYLaugJDBtDMSzSgtNAWutSZs"
+    tpm2: true
     discard: true
 passwd:
   users:

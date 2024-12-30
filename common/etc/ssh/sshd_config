@@ -7,6 +7,5 @@ KexAlgorithms sntrup761x25519-sha512@openssh.com
 MACs hmac-sha2-512-etm@openssh.com
 PubkeyAcceptedKeyTypes sk-ssh-ed25519@openssh.com,ssh-ed25519
 Ciphers chacha20-poly1305@openssh.com
-AllowUsers root
 Subsystem sftp internal-sftp
 Include /usr/etc/ssh/sshd_config.d/40-ssh-key-dir.conf

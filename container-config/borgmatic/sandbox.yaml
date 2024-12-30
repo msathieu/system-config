@@ -1,1 +1,2 @@
-remote_path: borg
+exclude_patterns:
+  - /run/host/var/home

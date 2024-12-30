@@ -10,7 +10,6 @@ qubes.ClipboardPaste * @anyvm sys-whonix deny
 qubes.ClipboardPaste * @anyvm system-config deny
 qubes.ClipboardPaste * @anyvm dev deny
 qubes.ClipboardPaste * @anyvm vault deny
-qubes.ClipboardPaste * @anyvm ssh deny
 qubes.ClipboardPaste * @anyvm @anyvm ask
 qubes.OpenInVM * @anyvm @dispvm allow
 qubes.OpenInVM * @anyvm @anyvm deny
@@ -29,4 +28,3 @@ qubes.Filecopy * @anyvm sys-whonix deny
 qubes.Filecopy * @anyvm system-config deny
 qubes.Filecopy * @anyvm dev deny
 qubes.Filecopy * @anyvm vault deny
-qubes.Filecopy * @anyvm ssh deny
