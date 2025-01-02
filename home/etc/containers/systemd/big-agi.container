@@ -1,6 +1,7 @@
 [Container]
 Image=git.strypsteen.com/infra/big-agi
 Environment=HTTP_BASIC_AUTH_USERNAME=mathieu
+Environment=OLLAMA_API_HOST=https://textgen.strypsteen.com
 Environment=PUPPETEER_WSS_ENDPOINT=ws://sandbox.server.home.arpa:3000
 Secret=HTTP_BASIC_AUTH_PASSWORD,type=env
 Secret=GROQ_API_KEY,type=env

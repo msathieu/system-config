@@ -7,6 +7,7 @@ set system static-host-mapping host-name home.strypsteen.com alias chat.strypste
 set system static-host-mapping host-name home.strypsteen.com alias cloud.strypsteen.com
 set system static-host-mapping host-name home.strypsteen.com alias code.strypsteen.com
 set system static-host-mapping host-name home.strypsteen.com alias git.strypsteen.com
+set system static-host-mapping host-name home.strypsteen.com alias imagegen.strypsteen.com
 set system static-host-mapping host-name home.strypsteen.com alias llm.strypsteen.com
 set system static-host-mapping host-name home.strypsteen.com alias matrix.strypsteen.com
 set system static-host-mapping host-name home.strypsteen.com alias metrics.strypsteen.com
@@ -15,6 +16,7 @@ set system static-host-mapping host-name home.strypsteen.com alias network.stryp
 set system static-host-mapping host-name home.strypsteen.com alias office.strypsteen.com
 set system static-host-mapping host-name home.strypsteen.com alias photos.strypsteen.com
 set system static-host-mapping host-name home.strypsteen.com alias remote-desktop.strypsteen.com
+set system static-host-mapping host-name home.strypsteen.com alias textgen.strypsteen.com
 set system static-host-mapping host-name home.strypsteen.com alias vault.strypsteen.com
 set system static-host-mapping host-name home.strypsteen.com alias xmr.strypsteen.com
 set system sysctl parameter net.ipv6.conf.eth0.use_tempaddr value 2

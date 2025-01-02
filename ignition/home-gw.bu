@@ -19,6 +19,8 @@ storage:
               iifname ens* tcp dport 80 dnat ip6 to [fd00::2]
               iifname ens* tcp dport 443 dnat ip to 10.0.0.2
               iifname ens* tcp dport 443 dnat ip6 to [fd00::2]
+              iifname ens* udp dport 443 dnat ip to 10.0.0.2
+              iifname ens* udp dport 443 dnat ip6 to [fd00::2]
             }
             chain postrouting {
               type nat hook postrouting priority 0

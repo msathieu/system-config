@@ -50,6 +50,7 @@ git.strypsteen.com {
 }
 llm.strypsteen.com {
   import base
+  import local-only
   reverse_proxy http://home.server.home.arpa:8004
 }
 metrics.strypsteen.com {
@@ -59,7 +60,6 @@ metrics.strypsteen.com {
 }
 monitoring.strypsteen.com {
   import base
-  import local-only
   reverse_proxy http://systemd-grafana:3000
 }
 mta-sts.strypsteen.me {
@@ -114,4 +114,17 @@ vault.strypsteen.com {
 xmr.strypsteen.com {
   import base
   reverse_proxy http://home.server.home.arpa:8012
+}
+textgen.strypsteen.com {
+  import base
+  import local-only
+  reverse_proxy http://gpu.server.home.arpa:11434
+}
+imagegen.strypsteen.com {
+  import base
+  import local-only
+  basic_auth {
+    mathieu {$INVOKEAI_PASSWORD}
+  }
+  reverse_proxy http://gpu.server.home.arpa:9090
 }
