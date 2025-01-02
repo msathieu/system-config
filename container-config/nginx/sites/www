@@ -1,6 +1,0 @@
-server {
-  server_name www.strypsteen.me;
-  listen 443 ssl;
-  listen [::]:443 ssl;
-  return 301 https://strypsteen.me$request_uri;
-}
