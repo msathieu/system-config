@@ -1,8 +1,8 @@
 [Container]
 Image=ghcr.io/invoke-ai/invokeai:5-cuda
-UserNS=auto:uidmapping=0:0:1
 AddDevice=nvidia.com/gpu=all
 Volume=systemd-invokeai:/invokeai:U,Z
+Environment=CONTAINER_UID=999
 PublishPort=10.0.2.2:9090:9090
 AutoUpdate=registry
 [Install]
