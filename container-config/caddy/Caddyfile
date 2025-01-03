@@ -31,12 +31,6 @@ auth.strypsteen.com {
   import tls
   reverse_proxy http://systemd-keycloak:8080
 }
-chat.strypsteen.com {
-  import base
-  import local-only
-  import tls
-  reverse_proxy http://home.server.home.arpa:8001
-}
 cloud.strypsteen.com {
   import base
   import tls

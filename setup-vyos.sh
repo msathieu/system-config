@@ -3,7 +3,6 @@
 set system name-server 9.9.9.9
 set system static-host-mapping host-name pve.strypsteen.com inet 192.168.253.2
 set system static-host-mapping host-name home.strypsteen.com alias auth.strypsteen.com
-set system static-host-mapping host-name home.strypsteen.com alias chat.strypsteen.com
 set system static-host-mapping host-name home.strypsteen.com alias cloud.strypsteen.com
 set system static-host-mapping host-name home.strypsteen.com alias code.strypsteen.com
 set system static-host-mapping host-name home.strypsteen.com alias git.strypsteen.com
