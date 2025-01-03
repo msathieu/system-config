@@ -1,11 +1,13 @@
 (base) {
-  tls /etc/certificates/fullchain.pem /etc/certificates/privkey.pem
   header {
     >Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
     >X-Frame-Options SAMEORIGIN
     >X-Content-Type-Options nosniff
     >Referrer-Policy no-referrer
   }
+}
+(tls) {
+  tls /etc/certificates/fullchain.pem /etc/certificates/privkey.pem
 }
 (local-only) {
   @abort not remote_ip 192.168.0.0/16
@@ -26,40 +28,52 @@ strypsteen.me {
 }
 auth.strypsteen.com {
   import base
+  import tls
   reverse_proxy http://systemd-keycloak:8080
 }
 chat.strypsteen.com {
   import base
+  import local-only
+  import tls
   reverse_proxy http://home.server.home.arpa:8001
 }
 cloud.strypsteen.com {
   import base
+  import tls
   reverse_proxy http://home.server.home.arpa:8002
 }
 code.strypsteen.com, *.code-proxy.strypsteen.com {
   import base
+  import local-only
+  import tls
   reverse_proxy http://sandbox.server.home.arpa:8080
 }
 matrix.strypsteen.com {
   import base
+  import tls
   reverse_proxy http://home.server.home.arpa:8005
 }
 git.strypsteen.com {
   import base
+  import tls
   reverse_proxy http://systemd-forgejo:3000
 }
 llm.strypsteen.com {
   import base
   import local-only
+  import tls
   reverse_proxy http://home.server.home.arpa:8004
 }
 metrics.strypsteen.com {
   import base
+  import tls
   reverse_proxy /api/v1/write http://systemd-prometheus:9090
   reverse_proxy /loki/api/v1/push http://systemd-loki:3100
 }
 monitoring.strypsteen.com {
   import base
+  import local-only
+  import tls
   reverse_proxy http://systemd-grafana:3000
 }
 mta-sts.strypsteen.me {
@@ -75,6 +89,7 @@ mta-sts.strypsteen.me {
 network.strypsteen.com {
   import base
   import local-only
+  import tls
   reverse_proxy https://home.server.home.arpa:8009 {
     transport http {
       tls_insecure_skip_verify
@@ -83,6 +98,7 @@ network.strypsteen.com {
 }
 office.strypsteen.com {
   import base
+  import tls
   reverse_proxy https://home.server.home.arpa:8010 {
     transport http {
       tls_insecure_skip_verify
@@ -91,15 +107,18 @@ office.strypsteen.com {
 }
 photos.strypsteen.com {
   import base
+  import tls
   reverse_proxy http://home.server.home.arpa:8006
 }
 push.strypsteen.com {
   import base
+  import tls
   reverse_proxy http://home.server.home.arpa:8003
 }
 remote-desktop.strypsteen.com {
   import base
   import local-only
+  import tls
   header >Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'"
   reverse_proxy https://gpu.server.home.arpa:47990 {
     transport http {
@@ -109,20 +128,25 @@ remote-desktop.strypsteen.com {
 }
 vault.strypsteen.com {
   import base
+  import local-only
+  import tls
   reverse_proxy http://systemd-vaultwarden
 }
 xmr.strypsteen.com {
   import base
+  import tls
   reverse_proxy http://home.server.home.arpa:8012
 }
 textgen.strypsteen.com {
   import base
   import local-only
+  import tls
   reverse_proxy http://gpu.server.home.arpa:11434
 }
 imagegen.strypsteen.com {
   import base
   import local-only
+  import tls
   basic_auth {
     mathieu {$INVOKEAI_PASSWORD}
   }
