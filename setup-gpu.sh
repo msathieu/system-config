@@ -2,6 +2,7 @@
 set -euo pipefail
 cp -R desktop/* gpu/* /
 sh setup-desktop.sh
+rpm-ostree install --idempotent akmod-nvidia nvidia-container-toolkit rpmfusion-free-release rpmfusion-nonfree-release xorg-x11-drv-nvidia xorg-x11-drv-nvidia-cuda
 systemctl enable --now podman-auto-update.timer sshd
 systemctl disable auditd
 sed "s/SUB_UID_COUNT.*/SUB_UID_COUNT 16777216/" -i /etc/login.defs

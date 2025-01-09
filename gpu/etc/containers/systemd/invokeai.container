@@ -1,3 +1,5 @@
+[Service]
+ExecStartPre=sleep 5
 [Container]
 Image=ghcr.io/invoke-ai/invokeai:5-cuda
 AddDevice=nvidia.com/gpu=all

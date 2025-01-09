@@ -2,6 +2,7 @@
 # shellcheck disable=SC2121
 set system name-server 9.9.9.9
 set system static-host-mapping host-name pve.strypsteen.com inet 192.168.253.2
+set system static-host-mapping host-name home.strypsteen.com inet 192.168.253.4
 set system static-host-mapping host-name home.strypsteen.com alias auth.strypsteen.com
 set system static-host-mapping host-name home.strypsteen.com alias cloud.strypsteen.com
 set system static-host-mapping host-name home.strypsteen.com alias code.strypsteen.com
@@ -39,22 +40,22 @@ set service dhcp-server shared-network-name mgmt option name-server 192.168.255.
 set service dhcp-server shared-network-name mgmt subnet 192.168.255.0/24 subnet-id 1
 set service dhcp-server shared-network-name mgmt subnet 192.168.255.0/24 range 0 start 192.168.255.2
 set service dhcp-server shared-network-name mgmt subnet 192.168.255.0/24 range 0 stop 192.168.255.254
-set service dhcp-server shared-network-name mgmt subnet 192.168.255.0/24 lease 1800
+set service dhcp-server shared-network-name mgmt subnet 192.168.255.0/24 lease 3600
 set service dhcp-server shared-network-name lan option default-router 192.168.254.1
 set service dhcp-server shared-network-name lan option name-server 192.168.254.1
 set service dhcp-server shared-network-name lan subnet 192.168.254.0/24 subnet-id 2
 set service dhcp-server shared-network-name lan subnet 192.168.254.0/24 range 0 start 192.168.254.2
 set service dhcp-server shared-network-name lan subnet 192.168.254.0/24 range 0 stop 192.168.254.254
-set service dhcp-server shared-network-name lan subnet 192.168.254.0/24 lease 1800
+set service dhcp-server shared-network-name lan subnet 192.168.254.0/24 lease 3600
 set service dhcp-server shared-network-name server option bootfile-name netboot.xyz.efi
 set service dhcp-server shared-network-name server option bootfile-server 192.168.253.1
 set service dhcp-server shared-network-name server option default-router 192.168.253.1
 set service dhcp-server shared-network-name server option domain-name server.home.arpa
 set service dhcp-server shared-network-name server option name-server 192.168.253.1
 set service dhcp-server shared-network-name server subnet 192.168.253.0/24 subnet-id 3
-set service dhcp-server shared-network-name server subnet 192.168.253.0/24 range 0 start 192.168.253.3
-set service dhcp-server shared-network-name server subnet 192.168.253.0/24 range 0 stop 192.168.253.253
-set service dhcp-server shared-network-name server subnet 192.168.253.0/24 lease 1800
+set service dhcp-server shared-network-name server subnet 192.168.253.0/24 range 0 start 192.168.253.5
+set service dhcp-server shared-network-name server subnet 192.168.253.0/24 range 0 stop 192.168.253.200
+set service dhcp-server shared-network-name server subnet 192.168.253.0/24 lease 3600
 set service router-advert interface eth1 prefix ::/64
 set service router-advert interface eth1 name-server fc00::1
 set service router-advert interface eth2 prefix ::/64
