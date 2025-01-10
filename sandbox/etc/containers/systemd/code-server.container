@@ -1,5 +1,6 @@
 [Container]
 Image=git.strypsteen.com/infra/code-server
+UserNS=auto
 ReadOnly=false
 AddDevice=/dev/kvm
 AddDevice=/dev/net/tun

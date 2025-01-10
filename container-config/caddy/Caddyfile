@@ -34,6 +34,11 @@ strypsteen.me {
   {"m.server": "matrix.strypsteen.com:443"}
   EOF
 }
+strypsteen.com {
+  import base
+  import tls
+  respond 404
+}
 auth.strypsteen.com {
   import base
   import tls
