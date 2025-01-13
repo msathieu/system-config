@@ -2,7 +2,6 @@
 Restart=on-failure
 [Container]
 Image=code.forgejo.org/forgejo/runner:6
-UserNS=auto
 SecurityLabelDisable=true
 Exec=forgejo-runner daemon -c /etc/forgejo-runner/config.yaml
 Volume=/run/podman:/run/podman:U

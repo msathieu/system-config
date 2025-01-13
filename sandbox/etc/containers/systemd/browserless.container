@@ -1,6 +1,5 @@
 [Container]
 Image=ghcr.io/browserless/chromium
-UserNS=auto
 Tmpfs=/home/blessuser:mode=1777
 Environment=DEBUG=-*
 PublishPort=3000:3000
