@@ -117,11 +117,6 @@ photos.strypsteen.com {
   import tls
   reverse_proxy http://home.server.home.arpa:8006
 }
-push.strypsteen.com {
-  import base
-  import tls
-  reverse_proxy http://home.server.home.arpa:8003
-}
 remote-desktop.strypsteen.com {
   import base
   import local-only
