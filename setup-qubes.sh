@@ -7,3 +7,4 @@ qvm-features dom0 gui-default-secure-paste-sequence Ctrl-Mod4-v
 sudo qubes-dom0-update bash-completion kernel-latest-qubes-vm pipewire pipewire-pulseaudio qubes-ctap-dom0 qubes-screenshot-helper
 sudo dnf remove kernel-qubes-vm
 qvm-features sys-net ipv6 1
+qvm-prefs fedora-41 kernelopts "swiotlb=2048 lockdown=confidentiality"
