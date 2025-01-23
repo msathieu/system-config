@@ -6,6 +6,12 @@ boot_device:
       - url: "http://infra.server.home.arpa:8080"
         thumbprint: "MKYiehPjYLcEz6o1yKCYLaugJDBtDMSzSgtNAWutSZs"
     discard: true
+storage:
+  filesystems:
+    - device: /dev/mapper/root
+      wipe_filesystem: true
+      format: btrfs
+      label: root
 passwd:
   users:
     - name: root

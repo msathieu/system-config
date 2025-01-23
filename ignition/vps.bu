@@ -1,5 +1,11 @@
 variant: fcos
 version: 1.6.0
+storage:
+  filesystems:
+    - device: /dev/disk/by-partlabel/root
+      wipe_filesystem: true
+      format: btrfs
+      label: root
 passwd:
   users:
     - name: root

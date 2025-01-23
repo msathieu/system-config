@@ -4,6 +4,12 @@ boot_device:
   luks:
     tpm2: true
     discard: true
+storage:
+  filesystems:
+    - device: /dev/mapper/root
+      wipe_filesystem: true
+      format: btrfs
+      label: root
 passwd:
   users:
     - name: root
