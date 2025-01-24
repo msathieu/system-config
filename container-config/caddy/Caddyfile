@@ -75,6 +75,9 @@ metrics.strypsteen.com {
   import base
   import tls
   reverse_proxy /api/v1/write http://systemd-prometheus:9090
+  basic_auth /loki/api/v1/push {
+    loki {$LOKI_PASSWORD}
+  }
   reverse_proxy /loki/api/v1/push http://systemd-loki:3100
 }
 monitoring.strypsteen.com {
