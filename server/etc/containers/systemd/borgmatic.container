@@ -9,7 +9,6 @@ Volume=/:/run/host:ro
 Volume=systemd-borgmatic-config:/root/.config/borg:U,Z
 Volume=systemd-borgmatic-ssh:/root/.ssh:U,Z
 Tmpfs=/etc/crontabs
-Tmpfs=/root/.cache/borg
 Environment=BACKUP_CRON="0 0 * * *"
 Secret=BORG_PASSWORD,type=env
 Secret=BORG_REMOTE,type=env

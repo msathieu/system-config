@@ -16,7 +16,7 @@ keep_weekly: 4
 keep_monthly: 3
 read_special: true
 loki:
-  url: https://metrics.strypsteen.com/loki/api/v1/push
+  url: http://10.88.0.1:9999/loki/api/v1/push
   labels:
     host: __hostname
     job: borgmatic
