@@ -2,6 +2,8 @@
 set -euo pipefail
 cp -R server/* /
 bash setup-ostree.sh
+mkdir -p /var/lib/container-data
+chmod 700 /var/lib/container-data
 systemctl disable --now docker.socket rpm-ostree-countme.timer
 systemctl enable --now podman-auto-update.timer
 systemctl enable --global podman-auto-update.timer
