@@ -1,5 +1,4 @@
 [Timer]
 OnCalendar=monthly
-Unit=certbot.service
 [Install]
 WantedBy=timers.target

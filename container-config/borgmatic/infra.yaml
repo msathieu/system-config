@@ -1,5 +1,6 @@
 exclude_patterns:
-  - /run/host/var/lib/containers/storage/volumes/systemd-forgejo/_data/data/packages
+  - /run/host/lib/containers/storage/volumes/systemd-forgejo/_data/data/packages
+  - /run/host/lib/containers/storage/volumes/systemd-forgejo/_data/data/repo-archive
 postgresql_databases:
   - name: all
     hostname: systemd-postgresql

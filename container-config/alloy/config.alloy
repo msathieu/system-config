@@ -26,13 +26,6 @@ loki.source.journal "journald" {
   relabel_rules = loki.relabel.journald.rules
   forward_to = [loki.write.writer.receiver]
 }
-loki.source.api "api" {
-  http {
-    listen_address = "10.88.0.1"
-    listen_port = 9999
-  }
-  forward_to = [loki.write.writer.receiver]
-}
 loki.relabel "journald" {
   rule {
     source_labels = ["__journal__systemd_unit"]

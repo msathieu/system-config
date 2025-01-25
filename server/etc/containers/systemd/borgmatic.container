@@ -3,13 +3,12 @@ Image=ghcr.io/borgmatic-collective/borgmatic
 SecurityLabelDisable=true
 UserNS=host
 HostName=%H
+Entrypoint=borgmatic
 Volume=/var/lib/system-config/container-config/borgmatic/config.yaml:/etc/borgmatic/config.yaml:z,ro
 Volume=/var/lib/system-config/container-config/borgmatic/%H.yaml:/etc/borgmatic/local.yaml:z,ro
-Volume=/:/run/host:ro
+Volume=/var:/run/host:ro
 Volume=systemd-borgmatic-config:/root/.config/borg:U,Z
 Volume=systemd-borgmatic-ssh:/root/.ssh:U,Z
-Tmpfs=/etc/crontabs
-Environment=BACKUP_CRON="0 0 * * *"
 Secret=BORG_PASSWORD,type=env
 Secret=BORG_REMOTE,type=env
 Secret=BORG_REMOTE2,type=env

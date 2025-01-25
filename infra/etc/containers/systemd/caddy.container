@@ -1,5 +1,5 @@
 [Container]
-Image=docker.io/caddy
+Image=docker.io/caddy:2
 Network=nginx.network
 Volume=/var/lib/system-config/container-config/caddy:/etc/caddy:z,ro
 Volume=/var/lib/system-config/container-config/site:/var/www:z,ro

@@ -1,4 +1,4 @@
 [Timer]
-OnCalendar=monthly
+OnCalendar=daily
 [Install]
 WantedBy=timers.target

@@ -1,5 +1,5 @@
 exclude_patterns:
-  - /run/host/var/lib/containers/storage/volumes/systemd-monero
+  - /run/host/lib/containers/storage/volumes/systemd-monero
 postgresql_databases:
   - name: all
     hostname: systemd-postgresql

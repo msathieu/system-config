@@ -1,10 +1,8 @@
 source_directories:
-  - /run/host/etc
-  - /run/host/var/home
-  - /run/host/var/lib/container-data
-  - /run/host/var/lib/containers/storage/secrets
-  - /run/host/var/lib/containers/storage/volumes/systemd-*
-  - /run/host/var/roothome
+  - /run/host/lib/container-data
+  - /run/host/lib/containers/storage/secrets
+  - /run/host/lib/containers/storage/volumes/systemd-*
+  - /run/host/roothome
 repositories:
   - label: remote
     path: ${BORG_REMOTE}
@@ -15,9 +13,4 @@ keep_daily: 7
 keep_weekly: 4
 keep_monthly: 3
 read_special: true
-loki:
-  url: http://10.88.0.1:9999/loki/api/v1/push
-  labels:
-    host: __hostname
-    job: borgmatic
 <<: !include /etc/borgmatic/local.yaml
