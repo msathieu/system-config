@@ -2,3 +2,4 @@
 set -euo pipefail
 cp -R infra/* /
 bash setup-server.sh
+systemctl enable --now certbot.timer
