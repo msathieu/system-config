@@ -1,3 +1,6 @@
+[Service]
+ExecStartPre=btrfs subvolume snapshot -r /sysroot /var/snapshot
+ExecStopPost=btrfs subvolume delete /var/snapshot
 [Container]
 Image=ghcr.io/borgmatic-collective/borgmatic
 SecurityLabelDisable=true
@@ -6,7 +9,7 @@ HostName=%H
 Entrypoint=borgmatic
 Volume=/var/lib/system-config/container-config/borgmatic/config.yaml:/etc/borgmatic/config.yaml:z,ro
 Volume=/var/lib/system-config/container-config/borgmatic/%H.yaml:/etc/borgmatic/local.yaml:z,ro
-Volume=/var:/run/host:ro
+Volume=/var/snapshot/ostree/deploy/fedora-coreos/var:/run/host:ro
 Volume=systemd-borgmatic-config:/root/.config/borg:U,Z
 Volume=systemd-borgmatic-state:/root/.local/state/borgmatic:U,Z
 Volume=systemd-borgmatic-ssh:/root/.ssh:U,Z
