@@ -1,6 +1,7 @@
 [Container]
 Image=docker.io/alpinelinux/unbound
 Network=mail.network
+IP=10.89.255.254
 Volume=/var/lib/system-config/container-config/unbound/unbound.conf:/etc/unbound/unbound.conf:z,ro
 Tmpfs=/etc/unbound
 AutoUpdate=registry

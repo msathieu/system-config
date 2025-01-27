@@ -4,6 +4,7 @@ After=valkey.service unbound.service
 [Container]
 Image=docker.io/rspamd/rspamd
 Network=mail.network
+DNS=10.89.255.254
 Volume=/var/lib/system-config/container-config/rspamd:/etc/rspamd/local.d:z,ro
 Volume=systemd-rspamd:/var/lib/rspamd:U,Z
 Secret=dkim.key
