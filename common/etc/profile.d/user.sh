@@ -7,3 +7,4 @@ if [ -f /usr/bin/vim ]; then
 else
   export EDITOR=vi
 fi
+export PATH="$PATH:~/.local/bin"

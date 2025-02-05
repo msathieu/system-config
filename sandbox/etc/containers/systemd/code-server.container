@@ -13,6 +13,7 @@ Volume=/var/lib/system-config/common/etc/gitconfig:/etc/gitconfig:z,ro
 Volume=/var/lib/system-config/common/etc/ssh/ssh_config:/etc/ssh/ssh_config:z,ro
 Volume=/var/lib/system-config/common/etc/vimrc:/etc/vimrc:z,ro
 Secret=CODE_SERVER_PASSWORD,type=env,target=PASSWORD
+PublishPort=8000:8000
 PublishPort=8080:8080
 AutoUpdate=registry
 [Install]
