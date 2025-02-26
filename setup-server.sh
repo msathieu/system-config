@@ -4,7 +4,7 @@ cp -R server/* /
 bash setup-ostree.sh
 mkdir -p /var/lib/container-data
 chmod 700 /var/lib/container-data
-systemctl disable --now docker.socket rpm-ostree-countme.timer
+systemctl disable --now docker.socket irqbalance rpm-ostree-countme.timer
 systemctl enable --now borgmatic.timer podman-auto-update.timer
 systemctl enable --global podman-auto-update.timer
 sed "s/SUB_UID_COUNT.*/SUB_UID_COUNT 16777216/" -i /etc/login.defs
