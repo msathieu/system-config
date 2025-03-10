@@ -1,6 +1,7 @@
 #!/bin/bash
 # shellcheck disable=SC2121
 set system name-server 9.9.9.9
+set system static-host-mapping host-name trace.svc.ui.com inet 0.0.0.0
 set system static-host-mapping host-name pve.strypsteen.com inet 192.168.253.2
 set system static-host-mapping host-name pbs.strypsteen.com inet 192.168.253.3
 set system static-host-mapping host-name home.strypsteen.com inet 192.168.253.4

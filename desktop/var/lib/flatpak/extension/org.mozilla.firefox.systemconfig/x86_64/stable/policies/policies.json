@@ -12,6 +12,10 @@
       "Value": true,
       "Locked": true
     },
+    "EncryptedMediaExtensions": {
+      "Enabled": false,
+      "Locked": true
+    },
     "ExtensionSettings": {
       "uBlock0@raymondhill.net": {
         "installation_mode": "force_installed",
