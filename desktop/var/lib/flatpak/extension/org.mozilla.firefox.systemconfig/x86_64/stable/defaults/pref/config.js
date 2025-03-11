@@ -26,6 +26,5 @@ pref("middlemouse.paste", false);
 pref("network.IDN_show_punycode", true);
 pref("network.trr.excluded-domains", "strypsteen.com");
 pref("permissions.manager.defaultsUrl", "");
-pref("privacy.donottrackheader.enabled", true);
 pref("privacy.globalprivacycontrol.enabled", true);
 pref("security.OCSP.enabled", 0);
