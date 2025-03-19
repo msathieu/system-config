@@ -1,5 +1,6 @@
 [Container]
 Image=git.strypsteen.com/infra/sandboxed-toolbox
+SeccompProfile=unconfined
 SecurityLabelDisable=true
 UserNS=keep-id:uid=1000,gid=1000
 User=0

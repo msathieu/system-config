@@ -7,6 +7,7 @@
   "editor.formatOnSave": true,
   "editor.formatOnType": true,
   "editor.inlayHints.enabled": "off",
+  "editor.multiCursorLimit": 1,
   "editor.selectionClipboard": false,
   "editor.smoothScrolling": true,
   "editor.tabSize": 2,
