@@ -132,11 +132,6 @@ vault.strypsteen.com {
   import tls
   reverse_proxy http://systemd-vaultwarden
 }
-xmr.strypsteen.com {
-  import base
-  import tls
-  reverse_proxy http://home.server.home.arpa:8012
-}
 textgen.strypsteen.com {
   import base
   import local-only
