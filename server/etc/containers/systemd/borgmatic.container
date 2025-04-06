@@ -17,5 +17,3 @@ Secret=BORG_PASSWORD,type=env
 Secret=BORG_REMOTE,type=env
 Secret=BORG_REMOTE2,type=env
 AutoUpdate=registry
-[Install]
-WantedBy=multi-user.target
