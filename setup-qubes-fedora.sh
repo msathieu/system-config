@@ -9,4 +9,4 @@ dnf install --allowerasing bash-color-prompt bash-completion borgbackup bind-uti
 dnf remove cheese evolution-data-server firefox gnome-software gnome-weather PackageKit-command-not-found rpmfusion-nonfree-release thunderbird totem
 bash setup-desktop.sh
 all_proxy=127.0.0.1:8082 flatpak remote-add --if-not-exists flathub /usr/lib/fedora-third-party/conf.d/fedora-flathub.flatpakrepo
-all_proxy=127.0.0.1:8082 flatpak install com.github.tchx84.Flatseal com.github.xournalpp.xournalpp com.moonlight_stream.Moonlight com.yubico.yubioath im.riot.Riot io.mpv.Mpv org.chromium.Chromium org.freedesktop.Platform.ffmpeg-full/x86_64/24.08 org.gimp.GIMP org.gnome.Evolution org.libreoffice.LibreOffice org.mozilla.firefox
+all_proxy=127.0.0.1:8082 flatpak install com.github.tchx84.Flatseal com.github.xournalpp.xournalpp com.moonlight_stream.Moonlight com.yubico.yubioath im.riot.Riot io.mpv.Mpv net.cozic.joplin_desktop org.chromium.Chromium org.freedesktop.Platform.ffmpeg-full/x86_64/24.08 org.gimp.GIMP org.gnome.Evolution org.libreoffice.LibreOffice org.mozilla.firefox

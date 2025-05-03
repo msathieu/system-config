@@ -39,12 +39,14 @@ set interfaces wireguard wg0 port 51820
 set service ssh disable-password-authentication
 set service dhcp-server hostfile-update
 set service dhcp-server shared-network-name mgmt option default-router 192.168.255.1
+set service dhcp-server shared-network-name mgmt option domain-name mgmt.home.arpa
 set service dhcp-server shared-network-name mgmt option name-server 192.168.255.1
 set service dhcp-server shared-network-name mgmt subnet 192.168.255.0/24 subnet-id 1
 set service dhcp-server shared-network-name mgmt subnet 192.168.255.0/24 range 0 start 192.168.255.2
 set service dhcp-server shared-network-name mgmt subnet 192.168.255.0/24 range 0 stop 192.168.255.254
 set service dhcp-server shared-network-name mgmt subnet 192.168.255.0/24 lease 3600
 set service dhcp-server shared-network-name lan option default-router 192.168.254.1
+set service dhcp-server shared-network-name lan option domain-name lan.home.arpa
 set service dhcp-server shared-network-name lan option name-server 192.168.254.1
 set service dhcp-server shared-network-name lan subnet 192.168.254.0/24 subnet-id 2
 set service dhcp-server shared-network-name lan subnet 192.168.254.0/24 range 0 start 192.168.254.2
@@ -78,6 +80,7 @@ set service dns forwarding allow-from 192.168.0.0/16
 set service dns forwarding allow-from fc00::/7
 set service tftp-server directory /config/tftp
 set service tftp-server listen-address 192.168.253.1
+set service lldp
 
 set nat source rule 1 outbound-interface name eth0
 set nat source rule 1 translation address masquerade
