@@ -52,6 +52,11 @@ code.strypsteen.com, *.code-proxy.strypsteen.com {
   import tls
   reverse_proxy http://sandbox.server.home.arpa:8080
 }
+code-sandbox.strypsteen.com, *.code-sandbox-proxy.strypsteen.com {
+  import base
+  import tls
+  reverse_proxy http://sandbox.server.home.arpa:8081
+}
 matrix.strypsteen.com {
   import base
   import tls

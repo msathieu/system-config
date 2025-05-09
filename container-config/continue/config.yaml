@@ -1,0 +1,14 @@
+name: Local
+version: 1.0.0
+schema: v1
+models:
+  - name: Ollama Autocomplete
+    provider: ollama
+    model: qwen2.5-coder:14b
+    apiBase: https://textgen.strypsteen.com
+    roles:
+      - autocomplete
+  - name: Ollama
+    provider: ollama
+    model: AUTODETECT
+    apiBase: https://textgen.strypsteen.com
