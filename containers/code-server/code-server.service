@@ -1,6 +1,6 @@
 [Service]
 ExecStartPre=-sudo chown -Rh coder:coder /home/coder
-ExecStart=code-server --bind-addr 0.0.0.0:8080 --disable-telemetry --proxy-domain code-proxy.strypsteen.com
+ExecStart=bash -c "code-server --bind-addr 0.0.0.0:8080 --disable-telemetry --proxy-domain $PROXY_DOMAIN"
 Environment=SSH_AUTH_SOCK=/run/user/1000/ssh-agent.socket
 [Install]
 WantedBy=default.target
