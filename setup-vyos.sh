@@ -32,13 +32,13 @@ set interfaces bridge br0 stp
 set interfaces bridge br0 priority 0
 set interfaces bridge br0 enable-vlan
 set interfaces bridge br0 ip enable-proxy-arp
-set interfaces bridge br0 address 192.168.128.1/24
 set interfaces bridge br0 member interface eth1 allowed-vlan 1-4094
-set interfaces bridge br0 member interface eth1 native-vlan 1
+set interfaces bridge br0 member interface eth1 native-vlan 128
 set interfaces bridge br0 member interface eth2 allowed-vlan 1-4094
-set interfaces bridge br0 member interface eth2 native-vlan 1
+set interfaces bridge br0 member interface eth2 native-vlan 128
 set interfaces bridge br0 member interface eth3 allowed-vlan 1-4094
 set interfaces bridge br0 member interface eth3 native-vlan 253
+set interfaces bridge br0 vif 128 address 192.168.128.1/24
 set interfaces bridge br0 vif 255 address 192.168.255.1/24
 set interfaces bridge br0 vif 255 address fc00::1/64
 set interfaces bridge br0 vif 254 address 192.168.254.1/24
@@ -127,7 +127,7 @@ for i in ${firewall_types}; do
   set firewall "$i" forward filter rule 4 action accept
   set firewall "$i" forward filter rule 4 inbound-interface name br0.255
   set firewall "$i" forward filter rule 5 action accept
-  set firewall "$i" forward filter rule 5 inbound-interface name br0
+  set firewall "$i" forward filter rule 5 inbound-interface name br0.128
   set firewall "$i" forward filter rule 5 outbound-interface name br0.253
   set firewall "$i" forward filter rule 6 action accept
   set firewall "$i" forward filter rule 6 inbound-interface name wg0
