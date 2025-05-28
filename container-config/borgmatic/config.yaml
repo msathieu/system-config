@@ -8,7 +8,7 @@ repositories:
     path: ${BORG_REMOTE}
   - label: remote2
     path: ${BORG_REMOTE2}
-remote_path: borg14
+remote_path: borg
 encryption_passphrase: ${BORG_PASSWORD}
 keep_daily: 7
 keep_weekly: 4

@@ -15,8 +15,6 @@ pref("browser.tabs.firefox-view", false);
 pref("browser.tabs.searchclipboardfor.middleclick", false);
 pref("browser.uidensity", 1);
 pref("browser.urlbar.dnsResolveSingleWordsAfterSearch", 0);
-pref("cookiebanners.service.mode", 1);
-pref("cookiebanners.service.mode.privateBrowsing", 1);
 pref("devtools.theme", "dark");
 pref("dom.private-attribution.submission.enabled", false);
 pref("extensions.getAddons.discovery.api_url", "");

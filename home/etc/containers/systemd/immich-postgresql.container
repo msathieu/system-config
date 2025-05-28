@@ -1,7 +1,8 @@
 [Container]
-Image=docker.io/tensorchord/pgvecto-rs:pg16-v0.3.0
+Image=ghcr.io/immich-app/postgres:16-vectorchord0.3.0
 Network=immich.network
 Volume=systemd-immich-postgresql:/var/lib/postgresql/data:U,Z
+Tmpfs=/etc/postgresql
 Secret=POSTGRES_PASSWORD,type=env
 AutoUpdate=registry
 [Install]

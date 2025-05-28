@@ -1,10 +1,12 @@
 FROM quay.io/fedora/fedora-toolbox:42
 RUN dnf up -y
-RUN dnf install -y bash-color-prompt default-fonts gcc-gdb-plugin gdb java libglvnd-gles libglvnd-opengl nautilus netcat nmap nodejs-npm pipx systemd-container vim-enhanced wine xdg-desktop-portal-gtk xdg-utils
-RUN PIPX_HOME=/opt/pipx PIPX_BIN_DIR=/usr/local/bin pipx install frida-tools
+RUN dnf install -y bash-color-prompt libglvnd-gles libglvnd-opengl netcat nodejs-npm python3-pip systemd-container vim-enhanced xdg-desktop-portal-gtk xdg-utils
 RUN useradd mathieu
 RUN echo "mathieu ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 RUN echo WAYLAND_DISPLAY=/run/wayland-0 >> /etc/environment
 RUN echo PIPEWIRE_RUNTIME_DIR=/run >> /etc/environment
 RUN echo XDG_CURRENT_DESKTOP=GNOME >> /etc/environment
+USER mathieu
+RUN sh <(curl -L https://nixos.org/nix/install) --no-daemon
+USER root
 ENTRYPOINT /sbin/init

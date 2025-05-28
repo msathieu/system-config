@@ -37,7 +37,7 @@ set interfaces bridge br0 member interface eth1 native-vlan 128
 set interfaces bridge br0 member interface eth2 allowed-vlan 1-4094
 set interfaces bridge br0 member interface eth2 native-vlan 128
 set interfaces bridge br0 member interface eth3 allowed-vlan 1-4094
-set interfaces bridge br0 member interface eth3 native-vlan 253
+set interfaces bridge br0 member interface eth3 native-vlan 128
 set interfaces bridge br0 vif 128 address 192.168.128.1/24
 set interfaces bridge br0 vif 255 address 192.168.255.1/24
 set interfaces bridge br0 vif 255 address fc00::1/64

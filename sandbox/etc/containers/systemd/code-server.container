@@ -2,7 +2,6 @@
 Image=git.strypsteen.com/infra/code-server
 ReadOnly=false
 AddDevice=/dev/kvm
-AddDevice=/dev/net/tun
 PidsLimit=-1
 Volume=/var/lib/system-config/container-config/code-server/settings.json:/home/coder/.local/share/code-server/Machine/settings.json:z,ro
 Volume=/var/lib/system-config/container-config/continue/config.yaml:/home/coder/.continue/config.yaml:z,ro
