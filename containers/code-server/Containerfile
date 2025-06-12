@@ -1,6 +1,6 @@
 FROM quay.io/fedora/fedora-toolbox:42
 RUN dnf up -y
-RUN dnf install -y bash-color-prompt clang direnv netcat nodejs-npm postgresql-server python3-pip rustup systemd-container vim-enhanced
+RUN dnf install -y bash-color-prompt direnv netcat postgresql-server systemd-container vim-enhanced
 RUN dnf install -y https://github.com/coder/code-server/releases/download/v4.100.2/code-server-4.100.2-amd64.rpm
 RUN mkdir /etc/systemd/system/user@.service.d
 RUN mkdir /var/lib/systemd/linger
@@ -12,7 +12,6 @@ RUN mkdir -p /home/coder/.config/systemd/user/default.target.wants /home/coder/.
 RUN ln -s /etc/systemd/user/code-server.service /home/coder/.config/systemd/user/default.target.wants
 RUN ln -s /usr/lib/systemd/user/sockets.target.wants/ssh-agent.socket /home/coder/.config/systemd/user/sockets.target.wants
 RUN sh <(curl -L https://nixos.org/nix/install) --no-daemon
-RUN rustup-init -y
 COPY nix.conf /home/coder/.config/nix/nix.conf
 USER root
 COPY polkit.service /etc/systemd/system
