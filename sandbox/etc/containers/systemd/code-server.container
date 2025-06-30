@@ -8,7 +8,6 @@ Volume=/var/lib/system-config/container-config/continue/config.yaml:/home/coder/
 Volume=systemd-code-server-settings:/home/coder/.local/share/code-server:U,Z
 Volume=systemd-code-server-ssh:/home/coder/.ssh:U,Z
 Volume=systemd-code-server-projects:/home/coder/projects:U,Z
-Volume=systemd-code-server-nix:/nix:U,Z
 Volume=/var/lib/system-config/common/etc/gitconfig:/etc/gitconfig:z,ro
 Volume=/var/lib/system-config/common/etc/ssh/ssh_config:/etc/ssh/ssh_config:z,ro
 Volume=/var/lib/system-config/common/etc/vimrc:/etc/vimrc:z,ro
