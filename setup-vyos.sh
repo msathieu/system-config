@@ -135,6 +135,8 @@ for i in ${firewall_types}; do
   set firewall "$i" forward filter rule 7 action accept
   set firewall "$i" forward filter rule 7 inbound-interface name br0.254
   set firewall "$i" forward filter rule 7 outbound-interface name br0.253
+  set firewall "$i" forward filter rule 7 protocol tcp_udp
+  set firewall "$i" forward filter rule 7 destination port 443
 done
 set firewall ipv4 forward filter rule 8 action accept
 set firewall ipv4 forward filter rule 8 protocol tcp

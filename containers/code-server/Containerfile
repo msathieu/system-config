@@ -1,7 +1,7 @@
 FROM quay.io/fedora/fedora-toolbox:42
 RUN dnf up -y
 RUN dnf install -y bash-color-prompt direnv netcat postgresql-server systemd-container vim-enhanced
-RUN dnf install -y https://github.com/coder/code-server/releases/download/v4.101.1/code-server-4.101.1-amd64.rpm
+RUN dnf install -y https://github.com/coder/code-server/releases/download/v4.101.2/code-server-4.101.2-amd64.rpm
 RUN mkdir /etc/systemd/system/user@.service.d
 RUN mkdir /var/lib/systemd/linger
 RUN touch /var/lib/systemd/linger/coder

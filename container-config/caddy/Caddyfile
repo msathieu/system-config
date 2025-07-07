@@ -87,7 +87,7 @@ monitoring.strypsteen.com {
   import tls
   reverse_proxy http://systemd-grafana:3000
 }
-mta-sts.strypsteen.me {
+mta-sts.strypsteen.me, mta-sts.strypsteen.com {
   import base
   respond /.well-known/mta-sts.txt <<EOF
   version: STSv1
