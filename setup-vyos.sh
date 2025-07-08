@@ -49,6 +49,7 @@ set interfaces wireguard wg0 address 192.168.252.1/24
 set interfaces wireguard wg0 port 51820
 
 set service ssh disable-password-authentication
+set service ssh listen-address 192.168.255.1
 set service dhcp-server hostfile-update
 set service dhcp-server shared-network-name infra option default-router 192.168.128.1
 set service dhcp-server shared-network-name infra option name-server 192.168.128.1
@@ -142,3 +143,4 @@ set firewall ipv4 forward filter rule 8 action accept
 set firewall ipv4 forward filter rule 8 protocol tcp
 set firewall ipv4 forward filter rule 8 destination port 22
 set firewall ipv4 forward filter rule 8 inbound-interface name eth0
+set firewall ipv4 forward filter rule 8 source geoip country-code be
