@@ -1,15 +1,23 @@
 {
   "policies": {
+    "Cookies": {
+      "Behavior": "reject-foreign",
+      "Locked": true
+    },
     "DisableFirefoxAccounts": true,
     "DisableFirefoxStudies": true,
     "DisablePocket": true,
     "DisableTelemetry": true,
     "DNSOverHTTPS": {
       "Enabled": true,
+      "ExcludedDomains": ["strypsteen.com"],
+      "Fallback": false,
+      "Locked": true,
       "ProviderURL": "https://dns.quad9.net/dns-query"
     },
     "EnableTrackingProtection": {
       "Value": true,
+      "Fingerprinting": true,
       "Locked": true
     },
     "EncryptedMediaExtensions": {
@@ -30,7 +38,17 @@
     "NewTabPage": false,
     "NoDefaultBookmarks": true,
     "PasswordManagerEnabled": false,
+    "PrivateBrowsingModeAvailability": 2,
     "SanitizeOnShutdown": true,
+    "SearchEngines": {
+      "Add": [
+        {
+          "Name": "Brave",
+          "URLTemplate": "https://search.brave.com/search?q={searchTerms}"
+        }
+      ],
+      "Default": "Brave"
+    },
     "SearchSuggestEnabled": false,
     "ShowHomeButton": true
   }

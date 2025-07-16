@@ -5,7 +5,7 @@ dnf config-manager setopt qubes-vm-r4.2-security-testing.enabled=true
 dnf config-manager setopt qubes-vm-r4.2-current-testing.enabled=true
 dnf config-manager setopt rpmfusion-free.enabled=true
 dnf config-manager setopt rpmfusion-free-updates.enabled=true
-dnf install --allowerasing bash-color-prompt bash-completion borgbackup bind-utils butane default-fonts fcitx5-anthy fcitx5-autostart fedora-flathub-remote ffmpeg file-roller fuse-sshfs gcc gcc-gdb-plugin glibc-all-langpacks gnome-terminal helm htop kubernetes1.32-client nautilus netcat nodejs-npm pipx qubes-ctap ShellCheck toolbox wireguard-tools whois xdg-desktop-portal-gtk yt-dlp
+dnf install --allowerasing bash-color-prompt bash-completion borgbackup bind-utils butane default-fonts fcitx5-anthy fcitx5-autostart fedora-flathub-remote ffmpeg file-roller fuse-sshfs gcc gcc-gdb-plugin glibc-all-langpacks gnome-terminal-nautilus helm htop kubernetes1.32-client nautilus netcat nodejs-npm pipx qubes-ctap ShellCheck toolbox wireguard-tools whois xdg-desktop-portal-gtk yt-dlp
 dnf remove cheese evolution-data-server firefox gnome-software gnome-weather PackageKit-command-not-found ptyxis rpmfusion-nonfree-release thunderbird totem
 bash setup-desktop.sh
 all_proxy=127.0.0.1:8082 flatpak remote-add --if-not-exists flathub /usr/lib/fedora-third-party/conf.d/fedora-flathub.flatpakrepo
