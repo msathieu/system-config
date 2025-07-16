@@ -5,8 +5,8 @@ dnf config-manager setopt qubes-vm-r4.2-security-testing.enabled=true
 dnf config-manager setopt qubes-vm-r4.2-current-testing.enabled=true
 dnf config-manager setopt rpmfusion-free.enabled=true
 dnf config-manager setopt rpmfusion-free-updates.enabled=true
-dnf install --allowerasing bash-color-prompt bash-completion borgbackup bind-utils butane default-fonts fcitx5-anthy fcitx5-autostart fedora-flathub-remote ffmpeg file-roller fuse-sshfs gcc gcc-gdb-plugin glibc-all-langpacks gnome-terminal-nautilus helm htop kubernetes1.32-client nautilus netcat nodejs-npm pipx qubes-ctap ShellCheck toolbox wireguard-tools whois xdg-desktop-portal-gtk yt-dlp
+dnf install --allowerasing bash-color-prompt bash-completion borgbackup bind-utils butane default-fonts fcitx5-anthy fcitx5-autostart fedora-flathub-remote ffmpeg file-roller fuse-sshfs gcc gcc-gdb-plugin glibc-all-langpacks gnome-terminal-nautilus helm htop kubernetes1.33-client nautilus netcat nodejs-npm pipx qubes-ctap ShellCheck toolbox wireguard-tools whois xdg-desktop-portal-gtk yt-dlp
 dnf remove cheese evolution-data-server firefox gnome-software gnome-weather PackageKit-command-not-found ptyxis rpmfusion-nonfree-release thunderbird totem
 bash setup-desktop.sh
 all_proxy=127.0.0.1:8082 flatpak remote-add --if-not-exists flathub /usr/lib/fedora-third-party/conf.d/fedora-flathub.flatpakrepo
-all_proxy=127.0.0.1:8082 flatpak install com.github.tchx84.Flatseal com.github.xournalpp.xournalpp com.moonlight_stream.Moonlight com.yubico.yubioath im.riot.Riot io.mpv.Mpv net.cozic.joplin_desktop org.chromium.Chromium org.freedesktop.Platform.ffmpeg-full/x86_64/24.08 org.gimp.GIMP org.gnome.Evolution org.libreoffice.LibreOffice org.mozilla.firefox net.mullvad.MullvadBrowser
+all_proxy=127.0.0.1:8082 flatpak install com.github.tchx84.Flatseal com.github.xournalpp.xournalpp com.moonlight_stream.Moonlight com.yubico.yubioath im.riot.Riot io.mpv.Mpv net.cozic.joplin_desktop net.mullvad.MullvadBrowser org.chromium.Chromium org.freedesktop.Platform.ffmpeg-full/x86_64/24.08 org.gimp.GIMP org.gnome.Evolution org.libreoffice.LibreOffice org.mozilla.firefox

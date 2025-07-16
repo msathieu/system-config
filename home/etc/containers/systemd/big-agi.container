@@ -2,7 +2,7 @@
 Image=git.strypsteen.com/infra/big-agi
 Environment=HTTP_BASIC_AUTH_USERNAME=mathieu
 Environment=OLLAMA_API_HOST=https://textgen.strypsteen.com
-Environment=PUPPETEER_WSS_ENDPOINT=ws://sandbox.server.home.arpa:3000
+Environment=PUPPETEER_WSS_ENDPOINT=ws://controlplane.server.home.arpa:30000
 Secret=HTTP_BASIC_AUTH_PASSWORD,type=env
 Secret=OPENROUTER_API_KEY,type=env
 PublishPort=10.0.1.2:8004:3000
