@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: big-agi
+spec:
+  selector:
+    matchLabels:
+      app: big-agi
+  template:
+    metadata:
+      name: big-agi
+      labels:
+        app: big-agi
+    spec:
+      containers:
+        - name: big-agi
+          image: git.strypsteen.com/infra/big-agi
+          env:
+            - name: HTTP_BASIC_AUTH_USERNAME
+              value: mathieu
+            - name: OLLAMA_API_HOST
+              value: https://textgen.strypsteen.com
+            - name: PUPPETEER_WSS_ENDPOINT
+              value: ws://browserless:3000
+            - name: HTTP_BASIC_AUTH_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: big-agi
+                  key: password
+            - name: OPENROUTER_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: big-agi
+                  key: openrouter
+      imagePullSecrets:
+        - name: git-strypsteen-com
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: big-agi
+spec:
+  type: NodePort
+  selector:
+    app: big-agi
+  ports:
+    - port: 3000
+      nodePort: 30000
