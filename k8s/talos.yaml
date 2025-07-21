@@ -15,3 +15,9 @@ machine:
   time:
     servers:
       - /dev/ptp0
+cluster:
+  network:
+    cni:
+      name: custom
+      urls:
+        - https://raw.githubusercontent.com/projectcalico/calico/v3.30.2/manifests/canal.yaml
