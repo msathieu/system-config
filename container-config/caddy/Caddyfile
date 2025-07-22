@@ -71,7 +71,7 @@ llm.strypsteen.com {
   import base
   import local-only
   import tls
-  reverse_proxy http://controlplane.server.home.arpa:30000
+  reverse_proxy http://192.168.253.254
 }
 metrics.strypsteen.com {
   import base

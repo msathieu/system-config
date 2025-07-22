@@ -40,9 +40,25 @@ kind: Service
 metadata:
   name: big-agi
 spec:
-  type: NodePort
   selector:
     app: big-agi
   ports:
     - port: 3000
-      nodePort: 30000
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: big-agi
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: llm.strypsteen.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: big-agi
+                port:
+                  number: 3000
