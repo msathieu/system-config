@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: browserless
-          image: ghcr.io/browserless/chromium:v2.33.0
+          image: ghcr.io/browserless/chromium
 ---
 apiVersion: v1
 kind: Service

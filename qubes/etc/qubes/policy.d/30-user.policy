@@ -8,6 +8,7 @@ qubes.ClipboardPaste * @anyvm sys-firewall deny
 qubes.ClipboardPaste * @anyvm sys-usb deny
 qubes.ClipboardPaste * @anyvm sys-whonix deny
 qubes.ClipboardPaste * @anyvm system-config deny
+qubes.ClipboardPaste * @anyvm sysadmin deny
 qubes.ClipboardPaste * @anyvm dev deny
 qubes.ClipboardPaste * @anyvm vault deny
 qubes.ClipboardPaste * @anyvm @anyvm ask
@@ -26,5 +27,6 @@ qubes.Filecopy * @anyvm sys-firewall deny
 qubes.Filecopy * @anyvm sys-usb deny
 qubes.Filecopy * @anyvm sys-whonix deny
 qubes.Filecopy * @anyvm system-config deny
+qubes.Filecopy * @anyvm sysadmin deny
 qubes.Filecopy * @anyvm dev deny
 qubes.Filecopy * @anyvm vault deny

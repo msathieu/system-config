@@ -15,6 +15,9 @@ machine:
   time:
     servers:
       - /dev/ptp0
+  network:
+    kubespan:
+      enabled: true
 cluster:
   network:
     cni:

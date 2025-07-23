@@ -5,6 +5,7 @@ set system static-host-mapping host-name trace.svc.ui.com inet 0.0.0.1
 set system static-host-mapping host-name pve.strypsteen.com inet 192.168.253.2
 set system static-host-mapping host-name pbs.strypsteen.com inet 192.168.253.3
 set system static-host-mapping host-name home.strypsteen.com inet 192.168.253.4
+set system static-host-mapping host-name k8s.strypsteen.com inet 192.168.253.5
 set system static-host-mapping host-name home.strypsteen.com alias infra.server.home.arpa
 set system static-host-mapping host-name home.strypsteen.com alias auth.strypsteen.com
 set system static-host-mapping host-name home.strypsteen.com alias cloud.strypsteen.com
@@ -77,8 +78,8 @@ set service dhcp-server shared-network-name server option default-router 192.168
 set service dhcp-server shared-network-name server option domain-name server.home.arpa
 set service dhcp-server shared-network-name server option name-server 192.168.253.1
 set service dhcp-server shared-network-name server subnet 192.168.253.0/24 subnet-id 253
-set service dhcp-server shared-network-name server subnet 192.168.253.0/24 range 0 start 192.168.253.5
-set service dhcp-server shared-network-name server subnet 192.168.253.0/24 range 0 stop 192.168.253.200
+set service dhcp-server shared-network-name server subnet 192.168.253.0/24 range 0 start 192.168.253.50
+set service dhcp-server shared-network-name server subnet 192.168.253.0/24 range 0 stop 192.168.253.254
 set service dhcp-server shared-network-name server subnet 192.168.253.0/24 lease 3600
 set service router-advert interface br0.255 prefix ::/64
 set service router-advert interface br0.255 name-server fc00::1
