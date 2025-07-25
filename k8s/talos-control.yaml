@@ -1,3 +1,6 @@
 machine:
+  install:
+    # intel-ucode, iscsi-tools, realtek-firmware, usb-modem-drivers, util-linux-tools
+    image: factory.talos.dev/metal-installer-secureboot/88a7233bb3c2d445e76d36644ba7e1ec35b39ed65d47a7f7ee442732fd3464d0:v1.10.5
   network:
     hostname: controlplane.server.home.arpa
