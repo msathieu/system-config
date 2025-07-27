@@ -16,6 +16,8 @@ machine:
   network:
     kubespan:
       enabled: true
+  sysctls:
+    user.max_user_namespaces: 10000
 cluster:
   allowSchedulingOnControlPlanes: true
   network:

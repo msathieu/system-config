@@ -12,6 +12,7 @@ spec:
       labels:
         app: browserless
     spec:
+      hostUsers: false
       containers:
         - name: browserless
           image: ghcr.io/browserless/chromium

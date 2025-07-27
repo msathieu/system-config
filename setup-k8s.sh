@@ -12,6 +12,9 @@ helm upgrade --install metallb metallb --repo https://metallb.github.io/metallb 
 kubectl apply -f k8s-infra/metallb.yaml
 helm upgrade --install ingress-nginx ingress-nginx --repo https://kubernetes.github.io/ingress-nginx --namespace ingress-nginx --create-namespace -f k8s-infra/nginx-values.yaml
 helm upgrade --install cert-manager cert-manager --repo https://charts.jetstack.io --namespace cert-manager --create-namespace -f k8s-infra/cert-manager-values.yaml
+kubectl create namespace monitoring || true
+kubectl label namespaces monitoring pod-security.kubernetes.io/enforce=privileged
+helm upgrade --install prometheus kube-prometheus-stack --repo https://prometheus-community.github.io/helm-charts --namespace monitoring -f k8s-infra/monitoring-values.yaml
 kubectl create namespace services || true
 kubectl get secrets -o json | sed s/default/services/ | kubectl apply -f - || true
 kubectl -n services apply -f k8s-apps/policy.yaml

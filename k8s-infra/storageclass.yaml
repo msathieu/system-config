@@ -1,7 +1,17 @@
 kind: StorageClass
 apiVersion: storage.k8s.io/v1
 metadata:
-  name: longhorn-double
+  name: longhorn-custom
 provisioner: driver.longhorn.io
+allowVolumeExpansion: true
 parameters:
   numberOfReplicas: "2"
+  encrypted: "true"
+  csi.storage.k8s.io/provisioner-secret-name: encryption
+  csi.storage.k8s.io/provisioner-secret-namespace: longhorn-system
+  csi.storage.k8s.io/node-publish-secret-name: encryption
+  csi.storage.k8s.io/node-publish-secret-namespace: longhorn-system
+  csi.storage.k8s.io/node-stage-secret-name: encryption
+  csi.storage.k8s.io/node-stage-secret-namespace: longhorn-system
+  csi.storage.k8s.io/node-expand-secret-name: encryption
+  csi.storage.k8s.io/node-expand-secret-namespace: longhorn-system

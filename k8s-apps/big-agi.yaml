@@ -12,6 +12,7 @@ spec:
       labels:
         app: big-agi
     spec:
+      hostUsers: false
       containers:
         - name: big-agi
           image: git.strypsteen.com/infra/big-agi
