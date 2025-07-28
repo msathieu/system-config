@@ -1,9 +1,0 @@
-[Container]
-Image=docker.io/mongo:8.0
-UserNS=host
-Exec=--logpath /dev/null
-Network=unifi.network
-Volume=systemd-unifi-mongodb:/data/db:Z
-AutoUpdate=registry
-[Install]
-WantedBy=multi-user.target

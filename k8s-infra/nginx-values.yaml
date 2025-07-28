@@ -1,3 +1,5 @@
 controller:
   extraArgs:
     default-ssl-certificate: services/k8s-certificate
+tcp:
+  8080: services/unifi:8080

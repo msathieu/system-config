@@ -6,7 +6,7 @@ prometheus:
           storageClassName: longhorn-custom
           resources:
             requests:
-              storage: 10G
+              storage: 10Gi
 alertmanager:
   alertmanagerSpec:
     storage:
@@ -15,7 +15,7 @@ alertmanager:
           storageClassName: longhorn-custom
           resources:
             requests:
-              storage: 1G
+              storage: 1Gi
     secrets:
       - alertmanager
   config:

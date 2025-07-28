@@ -1,0 +1,63 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: unifi-mongodb
+spec:
+  storageClassName: longhorn-custom
+  accessModes:
+    - ReadWriteOncePod
+  resources:
+    requests:
+      storage: 10Gi
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: unifi-mongodb
+spec:
+  selector:
+    matchLabels:
+      app: unifi-mongodb
+  template:
+    metadata:
+      name: unifi-mongodb
+      labels:
+        app: unifi-mongodb
+    spec:
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: unifi-mongodb
+      containers:
+        - name: unifi-mongodb
+          image: docker.io/mongo:8.0
+          imagePullPolicy: Always
+          volumeMounts:
+            - name: data
+              mountPath: /data/db
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: unifi-mongodb
+spec:
+  selector:
+    app: unifi-mongodb
+  ports:
+    - port: 27017
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: unifi-mongodb
+spec:
+  podSelector:
+    matchLabels:
+      app: unifi-mongodb
+  policyTypes:
+    - Ingress
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          app: unifi

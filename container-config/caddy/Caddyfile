@@ -101,11 +101,7 @@ network.strypsteen.com {
   import base
   import local-only
   import tls
-  reverse_proxy https://home.server.home.arpa:8009 {
-    transport http {
-      tls_insecure_skip_verify
-    }
-  }
+  reverse_proxy https://k8s.strypsteen.com
 }
 office.strypsteen.com {
   import base

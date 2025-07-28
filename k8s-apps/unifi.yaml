@@ -1,0 +1,90 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: unifi
+spec:
+  storageClassName: longhorn-custom
+  accessModes:
+    - ReadWriteOncePod
+  resources:
+    requests:
+      storage: 10Gi
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: unifi
+spec:
+  selector:
+    matchLabels:
+      app: unifi
+  template:
+    metadata:
+      name: unifi
+      labels:
+        app: unifi
+    spec:
+      hostUsers: false
+      volumes:
+        - name: cert
+          emptyDir: {}
+        - name: data
+          persistentVolumeClaim:
+            claimName: unifi
+        - name: logs
+          emptyDir: {}
+      containers:
+        - name: unifi
+          image: docker.io/goofball222/unifi
+          env:
+            - name: DB_MONGO_LOCAL
+              value: "false"
+            - name: DB_MONGO_URI
+              value: mongodb://unifi-mongodb/unifi
+            - name: STATDB_MONGO_URI
+              value: mongodb://unifi-mongodb/unifi_stat
+          volumeMounts:
+            - name: cert
+              mountPath: /usr/lib/unifi/cert
+            - name: data
+              mountPath: /usr/lib/unifi/data
+            - name: logs
+              mountPath: /usr/lib/unifi/logs
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: unifi
+spec:
+  selector:
+    app: unifi
+  ports:
+    - name: web
+      port: 8443
+    - name: device
+      port: 8080
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: unifi
+  annotations:
+    cert-manager.io/issuer: letsencrypt
+    nginx.ingress.kubernetes.io/backend-protocol: HTTPS
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+      - k8s.strypsteen.com
+      secretName: k8s-certificate
+  rules:
+    - host: network.strypsteen.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: unifi
+                port:
+                  number: 8443
