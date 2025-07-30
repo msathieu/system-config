@@ -12,6 +12,7 @@ spec:
       labels:
         app: collabora
     spec:
+      hostUsers: false
       volumes:
         - name: config
           configMap:

@@ -40,7 +40,7 @@ strypsteen.com {
 auth.strypsteen.com {
   import base
   import tls
-  reverse_proxy http://systemd-keycloak:8080
+  reverse_proxy https://k8s.strypsteen.com
 }
 cloud.strypsteen.com {
   import base
