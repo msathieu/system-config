@@ -1,0 +1,2 @@
+defaultSettings:
+  nodeDrainPolicy: allow-if-replica-is-stopped

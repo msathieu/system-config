@@ -4,7 +4,7 @@ kubectl create namespace longhorn-system || true
 kubectl -n longhorn-system apply -f k8s-infra/longhorn-policy.yaml
 kubectl apply -f https://raw.githubusercontent.com/longhorn/longhorn/refs/heads/master/examples/network-policy/webhook-network-policy.yaml
 kubectl label namespaces longhorn-system pod-security.kubernetes.io/enforce=privileged
-helm upgrade --install longhorn longhorn --version 1.9.1 --repo https://charts.longhorn.io --namespace longhorn-system
+helm upgrade --install longhorn longhorn --version 1.9.1 --repo https://charts.longhorn.io --namespace longhorn-system -f k8s-infra/longhorn-values.yaml
 kubectl apply -f k8s-infra/storageclass.yaml
 kubectl create namespace metallb-system || true
 kubectl label namespaces metallb-system pod-security.kubernetes.io/enforce=privileged

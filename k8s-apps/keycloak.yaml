@@ -3,6 +3,7 @@ kind: Cluster
 metadata:
   name: keycloak-db
 spec:
+  enablePDB: false
   storage:
     size: 5Gi
 ---
