@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: collabora
+spec:
+  selector:
+    matchLabels:
+      app: collabora
+  template:
+    metadata:
+      name: collabora
+      labels:
+        app: collabora
+    spec:
+      volumes:
+        - name: config
+          configMap:
+            name: collabora
+      containers:
+        - name: collabora
+          image: docker.io/collabora/code
+          volumeMounts:
+            - name: config
+              mountPath: /etc/coolwsd/coolwsd.xml
+              subPath: coolwsd.xml
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: collabora
+spec:
+  selector:
+    app: collabora
+  ports:
+    - port: 9980
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: collabora
+  annotations:
+    cert-manager.io/issuer: letsencrypt
+    nginx.ingress.kubernetes.io/backend-protocol: HTTPS
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+      - k8s.strypsteen.com
+      secretName: k8s-certificate
+  rules:
+    - host: office.strypsteen.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: collabora
+                port:
+                  number: 9980

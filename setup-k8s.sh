@@ -23,3 +23,4 @@ kubectl -n services apply -f k8s-apps/browserless.yaml
 kubectl -n services apply -f k8s-apps/big-agi.yaml
 kubectl -n services apply -f k8s-apps/unifi-mongodb.yaml
 kubectl -n services apply -f k8s-apps/unifi.yaml
+kubectl -n services apply -f k8s-apps/collabora.yaml

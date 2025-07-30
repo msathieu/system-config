@@ -1,9 +1,0 @@
-[Container]
-Image=docker.io/collabora/code
-UserNS=host
-ReadOnly=false
-Volume=/var/lib/container-data/collabora.xml:/etc/coolwsd/coolwsd.xml:U,Z
-PublishPort=10.0.1.2:8010:9980
-AutoUpdate=registry
-[Install]
-WantedBy=multi-user.target
