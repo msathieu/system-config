@@ -8,7 +8,7 @@ helm upgrade --install longhorn longhorn --version 1.9.1 --repo https://charts.l
 kubectl apply -f k8s-infra/storageclass.yaml
 kubectl create namespace metallb-system || true
 kubectl label namespaces metallb-system pod-security.kubernetes.io/enforce=privileged
-helm upgrade --install metallb metallb --repo https://metallb.github.io/metallb --namespace metallb-system
+helm upgrade --install metallb metallb --repo https://metallb.github.io/metallb --namespace metallb-system -f k8s-infra/metallb-values.yaml
 kubectl apply -f k8s-infra/metallb.yaml
 helm upgrade --install ingress-nginx ingress-nginx --repo https://kubernetes.github.io/ingress-nginx --namespace ingress-nginx --create-namespace -f k8s-infra/nginx-values.yaml
 helm upgrade --install cert-manager cert-manager --repo https://charts.jetstack.io --namespace cert-manager --create-namespace -f k8s-infra/cert-manager-values.yaml
