@@ -34,7 +34,7 @@ spec:
           emptyDir: {}
       containers:
         - name: unifi
-          image: docker.io/goofball222/unifi
+          image: docker.io/goofball222/unifi:9.3.43
           env:
             - name: DB_MONGO_LOCAL
               value: "false"

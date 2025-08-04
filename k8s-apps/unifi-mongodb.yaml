@@ -29,8 +29,7 @@ spec:
             claimName: unifi-mongodb
       containers:
         - name: unifi-mongodb
-          image: docker.io/mongo:8.0
-          imagePullPolicy: Always
+          image: docker.io/mongo:8.0.12          
           volumeMounts:
             - name: data
               mountPath: /data/db
