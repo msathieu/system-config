@@ -1,4 +1,0 @@
-defaultSettings:
-  nodeDrainPolicy: allow-if-replica-is-stopped
-persistence:
-  defaultClass: false
