@@ -1,0 +1,34 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: renovate
+spec:
+  schedule: '@daily'
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          hostUsers: false
+          restartPolicy: Never
+          containers:
+            - name: renovate
+              image: docker.io/renovate/renovate:41.52.0
+              env:
+                - name: RENOVATE_PLATFORM
+                  value: forgejo
+                - name: RENOVATE_ENDPOINT
+                  value: https://git.strypsteen.com/api/v1
+                - name: RENOVATE_AUTODISCOVER
+                  value: 'true'
+                - name: RENOVATE_GIT_AUTHOR
+                  value: 'Renovate <renovate@strypsteen.me>'
+                - name: RENOVATE_TOKEN
+                  valueFrom:
+                    secretKeyRef:
+                      name: renovate
+                      key: token
+                - name: RENOVATE_GITHUB_COM_TOKEN
+                  valueFrom:
+                    secretKeyRef:
+                      name: renovate
+                      key: gh-token
