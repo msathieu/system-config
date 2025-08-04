@@ -6,9 +6,6 @@ kubectl create namespace longhorn-system || true
 kubectl apply -f https://raw.githubusercontent.com/longhorn/longhorn/refs/tags/v1.9.1/examples/network-policy/webhook-network-policy.yaml
 kubectl label namespaces longhorn-system pod-security.kubernetes.io/enforce=privileged
 helm upgrade --install longhorn longhorn --version 1.9.1 --repo https://charts.longhorn.io --namespace longhorn-system -f k8s-infra/longhorn-values.yaml
-kubectl apply -f k8s-infra/storageclass.yaml
-kubectl apply -f k8s-infra/metallb-config.yaml
-helm upgrade --install ingress-nginx ingress-nginx --repo https://kubernetes.github.io/ingress-nginx --namespace ingress-nginx --create-namespace -f k8s-infra/nginx-values.yaml
 helm upgrade --install cert-manager cert-manager --repo https://charts.jetstack.io --namespace cert-manager --create-namespace -f k8s-infra/cert-manager-values.yaml
 kubectl create namespace monitoring || true
 kubectl label namespaces monitoring pod-security.kubernetes.io/enforce=privileged
