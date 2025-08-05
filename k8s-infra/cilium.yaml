@@ -35,6 +35,7 @@ spec:
     server: https://kubernetes.default.svc
     namespace: kube-system
   syncPolicy:
+    automated: {}
     syncOptions:
       - RespectIgnoreDifferences=true
   ignoreDifferences:
