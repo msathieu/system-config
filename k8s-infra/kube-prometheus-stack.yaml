@@ -59,6 +59,12 @@ spec:
     syncOptions:
       - CreateNamespace=true
       - ServerSideApply=true
+      - RespectIgnoreDifferences=true
     managedNamespaceMetadata:
       labels:
         pod-security.kubernetes.io/enforce: privileged
+  ignoreDifferences:
+    - kind: Secret
+      name: prometheus-grafana
+      jsonPointers:
+        - /data/admin-password
