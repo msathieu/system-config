@@ -1,7 +1,7 @@
 machine:
   install:
-    # iscsi-tools, qemu-guest-agent, util-linux-tools
-    image: factory.talos.dev/metal-installer-secureboot/88d1f7a5c4f1d3aba7df787c448c1d3d008ed29cfb34af53fa0df4336a56040b:v1.10.6
+    # intel-ucode, iscsi-tools, realtek-firmware, util-linux-tools
+    image: factory.talos.dev/metal-installer-secureboot/ec3a78953a53ac0159d44d90c6f2c5068a9a7db7587e19678712da5451fed124:v1.10.6
   systemDiskEncryption:
     state:
       provider: luks2
@@ -22,6 +22,4 @@ cluster:
   allowSchedulingOnControlPlanes: true
   network:
     cni:
-      name: custom
-      urls:
-        - https://raw.githubusercontent.com/projectcalico/calico/v3.30.2/manifests/canal.yaml
+      name: none
