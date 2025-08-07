@@ -4,7 +4,7 @@ metadata:
   name: unifi
 spec:
   accessModes:
-    - ReadWriteOncePod
+    - ReadWriteOnce
   resources:
     requests:
       storage: 10Gi
