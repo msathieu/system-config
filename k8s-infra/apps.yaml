@@ -10,7 +10,7 @@ spec:
     path: k8s-apps
   destination:
     server: https://kubernetes.default.svc
-    namespace: services
+    namespace: apps
   syncPolicy:
     automated: {}
     syncOptions:

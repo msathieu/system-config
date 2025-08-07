@@ -13,11 +13,11 @@ spec:
       values: |
         controller:
           extraArgs:
-            default-ssl-certificate: services/k8s-certificate
+            default-ssl-certificate: apps/k8s-certificate
           networkPolicy:
             enabled: true
         tcp:
-          8080: services/unifi:8080
+          8080: apps/unifi:8080
   destination:
     server: https://kubernetes.default.svc
     namespace: ingress-nginx
