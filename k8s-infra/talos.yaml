@@ -18,6 +18,8 @@ machine:
       enabled: true
   sysctls:
     user.max_user_namespaces: 10000
+  time:
+    bootTimeout: 1m
 cluster:
   allowSchedulingOnControlPlanes: true
   network:
