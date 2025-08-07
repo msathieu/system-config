@@ -3,6 +3,7 @@ kind: Cluster
 metadata:
   name: keycloak-db
 spec:
+  instances: 2
   enablePDB: false
   storage:
     size: 5Gi
@@ -22,6 +23,12 @@ spec:
     - podSelector:
         matchLabels:
           app: keycloak
+    - podSelector:
+        matchLabels:
+          cnpg.io/cluster: keycloak-db
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: cnpg-system
 ---
 apiVersion: apps/v1
 kind: StatefulSet
