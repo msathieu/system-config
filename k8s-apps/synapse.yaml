@@ -1,0 +1,153 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: synapse-db
+spec:
+  instances: 2
+  enablePDB: false
+  storage:
+    storageClass: longhorn-single
+    size: 30Gi
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: synapse
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 20Gi
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: synapse-db
+spec:
+  podSelector:
+    matchLabels:
+      cnpg.io/cluster: synapse-db
+  policyTypes:
+    - Ingress
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          app: synapse
+    - podSelector:
+        matchLabels:
+          cnpg.io/cluster: synapse-db
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: cnpg-system
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: synapse
+data:
+  homeserver.yaml: |
+    server_name: strypsteen.me
+    public_baseurl: https://matrix.strypsteen.com/
+    report_stats: false
+    log_config: /etc/synapse/log_config.yaml
+    signing_key_path: /data/signing.key
+    media_store_path: /data/media
+    listeners:
+      - type: http
+        bind_addresses: ['::']
+        port: 8080
+        x_forwarded: true
+        resources:
+          - names: [client, federation]
+    trusted_key_servers:
+      - server_name: matrix.org
+    suppress_key_server_warning: true
+    turn_uris: ['turn:turn.strypsteen.com']
+    turn_allow_guests: false
+    delete_stale_devices_after: 1y
+    max_upload_size: 500M
+    http_proxy: 'http://home.server.home.arpa:8081'
+    https_proxy: 'http://home.server.home.arpa:8081'
+  log_config.yaml: |
+    version: 1
+    root:
+      level: ERROR
+    disable_existing_loggers: False
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: synapse
+spec:
+  selector:
+    matchLabels:
+      app: synapse
+  template:
+    metadata:
+      name: synapse
+      labels:
+        app: synapse
+    spec:
+      hostUsers: false
+      volumes:
+        - name: config
+          configMap:
+            name: synapse
+        - name: config-secret
+          configMap:
+            name: synapse-secret
+        - name: data
+          persistentVolumeClaim:
+            claimName: synapse
+      containers:
+        - name: synapse
+          image: ghcr.io/element-hq/synapse:v1.135.0
+          args: ['run', '--config-path', '/etc/synapse/homeserver.yaml', '--config-path', '/etc/synapse.yaml']
+          volumeMounts:
+            - name: config
+              mountPath: /etc/synapse/homeserver.yaml
+              subPath: homeserver.yaml
+            - name: config
+              mountPath: /etc/synapse/log_config.yaml
+              subPath: log_config.yaml
+            - name: config-secret
+              mountPath: /etc/synapse.yaml
+              subPath: synapse.yaml
+            - name: data
+              mountPath: /data
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: synapse
+spec:
+  selector:
+    app: synapse
+  ports:
+    - port: 8080
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: synapse
+  annotations:
+    cert-manager.io/issuer: letsencrypt
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+      - k8s.strypsteen.com
+      secretName: k8s-certificate
+  rules:
+    - host: matrix.strypsteen.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: synapse
+                port:
+                  number: 8080

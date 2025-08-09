@@ -60,7 +60,7 @@ code-sandbox.strypsteen.com, *.code-sandbox-proxy.strypsteen.com {
 matrix.strypsteen.com {
   import base
   import tls
-  reverse_proxy http://home.server.home.arpa:8005
+  reverse_proxy https://k8s.strypsteen.com
 }
 git.strypsteen.com {
   import base
