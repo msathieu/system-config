@@ -6,7 +6,7 @@ if [ "$USER" != root ]; then
   exit 1
 fi
 if [ -f /etc/qubes-release ]; then
-  bash setup-qubes.sh
+  echo "Run setup-qubes.sh" >&2
   exit
 fi
 if [ ! -f /etc/fedora-release ]; then
