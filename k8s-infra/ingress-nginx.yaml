@@ -17,6 +17,8 @@ spec:
           networkPolicy:
             enabled: true
         tcp:
+          1080: apps/wireproxy:1080
+          1081: apps/wireproxy:1081
           8080: apps/unifi:8080
   destination:
     server: https://kubernetes.default.svc

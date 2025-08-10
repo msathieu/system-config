@@ -68,8 +68,8 @@ data:
     turn_allow_guests: false
     delete_stale_devices_after: 1y
     max_upload_size: 500M
-    http_proxy: 'http://home.server.home.arpa:8081'
-    https_proxy: 'http://home.server.home.arpa:8081'
+    http_proxy: 'http://k8s.strypsteen.com:8081'
+    https_proxy: 'http://k8s.strypsteen.com:8081'
   log_config.yaml: |
     version: 1
     root:

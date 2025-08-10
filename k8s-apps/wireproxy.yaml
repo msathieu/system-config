@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: wireproxy
+spec:
+  selector:
+    matchLabels:
+      app: wireproxy
+  template:
+    metadata:
+      name: wireproxy
+      labels:
+        app: wireproxy
+    spec:
+      hostUsers: false
+      volumes:
+        - name: config
+          secret:
+            secretName: wireproxy
+      containers:
+        - name: wireproxy
+          image: ghcr.io/whyvl/wireproxy
+          volumeMounts:
+            - name: config
+              mountPath: /etc/wireproxy/config
+              subPath: config
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: wireproxy
+spec:
+  selector:
+    app: wireproxy
+  ports:
+    - name: socks5
+      port: 1080
+    - name: http
+      port: 1081
