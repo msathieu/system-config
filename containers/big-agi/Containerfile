@@ -1,8 +1,8 @@
-FROM registry.access.redhat.com/ubi10 AS builder
-RUN curl -L https://github.com/enricoros/big-AGI/archive/refs/heads/v2-dev.tar.gz | tar xz && mv big-AGI-* big-AGI
-FROM registry.access.redhat.com/ubi10/nodejs-22-minimal
+FROM registry.access.redhat.com/ubi10
+RUN dnf install -y nodejs22
+RUN curl -L https://github.com/enricoros/big-AGI/archive/refs/heads/v2-dev.tar.gz | tar xz && mv big-AGI-* big-agi
+WORKDIR big-agi
 ENV NEXT_TELEMETRY_DISABLED 1
-COPY --from=builder /big-AGI .
 RUN mv middleware_BASIC_AUTH.ts middleware.ts
 RUN npm ci
 RUN npm run build
