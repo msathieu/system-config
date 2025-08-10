@@ -96,8 +96,8 @@ spec:
           configMap:
             name: synapse
         - name: config-secret
-          configMap:
-            name: synapse-secret
+          secret:
+            secretName: synapse
         - name: data
           persistentVolumeClaim:
             claimName: synapse
