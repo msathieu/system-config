@@ -1,0 +1,65 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: immich-ml
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: immich-ml
+spec:
+  selector:
+    matchLabels:
+      app: immich-ml
+  template:
+    metadata:
+      name: immich-ml
+      labels:
+        app: immich-ml
+    spec:
+      hostUsers: false
+      volumes:
+        - name: cache
+          persistentVolumeClaim:
+            claimName: immich-ml
+      containers:
+        - name: immich-ml
+          image: ghcr.io/immich-app/immich-machine-learning:v1.137.3
+          env:
+            - name: IMMICH_PORT
+              value: "3003"
+          volumeMounts:
+            - name: cache
+              mountPath: /cache
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: immich-ml
+spec:
+  selector:
+    app: immich-ml
+  ports:
+    - port: 3003
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: immich-ml
+spec:
+  podSelector:
+    matchLabels:
+      app: immich-ml
+  policyTypes:
+    - Ingress
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          app: immich

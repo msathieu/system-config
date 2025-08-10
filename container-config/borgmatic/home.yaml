@@ -3,7 +3,3 @@ postgresql_databases:
     hostname: systemd-postgresql
     username: postgres
     password: ${POSTGRES_PASSWORD}
-  - name: all
-    hostname: systemd-immich-postgresql
-    username: postgres
-    password: ${POSTGRES_PASSWORD}

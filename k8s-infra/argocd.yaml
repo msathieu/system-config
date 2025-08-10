@@ -15,6 +15,9 @@ spec:
         global:
           networkPolicy:
             create: true
+        configs:
+          cm:
+            exec.enabled: true
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd

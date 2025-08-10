@@ -1,7 +1,0 @@
-[Container]
-Image=ghcr.io/immich-app/immich-machine-learning:release
-Network=immich.network
-Volume=systemd-immich-ml:/cache:U,Z
-AutoUpdate=registry
-[Install]
-WantedBy=multi-user.target

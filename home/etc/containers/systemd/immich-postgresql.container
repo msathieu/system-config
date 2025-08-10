@@ -1,9 +1,0 @@
-[Container]
-Image=ghcr.io/immich-app/postgres:16-vectorchord0.3.0
-Network=immich.network
-Volume=systemd-immich-postgresql:/var/lib/postgresql/data:U,Z
-Tmpfs=/etc/postgresql
-Secret=POSTGRES_PASSWORD,type=env
-AutoUpdate=registry
-[Install]
-WantedBy=multi-user.target

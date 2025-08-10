@@ -111,7 +111,7 @@ office.strypsteen.com {
 photos.strypsteen.com {
   import base
   import tls
-  reverse_proxy http://home.server.home.arpa:8006
+  reverse_proxy https://k8s.strypsteen.com
 }
 remote-desktop.strypsteen.com {
   import base
