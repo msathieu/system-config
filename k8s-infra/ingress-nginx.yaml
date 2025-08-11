@@ -16,6 +16,8 @@ spec:
             default-ssl-certificate: apps/k8s-certificate
           networkPolicy:
             enabled: true
+          config:
+            proxy-body-size: 1G
         tcp:
           1080: apps/wireproxy:1080
           1081: apps/wireproxy:1081

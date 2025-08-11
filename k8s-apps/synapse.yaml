@@ -68,8 +68,6 @@ data:
     turn_allow_guests: false
     delete_stale_devices_after: 1y
     max_upload_size: 500M
-    http_proxy: 'http://k8s.strypsteen.com:8081'
-    https_proxy: 'http://k8s.strypsteen.com:8081'
   log_config.yaml: |
     version: 1
     root:
@@ -103,8 +101,13 @@ spec:
             claimName: synapse
       containers:
         - name: synapse
-          image: ghcr.io/element-hq/synapse:v1.135.0
+          image: ghcr.io/element-hq/synapse:v1.135.2
           args: ['run', '--config-path', '/etc/synapse/homeserver.yaml', '--config-path', '/etc/synapse.yaml']
+          env:
+            - name: tmp_http_proxy
+              value: http://k8s.strypsteen.com:1081
+            - name: tmp_https_proxy
+              value: http://k8s.strypsteen.com:1081
           volumeMounts:
             - name: config
               mountPath: /etc/synapse/homeserver.yaml

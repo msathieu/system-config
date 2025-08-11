@@ -1,0 +1,63 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: nextcloud-valkey
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: nextcloud-valkey
+spec:
+  selector:
+    matchLabels:
+      app: nextcloud-valkey
+  template:
+    metadata:
+      name: nextcloud-valkey
+      labels:
+        app: nextcloud-valkey
+    spec:
+      hostUsers: false
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: nextcloud-valkey
+      containers:
+        - name: nextcloud-valkey
+          image: docker.io/valkey/valkey:8.1.3
+          command: ['valkey-server']
+          volumeMounts:
+            - name: data
+              mountPath: /data
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nextcloud-valkey
+spec:
+  selector:
+    app: nextcloud-valkey
+  ports:
+    - port: 6379
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: nextcloud-valkey
+spec:
+  podSelector:
+    matchLabels:
+      app: nextcloud-valkey
+  policyTypes:
+    - Ingress
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          app: nextcloud
