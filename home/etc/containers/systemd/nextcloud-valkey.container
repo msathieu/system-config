@@ -1,7 +1,0 @@
-[Container]
-Image=cgr.dev/chainguard/valkey
-Network=nextcloud.network
-Volume=systemd-nextcloud-valkey:/data:U,Z
-AutoUpdate=registry
-[Install]
-WantedBy=multi-user.target

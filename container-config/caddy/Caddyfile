@@ -45,7 +45,7 @@ auth.strypsteen.com {
 cloud.strypsteen.com {
   import base
   import tls
-  reverse_proxy http://home.server.home.arpa:8002
+  reverse_proxy https://k8s.strypsteen.com
 }
 code.strypsteen.com, *.code-proxy.strypsteen.com {
   import base

@@ -1,0 +1,107 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: nextcloud-db
+spec:
+  instances: 2
+  enablePDB: false
+  storage:
+    storageClass: longhorn-single
+    size: 5Gi
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: nextcloud
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 50Gi
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: nextcloud-db
+spec:
+  podSelector:
+    matchLabels:
+      cnpg.io/cluster: nextcloud-db
+  policyTypes:
+    - Ingress
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          app: nextcloud
+    - podSelector:
+        matchLabels:
+          cnpg.io/cluster: nextcloud-db
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: cnpg-system
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: nextcloud
+spec:
+  selector:
+    matchLabels:
+      app: nextcloud
+  template:
+    metadata:
+      name: nextcloud
+      labels:
+        app: nextcloud
+    spec:
+      hostUsers: false
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: nextcloud
+      containers:
+        - name: nextcloud
+          image: docker.io/nextcloud:31.0.7
+          command: ['sh', '-c', 'busybox crond && /entrypoint.sh apache2-foreground']
+          env:
+            - name: OVERWRITEPROTOCOL
+              value: https
+          volumeMounts:
+            - name: data
+              mountPath: /var/www/html
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nextcloud
+spec:
+  selector:
+    app: nextcloud
+  ports:
+    - port: 80
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: nextcloud
+  annotations:
+    cert-manager.io/issuer: letsencrypt
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+      - k8s.strypsteen.com
+      secretName: k8s-certificate
+  rules:
+    - host: cloud.strypsteen.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: nextcloud
+                port:
+                  number: 80
