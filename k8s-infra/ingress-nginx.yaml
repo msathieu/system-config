@@ -17,7 +17,9 @@ spec:
           networkPolicy:
             enabled: true
           config:
+            disable-access-log: "true"
             proxy-body-size: 1G
+            hsts-preload: "true"
         tcp:
           1080: apps/wireproxy:1080
           1081: apps/wireproxy:1081

@@ -64,7 +64,7 @@ spec:
       containers:
         - name: nextcloud
           image: docker.io/nextcloud:31.0.7
-          command: ['sh', '-c', 'busybox crond && /entrypoint.sh apache2-foreground']
+          command: ['sh', '-c', 'busybox crond && /entrypoint.sh apache2-foreground > /dev/null']
           env:
             - name: OVERWRITEPROTOCOL
               value: https
