@@ -1,5 +1,5 @@
 FROM registry.access.redhat.com/ubi10
-RUN dnf install -y nodejs22
+RUN dnf install -y git nodejs22
 RUN curl -L https://github.com/enricoros/big-AGI/archive/refs/heads/v2-dev.tar.gz | tar xz && mv big-AGI-* big-agi
 WORKDIR big-agi
 ENV NEXT_TELEMETRY_DISABLED 1
