@@ -20,7 +20,7 @@ spec:
       containers:
         - name: podman
           image: quay.io/podman/stable:v5.5.2
-          command: ['sleep', 'infinity']
+          command: ['podman', 'system', 'service', '-t0', 'tcp://0.0.0.0:8888']
           securityContext:
             runAsUser: 1000
             seccompProfile:
@@ -28,3 +28,34 @@ spec:
           volumeMounts:
             - name: containers
               mountPath: /home/podman/.local/share/containers
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: podman
+  namespace: kube-system
+spec:
+  selector:
+    app: podman
+  ports:
+    - port: 8888
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: podman
+  namespace: kube-system
+spec:
+  podSelector:
+    matchLabels:
+      app: podman
+  policyTypes:
+    - Ingress
+  ingress:
+  - from:
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: apps
+      podSelector:
+        matchLabels:
+          app: forgejo-runner

@@ -1,0 +1,54 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: forgejo-runner
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: forgejo-runner
+data:
+  config.yaml: |
+    runner:
+      labels: ["debian-12:docker://node:bookworm", "debian-13:docker://node:trixie"]
+    container:
+      docker_host: "tcp://podman.kube-system.svc.cluster.local:8888"
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: forgejo-runner
+spec:
+  selector:
+    matchLabels:
+      app: forgejo-runner
+  template:
+    metadata:
+      name: forgejo-runner
+      labels:
+        app: forgejo-runner
+    spec:
+      hostUsers: false
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: forgejo-runner
+        - name: config
+          configMap:
+            name: forgejo-runner
+      containers:
+        - name: forgejo-runner
+          image: code.forgejo.org/forgejo/runner:9.0.3
+          command: ['forgejo-runner', 'daemon', '-c', '/etc/forgejo-runner/config.yaml']
+          volumeMounts:
+            - name: data
+              mountPath: /data
+            - name: config
+              mountPath: /etc/forgejo-runner/config.yaml
+              subPath: config.yaml
