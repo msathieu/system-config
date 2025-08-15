@@ -19,7 +19,7 @@ spec:
           config:
             disable-access-log: "true"
             proxy-body-size: 1G
-            proxy-request-buffering: off
+            proxy-request-buffering: "off"
             hsts-preload: "true"
         tcp:
           1080: apps/wireproxy:1080
