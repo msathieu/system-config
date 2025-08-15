@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: podman
+  namespace: kube-system
+spec:
+  selector:
+    matchLabels:
+      app: podman
+  template:
+    metadata:
+      name: podman
+      labels:
+        app: podman
+    spec:
+      hostUsers: false
+      volumes:
+        - name: containers
+          emptyDir: {}
+      containers:
+        - name: podman
+          image: quay.io/podman/stable:v5.5.2
+          command: ['sleep', 'infinity']
+          securityContext:
+            runAsUser: 1000
+            seccompProfile:
+              type: Unconfined
+          volumeMounts:
+            - name: containers
+              mountPath: /home/podman/.local/share/containers
