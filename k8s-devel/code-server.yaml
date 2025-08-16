@@ -9,6 +9,38 @@ spec:
     requests:
       storage: 100Gi
 ---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: code-server
+data:
+  settings.json: |
+    {
+      "diffEditor.ignoreTrimWhitespace": false,
+      "editor.codeLens": false,
+      "editor.dragAndDrop": false,
+      "editor.folding": false,
+      "editor.formatOnPaste": true,
+      "editor.formatOnSave": true,
+      "editor.formatOnType": true,
+      "editor.inlayHints.enabled": "off",
+      "editor.multiCursorLimit": 1,
+      "editor.selectionClipboard": false,
+      "editor.smoothScrolling": true,
+      "editor.tabSize": 2,
+      "explorer.confirmDragAndDrop": false,
+      "files.autoSave": "off",
+      "files.enableTrash": false,
+      "files.insertFinalNewline": true,
+      "files.trimFinalNewlines": true,
+      "files.trimTrailingWhitespace": true,
+      "git.confirmSync": false,
+      "search.smartCase": true,
+      "workbench.colorTheme": "Default Dark Modern",
+      "workbench.settings.enableNaturalLanguageSearch": false,
+      "workbench.startupEditor": "none"
+    }
+---
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
@@ -25,6 +57,9 @@ spec:
     spec:
       hostUsers: false
       volumes:
+        - name: config
+          configMap:
+            name: code-server
         - name: data
           persistentVolumeClaim:
             claimName: code-server
@@ -44,6 +79,9 @@ spec:
                   name: code-server
                   key: password
           volumeMounts:
+            - name: config
+              mountPath: /home/coder/.local/share/code-server/Machine/settings.json
+              subPath: settings.json
             - name: data
               mountPath: /home/coder/.local/share/code-server
               subPath: code-server

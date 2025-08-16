@@ -18,8 +18,6 @@ if [ -f /usr/share/qubes/marker-vm ]; then
 elif [ -d /usr/lib/coreos ]; then
   if [ "$1" = vps ]; then
     bash setup-vps.sh
-  elif [ "$1" = sandbox ]; then
-    bash setup-sandbox.sh
   elif [ "$1" = infra ]; then
     bash setup-infra.sh
   fi
