@@ -31,10 +31,14 @@ spec:
       containers:
         - name: code-server
           image: git.strypsteen.com/infra/code-server
+          securityContext:
+            procMount: Unmasked
+            seccompProfile:
+              type: Unconfined
           env:
             - name: PROXY_DOMAIN
               value: code-proxy.strypsteen.com
-            - name: CODE_SERVER_PASSWORD
+            - name: PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: code-server
@@ -49,6 +53,10 @@ spec:
             - name: data
               mountPath: /home/coder/projects
               subPath: projects
+          resources:
+            limits:
+              squat.ai/fuse: 1
+              squat.ai/tun: 1
       imagePullSecrets:
         - name: git-strypsteen-com
 ---
