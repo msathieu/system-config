@@ -18,7 +18,7 @@ data:
     runner:
       labels: ["debian-12:docker://node:bookworm", "debian-13:docker://node:trixie"]
     container:
-      docker_host: "tcp://podman.kube-system.svc.cluster.local:8888"
+      docker_host: "tcp://localhost:8888"
 ---
 apiVersion: apps/v1
 kind: StatefulSet
@@ -42,6 +42,8 @@ spec:
         - name: config
           configMap:
             name: forgejo-runner
+        - name: containers
+          emptyDir: {}
       containers:
         - name: forgejo-runner
           image: code.forgejo.org/forgejo/runner:9.0.3
@@ -52,3 +54,17 @@ spec:
             - name: config
               mountPath: /etc/forgejo-runner/config.yaml
               subPath: config.yaml
+        - name: podman
+          image: quay.io/podman/stable:v5.5.2
+          command: ['podman', 'system', 'service', '-t0', 'tcp://127.0.0.1:8888']
+          securityContext:
+            runAsUser: 1000
+            procMount: Unmasked
+            seccompProfile:
+              type: Unconfined
+          volumeMounts:
+            - name: containers
+              mountPath: /home/podman/.local/share/containers
+          resources:
+            limits:
+              squat.ai/tun: 1
