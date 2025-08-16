@@ -23,6 +23,7 @@ spec:
           command: ['podman', 'system', 'service', '-t0', 'tcp://0.0.0.0:8888']
           securityContext:
             runAsUser: 1000
+            procMount: Unmasked
             seccompProfile:
               type: Unconfined
           volumeMounts:

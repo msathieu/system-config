@@ -2,7 +2,7 @@ name: ShellCheck
 on: [push]
 jobs:
   shellcheck:
-    runs-on: debian-12
+    runs-on: debian-13
     steps:
       - name: Install ShellCheck
         run: apt-get update && apt-get install -y shellcheck
