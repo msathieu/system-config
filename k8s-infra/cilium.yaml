@@ -11,8 +11,8 @@ spec:
     targetRevision: 1.18.1
     helm:
       values: |
-        ipv6:
-          enabled: true
+        ipam:
+          mode: kubernetes
         securityContext:
           capabilities:
             ciliumAgent:

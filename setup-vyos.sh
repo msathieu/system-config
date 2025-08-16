@@ -6,9 +6,6 @@ set system static-host-mapping host-name pve.strypsteen.com inet 192.168.253.2
 set system static-host-mapping host-name pbs.strypsteen.com inet 192.168.253.3
 set system static-host-mapping host-name home.strypsteen.com inet 192.168.253.4
 set system static-host-mapping host-name k8s.strypsteen.com inet 192.168.253.5
-set system static-host-mapping host-name k8s-controlplane.strypsteen.com inet 192.168.253.6
-set system static-host-mapping host-name k8s-controlplane.strypsteen.com inet 192.168.253.7
-set system static-host-mapping host-name k8s-controlplane.strypsteen.com inet 192.168.253.8
 set system static-host-mapping host-name k8s.strypsteen.com alias unifi
 set system static-host-mapping host-name home.strypsteen.com alias infra.server.home.arpa
 set system static-host-mapping host-name home.strypsteen.com alias auth.strypsteen.com
