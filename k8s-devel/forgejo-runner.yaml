@@ -34,6 +34,7 @@ spec:
       labels:
         app: forgejo-runner
     spec:
+      nodeName: k8s-1
       hostUsers: false
       volumes:
         - name: data

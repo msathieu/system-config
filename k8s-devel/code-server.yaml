@@ -55,6 +55,7 @@ spec:
       labels:
         app: code-server
     spec:
+      nodeName: k8s-1
       hostUsers: false
       volumes:
         - name: config
@@ -121,7 +122,7 @@ spec:
       - k8s.strypsteen.com
       secretName: k8s-certificate
   rules:
-    - host: k8s.strypsteen.com
+    - host: code.strypsteen.com
       http:
         paths:
           - path: /

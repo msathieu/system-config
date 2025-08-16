@@ -8,7 +8,8 @@ RUN useradd coder
 RUN echo "coder ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 COPY subuid /etc/subuid
 COPY subuid /etc/subgid
+COPY gitconfig /etc/gitconfig
 USER coder
 RUN sh <(curl -L https://nixos.org/nix/install) --no-daemon
 COPY nix.conf /home/coder/.config/nix/nix.conf
-CMD sudo chown -Rh coder:coder /home/coder; code-server --bind-addr 0.0.0.0:8080 --disable-telemetry --proxy-domain $PROXY_DOMAIN
+CMD code-server --bind-addr 0.0.0.0:8080 --disable-telemetry --proxy-domain $PROXY_DOMAIN

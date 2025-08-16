@@ -50,7 +50,7 @@ cloud.strypsteen.com {
 code.strypsteen.com, *.code-proxy.strypsteen.com {
   import base
   import tls
-  reverse_proxy http://sandbox.server.home.arpa:8080
+  reverse_proxy https://k8s.strypsteen.com
 }
 code-sandbox.strypsteen.com, *.code-sandbox-proxy.strypsteen.com {
   import base
