@@ -1,0 +1,87 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: code-server
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 100Gi
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: code-server
+spec:
+  selector:
+    matchLabels:
+      app: code-server
+  template:
+    metadata:
+      name: code-server
+      labels:
+        app: code-server
+    spec:
+      hostUsers: false
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: code-server
+      containers:
+        - name: code-server
+          image: git.strypsteen.com/infra/code-server
+          env:
+            - name: PROXY_DOMAIN
+              value: code-proxy.strypsteen.com
+            - name: CODE_SERVER_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: code-server
+                  key: password
+          volumeMounts:
+            - name: data
+              mountPath: /home/coder/.local/share/code-server
+              subPath: code-server
+            - name: data
+              mountPath: /home/coder/.ssh
+              subPath: ssh
+            - name: data
+              mountPath: /home/coder/projects
+              subPath: projects
+      imagePullSecrets:
+        - name: git-strypsteen-com
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: code-server
+spec:
+  selector:
+    app: code-server
+  ports:
+    - port: 8080
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: code-server
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+      - k8s.strypsteen.com
+      secretName: k8s-certificate
+  rules:
+    - host: k8s.strypsteen.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: code-server
+                port:
+                  number: 8080

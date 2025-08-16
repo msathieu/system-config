@@ -136,7 +136,7 @@ kind: Ingress
 metadata:
   name: synapse
   annotations:
-    cert-manager.io/issuer: letsencrypt
+    cert-manager.io/cluster-issuer: letsencrypt
 spec:
   ingressClassName: nginx
   tls:

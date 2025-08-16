@@ -1,20 +1,10 @@
 FROM quay.io/fedora/fedora-toolbox:42
 RUN dnf up -y
-RUN dnf install -y bash-color-prompt direnv netcat postgresql-server systemd-container vim-enhanced
-RUN dnf install -y https://github.com/coder/code-server/releases/download/v4.103.0/code-server-4.103.0-amd64.rpm
-RUN mkdir /etc/systemd/system/user@.service.d
-RUN mkdir /var/lib/systemd/linger
-RUN touch /var/lib/systemd/linger/coder
+RUN dnf install -y bash-color-prompt direnv podman netcat vim-enhanced
+RUN dnf install -y https://github.com/coder/code-server/releases/download/v4.103.1/code-server-4.103.1-amd64.rpm
 RUN useradd coder
 RUN echo "coder ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 USER coder
-RUN mkdir -p /home/coder/.config/systemd/user/default.target.wants /home/coder/.config/systemd/user/sockets.target.wants
-RUN ln -s /etc/systemd/user/code-server.service /home/coder/.config/systemd/user/default.target.wants
-RUN ln -s /usr/lib/systemd/user/sockets.target.wants/ssh-agent.socket /home/coder/.config/systemd/user/sockets.target.wants
 RUN sh <(curl -L https://nixos.org/nix/install) --no-daemon
 COPY nix.conf /home/coder/.config/nix/nix.conf
-USER root
-COPY polkit.service /etc/systemd/system
-COPY override.conf /etc/systemd/system/user@.service.d
-COPY code-server.service /etc/systemd/user
-ENTRYPOINT /sbin/init
+CMD sudo chown -Rh coder:coder /home/coder; code-server --bind-addr 0.0.0.0:8080 --disable-telemetry --proxy-domain $PROXY_DOMAIN
