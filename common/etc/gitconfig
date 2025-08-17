@@ -8,13 +8,9 @@
 [diff]
   submodule = log
   wsErrorHighlight = all
-[submodule]
-  recurse = true
 [advice]
   detachedHead = false
 [stash]
   showPatch = true
 [init]
   defaultBranch = master
-[credential]
-  helper = store

@@ -10,6 +10,7 @@ COPY subuid /etc/subuid
 COPY subuid /etc/subgid
 COPY gitconfig /etc/gitconfig
 USER coder
+RUN mkdir -p /home/coder/.local/share
 RUN sh <(curl -L https://nixos.org/nix/install) --no-daemon
 COPY --chown=coder nix.conf /home/coder/.config/nix/nix.conf
 CMD code-server --bind-addr 0.0.0.0:8080 --disable-telemetry --proxy-domain $PROXY_DOMAIN

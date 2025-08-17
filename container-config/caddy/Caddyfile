@@ -127,7 +127,7 @@ remote-desktop.strypsteen.com {
 vault.strypsteen.com {
   import base
   import tls
-  reverse_proxy http://systemd-vaultwarden
+  reverse_proxy https://k8s.strypsteen.com
 }
 textgen.strypsteen.com {
   import base
