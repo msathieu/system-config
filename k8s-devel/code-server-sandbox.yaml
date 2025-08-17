@@ -1,7 +1,7 @@
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: code-server
+  name: code-server-sandbox
 spec:
   accessModes:
     - ReadWriteOnce
@@ -9,51 +9,19 @@ spec:
     requests:
       storage: 100Gi
 ---
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: code-server
-data:
-  settings.json: |
-    {
-      "diffEditor.ignoreTrimWhitespace": false,
-      "editor.codeLens": false,
-      "editor.dragAndDrop": false,
-      "editor.folding": false,
-      "editor.formatOnPaste": true,
-      "editor.formatOnSave": true,
-      "editor.formatOnType": true,
-      "editor.inlayHints.enabled": "off",
-      "editor.multiCursorLimit": 1,
-      "editor.selectionClipboard": false,
-      "editor.smoothScrolling": true,
-      "editor.tabSize": 2,
-      "explorer.confirmDragAndDrop": false,
-      "files.autoSave": "off",
-      "files.enableTrash": false,
-      "files.insertFinalNewline": true,
-      "files.trimFinalNewlines": true,
-      "files.trimTrailingWhitespace": true,
-      "git.confirmSync": false,
-      "search.smartCase": true,
-      "workbench.colorTheme": "Default Dark Modern",
-      "workbench.settings.enableNaturalLanguageSearch": false,
-      "workbench.startupEditor": "none"
-    }
----
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: code-server
+  name: code-server-sandbox
 spec:
   selector:
     matchLabels:
-      app: code-server
+      app: code-server-sandbox
   template:
     metadata:
-      name: code-server
+      name: code-server-sandbox
       labels:
-        app: code-server
+        app: code-server-sandbox
     spec:
       nodeName: k8s-1
       hostUsers: false
@@ -63,9 +31,9 @@ spec:
             name: code-server
         - name: data
           persistentVolumeClaim:
-            claimName: code-server
+            claimName: code-server-sandbox
       containers:
-        - name: code-server
+        - name: code-server-sandbox
           image: git.strypsteen.com/infra/code-server
           securityContext:
             procMount: Unmasked
@@ -73,11 +41,11 @@ spec:
               type: Unconfined
           env:
             - name: PROXY_DOMAIN
-              value: code-proxy.strypsteen.com
+              value: code-sandbox-proxy.strypsteen.com
             - name: PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: code-server
+                  name: code-server-sandbox
                   key: password
           volumeMounts:
             - name: config
@@ -103,17 +71,17 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: code-server
+  name: code-server-sandbox
 spec:
   selector:
-    app: code-server
+    app: code-server-sandbox
   ports:
     - port: 8080
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: code-server
+  name: code-server-sandbox
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt
 spec:
@@ -123,23 +91,23 @@ spec:
       - k8s.strypsteen.com
       secretName: k8s-certificate
   rules:
-    - host: code.strypsteen.com
+    - host: code-sandbox.strypsteen.com
       http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: code-server
+                name: code-server-sandbox
                 port:
                   number: 8080
-    - host: "*.code-proxy.strypsteen.com"
+    - host: "*.code-sandbox-proxy.strypsteen.com"
       http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: code-server
+                name: code-server-sandbox
                 port:
                   number: 8080
