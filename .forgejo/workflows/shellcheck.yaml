@@ -7,6 +7,6 @@ jobs:
       - name: Install ShellCheck
         run: apt-get update && apt-get install -y shellcheck
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Run ShellCheck
         run: shellcheck *.sh

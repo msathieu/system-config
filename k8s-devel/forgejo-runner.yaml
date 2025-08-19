@@ -47,7 +47,7 @@ spec:
           emptyDir: {}
       containers:
         - name: forgejo-runner
-          image: code.forgejo.org/forgejo/runner:9.0.3
+          image: code.forgejo.org/forgejo/runner:9.1.0
           command: ['forgejo-runner', 'daemon', '-c', '/etc/forgejo-runner/config.yaml']
           volumeMounts:
             - name: data
