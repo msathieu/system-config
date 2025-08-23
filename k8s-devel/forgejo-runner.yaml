@@ -17,6 +17,9 @@ data:
   config.yaml: |
     runner:
       labels: ["debian-12:docker://node:bookworm", "debian-13:docker://node:trixie"]
+    cache:
+      proxy_port: 9000
+      actions_cache_url_override: "http://host.containers.internal:9000"
     container:
       docker_host: "tcp://localhost:8888"
 ---
