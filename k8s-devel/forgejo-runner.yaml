@@ -18,8 +18,9 @@ data:
   config.yaml: |
     runner:
       labels: ["debian-13:docker://node:trixie"]
+    cache:
+      host: host.containers.internal
     container:
-      network: host
       docker_host: "tcp://localhost:8888"
 ---
 apiVersion: apps/v1
@@ -47,6 +48,10 @@ spec:
             name: forgejo-runner
         - name: containers
           emptyDir: {}
+      hostAliases:
+        - hostnames:
+            - host.containers.internal
+          ip: 127.0.0.1
       containers:
         - name: forgejo-runner
           image: code.forgejo.org/forgejo/runner:9.1.1
