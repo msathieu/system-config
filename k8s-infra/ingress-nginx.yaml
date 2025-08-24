@@ -21,6 +21,7 @@ spec:
             proxy-body-size: 1G
             proxy-request-buffering: "off"
             hsts-preload: "true"
+          replicaCount: 2
         tcp:
           1080: apps/wireproxy:1080
           1081: apps/wireproxy:1081

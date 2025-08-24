@@ -17,7 +17,7 @@ metadata:
 data:
   config.yaml: |
     runner:
-      labels: ["debian-12:docker://node:bookworm", "debian-13:docker://node:trixie"]
+      labels: ["debian-13:docker://node:trixie"]
     container:
       network: host
       docker_host: "tcp://localhost:8888"
