@@ -13,6 +13,7 @@ spec:
       values: |
         defaultSettings:
           nodeDrainPolicy: allow-if-replica-is-stopped
+          allowCollectingLonghornUsageMetrics: false
         persistence:
           defaultClass: false
         networkPolicies:
