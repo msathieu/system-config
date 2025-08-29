@@ -65,7 +65,7 @@ matrix.strypsteen.com {
 git.strypsteen.com {
   import base
   import tls
-  reverse_proxy http://systemd-forgejo:3000
+  reverse_proxy https://k8s.strypsteen.com
 }
 llm.strypsteen.com {
   import base

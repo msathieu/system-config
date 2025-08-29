@@ -1,0 +1,119 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: forgejo
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 50Gi
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: forgejo
+data:
+  forgejo.ini: |
+    WORK_PATH = /var/lib/gitea
+    [database]
+    DB_TYPE = sqlite3
+    [repository]
+    DEFAULT_BRANCH = master
+    [server]
+    DOMAIN = git.strypsteen.com
+    ROOT_URL = https://git.strypsteen.com/
+    START_SSH_SERVER = true
+    SSH_PORT = 2222
+    [service]
+    DISABLE_REGISTRATION = true
+    [log]
+    LEVEL = warn
+    [security]
+    INSTALL_LOCK = true
+    INTERNAL_TOKEN_URI = file:/etc/forgejo-secret/token
+    [oauth2]
+    JWT_SECRET_URI = file:/etc/forgejo-secret/jwt-secret
+    [indexer]
+    REPO_INDEXER_ENABLED = true
+    [cron]
+    ENABLED = true
+    [service]
+    ENABLE_INTERNAL_SIGNIN = false
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: forgejo
+spec:
+  selector:
+    matchLabels:
+      app: forgejo
+  template:
+    metadata:
+      name: forgejo
+      labels:
+        app: forgejo
+    spec:
+      hostUsers: false
+      volumes:
+        - name: config
+          configMap:
+            name: forgejo
+        - name: data
+          persistentVolumeClaim:
+            claimName: forgejo
+        - name: secret
+          secret:
+            secretName: forgejo
+      containers:
+        - name: forgejo
+          image: codeberg.org/forgejo/forgejo:12.0.1-rootless
+          env:
+            - name: GITEA_APP_INI
+              value: /etc/forgejo.ini
+          volumeMounts:
+            - name: data
+              mountPath: /var/lib/gitea
+            - name: config
+              mountPath: /etc/forgejo.ini
+              subPath: forgejo.ini
+            - name: secret
+              mountPath: /etc/forgejo-secret
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: forgejo
+spec:
+  selector:
+    app: forgejo
+  ports:
+    - name: web
+      port: 3000
+    - name: ssh
+      port: 2222
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: forgejo
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+      - k8s.strypsteen.com
+      secretName: k8s-certificate
+  rules:
+    - host: git.strypsteen.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: forgejo
+                port:
+                  number: 3000
