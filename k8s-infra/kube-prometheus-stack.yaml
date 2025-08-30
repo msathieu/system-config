@@ -14,6 +14,7 @@ spec:
       values: |
         prometheus:
           prometheusSpec:
+            enableRemoteWriteReceiver: true
             storageSpec:
               volumeClaimTemplate:
                 spec:
@@ -46,6 +47,8 @@ spec:
             route:
               receiver: email
         grafana:
+          persistence:
+            enabled: true
           grafana.ini:
             analytics:
               reporting: false
