@@ -47,11 +47,11 @@ spec:
             route:
               receiver: email
         grafana:
-          auth:
-            disable_login_form: true
           persistence:
             enabled: true
           grafana.ini:
+            auth:
+              disable_login_form: true
             analytics:
               reporting: false
             database:
