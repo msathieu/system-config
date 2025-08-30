@@ -58,7 +58,13 @@ spec:
               wal: true
             server:
               root_url: "https://monitoring.strypsteen.com"
+            smtp:
+              enabled: true
+              host: vps.strypsteen.com:465
+              from_address: monitoring@strypsteen.me
           adminPassword: ""
+          smtp:
+            existingSecret: grafana-smtp
   destination:
     server: https://kubernetes.default.svc
     namespace: monitoring
