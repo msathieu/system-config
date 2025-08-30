@@ -47,6 +47,8 @@ spec:
             route:
               receiver: email
         grafana:
+          auth:
+            disable_login_form: true
           persistence:
             enabled: true
           grafana.ini:
@@ -54,6 +56,8 @@ spec:
               reporting: false
             database:
               wal: true
+            server:
+              root_url: "https://monitoring.strypsteen.com"
           adminPassword: ""
   destination:
     server: https://kubernetes.default.svc

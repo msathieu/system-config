@@ -85,7 +85,7 @@ metrics.strypsteen.com {
 monitoring.strypsteen.com {
   import base
   import tls
-  reverse_proxy http://systemd-grafana:3000
+  reverse_proxy https://k8s.strypsteen.com
 }
 mta-sts.strypsteen.me, mta-sts.strypsteen.com {
   import base
