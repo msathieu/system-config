@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -euo pipefail
 cp -R desktop/* qubes-fedora/* /
 dnf config-manager setopt qubes-vm-r4.3-security-testing.enabled=true

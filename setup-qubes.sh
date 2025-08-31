@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -euo pipefail
 sudo cp -R qubes/* /
 qvm-pool set varlibqubes -o ephemeral_volatile=True

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -euo pipefail
 cp -R desktop/* laptop/* /
 bash setup-desktop.sh

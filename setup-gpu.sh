@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -euo pipefail
 cp -R desktop/* gpu/* /
 bash setup-desktop.sh

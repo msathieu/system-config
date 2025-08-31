@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # shellcheck disable=SC2121
 set system name-server 9.9.9.9
 set system static-host-mapping host-name trace.svc.ui.com inet 0.0.0.1
