@@ -20,6 +20,13 @@ machine:
     user.max_user_namespaces: 10000
   time:
     bootTimeout: 1m
+  files:
+    - path: /etc/cri/conf.d/20-customization.part
+      op: create
+      content: |
+        [plugins]
+          [plugins."io.containerd.cri.v1.runtime"]
+            device_ownership_from_security_context = true
 cluster:
   allowSchedulingOnControlPlanes: true
   network:

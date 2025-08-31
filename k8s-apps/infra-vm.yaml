@@ -1,0 +1,51 @@
+apiVersion: kubevirt.io/v1
+kind: VirtualMachine
+metadata:
+  name: infra
+spec:
+  runStrategy: Always
+  template:
+    spec:
+      domain:
+        cpu:
+          cores: 4
+          model: host-passthrough
+        resources:
+          requests:
+            memory: 4G
+        devices:
+          disks:
+            - name: disk
+              disk:
+                bus: virtio
+            - name: ignition
+              disk:
+                bus: virtio
+          rng: {}
+        features:
+          smm:
+            enabled: true
+        firmware:
+          bootloader:
+            efi: {}
+      volumes:
+        - name: disk
+          dataVolume:
+            name: infra-vm
+        - name: ignition
+          cloudInitConfigDrive:
+            secretRef:
+              name: infra-vm
+  dataVolumeTemplates:
+    - metadata:
+        name: infra-vm
+      spec:
+        storage:
+          volumeMode: Block
+          resources:
+            requests:
+              storage: 32Gi
+        source:
+          registry:
+            url:
+              docker://quay.io/fedora/fedora-coreos-kubevirt:testing
