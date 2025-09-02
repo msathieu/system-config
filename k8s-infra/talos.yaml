@@ -44,5 +44,6 @@ name: EPHEMERAL
 encryption:
   provider: luks2
   keys:
-    - slot: 0
+    - slot: 1
       tpm: {}
+      lockToState: true
