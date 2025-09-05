@@ -5,6 +5,9 @@ metadata:
 spec:
   runStrategy: Always
   template:
+    metadata:
+      labels:
+        app: infra-vm
     spec:
       domain:
         cpu:
@@ -49,3 +52,29 @@ spec:
           registry:
             url:
               docker://quay.io/fedora/fedora-coreos-kubevirt:testing
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: infra-vm
+spec:
+  type: LoadBalancer
+  externalTrafficPolicy: Local
+  loadBalancerIP: 192.168.253.31
+  selector:
+    app: infra-vm
+  ports:
+    - port: 22
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: infra-vm
+spec:
+  podSelector:
+    matchLabels:
+      app: infra-vm
+  policyTypes:
+    - Ingress
+  ingress:
+    - {}
