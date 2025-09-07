@@ -71,7 +71,7 @@ data:
   log_config.yaml: |
     version: 1
     root:
-      level: ERROR
+      level: WARNING
     disable_existing_loggers: False
 ---
 apiVersion: apps/v1
