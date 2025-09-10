@@ -11,15 +11,11 @@ Host infra
   HostName infra.server.home.arpa
 Host gpu
   HostName gpu.server.home.arpa
-Host home
-  HostName home.server.home.arpa
 Host home-gw
   HostName home-gw.strypsteen.com
 Host router
   HostName 192.168.255.1
   User vyos
-Host sandbox
-  HostName sandbox.server.home.arpa
 Host vps
   HostName vps.strypsteen.com
 Host *
