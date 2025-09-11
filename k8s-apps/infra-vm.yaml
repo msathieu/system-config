@@ -70,6 +70,8 @@ spec:
       port: 80
     - name: https
       port: 443
+    - name: forgejo-ssh
+      port: 2222
     - name: wireguard
       protocol: UDP
       port: 51820
