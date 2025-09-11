@@ -8,7 +8,7 @@ ExitOnForwardFailure yes
 Host pve
   HostName pve.strypsteen.com
 Host infra
-  HostName infra.server.home.arpa
+  HostName 192.168.253.31
 Host gpu
   HostName gpu.server.home.arpa
 Host home-gw
