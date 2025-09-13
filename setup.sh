@@ -21,7 +21,7 @@ elif [ -d /usr/lib/coreos ]; then
   elif [ "$1" = infra ]; then
     bash setup-infra.sh
   elif [ "$1" = backups ]; then
-    bash setup-backups
+    bash setup-backups.sh
   fi
 elif [ -d /ostree ]; then
   if [ "$1" = laptop ]; then

@@ -36,6 +36,12 @@ auth.strypsteen.com {
   import tls
   reverse_proxy https://k8s.strypsteen.com
 }
+backups.strypsteen.com {
+  import base
+  import local-only
+  import tls
+  reverse_proxy https://k8s.strypsteen.com
+}
 cloud.strypsteen.com {
   import base
   import tls
@@ -71,7 +77,7 @@ metrics.strypsteen.com {
   import base
   import tls
   basic_auth /api/v1/write {
-    admin {$CADDY_PROMETHEUS_PASSWORD}
+    admin {$LOKI_PASSWORD}
   }
   reverse_proxy /api/v1/write https://k8s.strypsteen.com
   basic_auth /loki/api/v1/push {

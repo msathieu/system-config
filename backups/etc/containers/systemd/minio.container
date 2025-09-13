@@ -1,0 +1,11 @@
+[Container]
+Image=quay.io/minio/minio
+Exec=server /data --console-address :9001
+Volume=systemd-minio:/data:U,Z
+Environment=MINIO_ROOT_USER=admin
+Secret=MINIO_ROOT_PASSWORD,type=env
+PublishPort=9000:9000
+PublishPort=9001:9001
+AutoUpdate=registry
+[Install]
+WantedBy=multi-user.target
