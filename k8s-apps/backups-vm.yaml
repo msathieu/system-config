@@ -1,13 +1,13 @@
 apiVersion: kubevirt.io/v1
 kind: VirtualMachine
 metadata:
-  name: infra
+  name: backups
 spec:
   runStrategy: Always
   template:
     metadata:
       labels:
-        app: infra-vm
+        app: backups-vm
     spec:
       domain:
         cpu:
@@ -18,13 +18,18 @@ spec:
             memory: 4G
         devices:
           disks:
-            - name: disk
-              disk:
-                bus: virtio
+            #- name: installer
+            #  disk:
+            #    bus: virtio
             - name: ignition
               disk:
                 bus: virtio
           rng: {}
+          hostDevices:
+            - name: storage
+              deviceName: kubevirt.io/backups-storage
+          tpm:
+            persistent: true
         features:
           smm:
             enabled: true
@@ -32,58 +37,36 @@ spec:
           bootloader:
             efi: {}
       volumes:
-        - name: disk
-          dataVolume:
-            name: infra-vm
+        #- name: installer
+        #  containerDisk:
+        #    image: quay.io/fedora/fedora-coreos-kubevirt:stable
         - name: ignition
           cloudInitConfigDrive:
             secretRef:
-              name: infra-vm
-  dataVolumeTemplates:
-    - metadata:
-        name: infra-vm
-      spec:
-        storage:
-          volumeMode: Block
-          resources:
-            requests:
-              storage: 32Gi
-        source:
-          registry:
-            url:
-              docker://quay.io/fedora/fedora-coreos-kubevirt:stable
+              name: backups-vm
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: infra-vm
+  name: backups-vm
 spec:
   type: LoadBalancer
   externalTrafficPolicy: Local
-  loadBalancerIP: 192.168.253.31
+  loadBalancerIP: 192.168.253.32
   selector:
-    app: infra-vm
+    app: backups-vm
   ports:
     - name: ssh
       port: 22
-    - name: http
-      port: 80
-    - name: https
-      port: 443
-    - name: forgejo-ssh
-      port: 2222
-    - name: wireguard
-      protocol: UDP
-      port: 51820
 ---
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
-  name: infra-vm
+  name: backups-vm
 spec:
   podSelector:
     matchLabels:
-      app: infra-vm
+      app: backups-vm
   policyTypes:
     - Ingress
   ingress:

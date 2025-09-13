@@ -9,6 +9,8 @@ Host pve
   HostName pve.strypsteen.com
 Host infra
   HostName 192.168.253.31
+Host backups
+  HostName 192.168.253.32
 Host gpu
   HostName gpu.server.home.arpa
 Host home-gw

@@ -1,8 +1,12 @@
 variant: fcos
 version: 1.6.0
+boot_device:
+  luks:
+    tpm2: true
+    discard: true
 storage:
   filesystems:
-    - device: /dev/disk/by-partlabel/root
+    - device: /dev/mapper/root
       wipe_filesystem: true
       format: btrfs
       label: root

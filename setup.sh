@@ -20,6 +20,8 @@ elif [ -d /usr/lib/coreos ]; then
     bash setup-vps.sh
   elif [ "$1" = infra ]; then
     bash setup-infra.sh
+  elif [ "$1" = backups ]; then
+    bash setup-backups
   fi
 elif [ -d /ostree ]; then
   if [ "$1" = laptop ]; then
