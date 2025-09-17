@@ -17,7 +17,7 @@
     },
     "EnableTrackingProtection": {
       "Value": true,
-      "Fingerprinting": true,
+      "Category": "strict",
       "Locked": true
     },
     "EncryptedMediaExtensions": {

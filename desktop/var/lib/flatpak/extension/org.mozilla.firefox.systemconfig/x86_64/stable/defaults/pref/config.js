@@ -2,7 +2,6 @@ pref("accessibility.typeaheadfind", false);
 pref("app.normandy.enabled", false);
 pref("browser.aboutConfig.showWarning", false);
 pref("browser.compactmode.show", true);
-pref("browser.contentblocking.category", "strict");
 pref("browser.ctrlTab.sortByRecentlyUsed", true);
 pref("browser.download.always_ask_before_handling_new_types", true);
 pref("browser.download.useDownloadDir", false);
