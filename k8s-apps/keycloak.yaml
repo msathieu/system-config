@@ -3,6 +3,7 @@ kind: Cluster
 metadata:
   name: keycloak-db
 spec:
+  imageName: ghcr.io/cloudnative-pg/postgresql:17.6-system-bookworm
   instances: 2
   enablePDB: false
   storage:
