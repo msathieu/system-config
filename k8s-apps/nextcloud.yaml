@@ -3,7 +3,7 @@ kind: Cluster
 metadata:
   name: nextcloud-db
 spec:
-  imageName: ghcr.io/cloudnative-pg/postgresql:17.6-system-bookworm
+  imageName: ghcr.io/cloudnative-pg/postgresql:17.6-system-trixie
   instances: 2
   enablePDB: false
   storage:
