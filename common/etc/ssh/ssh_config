@@ -12,7 +12,7 @@ Host infra
 Host backups
   HostName 192.168.253.32
 Host gpu
-  HostName gpu.server.home.arpa
+  HostName 192.168.253.33
 Host home-gw
   HostName home-gw.strypsteen.com
 Host router

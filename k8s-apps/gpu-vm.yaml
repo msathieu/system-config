@@ -35,12 +35,16 @@ spec:
               disk:
                 bus: virtio
           rng: {}
+          gpus:
+            - name: gpu
+              deviceName: kubevirt.io/gpu
         features:
           smm:
             enabled: true
         firmware:
           bootloader:
-            efi: {}
+            efi:
+              persistent: true
       volumes:
         - name: disk
           persistentVolumeClaim:
