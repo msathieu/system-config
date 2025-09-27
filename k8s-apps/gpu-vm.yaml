@@ -1,0 +1,77 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: gpu-vm
+spec:
+  storageClassName: longhorn-single
+  volumeMode: Block
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Ti
+---
+apiVersion: kubevirt.io/v1
+kind: VirtualMachine
+metadata:
+  name: gpu
+spec:
+  runStrategy: Always
+  template:
+    metadata:
+      labels:
+        app: gpu-vm
+    spec:
+      domain:
+        cpu:
+          cores: 14
+          model: host-passthrough
+        resources:
+          requests:
+            memory: 24G
+        devices:
+          disks:
+            - name: disk
+              disk:
+                bus: virtio
+          rng: {}
+        features:
+          smm:
+            enabled: true
+        firmware:
+          bootloader:
+            efi: {}
+      volumes:
+        - name: disk
+          persistentVolumeClaim:
+            claimName: gpu-vm
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: gpu-vm
+spec:
+  type: LoadBalancer
+  externalTrafficPolicy: Local
+  loadBalancerIP: 192.168.253.33
+  selector:
+    app: gpu-vm
+  ports:
+    - name: ssh
+      port: 22
+    - name: wireguard
+      protocol: UDP
+      port: 51820
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: gpu-vm
+spec:
+  podSelector:
+    matchLabels:
+      app: gpu-vm
+  policyTypes:
+    - Ingress
+  ingress:
+    - {}
