@@ -1,3 +1,8 @@
 machine:
   network:
     hostname: k8s-1.server.home.arpa
+---
+apiVersion: v1alpha1
+kind: PCIDriverRebindConfig
+targetDriver: vfio-pci
+name: "0000:02:00.0"
