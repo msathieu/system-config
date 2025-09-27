@@ -3,7 +3,7 @@ kind: Cluster
 metadata:
   name: synapse-db
 spec:
-  imageName: ghcr.io/cloudnative-pg/postgresql:17.6-system-trixie
+  imageName: ghcr.io/cloudnative-pg/postgresql:17.6-standard-trixie
   instances: 2
   enablePDB: false
   storage:
