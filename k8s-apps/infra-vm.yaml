@@ -50,8 +50,7 @@ spec:
               storage: 32Gi
         source:
           registry:
-            url:
-              docker://quay.io/fedora/fedora-coreos-kubevirt:stable
+            url: docker://quay.io/fedora/fedora-coreos-kubevirt:stable
 ---
 apiVersion: v1
 kind: Service
