@@ -12,7 +12,6 @@ remote_path: borg
 encryption_passphrase: ${BORG_PASSWORD}
 keep_daily: 7
 keep_weekly: 4
-keep_monthly: 3
 read_special: true
 exclude_caches: true
 <<: !include /etc/borgmatic/local.yaml
