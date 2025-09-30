@@ -7,6 +7,7 @@ SecurityLabelDisable=true
 UserNS=host
 HostName=%H
 Entrypoint=borgmatic
+Exec=--stats
 Volume=/var/lib/system-config/container-config/borgmatic/config.yaml:/etc/borgmatic/config.yaml:z,ro
 Volume=/var/lib/system-config/container-config/borgmatic/%H.yaml:/etc/borgmatic/local.yaml:z,ro
 Volume=/var/snapshot/ostree/deploy/fedora-coreos/var:/run/host:ro

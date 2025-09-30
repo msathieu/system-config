@@ -14,6 +14,8 @@ spec:
         defaultSettings:
           nodeDrainPolicy: allow-if-replica-is-stopped
           allowCollectingLonghornUsageMetrics: false
+          concurrentAutomaticEngineUpgradePerNodeLimit: 3
+          defaultBackupBlockSize: 16
         persistence:
           defaultClass: false
         networkPolicies:
