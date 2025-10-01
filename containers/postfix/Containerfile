@@ -1,6 +1,6 @@
-FROM alpine:3.22
-RUN apk upgrade
-RUN apk add postfix
+FROM fedora:43
+RUN dnf up -y
+RUN dnf install -y postfix
 COPY postfix /etc/postfix
 RUN sed "s/#submissions/submissions/" -i /etc/postfix/master.cf
 RUN sed "s/#  -o smtpd_tls_wrappermode/  -o smtpd_tls_wrappermode/" -i /etc/postfix/master.cf

@@ -1,6 +1,6 @@
-FROM alpine:3.22
-RUN apk upgrade
-RUN apk add dovecot-lmtpd dovecot-pigeonhole-plugin
+FROM fedora:43
+RUN dnf up -y
+RUN dnf install -y dovecot-pigeonhole
 COPY dovecot.conf /etc/dovecot/dovecot.conf
 COPY default.sieve /etc/dovecot/default.sieve
 RUN sievec /etc/dovecot/default.sieve

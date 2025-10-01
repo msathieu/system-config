@@ -1,4 +1,4 @@
-FROM quay.io/fedora/fedora-toolbox:42
+FROM quay.io/fedora/fedora-toolbox:43
 RUN dnf up -y
 RUN dnf install -y bash-color-prompt libglvnd-gles libglvnd-opengl netcat systemd-container vim-enhanced xdg-desktop-portal-gtk xdg-utils
 RUN useradd mathieu
