@@ -5,8 +5,6 @@ VerifyHostKeyDNS ask
 HashKnownHosts yes
 AddKeysToAgent yes
 ExitOnForwardFailure yes
-Host pve
-  HostName pve.strypsteen.com
 Host infra
   HostName 192.168.253.31
 Host backups
