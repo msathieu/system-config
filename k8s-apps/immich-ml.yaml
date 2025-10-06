@@ -30,7 +30,7 @@ spec:
             claimName: immich-ml
       containers:
         - name: immich-ml
-          image: ghcr.io/immich-app/immich-machine-learning:v2.0.0
+          image: ghcr.io/immich-app/immich-machine-learning:v2.0.1
           env:
             - name: IMMICH_PORT
               value: "3003"
