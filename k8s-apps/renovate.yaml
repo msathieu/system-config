@@ -12,7 +12,7 @@ spec:
           restartPolicy: Never
           containers:
             - name: renovate
-              image: docker.io/renovate/renovate:41.135.5
+              image: docker.io/renovate/renovate:41.140.2
               env:
                 - name: RENOVATE_PLATFORM
                   value: forgejo
