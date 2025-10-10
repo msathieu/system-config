@@ -57,6 +57,12 @@ code-sandbox.strypsteen.com, *.code-sandbox-proxy.strypsteen.com {
   import tls
   reverse_proxy https://k8s.strypsteen.com
 }
+console.strypsteen.com {
+  import base
+  import local-only
+  import tls
+  reverse_proxy https://k8s.strypsteen.com
+}
 matrix.strypsteen.com {
   import base
   import tls

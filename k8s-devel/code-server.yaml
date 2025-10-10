@@ -27,6 +27,7 @@ data:
       "editor.multiCursorLimit": 1,
       "editor.selectionClipboard": false,
       "editor.smoothScrolling": true,
+      "editor.stickyScroll.enabled": false,
       "editor.tabSize": 2,
       "explorer.confirmDragAndDrop": false,
       "files.autoSave": "off",

@@ -9,4 +9,4 @@ RUN echo XDG_CURRENT_DESKTOP=GNOME >> /etc/environment
 USER mathieu
 RUN sh <(curl -L https://nixos.org/nix/install) --no-daemon
 USER root
-ENTRYPOINT /sbin/init
+ENTRYPOINT ["/sbin/init"]

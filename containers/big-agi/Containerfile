@@ -6,4 +6,4 @@ ENV NEXT_TELEMETRY_DISABLED 1
 RUN mv middleware_BASIC_AUTH.ts middleware.ts
 RUN npm ci
 RUN npm run build
-CMD npx next start
+CMD ["npx", "next", "start"]

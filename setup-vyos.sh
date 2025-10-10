@@ -10,6 +10,7 @@ set system static-host-mapping host-name home.strypsteen.com alias backups.stryp
 set system static-host-mapping host-name home.strypsteen.com alias cloud.strypsteen.com
 set system static-host-mapping host-name home.strypsteen.com alias code.strypsteen.com
 set system static-host-mapping host-name home.strypsteen.com alias code-sandbox.strypsteen.com
+set system static-host-mapping host-name home.strypsteen.com alias console.strypsteen.com
 set system static-host-mapping host-name home.strypsteen.com alias git.strypsteen.com
 set system static-host-mapping host-name home.strypsteen.com alias imagegen.strypsteen.com
 set system static-host-mapping host-name home.strypsteen.com alias llm.strypsteen.com
