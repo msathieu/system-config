@@ -30,6 +30,7 @@ spec:
           1081: apps/wireproxy:1081
           8080: apps/unifi:8080
           2222: apps/forgejo:2222
+          8612: atlas/atlas-api:8612
   destination:
     server: https://kubernetes.default.svc
     namespace: ingress-nginx

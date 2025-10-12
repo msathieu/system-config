@@ -71,6 +71,8 @@ spec:
       port: 443
     - name: forgejo-ssh
       port: 2222
+    - name: atlas-api
+      port: 8612
     - name: wireguard
       protocol: UDP
       port: 51820
