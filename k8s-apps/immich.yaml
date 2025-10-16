@@ -3,7 +3,7 @@ kind: Cluster
 metadata:
   name: immich-db
 spec:
-  imageName: ghcr.io/tensorchord/cloudnative-vectorchord:17.5-0.4.3
+  imageName: ghcr.io/tensorchord/cloudnative-vectorchord:17.6-0.5.3
   instances: 2
   enablePDB: false
   storage:
@@ -67,7 +67,7 @@ spec:
             claimName: immich
       containers:
         - name: immich
-          image: ghcr.io/immich-app/immich-server:v2.0.1
+          image: ghcr.io/immich-app/immich-server:v2.1.0
           env:
             - name: IMMICH_PORT
               value: "8080"

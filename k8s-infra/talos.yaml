@@ -2,7 +2,7 @@ version: v1alpha1
 machine:
   install:
     # intel-ucode, iscsi-tools, realtek-firmware, util-linux-tools
-    image: factory.talos.dev/metal-installer-secureboot/ec3a78953a53ac0159d44d90c6f2c5068a9a7db7587e19678712da5451fed124:v1.11.2
+    image: factory.talos.dev/metal-installer-secureboot/ec3a78953a53ac0159d44d90c6f2c5068a9a7db7587e19678712da5451fed124:v1.11.3
     disk: /dev/nvme0n1
   network:
     kubespan:
