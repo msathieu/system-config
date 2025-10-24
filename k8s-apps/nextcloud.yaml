@@ -3,7 +3,7 @@ kind: Cluster
 metadata:
   name: nextcloud-db
 spec:
-  imageName: ghcr.io/cloudnative-pg/postgresql:17.6-standard-trixie
+  imageName: ghcr.io/cloudnative-pg/postgresql:18.0-standard-trixie
   instances: 2
   enablePDB: false
   storage:
