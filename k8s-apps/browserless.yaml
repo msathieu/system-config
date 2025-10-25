@@ -15,7 +15,7 @@ spec:
       hostUsers: false
       containers:
         - name: browserless
-          image: ghcr.io/browserless/chromium:v2.37.1
+          image: ghcr.io/browserless/chromium:v2.38.1
 ---
 apiVersion: v1
 kind: Service
