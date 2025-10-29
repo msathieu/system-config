@@ -1,5 +1,5 @@
 [Container]
-Image=quay.io/minio/minio
+Image=docker.io/alpine/minio:latest-release
 Exec=server /data --console-address :9001
 Volume=systemd-minio:/data:U,Z
 Environment=MINIO_ROOT_USER=admin
