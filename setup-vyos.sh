@@ -142,7 +142,7 @@ for i in ${firewall_types}; do
 done
 set firewall ipv4 forward filter rule 8 action accept
 set firewall ipv4 forward filter rule 8 protocol tcp
-set firewall ipv4 forward filter rule 8 destination address 192.168.253.33
+set firewall ipv4 forward filter rule 8 destination address 192.168.253.32
 set firewall ipv4 forward filter rule 8 destination port 22
 set firewall ipv4 forward filter rule 8 inbound-interface name eth0
 set firewall ipv4 forward filter rule 8 source geoip country-code be
