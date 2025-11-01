@@ -20,12 +20,13 @@ spec:
             disable-access-log: "true"
             proxy-body-size: 1G
             proxy-request-buffering: "off"
+            force-ssl-redirect: "true"
             hsts-preload: "true"
             use-forwarded-headers: "true"
           replicaCount: 2
           service:
             loadBalancerIP: 192.168.253.30
-            externalTrafficPolicy: local
+            externalTrafficPolicy: Local
         tcp:
           1080: apps/wireproxy:1080
           1081: apps/wireproxy:1081

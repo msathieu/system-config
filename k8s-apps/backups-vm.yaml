@@ -82,7 +82,9 @@ spec:
   policyTypes:
     - Ingress
   ingress:
-    - {}
+    - ports:
+        - protocol: TCP
+          port: 22
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress

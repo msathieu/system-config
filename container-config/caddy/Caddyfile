@@ -25,21 +25,12 @@
 }
 strypsteen.me {
   import base
-  root /var/www
-  file_server
-  header Content-Security-Policy "default-src 'self'"
-  header /.well-known/matrix/client Access-Control-Allow-Origin *
-  respond /.well-known/matrix/client <<EOF
-  {"m.homeserver": {"base_url": "https://matrix.strypsteen.com"}}
-  EOF
-  respond /.well-known/matrix/server <<EOF
-  {"m.server": "matrix.strypsteen.com:443"}
-  EOF
+  reverse_proxy https://k8s.strypsteen.com
 }
 strypsteen.com {
   import base
   import tls
-  respond 404
+  reverse_proxy https://k8s.strypsteen.com
 }
 auth.strypsteen.com {
   import base
@@ -108,13 +99,7 @@ monitoring.strypsteen.com {
 }
 mta-sts.strypsteen.me, mta-sts.strypsteen.com {
   import base
-  respond /.well-known/mta-sts.txt <<EOF
-  version: STSv1
-  mode: enforce
-  mx: vps.strypsteen.com
-  max_age: 1209600
-  EOF
-  respond 404
+  reverse_proxy https://k8s.strypsteen.com
 }
 network.strypsteen.com {
   import base
