@@ -10,7 +10,6 @@
 }
 (base) {
   header {
-    >Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
     >X-Frame-Options SAMEORIGIN
     >X-Content-Type-Options nosniff
     >Referrer-Policy no-referrer
@@ -82,13 +81,7 @@ llm.strypsteen.com {
 metrics.strypsteen.com {
   import base
   import tls
-  basic_auth /api/v1/write {
-    admin {$LOKI_PASSWORD}
-  }
   reverse_proxy /api/v1/write https://k8s.strypsteen.com
-  basic_auth /loki/api/v1/push {
-    loki {$LOKI_PASSWORD}
-  }
   reverse_proxy /loki/api/v1/push https://k8s.strypsteen.com
 }
 monitoring.strypsteen.com {

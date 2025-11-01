@@ -10,7 +10,6 @@ PublishPort=443:443
 PublishPort=443:443/udp
 AddHost=gpu.server.home.arpa:10.0.2.2
 Secret=INVOKEAI_PASSWORD,type=env
-Secret=LOKI_PASSWORD,type=env
 AutoUpdate=registry
 [Install]
 WantedBy=multi-user.target

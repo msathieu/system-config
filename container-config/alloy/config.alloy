@@ -15,7 +15,7 @@ prometheus.remote_write "writer" {
   endpoint {
     url = "https://metrics.strypsteen.com/api/v1/write"
     basic_auth {
-      username = "admin"
+      username = "metrics"
       password = sys.env("PROMETHEUS_PASSWORD")
     }
   }
@@ -41,7 +41,7 @@ loki.write "writer" {
   endpoint {
     url = "https://metrics.strypsteen.com/loki/api/v1/push"
     basic_auth {
-      username = "loki"
+      username = "metrics"
       password = sys.env("PROMETHEUS_PASSWORD")
     }
   }
