@@ -132,8 +132,5 @@ imagegen.strypsteen.com {
   import base
   import local-only
   import tls
-  basic_auth {
-    mathieu {$INVOKEAI_PASSWORD}
-  }
-  reverse_proxy http://gpu.server.home.arpa:9090
+  reverse_proxy http://k8s.strypsteen.com
 }
