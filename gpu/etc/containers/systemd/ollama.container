@@ -7,7 +7,7 @@ Volume=systemd-ollama:/root/.ollama/models:U,Z
 Environment=OLLAMA_FLASH_ATTENTION=true
 Environment=OLLAMA_KV_CACHE_TYPE=q8_0
 Environment=OLLAMA_NOHISTORY=true
-PublishPort=10.0.2.2:11434:11434
+PublishPort=11434:11434
 AutoUpdate=registry
 [Install]
 WantedBy=multi-user.target

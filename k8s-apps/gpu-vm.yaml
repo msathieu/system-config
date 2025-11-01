@@ -64,9 +64,6 @@ spec:
   ports:
     - name: ssh
       port: 22
-    - name: wireguard
-      protocol: UDP
-      port: 51820
     - name: sunshine-1
       port: 47984
     - name: sunshine-2
@@ -99,6 +96,8 @@ spec:
   ports:
     - name: sunshine
       port: 47990
+    - name: ollama
+      port: 11434
 ---
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
@@ -111,7 +110,22 @@ spec:
   policyTypes:
     - Ingress
   ingress:
-    - {}
+    - ports:
+        - port: 22
+        - port: 47984
+        - port: 47989
+        - port: 48010
+        - protocol: UDP
+          port: 47998
+        - protocol: UDP
+          port: 47999
+        - protocol: UDP
+          port: 48000
+        - protocol: UDP
+          port: 48002
+        - protocol: UDP
+          port: 48010
+
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -137,3 +151,28 @@ spec:
                 name: gpu-vm-internal
                 port:
                   number: 47990
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ollama
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    nginx.ingress.kubernetes.io/backend-protocol: HTTPS
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+      - k8s.strypsteen.com
+      secretName: k8s-certificate
+  rules:
+    - host: textgen.strypsteen.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: gpu-vm-internal
+                port:
+                  number: 11434
