@@ -1,0 +1,8 @@
+[Container]
+Image=ghcr.io/processone/eturnal
+Network=host
+Secret=ETURNAL_SECRET,type=env
+HealthCmd=none
+AutoUpdate=registry
+[Install]
+WantedBy=multi-user.target

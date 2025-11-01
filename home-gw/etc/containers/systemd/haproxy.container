@@ -1,0 +1,7 @@
+[Container]
+Image=docker.io/haproxy
+Network=host
+Volume=/var/lib/system-config/container-config/haproxy/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:z,ro
+AutoUpdate=registry
+[Install]
+WantedBy=multi-user.target
