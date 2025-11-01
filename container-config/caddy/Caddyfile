@@ -116,11 +116,7 @@ remote-desktop.strypsteen.com {
   import local-only
   import tls
   header >Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'"
-  reverse_proxy https://gpu.server.home.arpa:47990 {
-    transport http {
-      tls_insecure_skip_verify
-    }
-  }
+  reverse_proxy https://k8s.strypsteen.com
 }
 vault.strypsteen.com {
   import base

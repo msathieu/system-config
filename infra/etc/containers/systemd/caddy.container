@@ -2,7 +2,6 @@
 Image=docker.io/caddy:2
 Network=caddy.network
 Volume=/var/lib/system-config/container-config/caddy:/etc/caddy:z,ro
-Volume=/var/lib/system-config/container-config/site:/var/www:z,ro
 Volume=systemd-certificates:/etc/certificates:z,ro
 Volume=systemd-caddy:/data:U,Z
 PublishPort=80:80
