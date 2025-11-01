@@ -31,7 +31,6 @@ spec:
       containers:
         - name: immich-valkey
           image: docker.io/valkey/valkey:9.0.0
-          command: ['valkey-server']
           volumeMounts:
             - name: data
               mountPath: /data
