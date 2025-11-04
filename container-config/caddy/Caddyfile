@@ -81,8 +81,7 @@ llm.strypsteen.com {
 metrics.strypsteen.com {
   import base
   import tls
-  reverse_proxy /api/v1/write https://k8s.strypsteen.com
-  reverse_proxy /loki/api/v1/push https://k8s.strypsteen.com
+  reverse_proxy https://k8s.strypsteen.com
 }
 monitoring.strypsteen.com {
   import base
