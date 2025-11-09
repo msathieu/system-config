@@ -17,6 +17,7 @@ pref("devtools.theme", "dark");
 pref("dom.private-attribution.submission.enabled", false);
 pref("extensions.getAddons.discovery.api_url", "");
 pref("extensions.htmlaboutaddons.recommendations.enabled", false);
+pref("general.smoothScroll", true);
 pref("media.videocontrols.picture-in-picture.video-toggle.has-used", true);
 pref("middlemouse.paste", false);
 pref("network.IDN_show_punycode", true);

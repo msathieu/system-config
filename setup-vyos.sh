@@ -46,8 +46,6 @@ set interfaces bridge br0 vif 254 address 192.168.254.1/24
 set interfaces bridge br0 vif 254 address fc01::1/64
 set interfaces bridge br0 vif 253 address 192.168.253.1/24
 set interfaces bridge br0 vif 253 address fc02::1/64
-set interfaces wireguard wg0 address 192.168.252.1/24
-set interfaces wireguard wg0 port 51820
 
 set service ssh disable-password-authentication
 set service ssh listen-address 192.168.255.1
@@ -98,6 +96,7 @@ set service dns forwarding listen-address fc02::1
 set service dns forwarding name-server 127.0.0.1
 set service dns forwarding dnssec validate
 set service dns forwarding allow-from 192.168.0.0/16
+set service dns forwarding allow-from 100.81.0.0/16
 set service dns forwarding allow-from fc00::/7
 set service tftp-server directory /config/tftp
 set service tftp-server listen-address 192.168.253.1
@@ -107,6 +106,13 @@ set nat source rule 1 outbound-interface name eth0
 set nat source rule 1 translation address masquerade
 set nat66 source rule 1 outbound-interface name eth0
 set nat66 source rule 1 translation address masquerade
+
+set container name netbird image netbirdio/netbird
+set container name netbird volume netbird source /config/netbird
+set container name netbird volume netbird destination /var/lib/netbird
+set container name netbird allow-host-networks
+set container name netbird capability net-admin
+set container name netbird capability net-raw
 
 delete firewall
 
@@ -132,7 +138,7 @@ for i in ${firewall_types}; do
   set firewall "$i" forward filter rule 5 inbound-interface name br0.128
   set firewall "$i" forward filter rule 5 outbound-interface name br0.253
   set firewall "$i" forward filter rule 6 action accept
-  set firewall "$i" forward filter rule 6 inbound-interface name wg0
+  set firewall "$i" forward filter rule 6 inbound-interface name wt0
   set firewall "$i" forward filter rule 6 outbound-interface name br0.253
   set firewall "$i" forward filter rule 7 action accept
   set firewall "$i" forward filter rule 7 inbound-interface name br0.254

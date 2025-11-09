@@ -2,5 +2,4 @@
 set -euo pipefail
 cp -R common/* /
 sed -E "s/#(auth.+required)/\1/" -i /etc/pam.d/su
-timedatectl set-timezone Europe/Brussels
 systemctl disable --now systemd-journald-audit.socket
