@@ -133,22 +133,27 @@ for i in ${firewall_types}; do
   set firewall "$i" forward filter rule 3 inbound-interface name br0.253
   set firewall "$i" forward filter rule 3 outbound-interface name eth0
   set firewall "$i" forward filter rule 4 action accept
-  set firewall "$i" forward filter rule 4 inbound-interface name br0.255
+  set firewall "$i" forward filter rule 4 inbound-interface name wt0
+  set firewall "$i" forward filter rule 4 outbound-interface name eth0
   set firewall "$i" forward filter rule 5 action accept
-  set firewall "$i" forward filter rule 5 inbound-interface name br0.128
-  set firewall "$i" forward filter rule 5 outbound-interface name br0.253
+  set firewall "$i" forward filter rule 5 inbound-interface name br0.255
   set firewall "$i" forward filter rule 6 action accept
-  set firewall "$i" forward filter rule 6 inbound-interface name wt0
+  set firewall "$i" forward filter rule 6 inbound-interface name br0.128
   set firewall "$i" forward filter rule 6 outbound-interface name br0.253
+  set firewall "$i" forward filter rule 6 protocol tcp
+  set firewall "$i" forward filter rule 6 destination port 8080
   set firewall "$i" forward filter rule 7 action accept
-  set firewall "$i" forward filter rule 7 inbound-interface name br0.254
+  set firewall "$i" forward filter rule 7 inbound-interface name wt0
   set firewall "$i" forward filter rule 7 outbound-interface name br0.253
-  set firewall "$i" forward filter rule 7 protocol tcp_udp
-  set firewall "$i" forward filter rule 7 destination port 443
+  set firewall "$i" forward filter rule 8 action accept
+  set firewall "$i" forward filter rule 8 inbound-interface name br0.254
+  set firewall "$i" forward filter rule 8 outbound-interface name br0.253
+  set firewall "$i" forward filter rule 8 protocol tcp_udp
+  set firewall "$i" forward filter rule 8 destination port 443
 done
-set firewall ipv4 forward filter rule 8 action accept
-set firewall ipv4 forward filter rule 8 protocol tcp
-set firewall ipv4 forward filter rule 8 destination address 192.168.253.32
-set firewall ipv4 forward filter rule 8 destination port 22
-set firewall ipv4 forward filter rule 8 inbound-interface name eth0
-set firewall ipv4 forward filter rule 8 source geoip country-code be
+set firewall ipv4 forward filter rule 9 action accept
+set firewall ipv4 forward filter rule 9 protocol tcp
+set firewall ipv4 forward filter rule 9 destination address 192.168.253.32
+set firewall ipv4 forward filter rule 9 destination port 22
+set firewall ipv4 forward filter rule 9 inbound-interface name eth0
+set firewall ipv4 forward filter rule 9 source geoip country-code be

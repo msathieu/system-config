@@ -49,11 +49,13 @@ cloud.strypsteen.com {
 }
 code.strypsteen.com, *.code-proxy.strypsteen.com {
   import base
+  import local-only
   import tls
   reverse_proxy https://k8s.strypsteen.com
 }
 code-sandbox.strypsteen.com, *.code-sandbox-proxy.strypsteen.com {
   import base
+  import local-only
   import tls
   reverse_proxy https://k8s.strypsteen.com
 }
@@ -101,6 +103,7 @@ network.strypsteen.com {
 }
 office.strypsteen.com {
   import base
+  import local-only
   import tls
   reverse_proxy https://k8s.strypsteen.com
 }
