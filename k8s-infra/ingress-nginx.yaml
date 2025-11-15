@@ -18,6 +18,7 @@ spec:
             enabled: true
           config:
             disable-access-log: "true"
+            error-log-level: crit
             proxy-body-size: 1G
             proxy-request-buffering: "off"
             force-ssl-redirect: "true"

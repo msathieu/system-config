@@ -18,7 +18,8 @@
     "EnableTrackingProtection": {
       "Value": true,
       "Category": "strict",
-      "Locked": true
+      "Locked": true,
+      "BaselineExceptions": false
     },
     "EncryptedMediaExtensions": {
       "Enabled": false,
