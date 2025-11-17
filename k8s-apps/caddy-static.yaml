@@ -121,8 +121,11 @@ spec:
   ingressClassName: nginx
   tls:
     - hosts:
-      - k8s.strypsteen.com
-      secretName: k8s-certificate
+      - strypsteen.me
+      - strypsteen.com
+      - mta-sts.strypsteen.me
+      - mta-sts.strypsteen.com
+      secretName: static-certificate
   rules:
     - host: strypsteen.me
       http:

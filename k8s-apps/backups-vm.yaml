@@ -97,8 +97,8 @@ spec:
   ingressClassName: nginx
   tls:
     - hosts:
-      - k8s.strypsteen.com
-      secretName: k8s-certificate
+      - backups.strypsteen.com
+      secretName: backups-certificate
   rules:
     - host: backups.strypsteen.com
       http:

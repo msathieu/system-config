@@ -141,8 +141,8 @@ spec:
   ingressClassName: nginx
   tls:
     - hosts:
-      - k8s.strypsteen.com
-      secretName: k8s-certificate
+      - remote-desktop.strypsteen.com
+      secretName: remote-desktop-certificate
   rules:
     - host: remote-desktop.strypsteen.com
       http:
@@ -166,8 +166,8 @@ spec:
   ingressClassName: nginx
   tls:
     - hosts:
-      - k8s.strypsteen.com
-      secretName: k8s-certificate
+      - textgen.strypsteen.com
+      secretName: textgen-certificate
   rules:
     - host: textgen.strypsteen.com
       http:
@@ -193,8 +193,8 @@ spec:
   ingressClassName: nginx
   tls:
     - hosts:
-      - k8s.strypsteen.com
-      secretName: k8s-certificate
+      - imagegen.strypsteen.com
+      secretName: imagegen-certificate
   rules:
     - host: imagegen.strypsteen.com
       http:

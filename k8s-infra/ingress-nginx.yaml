@@ -13,7 +13,7 @@ spec:
       values: |
         controller:
           extraArgs:
-            default-ssl-certificate: apps/k8s-certificate
+            default-ssl-certificate: apps/static-certificate
           networkPolicy:
             enabled: true
           config:

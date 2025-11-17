@@ -109,8 +109,8 @@ spec:
   ingressClassName: nginx
   tls:
     - hosts:
-      - k8s.strypsteen.com
-      secretName: k8s-certificate
+      - photos.strypsteen.com
+      secretName: photos-certificate
   rules:
     - host: photos.strypsteen.com
       http:

@@ -58,8 +58,8 @@ spec:
   ingressClassName: nginx
   tls:
     - hosts:
-      - k8s.strypsteen.com
-      secretName: k8s-certificate
+      - metrics.strypsteen.com
+      secretName: metrics-certificate
   rules:
     - host: metrics.strypsteen.com
       http:

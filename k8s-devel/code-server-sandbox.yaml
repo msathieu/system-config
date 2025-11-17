@@ -89,8 +89,9 @@ spec:
   ingressClassName: nginx
   tls:
     - hosts:
-      - k8s.strypsteen.com
-      secretName: k8s-certificate
+      - code-sandbox.strypsteen.com
+      - "*.code-sandbox-proxy.strypsteen.com"
+      secretName: code-sandbox-certificate
   rules:
     - host: code-sandbox.strypsteen.com
       http:

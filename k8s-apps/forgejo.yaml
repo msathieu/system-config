@@ -104,8 +104,8 @@ spec:
   ingressClassName: nginx
   tls:
     - hosts:
-      - k8s.strypsteen.com
-      secretName: k8s-certificate
+      - git.strypsteen.com
+      secretName: git-certificate
   rules:
     - host: git.strypsteen.com
       http:

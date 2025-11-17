@@ -68,8 +68,8 @@ spec:
   ingressClassName: nginx
   tls:
     - hosts:
-      - k8s.strypsteen.com
-      secretName: k8s-certificate
+      - vault.strypsteen.com
+      secretName: vault-certificate
   rules:
     - host: vault.strypsteen.com
       http:

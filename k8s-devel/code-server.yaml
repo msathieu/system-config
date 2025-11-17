@@ -124,8 +124,9 @@ spec:
   ingressClassName: nginx
   tls:
     - hosts:
-      - k8s.strypsteen.com
-      secretName: k8s-certificate
+      - code.strypsteen.com
+      - "*.code-proxy.strypsteen.com"
+      secretName: code-certificate
   rules:
     - host: code.strypsteen.com
       http:

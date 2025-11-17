@@ -217,8 +217,8 @@ spec:
   ingressClassName: nginx
   tls:
     - hosts:
-      - k8s.strypsteen.com
-      secretName: k8s-certificate
+      - console.strypsteen.com
+      secretName: console-certificate
   rules:
     - host: console.strypsteen.com
       http:

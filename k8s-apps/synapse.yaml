@@ -106,9 +106,9 @@ spec:
           args: ['run', '--config-path', '/etc/synapse/homeserver.yaml', '--config-path', '/etc/synapse.yaml']
           env:
             - name: tmp_http_proxy
-              value: http://k8s.strypsteen.com:1081
+              value: http://home.strypsteen.com:1081
             - name: tmp_https_proxy
-              value: http://k8s.strypsteen.com:1081
+              value: http://home.strypsteen.com:1081
           volumeMounts:
             - name: config
               mountPath: /etc/synapse/homeserver.yaml
@@ -142,8 +142,8 @@ spec:
   ingressClassName: nginx
   tls:
     - hosts:
-      - k8s.strypsteen.com
-      secretName: k8s-certificate
+      - matrix.strypsteen.com
+      secretName: matrix-certificate
   rules:
     - host: matrix.strypsteen.com
       http:
