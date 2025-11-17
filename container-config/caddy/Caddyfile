@@ -8,116 +8,88 @@
     }
   }
 }
-(base) {
-  header {
-    >X-Frame-Options SAMEORIGIN
-    >X-Content-Type-Options nosniff
-    >Referrer-Policy no-referrer
-  }
-}
 (tls) {
   tls /etc/certificates/fullchain.pem /etc/certificates/privkey.pem
 }
 strypsteen.me {
-  import base
   reverse_proxy https://k8s.strypsteen.com
 }
 strypsteen.com {
-  import base
   import tls
   reverse_proxy https://k8s.strypsteen.com
 }
 auth.strypsteen.com {
-  import base
   import tls
   reverse_proxy https://k8s.strypsteen.com
 }
 backups.strypsteen.com {
-  import base
   import tls
   reverse_proxy https://k8s.strypsteen.com
 }
 cloud.strypsteen.com {
-  import base
   import tls
   reverse_proxy https://k8s.strypsteen.com
 }
 code.strypsteen.com, *.code-proxy.strypsteen.com {
-  import base
   import tls
   reverse_proxy https://k8s.strypsteen.com
 }
 code-sandbox.strypsteen.com, *.code-sandbox-proxy.strypsteen.com {
-  import base
   import tls
   reverse_proxy https://k8s.strypsteen.com
 }
 console.strypsteen.com {
-  import base
   import tls
   reverse_proxy https://k8s.strypsteen.com
 }
 matrix.strypsteen.com {
-  import base
   import tls
   reverse_proxy https://k8s.strypsteen.com
 }
 git.strypsteen.com {
-  import base
   import tls
   reverse_proxy https://k8s.strypsteen.com
 }
 llm.strypsteen.com {
-  import base
   import tls
   reverse_proxy https://k8s.strypsteen.com
 }
 metrics.strypsteen.com {
-  import base
   import tls
   reverse_proxy https://k8s.strypsteen.com
 }
 monitoring.strypsteen.com {
-  import base
   import tls
   reverse_proxy https://k8s.strypsteen.com
 }
 mta-sts.strypsteen.me, mta-sts.strypsteen.com {
-  import base
   reverse_proxy https://k8s.strypsteen.com
 }
 network.strypsteen.com {
-  import base
   import tls
   reverse_proxy https://k8s.strypsteen.com
 }
 office.strypsteen.com {
-  import base
   import tls
   reverse_proxy https://k8s.strypsteen.com
 }
 photos.strypsteen.com {
-  import base
   import tls
   reverse_proxy https://k8s.strypsteen.com
 }
 remote-desktop.strypsteen.com {
-  import base
   import tls
   reverse_proxy https://k8s.strypsteen.com
 }
 vault.strypsteen.com {
-  import base
   import tls
   reverse_proxy https://k8s.strypsteen.com
 }
 textgen.strypsteen.com {
-  import base
   import tls
   reverse_proxy https://k8s.strypsteen.com
 }
 imagegen.strypsteen.com {
-  import base
   import tls
   reverse_proxy http://k8s.strypsteen.com
 }

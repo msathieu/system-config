@@ -17,6 +17,7 @@ spec:
           networkPolicy:
             enabled: true
           config:
+            add-headers: ingress-nginx/custom-headers
             disable-access-log: "true"
             error-log-level: crit
             proxy-body-size: 1G
@@ -41,3 +42,13 @@ spec:
     automated: {}
     syncOptions:
       - CreateNamespace=true
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: custom-headers
+  namespace: ingress-nginx
+data:
+  X-Frame-Options: SAMEORIGIN
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: no-referrer
