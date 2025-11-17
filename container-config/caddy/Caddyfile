@@ -18,10 +18,6 @@
 (tls) {
   tls /etc/certificates/fullchain.pem /etc/certificates/privkey.pem
 }
-(local-only) {
-  @abort not remote_ip 192.168.0.0/16
-  abort @abort
-}
 strypsteen.me {
   import base
   reverse_proxy https://k8s.strypsteen.com
@@ -38,7 +34,6 @@ auth.strypsteen.com {
 }
 backups.strypsteen.com {
   import base
-  import local-only
   import tls
   reverse_proxy https://k8s.strypsteen.com
 }
@@ -49,13 +44,11 @@ cloud.strypsteen.com {
 }
 code.strypsteen.com, *.code-proxy.strypsteen.com {
   import base
-  import local-only
   import tls
   reverse_proxy https://k8s.strypsteen.com
 }
 code-sandbox.strypsteen.com, *.code-sandbox-proxy.strypsteen.com {
   import base
-  import local-only
   import tls
   reverse_proxy https://k8s.strypsteen.com
 }
@@ -76,7 +69,6 @@ git.strypsteen.com {
 }
 llm.strypsteen.com {
   import base
-  import local-only
   import tls
   reverse_proxy https://k8s.strypsteen.com
 }
@@ -87,7 +79,6 @@ metrics.strypsteen.com {
 }
 monitoring.strypsteen.com {
   import base
-  import local-only
   import tls
   reverse_proxy https://k8s.strypsteen.com
 }
@@ -97,25 +88,21 @@ mta-sts.strypsteen.me, mta-sts.strypsteen.com {
 }
 network.strypsteen.com {
   import base
-  import local-only
   import tls
   reverse_proxy https://k8s.strypsteen.com
 }
 office.strypsteen.com {
   import base
-  import local-only
   import tls
   reverse_proxy https://k8s.strypsteen.com
 }
 photos.strypsteen.com {
   import base
-  import local-only
   import tls
   reverse_proxy https://k8s.strypsteen.com
 }
 remote-desktop.strypsteen.com {
   import base
-  import local-only
   import tls
   reverse_proxy https://k8s.strypsteen.com
 }
@@ -126,13 +113,11 @@ vault.strypsteen.com {
 }
 textgen.strypsteen.com {
   import base
-  import local-only
   import tls
   reverse_proxy https://k8s.strypsteen.com
 }
 imagegen.strypsteen.com {
   import base
-  import local-only
   import tls
   reverse_proxy http://k8s.strypsteen.com
 }
