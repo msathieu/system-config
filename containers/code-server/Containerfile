@@ -1,7 +1,7 @@
 FROM quay.io/fedora/fedora-toolbox:43
 RUN dnf up -y
 RUN dnf install -y bash-color-prompt direnv podman netcat tini vim-enhanced
-RUN dnf install -y https://github.com/coder/code-server/releases/download/v4.105.1/code-server-4.105.1-amd64.rpm
+RUN dnf install -y https://github.com/coder/code-server/releases/download/v4.106.0/code-server-4.106.0-amd64.rpm
 RUN setcap cap_setuid=ep /usr/bin/newuidmap
 RUN setcap cap_setgid=ep /usr/bin/newgidmap
 RUN useradd coder
