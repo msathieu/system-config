@@ -52,6 +52,7 @@ metadata:
   name: loki
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt
+    cert-manager.io/private-key-algorithm: ECDSA
     nginx.ingress.kubernetes.io/auth-type: basic
     nginx.ingress.kubernetes.io/auth-secret: metrics-auth
 spec:

@@ -212,6 +212,7 @@ metadata:
   name: atlas
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt
+    cert-manager.io/private-key-algorithm: ECDSA
     nginx.ingress.kubernetes.io/affinity: cookie
 spec:
   ingressClassName: nginx

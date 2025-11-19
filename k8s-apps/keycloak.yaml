@@ -74,6 +74,7 @@ metadata:
   name: keycloak
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt
+    cert-manager.io/private-key-algorithm: ECDSA
 spec:
   ingressClassName: nginx
   tls:

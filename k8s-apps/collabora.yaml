@@ -41,6 +41,7 @@ metadata:
   name: collabora
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt
+    cert-manager.io/private-key-algorithm: ECDSA
     nginx.ingress.kubernetes.io/backend-protocol: HTTPS
     nginx.ingress.kubernetes.io/whitelist-source-range: 192.168.0.0/16
 spec:

@@ -76,7 +76,7 @@ spec:
               type: Unconfined
           env:
             - name: PROXY_DOMAIN
-              value: code-proxy.strypsteen.com
+              value: code.strypsteen.com
             - name: PASSWORD
               valueFrom:
                 secretKeyRef:
@@ -119,13 +119,14 @@ metadata:
   name: code-server
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt
+    cert-manager.io/private-key-algorithm: ECDSA
     nginx.ingress.kubernetes.io/whitelist-source-range: 192.168.0.0/16
 spec:
   ingressClassName: nginx
   tls:
     - hosts:
       - code.strypsteen.com
-      - "*.code-proxy.strypsteen.com"
+      - "*.code.strypsteen.com"
       secretName: code-certificate
   rules:
     - host: code.strypsteen.com
@@ -138,7 +139,7 @@ spec:
                 name: code-server
                 port:
                   number: 8080
-    - host: "*.code-proxy.strypsteen.com"
+    - host: "*.code.strypsteen.com"
       http:
         paths:
           - path: /

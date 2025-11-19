@@ -41,7 +41,7 @@ spec:
               type: Unconfined
           env:
             - name: PROXY_DOMAIN
-              value: code-sandbox-proxy.strypsteen.com
+              value: code-sandbox.strypsteen.com
             - name: PASSWORD
               valueFrom:
                 secretKeyRef:
@@ -84,13 +84,14 @@ metadata:
   name: code-server-sandbox
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt
+    cert-manager.io/private-key-algorithm: ECDSA
     nginx.ingress.kubernetes.io/whitelist-source-range: 192.168.0.0/16
 spec:
   ingressClassName: nginx
   tls:
     - hosts:
       - code-sandbox.strypsteen.com
-      - "*.code-sandbox-proxy.strypsteen.com"
+      - "*.code-sandbox.strypsteen.com"
       secretName: code-sandbox-certificate
   rules:
     - host: code-sandbox.strypsteen.com
@@ -103,7 +104,7 @@ spec:
                 name: code-server-sandbox
                 port:
                   number: 8080
-    - host: "*.code-sandbox-proxy.strypsteen.com"
+    - host: "*.code-sandbox.strypsteen.com"
       http:
         paths:
           - path: /
