@@ -2,8 +2,9 @@
 # shellcheck disable=SC2121
 set system name-server 9.9.9.9
 set system static-host-mapping host-name trace.svc.ui.com inet 0.0.0.1
-set system static-host-mapping host-name home.strypsteen.com inet 192.168.253.30
-set system static-host-mapping host-name home.strypsteen.com alias unifi
+set system static-host-mapping host-name k8s.strypsteen.com inet 192.168.253.30
+set system static-host-mapping host-name k8s.strypsteen.com alias unifi
+set system static-host-mapping host-name home.strypsteen.com inet 192.168.253.31
 set system static-host-mapping host-name home.strypsteen.com alias auth.strypsteen.com
 set system static-host-mapping host-name home.strypsteen.com alias backups.strypsteen.com
 set system static-host-mapping host-name home.strypsteen.com alias cloud.strypsteen.com
@@ -16,12 +17,14 @@ set system static-host-mapping host-name home.strypsteen.com alias llm.strypstee
 set system static-host-mapping host-name home.strypsteen.com alias matrix.strypsteen.com
 set system static-host-mapping host-name home.strypsteen.com alias metrics.strypsteen.com
 set system static-host-mapping host-name home.strypsteen.com alias monitoring.strypsteen.com
+set system static-host-mapping host-name home.strypsteen.com alias mta-sts.strypsteen.com
 set system static-host-mapping host-name home.strypsteen.com alias network.strypsteen.com
 set system static-host-mapping host-name home.strypsteen.com alias office.strypsteen.com
 set system static-host-mapping host-name home.strypsteen.com alias photos.strypsteen.com
 set system static-host-mapping host-name home.strypsteen.com alias remote-desktop.strypsteen.com
 set system static-host-mapping host-name home.strypsteen.com alias textgen.strypsteen.com
 set system static-host-mapping host-name home.strypsteen.com alias vault.strypsteen.com
+set system static-host-mapping host-name home.strypsteen.com alias mta-sts.strypsteen.me
 set system sysctl parameter net.ipv6.conf.eth0.use_tempaddr value 2
 set system time-zone Europe/Brussels
 set system update-check url https://raw.githubusercontent.com/vyos/vyos-nightly-build/refs/heads/current/version.json

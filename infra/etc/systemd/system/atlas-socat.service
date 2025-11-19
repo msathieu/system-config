@@ -1,4 +1,0 @@
-[Service]
-ExecStart=socat TCP4-LISTEN:8612,fork TCP4:home.strypsteen.com:8612
-[Install]
-WantedBy=multi-user.target

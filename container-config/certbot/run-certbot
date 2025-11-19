@@ -1,11 +1,7 @@
 #!/bin/sh
 set -e
 certbot register --agree-tos --no-eff-email -m mathieu@strypsteen.me
-if [ "$CERTBOT_TYPE" = vps ]; then
-  certbot certonly --standalone -d vps.strypsteen.com
-else
-  certbot certonly --dns-cloudflare --dns-cloudflare-credentials /run/secrets/cloudflare --dns-cloudflare-propagation-seconds 20 -d strypsteen.com -d '*.strypsteen.com' -d '*.code-proxy.strypsteen.com' -d '*.code-sandbox-proxy.strypsteen.com'
-fi
+certbot certonly --standalone -d vps.strypsteen.com
 cp /etc/letsencrypt/live/*/fullchain.pem /etc/certificates
 chmod 644 /etc/letsencrypt/live/*/privkey.pem
 cp /etc/letsencrypt/live/*/privkey.pem /etc/certificates
