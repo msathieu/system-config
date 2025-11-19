@@ -1,0 +1,9 @@
+[Container]
+Image=docker.io/netbirdio/netbird
+AddCapability=CAP_NET_ADMIN
+AddCapability=CAP_NET_RAW
+Network=host
+Volume=systemd-netbird:/var/lib/netbird:U,Z
+AutoUpdate=registry
+[Install]
+WantedBy=multi-user.target

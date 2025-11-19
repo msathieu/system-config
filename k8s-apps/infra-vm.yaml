@@ -69,6 +69,10 @@ spec:
       port: 80
     - name: https
       port: 443
+    - name: http-proxy
+      port: 180
+    - name: https-proxy
+      port: 1443
     - name: forgejo-ssh
       port: 2222
     - name: atlas-api
@@ -89,5 +93,7 @@ spec:
         - port: 22
         - port: 80
         - port: 443
+        - port: 180
+        - port: 1443
         - port: 2222
         - port: 8612
