@@ -1,11 +1,11 @@
 [Container]
 Image=git.strypsteen.com/infra/dovecot
+UserNS=auto
 Network=mail.network
 Volume=systemd-certificates:/etc/certificates:z,ro
 Volume=/var/lib/container-data/dovecot:/etc/dovecot-local:z,ro
 Volume=/var/lib/container-data/dovecot/local.sieve:/tmp/local.sieve:z,ro
 Volume=systemd-dovecot:/srv/mail:U,Z
-Tmpfs=/var/lib/dovecot
 PublishPort=993:993
 AutoUpdate=registry
 [Install]

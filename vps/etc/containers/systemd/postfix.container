@@ -3,12 +3,10 @@ Requires=dovecot.service rspamd.service unbound.service
 After=dovecot.service rspamd.service unbound.service
 [Container]
 Image=git.strypsteen.com/infra/postfix
-UserNS=host
 Network=mail.network
 DNS=10.89.255.254
 Volume=systemd-certificates:/etc/certificates:z,ro
 Volume=systemd-postfix:/var/spool/postfix:Z
-Tmpfs=/var/lib/postfix
 PublishPort=25:25
 PublishPort=465:465
 StopTimeout=20

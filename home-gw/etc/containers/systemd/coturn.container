@@ -1,5 +1,6 @@
 [Container]
 Image=docker.io/coturn/coturn
+UserNS=auto
 Exec=--use-auth-secret --no-tcp-relay --realm=turn.strypsteen.com --user-quota=16 --total-quota=64 --no-multicast-peers --static-auth-secret=$COTURN_SECRET
 Network=host
 Secret=COTURN_SECRET,type=env

@@ -1,7 +1,6 @@
 [Container]
 Image=docker.io/grafana/alloy
 PodmanArgs=--pid=host
-UserNS=host
 Unmask=ALL
 Network=host
 Exec=run /etc/alloy/config.alloy --storage.path=/var/lib/alloy/data --disable-reporting
@@ -9,7 +8,6 @@ Volume=/var/lib/system-config/container-config/alloy/config.alloy:/etc/alloy/con
 Volume=systemd-alloy:/var/lib/alloy/data:U,Z
 Volume=/:/run/host:ro
 Volume=/run/systemd:/run/systemd
-Tmpfs=/var/lib/alloy
 Secret=PROMETHEUS_PASSWORD,type=env
 AutoUpdate=registry
 [Install]

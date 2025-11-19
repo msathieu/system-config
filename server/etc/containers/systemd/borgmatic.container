@@ -4,7 +4,6 @@ ExecStopPost=btrfs subvolume delete /var/snapshot
 [Container]
 Image=ghcr.io/borgmatic-collective/borgmatic
 SecurityLabelDisable=true
-UserNS=host
 HostName=%H
 Entrypoint=borgmatic
 Exec=--stats
