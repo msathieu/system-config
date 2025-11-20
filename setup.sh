@@ -18,8 +18,6 @@ if [ -f /usr/share/qubes/marker-vm ]; then
 elif [ -d /usr/lib/coreos ]; then
   if [ "$1" = vps ]; then
     bash setup-vps.sh
-  elif [ "$1" = infra ]; then
-    bash setup-infra.sh
   elif [ "$1" = backups ]; then
     bash setup-backups.sh
   elif [ "$1" = home-gw ]; then
