@@ -26,6 +26,7 @@ spec:
             hsts-preload: "true"
             use-proxy-protocol: "true"
             ssl-protocols: TLSv1.3
+            use-gzip: "true"
           replicaCount: 2
           service:
             loadBalancerIP: 192.168.253.30
