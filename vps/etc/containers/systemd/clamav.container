@@ -1,0 +1,7 @@
+[Container]
+Image=docker.io/clamav/clamav
+UserNS=auto
+Network=mail.network
+AutoUpdate=registry
+[Install]
+WantedBy=multi-user.target

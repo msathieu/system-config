@@ -64,7 +64,7 @@ spec:
             claimName: nextcloud
       containers:
         - name: nextcloud
-          image: docker.io/nextcloud:32.0.1
+          image: docker.io/nextcloud:32.0.2
           command: ['sh', '-c', 'busybox crond && /entrypoint.sh apache2-foreground > /dev/null']
           env:
             - name: OVERWRITEPROTOCOL
