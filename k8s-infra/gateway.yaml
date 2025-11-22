@@ -1,0 +1,37 @@
+apiVersion: gateway.networking.k8s.io/v1
+kind: GatewayClass
+metadata:
+  name: envoy
+spec:
+  controllerName: gateway.envoyproxy.io/gatewayclass-controller
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: Gateway
+metadata:
+  name: envoy
+  namespace: apps
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    cert-manager.io/private-key-algorithm: ECDSA
+spec:
+  gatewayClassName: envoy
+  addresses:
+    - value: 192.168.253.34
+  listeners:
+    - name: http
+      protocol: HTTP
+      port: 80
+    - name: https-git
+      protocol: HTTPS
+      port: 443
+      hostname: git.strypsteen.com
+      tls:
+        certificateRefs:
+          - name: gw-git.strypsteen.com
+    - name: https-matrix
+      protocol: HTTPS
+      port: 443
+      hostname: matrix.strypsteen.com
+      tls:
+        certificateRefs:
+          - name: gw-matrix.strypsteen.com
