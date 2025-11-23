@@ -82,3 +82,17 @@ spec:
                 name: vaultwarden
                 port:
                   number: 80
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: vaultwarden
+spec:
+  parentRefs:
+    - name: envoy
+  hostnames:
+    - vault.strypsteen.com
+  rules:
+    - backendRefs:
+        - name: vaultwarden
+          port: 80

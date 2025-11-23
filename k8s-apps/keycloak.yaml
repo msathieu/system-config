@@ -92,3 +92,17 @@ spec:
                 name: keycloak
                 port:
                   number: 8080
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: keycloak
+spec:
+  parentRefs:
+    - name: envoy
+  hostnames:
+    - auth.strypsteen.com
+  rules:
+    - backendRefs:
+        - name: keycloak
+          port: 8080
