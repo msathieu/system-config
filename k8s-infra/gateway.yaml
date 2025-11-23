@@ -90,6 +90,34 @@ spec:
       tls:
         certificateRefs:
           - name: gw-console.strypsteen.com
+    - name: https-strypsteen-com
+      protocol: HTTPS
+      port: 443
+      hostname: strypsteen.com
+      tls:
+        certificateRefs:
+          - name: gw-strypsteen.com
+    - name: https-strypsteen-me
+      protocol: HTTPS
+      port: 443
+      hostname: strypsteen.me
+      tls:
+        certificateRefs:
+          - name: gw-strypsteen.me
+    - name: https-mta-sts-com
+      protocol: HTTPS
+      port: 443
+      hostname: mta-sts.strypsteen.com
+      tls:
+        certificateRefs:
+          - name: gw-mta-sts.strypsteen.com
+    - name: https-mta-sts-me
+      protocol: HTTPS
+      port: 443
+      hostname: mta-sts.strypsteen.me
+      tls:
+        certificateRefs:
+          - name: gw-mta-sts.strypsteen.me
 ---
 apiVersion: gateway.networking.k8s.io/v1
 kind: Gateway
@@ -177,6 +205,19 @@ spec:
           selector:
             matchLabels:
               kubernetes.io/metadata.name: development
+    - name: https-monitoring
+      protocol: HTTPS
+      port: 443
+      hostname: monitoring.strypsteen.com
+      tls:
+        certificateRefs:
+          - name: gw-monitoring.strypsteen.com
+      allowedRoutes:
+        namespaces:
+          from: Selector
+          selector:
+            matchLabels:
+              kubernetes.io/metadata.name: monitoring
 ---
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute

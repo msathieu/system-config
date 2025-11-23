@@ -168,3 +168,20 @@ spec:
                 name: caddy-static
                 port:
                   number: 80
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: caddy-static
+spec:
+  parentRefs:
+    - name: envoy
+  hostnames:
+    - strypsteen.com
+    - strypsteen.me
+    - mta-sts.strypsteen.com
+    - mta-sts.strypsteen.me
+  rules:
+    - backendRefs:
+        - name: caddy-static
+          port: 80
