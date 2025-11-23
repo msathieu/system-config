@@ -92,6 +92,36 @@ spec:
           - name: gw-console.strypsteen.com
 ---
 apiVersion: gateway.networking.k8s.io/v1
+kind: Gateway
+metadata:
+  name: envoy-internal
+  namespace: apps
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    cert-manager.io/private-key-algorithm: ECDSA
+spec:
+  gatewayClassName: envoy
+  addresses:
+    - value: 192.168.253.35
+  listeners:
+    - name: http
+      protocol: HTTP
+      port: 80
+      allowedRoutes:
+        namespaces:
+          from: Selector
+          selector:
+            matchLabels:
+              kubernetes.io/metadata.name: envoy-gateway-system
+    - name: https-photos
+      protocol: HTTPS
+      port: 443
+      hostname: photos.strypsteen.com
+      tls:
+        certificateRefs:
+          - name: gw-photos.strypsteen.com
+---
+apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
   name: http-redirect
@@ -99,6 +129,9 @@ metadata:
 spec:
   parentRefs:
     - name: envoy
+      namespace: apps
+      sectionName: http
+    - name: envoy-internal
       namespace: apps
       sectionName: http
   rules:
@@ -118,6 +151,9 @@ spec:
     - group: gateway.networking.k8s.io
       kind: Gateway
       name: envoy
+    - group: gateway.networking.k8s.io
+      kind: Gateway
+      name: envoy-internal
   tls:
     minVersion: "1.3"
   proxyProtocol:
@@ -141,6 +177,9 @@ metadata:
   namespace: apps
 spec:
   targetRefs:
+    - group: gateway.networking.k8s.io
+      kind: Gateway
+      name: envoy
     - group: gateway.networking.k8s.io
       kind: Gateway
       name: envoy
