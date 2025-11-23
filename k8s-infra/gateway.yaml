@@ -1,9 +1,24 @@
+apiVersion: gateway.envoyproxy.io/v1alpha1
+kind: EnvoyProxy
+metadata:
+  name: gateway
+  namespace: envoy-gateway-system
+spec:
+  telemetry:
+    accessLog:
+      disable: true
+---
 apiVersion: gateway.networking.k8s.io/v1
 kind: GatewayClass
 metadata:
   name: envoy
 spec:
   controllerName: gateway.envoyproxy.io/gatewayclass-controller
+  parametersRef:
+    group: gateway.envoyproxy.io
+    kind: EnvoyProxy
+    namespace: envoy-gateway-system
+    name: gateway
 ---
 apiVersion: gateway.networking.k8s.io/v1
 kind: Gateway
@@ -58,3 +73,29 @@ spec:
           requestRedirect:
             scheme: https
             statusCode: 301
+---
+apiVersion: gateway.envoyproxy.io/v1alpha1
+kind: ClientTrafficPolicy
+metadata:
+  name: policy
+  namespace: apps
+spec:
+  targetRefs:
+    - group: gateway.networking.k8s.io
+      kind: Gateway
+      name: envoy
+  tls:
+    minVersion: "1.3"
+  proxyProtocol:
+    optional: true
+  headers:
+    lateResponseHeaders:
+      set:
+        - name: X-Frame-Options
+          value: SAMEORIGIN
+        - name: X-Content-Type-Options
+          value: nosniff
+        - name: Referrer-Policy
+          value: no-referrer
+        - name: Strict-Transport-Security
+          value: "max-age=31536000; includeSubDomains; preload"
