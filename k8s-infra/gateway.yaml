@@ -120,6 +120,20 @@ spec:
       tls:
         certificateRefs:
           - name: gw-photos.strypsteen.com
+    - name: https-llm
+      protocol: HTTPS
+      port: 443
+      hostname: llm.strypsteen.com
+      tls:
+        certificateRefs:
+          - name: gw-llm.strypsteen.com
+    - name: https-backups
+      protocol: HTTPS
+      port: 443
+      hostname: backups.strypsteen.com
+      tls:
+        certificateRefs:
+          - name: gw-backups.strypsteen.com
 ---
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute

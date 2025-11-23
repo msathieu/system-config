@@ -98,32 +98,6 @@ spec:
   ports:
     - port: 8080
 ---
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: immich
-  annotations:
-    cert-manager.io/cluster-issuer: letsencrypt
-    cert-manager.io/private-key-algorithm: ECDSA
-    nginx.ingress.kubernetes.io/whitelist-source-range: 192.168.0.0/16
-spec:
-  ingressClassName: nginx
-  tls:
-    - hosts:
-      - photos.strypsteen.com
-      secretName: photos-certificate
-  rules:
-    - host: photos.strypsteen.com
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: immich
-                port:
-                  number: 8080
----
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:

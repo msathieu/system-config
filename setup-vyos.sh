@@ -12,9 +12,9 @@ set system static-host-mapping host-name k8s-gw.strypsteen.com alias git.strypst
 set system static-host-mapping host-name k8s-gw.strypsteen.com alias matrix.strypsteen.com
 set system static-host-mapping host-name k8s-gw.strypsteen.com alias vault.strypsteen.com
 set system static-host-mapping host-name k8s-gw-internal.strypsteen.com inet 192.168.253.35
+set system static-host-mapping host-name k8s-gw-internal.strypsteen.com alias backups.strypsteen.com
 set system static-host-mapping host-name k8s-gw-internal.strypsteen.com alias photos.strypsteen.com
 set system static-host-mapping host-name home.strypsteen.com inet 192.168.253.31
-set system static-host-mapping host-name home.strypsteen.com alias backups.strypsteen.com
 set system static-host-mapping host-name home.strypsteen.com alias code.strypsteen.com
 set system static-host-mapping host-name home.strypsteen.com alias code-sandbox.strypsteen.com
 set system static-host-mapping host-name home.strypsteen.com alias imagegen.strypsteen.com
