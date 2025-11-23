@@ -151,6 +151,32 @@ spec:
       tls:
         certificateRefs:
           - name: gw-office.strypsteen.com
+    - name: https-code
+      protocol: HTTPS
+      port: 443
+      hostname: code.strypsteen.com
+      tls:
+        certificateRefs:
+          - name: gw-code.strypsteen.com
+      allowedRoutes:
+        namespaces:
+          from: Selector
+          selector:
+            matchLabels:
+              kubernetes.io/metadata.name: development
+    - name: https-code-proxy
+      protocol: HTTPS
+      port: 443
+      hostname: "*.code.strypsteen.com"
+      tls:
+        certificateRefs:
+          - name: gw-code-proxy.strypsteen.com
+      allowedRoutes:
+        namespaces:
+          from: Selector
+          selector:
+            matchLabels:
+              kubernetes.io/metadata.name: development
 ---
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
