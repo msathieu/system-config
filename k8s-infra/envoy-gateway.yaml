@@ -9,6 +9,12 @@ spec:
     repoURL: docker.io/envoyproxy
     chart: gateway-helm
     targetRevision: v1.6.0
+    helm:
+      values: |
+        config:
+          envoyGateway:
+            extensionApis:
+              enableBackend: true
   destination:
     server: https://kubernetes.default.svc
     namespace: envoy-gateway-system

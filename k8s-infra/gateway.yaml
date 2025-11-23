@@ -134,6 +134,13 @@ spec:
       tls:
         certificateRefs:
           - name: gw-backups.strypsteen.com
+    - name: https-network
+      protocol: HTTPS
+      port: 443
+      hostname: network.strypsteen.com
+      tls:
+        certificateRefs:
+          - name: gw-network.strypsteen.com
 ---
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
