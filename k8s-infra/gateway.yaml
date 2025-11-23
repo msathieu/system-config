@@ -104,6 +104,9 @@ spec:
   addresses:
     - value: 192.168.253.35
   listeners:
+    - name: unifi-api
+      protocol: TCP
+      port: 8080
     - name: http
       protocol: HTTP
       port: 80
@@ -141,6 +144,13 @@ spec:
       tls:
         certificateRefs:
           - name: gw-network.strypsteen.com
+    - name: https-office
+      protocol: HTTPS
+      port: 443
+      hostname: office.strypsteen.com
+      tls:
+        certificateRefs:
+          - name: gw-office.strypsteen.com
 ---
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute

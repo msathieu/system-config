@@ -35,29 +35,29 @@ spec:
   ports:
     - port: 9980
 ---
-apiVersion: networking.k8s.io/v1
-kind: Ingress
+apiVersion: gateway.envoyproxy.io/v1alpha1
+kind: Backend
 metadata:
   name: collabora
-  annotations:
-    cert-manager.io/cluster-issuer: letsencrypt
-    cert-manager.io/private-key-algorithm: ECDSA
-    nginx.ingress.kubernetes.io/backend-protocol: HTTPS
-    nginx.ingress.kubernetes.io/whitelist-source-range: 192.168.0.0/16
 spec:
-  ingressClassName: nginx
+  endpoints:
+    - fqdn:
+        hostname: collabora.apps.svc.cluster.local
+        port: 9980
   tls:
-    - hosts:
-      - office.strypsteen.com
-      secretName: office-certificate
+    insecureSkipVerify: true
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: collabora
+spec:
+  parentRefs:
+    - name: envoy-internal
+  hostnames:
+    - office.strypsteen.com
   rules:
-    - host: office.strypsteen.com
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: collabora
-                port:
-                  number: 9980
+    - backendRefs:
+        - group: gateway.envoyproxy.io
+          kind: Backend
+          name: collabora

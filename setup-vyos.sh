@@ -3,7 +3,6 @@
 set system name-server 9.9.9.9
 set system static-host-mapping host-name trace.svc.ui.com inet 0.0.0.1
 set system static-host-mapping host-name k8s.strypsteen.com inet 192.168.253.30
-set system static-host-mapping host-name k8s.strypsteen.com alias unifi
 set system static-host-mapping host-name k8s-gw.strypsteen.com inet 192.168.253.34
 set system static-host-mapping host-name k8s-gw.strypsteen.com alias auth.strypsteen.com
 set system static-host-mapping host-name k8s-gw.strypsteen.com alias cloud.strypsteen.com
@@ -12,9 +11,11 @@ set system static-host-mapping host-name k8s-gw.strypsteen.com alias git.strypst
 set system static-host-mapping host-name k8s-gw.strypsteen.com alias matrix.strypsteen.com
 set system static-host-mapping host-name k8s-gw.strypsteen.com alias vault.strypsteen.com
 set system static-host-mapping host-name k8s-gw-internal.strypsteen.com inet 192.168.253.35
+set system static-host-mapping host-name k8s-gw-internal.strypsteen.com alias unifi
 set system static-host-mapping host-name k8s-gw-internal.strypsteen.com alias backups.strypsteen.com
 set system static-host-mapping host-name k8s-gw-internal.strypsteen.com alias llm.strypsteen.com
 set system static-host-mapping host-name k8s-gw-internal.strypsteen.com alias network.strypsteen.com
+set system static-host-mapping host-name k8s-gw-internal.strypsteen.com alias office.strypsteen.com
 set system static-host-mapping host-name k8s-gw-internal.strypsteen.com alias photos.strypsteen.com
 set system static-host-mapping host-name home.strypsteen.com inet 192.168.253.31
 set system static-host-mapping host-name home.strypsteen.com alias code.strypsteen.com
@@ -23,7 +24,6 @@ set system static-host-mapping host-name home.strypsteen.com alias imagegen.stry
 set system static-host-mapping host-name home.strypsteen.com alias metrics.strypsteen.com
 set system static-host-mapping host-name home.strypsteen.com alias monitoring.strypsteen.com
 set system static-host-mapping host-name home.strypsteen.com alias mta-sts.strypsteen.com
-set system static-host-mapping host-name home.strypsteen.com alias office.strypsteen.com
 set system static-host-mapping host-name home.strypsteen.com alias remote-desktop.strypsteen.com
 set system static-host-mapping host-name home.strypsteen.com alias textgen.strypsteen.com
 set system static-host-mapping host-name home.strypsteen.com alias mta-sts.strypsteen.me
