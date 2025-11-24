@@ -16,13 +16,13 @@ set system static-host-mapping host-name k8s-gw-internal.strypsteen.com inet 192
 set system static-host-mapping host-name k8s-gw-internal.strypsteen.com alias unifi
 set system static-host-mapping host-name k8s-gw-internal.strypsteen.com alias backups.strypsteen.com
 set system static-host-mapping host-name k8s-gw-internal.strypsteen.com alias code.strypsteen.com
+set system static-host-mapping host-name k8s-gw-internal.strypsteen.com alias code-sandbox.strypsteen.com
 set system static-host-mapping host-name k8s-gw-internal.strypsteen.com alias llm.strypsteen.com
 set system static-host-mapping host-name k8s-gw-internal.strypsteen.com alias monitoring.strypsteen.com
 set system static-host-mapping host-name k8s-gw-internal.strypsteen.com alias network.strypsteen.com
 set system static-host-mapping host-name k8s-gw-internal.strypsteen.com alias office.strypsteen.com
 set system static-host-mapping host-name k8s-gw-internal.strypsteen.com alias photos.strypsteen.com
 set system static-host-mapping host-name home.strypsteen.com inet 192.168.253.31
-set system static-host-mapping host-name home.strypsteen.com alias code-sandbox.strypsteen.com
 set system static-host-mapping host-name home.strypsteen.com alias imagegen.strypsteen.com
 set system static-host-mapping host-name home.strypsteen.com alias metrics.strypsteen.com
 set system static-host-mapping host-name home.strypsteen.com alias remote-desktop.strypsteen.com

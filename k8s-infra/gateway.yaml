@@ -205,6 +205,32 @@ spec:
           selector:
             matchLabels:
               kubernetes.io/metadata.name: development
+    - name: https-code-sandbox
+      protocol: HTTPS
+      port: 443
+      hostname: code-sandbox.strypsteen.com
+      tls:
+        certificateRefs:
+          - name: gw-code-sandbox.strypsteen.com
+      allowedRoutes:
+        namespaces:
+          from: Selector
+          selector:
+            matchLabels:
+              kubernetes.io/metadata.name: development
+    - name: https-code-sandbox-proxy
+      protocol: HTTPS
+      port: 443
+      hostname: "*.code-sandbox.strypsteen.com"
+      tls:
+        certificateRefs:
+          - name: gw-code-sandbox-proxy.strypsteen.com
+      allowedRoutes:
+        namespaces:
+          from: Selector
+          selector:
+            matchLabels:
+              kubernetes.io/metadata.name: development
     - name: https-monitoring
       protocol: HTTPS
       port: 443
