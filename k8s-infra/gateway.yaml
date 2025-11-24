@@ -76,6 +76,16 @@ spec:
       tls:
         certificateRefs:
           - name: gw-auth.strypsteen.com
+    - name: https-metrics
+      protocol: HTTPS
+      port: 443
+      hostname: metrics.strypsteen.com
+      tls:
+        certificateRefs:
+          - name: gw-metrics.strypsteen.com
+      allowedRoutes:
+        namespaces:
+          from: All
     - name: https-cloud
       protocol: HTTPS
       port: 443

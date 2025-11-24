@@ -9,6 +9,7 @@ set system static-host-mapping host-name k8s-gw.strypsteen.com alias cloud.stryp
 set system static-host-mapping host-name k8s-gw.strypsteen.com alias console.strypsteen.com
 set system static-host-mapping host-name k8s-gw.strypsteen.com alias git.strypsteen.com
 set system static-host-mapping host-name k8s-gw.strypsteen.com alias matrix.strypsteen.com
+set system static-host-mapping host-name k8s-gw.strypsteen.com alias metrics.strypsteen.com
 set system static-host-mapping host-name k8s-gw.strypsteen.com alias mta-sts.strypsteen.com
 set system static-host-mapping host-name k8s-gw.strypsteen.com alias vault.strypsteen.com
 set system static-host-mapping host-name k8s-gw.strypsteen.com alias mta-sts.strypsteen.me
@@ -26,7 +27,6 @@ set system static-host-mapping host-name k8s-gw-internal.strypsteen.com alias ph
 set system static-host-mapping host-name k8s-gw-internal.strypsteen.com alias remote-desktop.strypsteen.com
 set system static-host-mapping host-name k8s-gw-internal.strypsteen.com alias textgen.strypsteen.com
 set system static-host-mapping host-name home.strypsteen.com inet 192.168.253.31
-set system static-host-mapping host-name home.strypsteen.com alias metrics.strypsteen.com
 set system sysctl parameter net.ipv6.conf.eth0.use_tempaddr value 2
 set system time-zone Europe/Brussels
 set system update-check url https://raw.githubusercontent.com/vyos/vyos-nightly-build/refs/heads/current/version.json
