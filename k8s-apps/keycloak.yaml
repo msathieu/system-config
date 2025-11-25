@@ -68,31 +68,6 @@ spec:
   ports:
     - port: 8080
 ---
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: keycloak
-  annotations:
-    cert-manager.io/cluster-issuer: letsencrypt
-    cert-manager.io/private-key-algorithm: ECDSA
-spec:
-  ingressClassName: nginx
-  tls:
-    - hosts:
-      - auth.strypsteen.com
-      secretName: auth-certificate
-  rules:
-    - host: auth.strypsteen.com
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: keycloak
-                port:
-                  number: 8080
----
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:

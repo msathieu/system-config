@@ -94,31 +94,6 @@ spec:
     - name: ssh
       port: 2222
 ---
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: forgejo
-  annotations:
-    cert-manager.io/cluster-issuer: letsencrypt
-    cert-manager.io/private-key-algorithm: ECDSA
-spec:
-  ingressClassName: nginx
-  tls:
-    - hosts:
-      - git.strypsteen.com
-      secretName: git-certificate
-  rules:
-    - host: git.strypsteen.com
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: forgejo
-                port:
-                  number: 3000
----
 apiVersion: gateway.networking.k8s.io/v1alpha2
 kind: TCPRoute
 metadata:

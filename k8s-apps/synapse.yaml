@@ -132,31 +132,6 @@ spec:
   ports:
     - port: 8080
 ---
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: synapse
-  annotations:
-    cert-manager.io/cluster-issuer: letsencrypt
-    cert-manager.io/private-key-algorithm: ECDSA
-spec:
-  ingressClassName: nginx
-  tls:
-    - hosts:
-      - matrix.strypsteen.com
-      secretName: matrix-certificate
-  rules:
-    - host: matrix.strypsteen.com
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: synapse
-                port:
-                  number: 8080
----
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:

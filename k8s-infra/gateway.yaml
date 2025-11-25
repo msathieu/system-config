@@ -314,6 +314,9 @@ spec:
   proxyProtocol:
     optional: true
   headers:
+    earlyRequestHeaders:
+      remove:
+        - X-Forwarded-For
     lateResponseHeaders:
       set:
         - name: X-Frame-Options
