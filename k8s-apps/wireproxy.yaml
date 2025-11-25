@@ -37,3 +37,29 @@ spec:
       port: 1080
     - name: http
       port: 1081
+---
+apiVersion: gateway.networking.k8s.io/v1alpha2
+kind: TCPRoute
+metadata:
+  name: wireproxy-socks5
+spec:
+  parentRefs:
+    - name: envoy-internal
+      sectionName: proxy-socks5
+  rules:
+    - backendRefs:
+        - name: wireproxy
+          port: 1080
+---
+apiVersion: gateway.networking.k8s.io/v1alpha2
+kind: TCPRoute
+metadata:
+  name: wireproxy-http
+spec:
+  parentRefs:
+    - name: envoy-internal
+      sectionName: proxy-http
+  rules:
+    - backendRefs:
+        - name: wireproxy
+          port: 1081
