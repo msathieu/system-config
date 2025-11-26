@@ -2,7 +2,6 @@
 # shellcheck disable=SC2121
 set system name-server 9.9.9.9
 set system static-host-mapping host-name trace.svc.ui.com inet 0.0.0.1
-set system static-host-mapping host-name k8s.strypsteen.com inet 192.168.253.30
 set system static-host-mapping host-name k8s-gw.strypsteen.com inet 192.168.253.34
 set system static-host-mapping host-name k8s-gw.strypsteen.com alias auth.strypsteen.com
 set system static-host-mapping host-name k8s-gw.strypsteen.com alias cloud.strypsteen.com

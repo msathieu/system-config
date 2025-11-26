@@ -102,13 +102,13 @@ spec:
             claimName: synapse
       containers:
         - name: synapse
-          image: ghcr.io/element-hq/synapse:v1.142.1
+          image: ghcr.io/element-hq/synapse:v1.143.0
           args: ['run', '--config-path', '/etc/synapse/homeserver.yaml', '--config-path', '/etc/synapse.yaml']
           env:
             - name: tmp_http_proxy
-              value: http://k8s.strypsteen.com:1081
+              value: http://k8s-gw-internal.strypsteen.com:1081
             - name: tmp_https_proxy
-              value: http://k8s.strypsteen.com:1081
+              value: http://k8s-gw-internal.strypsteen.com:1081
           volumeMounts:
             - name: config
               mountPath: /etc/synapse/homeserver.yaml
