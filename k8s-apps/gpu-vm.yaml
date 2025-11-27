@@ -24,11 +24,14 @@ spec:
     spec:
       domain:
         cpu:
-          cores: 14
+          cores: 8
           model: host-passthrough
         resources:
           requests:
-            memory: 24G
+            memory: 24Gi
+        memory:
+          hugepages:
+            pageSize: 2Mi
         devices:
           disks:
             - name: disk
