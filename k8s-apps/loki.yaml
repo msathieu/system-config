@@ -23,6 +23,8 @@ spec:
       labels:
         app: loki
     spec:
+      securityContext:
+        fsGroup: 10001
       hostUsers: false
       volumes:
         - name: data

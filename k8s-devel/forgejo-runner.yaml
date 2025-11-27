@@ -38,6 +38,8 @@ spec:
         app: forgejo-runner
     spec:
       nodeName: k8s-1
+      securityContext:
+        fsGroup: 1000
       hostUsers: false
       volumes:
         - name: data
