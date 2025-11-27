@@ -9,8 +9,9 @@ RUN echo "coder ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 COPY subuid /etc/subuid
 COPY subuid /etc/subgid
 COPY gitconfig /etc/gitconfig
+COPY ssh_config /etc/ssh/ssh_config
 USER coder
 RUN mkdir -p /home/coder/.local/share
 RUN sh <(curl -L https://nixos.org/nix/install) --no-daemon
 COPY --chown=coder nix.conf /home/coder/.config/nix/nix.conf
-CMD tini -- code-server --bind-addr 0.0.0.0:8080 --disable-telemetry --proxy-domain $PROXY_DOMAIN
+CMD tini -- ssh-agent code-server --bind-addr 0.0.0.0:8080 --disable-telemetry --proxy-domain $PROXY_DOMAIN
