@@ -24,7 +24,7 @@ spec:
     spec:
       domain:
         cpu:
-          cores: 8
+          cores: 12
           model: host-passthrough
         resources:
           requests:
