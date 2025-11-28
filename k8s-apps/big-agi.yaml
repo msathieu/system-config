@@ -59,3 +59,5 @@ spec:
     - backendRefs:
         - name: big-agi
           port: 3000
+      timeouts:
+        request: 600s
