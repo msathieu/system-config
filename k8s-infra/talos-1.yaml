@@ -2,8 +2,10 @@ machine:
   sysctls:
     kernel.split_lock_mitigate: 0
     vm.nr_hugepages: 12288
-  network:
-    hostname: k8s-1.server.home.arpa
+---
+apiVersion: v1alpha1
+kind: HostnameConfig
+hostname: k8s-1.server.home.arpa
 ---
 apiVersion: v1alpha1
 kind: PCIDriverRebindConfig

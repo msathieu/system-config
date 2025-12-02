@@ -2,7 +2,7 @@ version: v1alpha1
 machine:
   install:
     # intel-ucode, iscsi-tools, realtek-firmware, util-linux-tools
-    image: factory.talos.dev/metal-installer-secureboot/ec3a78953a53ac0159d44d90c6f2c5068a9a7db7587e19678712da5451fed124:v1.11.5
+    image: factory.talos.dev/metal-installer-secureboot/ec3a78953a53ac0159d44d90c6f2c5068a9a7db7587e19678712da5451fed124:v1.12.0-beta.1
     disk: /dev/nvme0n1
   network:
     kubespan:
@@ -61,3 +61,7 @@ encryption:
     - slot: 1
       tpm: {}
       lockToState: true
+---
+apiVersion: v1alpha1
+kind: HostnameConfig
+auto: off
