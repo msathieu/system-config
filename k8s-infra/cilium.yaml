@@ -15,6 +15,9 @@ spec:
           mode: kubernetes
         ipv6:
           enabled: true
+        encryption:
+          enabled: true
+          type: wireguard
         securityContext:
           capabilities:
             ciliumAgent:
