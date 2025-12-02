@@ -1,1 +1,2 @@
-remote_path: borg
+exclude_patterns:
+  - /run/host/lib/containers/storage/volumes/systemd-minio/_data/longhorn-local
