@@ -3,6 +3,7 @@ apiVersion: v1
 metadata:
   name: code-server-sandbox
 spec:
+  storageClassName: longhorn-custom
   accessModes:
     - ReadWriteOnce
   resources:

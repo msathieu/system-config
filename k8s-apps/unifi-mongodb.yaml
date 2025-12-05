@@ -3,6 +3,7 @@ apiVersion: v1
 metadata:
   name: unifi-mongodb
 spec:
+  storageClassName: longhorn-custom
   accessModes:
     - ReadWriteOnce
   resources:

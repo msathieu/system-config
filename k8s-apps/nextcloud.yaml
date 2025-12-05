@@ -15,6 +15,7 @@ apiVersion: v1
 metadata:
   name: nextcloud
 spec:
+  storageClassName: longhorn-custom
   accessModes:
     - ReadWriteOnce
   resources:
