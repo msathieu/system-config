@@ -1,0 +1,72 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: talos-vm
+spec:
+  storageClassName: longhorn-single
+  volumeMode: Block
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 64Gi
+---
+apiVersion: kubevirt.io/v1
+kind: VirtualMachine
+metadata:
+  name: talos
+spec:
+  runStrategy: Manual
+  template:
+    metadata:
+      labels:
+        app: talos-vm
+    spec:
+      domain:
+        cpu:
+          cores: 8
+          model: host-passthrough
+        resources:
+          requests:
+            memory: 8Gi
+        devices:
+          disks:
+            - name: disk
+              disk:
+                bus: virtio
+            - name: iso
+              disk:
+                bus: virtio
+          rng: {}
+        features:
+          smm:
+            enabled: true
+        firmware:
+          bootloader:
+            efi:
+              persistent: true
+      volumes:
+        - name: disk
+          persistentVolumeClaim:
+            claimName: talos-vm
+        - name: iso
+          persistentVolumeClaim:
+            claimName: talos-iso
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: talos-vm
+spec:
+  type: LoadBalancer
+  externalTrafficPolicy: Local
+  loadBalancerIP: 192.168.253.36
+  selector:
+    app: talos-vm
+  ports:
+    - name: talos
+      port: 50000
+    - name: trustd
+      port: 50001
+    - name: kubernetes
+      port: 6443
