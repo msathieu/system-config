@@ -28,7 +28,7 @@ spec:
           model: host-passthrough
         resources:
           requests:
-            memory: 8Gi
+            memory: 16Gi
         devices:
           disks:
             - name: disk
@@ -38,6 +38,8 @@ spec:
               disk:
                 bus: virtio
           rng: {}
+          tpm:
+            persistent: true
         features:
           smm:
             enabled: true

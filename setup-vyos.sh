@@ -25,6 +25,7 @@ set system static-host-mapping host-name k8s-gw-internal.strypsteen.com alias of
 set system static-host-mapping host-name k8s-gw-internal.strypsteen.com alias photos.strypsteen.com
 set system static-host-mapping host-name k8s-gw-internal.strypsteen.com alias remote-desktop.strypsteen.com
 set system static-host-mapping host-name k8s-gw-internal.strypsteen.com alias textgen.strypsteen.com
+set system static-host-mapping host-name k8s-test.strypsteen.com inet 192.168.253.36
 set system static-host-mapping host-name cdi.strypsteen.com inet 192.168.253.37
 set system sysctl parameter net.ipv6.conf.eth0.use_tempaddr value 2
 set system time-zone Europe/Brussels
