@@ -179,13 +179,6 @@ spec:
       tls:
         certificateRefs:
           - name: gw-llm.strypsteen.com
-    - name: https-backups
-      protocol: HTTPS
-      port: 443
-      hostname: backups.strypsteen.com
-      tls:
-        certificateRefs:
-          - name: gw-backups.strypsteen.com
     - name: https-network
       protocol: HTTPS
       port: 443
