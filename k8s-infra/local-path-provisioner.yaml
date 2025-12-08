@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: local-path-provisioner
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: oci://ghcr.io/rancher/local-path-provisioner/charts/local-path-provisioner
+    path: .
+    targetRevision: 0.0.32
+    helm:
+      values: |
+        nodePathMap:
+          - node: DEFAULT_PATH_FOR_NON_LISTED_NODES
+            paths:
+              - /var/lib/local-path-provisioner
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: local-path-provisioner
+  syncPolicy:
+    automated: {}
+    syncOptions:
+      - CreateNamespace=true
+    managedNamespaceMetadata:
+      labels:
+        pod-security.kubernetes.io/enforce: privileged
