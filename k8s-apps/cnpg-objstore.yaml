@@ -1,0 +1,23 @@
+apiVersion: barmancloud.cnpg.io/v1
+kind: ObjectStore
+metadata:
+  name: garage-replicated
+spec:
+  configuration:
+    endpointURL: http://backups-vm.apps.svc.cluster.local:3901
+    destinationPath: s3://cnpg/
+    s3Credentials:
+      region:
+        name: cnpg-garage-replicated
+        key: region
+      accessKeyId:
+        name: cnpg-garage-replicated
+        key: access
+      secretAccessKey:
+        name: cnpg-garage-replicated
+        key: secret
+    data:
+      compression: bzip2
+    wal:
+      compression: bzip2
+  retentionPolicy: 14d

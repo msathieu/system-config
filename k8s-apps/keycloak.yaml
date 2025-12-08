@@ -7,8 +7,23 @@ spec:
   instances: 2
   enablePDB: false
   storage:
-    storageClass: longhorn-single
+    storageClass: local-path
     size: 5Gi
+  plugins:
+    - name: barman-cloud.cloudnative-pg.io
+      isWALArchiver: true
+      parameters:
+        barmanObjectName: garage-replicated
+---
+apiVersion: postgresql.cnpg.io/v1
+kind: ScheduledBackup
+metadata:
+  name: keycloak-db
+spec:
+  schedule: "0 0 0 * * *"
+  cluster:
+    name: keycloak-db
+  backupOwnerReference: self
 ---
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
