@@ -3,7 +3,7 @@ apiVersion: v1
 metadata:
   name: talos-vm
 spec:
-  storageClassName: longhorn-single
+  storageClassName: local-path
   volumeMode: Block
   accessModes:
     - ReadWriteOnce
