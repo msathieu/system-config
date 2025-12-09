@@ -1,0 +1,37 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: rook
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://charts.rook.io/release
+    chart: rook-ceph-cluster
+    targetRevision: v1.18.8
+    helm:
+      values: |
+        cephClusterSpec:
+          cephConfig:
+            global:
+              osd_pool_default_size: "2"
+          cephVersion:
+            image: quay.io/ceph/ceph:v20.2.0
+          monitoring:
+            enabled: true
+          network:
+            connections:
+              requireMsgr2: true
+              encryption:
+                enabled: true
+          storage:
+            useAllDevices: false
+        toolbox:
+          enabled: true
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: rook-ceph
+  syncPolicy:
+    automated: {}
+    syncOptions:
+      - ServerSideApply=true
