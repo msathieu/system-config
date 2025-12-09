@@ -24,8 +24,33 @@ spec:
               requireMsgr2: true
               encryption:
                 enabled: true
+          resources:
+            mgr:
+              requests:
+                cpu: 200m
+            mon:
+              requests:
+                cpu: 200m
+            osd:
+              requests:
+                cpu: 200m
+                memory: 2Gi
           storage:
             useAllDevices: false
+            storageClassDeviceSets:
+              - name: storage
+                count: 2
+                volumeClaimTemplates:
+                  - spec:
+                      storageClassName: rook-osd
+                      volumeMode: Block
+                      accessModes:
+                        - ReadWriteOnce
+                      resources:
+                        requests:
+                          storage: 400Gi
+        cephObjectStores: {}
+        cephFileSystems: {}
         toolbox:
           enabled: true
   destination:
