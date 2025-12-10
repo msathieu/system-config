@@ -15,10 +15,10 @@ spec:
           cephConfig:
             global:
               osd_pool_default_size: "2"
+          dashboard:
+            prometheusEndpoint: http://prometheus-kube-prometheus-prometheus.monitoring.svc.cluster.local:9090
           cephVersion:
             image: quay.io/ceph/ceph:v20.2.0
-          monitoring:
-            enabled: true
           network:
             connections:
               requireMsgr2: true
@@ -73,6 +73,9 @@ spec:
                 csi.storage.k8s.io/node-stage-secret-name: rook-csi-rbd-node
         toolbox:
           enabled: true
+        monitoring:
+          enabled: true
+          createPrometheusRules: true
   destination:
     server: https://kubernetes.default.svc
     namespace: rook-ceph
