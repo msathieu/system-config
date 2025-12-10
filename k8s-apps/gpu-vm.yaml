@@ -29,9 +29,6 @@ spec:
         resources:
           requests:
             memory: 24Gi
-        memory:
-          hugepages:
-            pageSize: 2Mi
         devices:
           disks:
             - name: disk
