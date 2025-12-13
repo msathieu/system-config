@@ -4,12 +4,25 @@ metadata:
   name: talos-vm
 spec:
   storageClassName: local-path
-  volumeMode: Block
+  volumeMode: Filesystem
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
       storage: 64Gi
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: talos-iso
+spec:
+  storageClassName: ceph-block
+  volumeMode: Block
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi
 ---
 apiVersion: kubevirt.io/v1
 kind: VirtualMachine
