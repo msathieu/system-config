@@ -7,17 +7,3 @@ kind: VolumeConfig
 name: EPHEMERAL
 provisioning:
   maxSize: 500GiB
----
-apiVersion: v1alpha1
-kind: RawVolumeConfig
-name: rook
-provisioning:
-  diskSelector:
-    match: system_disk
-  minSize: 400GiB
-encryption:
-  provider: luks2
-  keys:
-    - slot: 1
-      tpm: {}
-      lockToState: true

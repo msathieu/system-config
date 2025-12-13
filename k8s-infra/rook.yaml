@@ -27,19 +27,19 @@ spec:
           resources:
             mgr:
               requests:
-                cpu: 200m
+                cpu: 100m
             mon:
               requests:
-                cpu: 200m
+                cpu: 100m
             osd:
               requests:
-                cpu: 200m
+                cpu: 100m
                 memory: 2Gi
           storage:
             useAllDevices: false
             storageClassDeviceSets:
               - name: storage
-                count: 2
+                count: 3
                 volumeClaimTemplates:
                   - spec:
                       storageClassName: rook-osd

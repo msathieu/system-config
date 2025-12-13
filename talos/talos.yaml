@@ -5,6 +5,7 @@ machine:
     image: factory.talos.dev/metal-installer-secureboot/ec3a78953a53ac0159d44d90c6f2c5068a9a7db7587e19678712da5451fed124:v1.12.0-beta.1
     disk: /dev/nvme0n1
   sysctls:
+    kernel.split_lock_mitigate: 0
     user.max_user_namespaces: 10000
   time:
     bootTimeout: 1m
@@ -62,3 +63,17 @@ encryption:
 apiVersion: v1alpha1
 kind: HostnameConfig
 auto: off
+---
+apiVersion: v1alpha1
+kind: RawVolumeConfig
+name: rook
+provisioning:
+  diskSelector:
+    match: system_disk
+  minSize: 400GiB
+encryption:
+  provider: luks2
+  keys:
+    - slot: 1
+      tpm: {}
+      lockToState: true

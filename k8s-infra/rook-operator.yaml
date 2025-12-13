@@ -13,6 +13,14 @@ spec:
       values: |
         monitoring:
           enabled: true
+        csi:
+          csiRBDProvisionerResource: {}
+          csiRBDPluginResource: {}
+          csiCephFSProvisionerResource: {}
+          csiCephFSPluginResource: {}
+        resources:
+          requests:
+            cpu: 10m
   destination:
     server: https://kubernetes.default.svc
     namespace: rook-ceph
