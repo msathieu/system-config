@@ -24,6 +24,7 @@ spec:
       labels:
         app: unifi-mongodb
     spec:
+      nodeName: k8s-1
       volumes:
         - name: data
           persistentVolumeClaim:
