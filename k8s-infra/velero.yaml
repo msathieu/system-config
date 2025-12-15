@@ -1,0 +1,37 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: velero
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://vmware-tanzu.github.io/helm-charts
+    chart: velero
+    targetRevision: 11.2.0
+    helm:
+      values: |
+        configuration:
+          backupStorageLocation:
+            - name: garage-replicated
+              provider: aws
+              bucket: velero
+              credential:
+                name: velero-garage-replicated
+                key: config
+              config:
+                region: garage
+                s3Url: http://backups-vm.apps.svc.cluster.local:3901
+          volumeSnapshotLocation:
+            - name: rook-ceph
+              provider: csi
+        kubectl:
+          image:
+            repository: public.ecr.aws/bitnami/kubectl
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: velero
+  syncPolicy:
+    automated: {}
+    syncOptions:
+      - CreateNamespace=true
