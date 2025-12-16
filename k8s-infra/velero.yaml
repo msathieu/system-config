@@ -12,6 +12,7 @@ spec:
     helm:
       values: |
         configuration:
+          features: EnableCSI
           backupStorageLocation:
             - name: garage-replicated
               provider: aws
@@ -22,12 +23,19 @@ spec:
               config:
                 region: garage
                 s3Url: http://backups-vm.apps.svc.cluster.local:3901
+                s3ForcePathStyle: true
           volumeSnapshotLocation:
-            - name: rook-ceph
+            - name: csi
               provider: csi
         kubectl:
           image:
             repository: public.ecr.aws/bitnami/kubectl
+        initContainers:
+          - name: velero-plugin-for-aws
+            image: velero/velero-plugin-for-aws:v1.13.1
+            volumeMounts:
+              - name: plugins
+                mountPath: /target
   destination:
     server: https://kubernetes.default.svc
     namespace: velero

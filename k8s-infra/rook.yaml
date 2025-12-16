@@ -76,6 +76,8 @@ spec:
         monitoring:
           enabled: true
           createPrometheusRules: true
+        cephBlockPoolsVolumeSnapshotClass:
+          enabled: true
   destination:
     server: https://kubernetes.default.svc
     namespace: rook-ceph
