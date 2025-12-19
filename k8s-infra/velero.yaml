@@ -24,6 +24,16 @@ spec:
                 region: garage
                 s3Url: http://backups-vm.apps.svc.cluster.local:3901
                 s3ForcePathStyle: true
+            - name: garage-local
+              provider: aws
+              bucket: velero
+              credential:
+                name: velero-garage-local
+                key: config
+              config:
+                region: garage
+                s3Url: http://backups-vm.apps.svc.cluster.local:3900
+                s3ForcePathStyle: true
           volumeSnapshotLocation:
             - name: csi
               provider: csi
@@ -44,3 +54,6 @@ spec:
     automated: {}
     syncOptions:
       - CreateNamespace=true
+    managedNamespaceMetadata:
+      labels:
+        pod-security.kubernetes.io/enforce: privileged
