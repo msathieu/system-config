@@ -5,6 +5,7 @@ pref("browser.compactmode.show", true);
 pref("browser.ctrlTab.sortByRecentlyUsed", true);
 pref("browser.download.always_ask_before_handling_new_types", true);
 pref("browser.download.useDownloadDir", false);
+pref("browser.ml.linkPreview.enabled", false);
 pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false);
 pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false);
 pref("browser.newtabpage.activity-stream.feeds.topsites", false);
