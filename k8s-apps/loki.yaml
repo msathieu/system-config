@@ -2,6 +2,8 @@ kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: loki
+  labels:
+    velero-backup: local
 spec:
   storageClassName: ceph-block
   accessModes:

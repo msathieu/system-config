@@ -19,8 +19,11 @@ spec:
             serviceMonitorSelectorNilUsesHelmValues: false
             storageSpec:
               volumeClaimTemplate:
+                metadata:
+                  labels:
+                    velero-backup: local
                 spec:
-                  storageClassName: longhorn-custom
+                  storageClassName: ceph-block
                   resources:
                     requests:
                       storage: 20Gi
