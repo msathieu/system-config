@@ -2,10 +2,12 @@ kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: code-server
+  labels:
+    velero-backup: local
 spec:
-  storageClassName: longhorn-custom
+  storageClassName: ceph-block
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteOncePod
   resources:
     requests:
       storage: 100Gi
