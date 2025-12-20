@@ -2,10 +2,12 @@ kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: vaultwarden
+  labels:
+    velero-backup: replicated
 spec:
-  storageClassName: longhorn-custom
+  storageClassName: ceph-block
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteOncePod
   resources:
     requests:
       storage: 5Gi
