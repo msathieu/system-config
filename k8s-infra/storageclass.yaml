@@ -1,15 +1,6 @@
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: longhorn-custom
-provisioner: driver.longhorn.io
-allowVolumeExpansion: true
-parameters:
-  numberOfReplicas: "2"
----
-apiVersion: storage.k8s.io/v1
-kind: StorageClass
-metadata:
   name: rook-osd
 provisioner: kubernetes.io/no-provisioner
 volumeBindingMode: WaitForFirstConsumer
