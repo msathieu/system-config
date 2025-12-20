@@ -9,15 +9,6 @@ machine:
     user.max_user_namespaces: 10000
   time:
     bootTimeout: 1m
-  kubelet:
-    extraConfig:
-      shutdownGracePeriod: 0s
-      shutdownGracePeriodCriticalPods: 0s
-      shutdownGracePeriodByPodPriority:
-        - priority: 1000000000
-          shutdownGracePeriodSeconds: 600
-        - priority: 0
-          shutdownGracePeriodSeconds: 300
   files:
     - path: /etc/cri/conf.d/20-customization.part
       op: create
