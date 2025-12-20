@@ -3,6 +3,7 @@ Image=docker.io/dxflrs/garage:v2.1.0
 Volume=systemd-garage-replicated:/var/lib/garage:Z
 Volume=/var/lib/system-config/container-config/garage/garage.toml:/etc/garage.toml:z,ro
 PublishPort=3901:3900
+Environment=RUST_LOG=garage=warn
 Secret=GARAGE_RPC_SECRET,type=env
 AutoUpdate=registry
 [Install]

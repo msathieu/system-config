@@ -31,8 +31,11 @@ spec:
           alertmanagerSpec:
             storage:
               volumeClaimTemplate:
+                metadata:
+                  labels:
+                    velero-backup: replicated
                 spec:
-                  storageClassName: longhorn-custom
+                  storageClassName: ceph-block
                   resources:
                     requests:
                       storage: 1Gi
@@ -56,7 +59,9 @@ spec:
         grafana:
           persistence:
             enabled: true
-            storageClassName: longhorn-custom
+            storageClassName: ceph-block
+            extraPvcLabels:
+              velero-backup: replicated
           grafana.ini:
             auth:
               disable_login_form: true
