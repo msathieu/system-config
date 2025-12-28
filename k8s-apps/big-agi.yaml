@@ -19,8 +19,6 @@ spec:
           env:
             - name: HTTP_BASIC_AUTH_USERNAME
               value: mathieu
-            - name: OLLAMA_API_HOST
-              value: https://textgen.strypsteen.com
             - name: PUPPETEER_WSS_ENDPOINT
               value: ws://browserless:3000
             - name: HTTP_BASIC_AUTH_PASSWORD

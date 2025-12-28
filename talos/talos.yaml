@@ -7,8 +7,6 @@ machine:
   sysctls:
     kernel.split_lock_mitigate: 0
     user.max_user_namespaces: 10000
-  time:
-    bootTimeout: 1m
   files:
     - path: /etc/cri/conf.d/20-customization.part
       op: create
@@ -31,6 +29,10 @@ cluster:
     serviceSubnets:
       - 10.96.0.0/12
       - fd09::/112
+---
+apiVersion: v1alpha1
+kind: TimeSyncConfig
+bootTimeout: 1m
 ---
 apiVersion: v1alpha1
 kind: VolumeConfig
