@@ -33,7 +33,7 @@ spec:
             claimName: vaultwarden
       containers:
         - name: vaultwarden
-          image: ghcr.io/dani-garcia/vaultwarden:1.35.0
+          image: ghcr.io/dani-garcia/vaultwarden:1.35.1
           env:
             - name: DOMAIN
               value: https://vault.strypsteen.com
