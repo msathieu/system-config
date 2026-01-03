@@ -123,3 +123,5 @@ spec:
     - backendRefs:
         - name: forgejo
           port: 3000
+      timeouts:
+        request: 600s

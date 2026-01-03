@@ -117,3 +117,5 @@ spec:
     - backendRefs:
         - name: nextcloud
           port: 80
+      timeouts:
+        request: 600s
