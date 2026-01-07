@@ -1,8 +1,8 @@
 version: v1alpha1
 machine:
   install:
-    # intel-ucode, realtek-firmware
-    image: factory.talos.dev/metal-installer-secureboot/c43979d88ecd7c9881b410e0c5f6c4625062912600a27310ee0db3c98dc4b7fc:v1.12.1
+    # gvisor, intel-ucode, realtek-firmware
+    image: factory.talos.dev/metal-installer-secureboot/dd58116b0ff6569f26baefcb118ffc984853b54ae907a6cf7585c7ffd77761d3:v1.12.1
     disk: /dev/nvme0n1
   sysctls:
     kernel.split_lock_mitigate: 0

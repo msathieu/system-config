@@ -12,7 +12,7 @@ spec:
       labels:
         app: big-agi
     spec:
-      hostUsers: false
+      runtimeClassName: gvisor
       containers:
         - name: big-agi
           image: git.strypsteen.com/infra/big-agi

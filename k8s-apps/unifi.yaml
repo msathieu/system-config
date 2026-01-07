@@ -25,7 +25,7 @@ spec:
         app: unifi
     spec:
       nodeName: k8s-1
-      hostUsers: false
+      runtimeClassName: gvisor
       volumes:
         - name: cert
           emptyDir: {}
