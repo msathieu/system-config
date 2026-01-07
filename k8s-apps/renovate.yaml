@@ -8,7 +8,7 @@ spec:
     spec:
       template:
         spec:
-          hostUsers: false
+          runtimeClassName: gvisor
           restartPolicy: Never
           containers:
             - name: renovate

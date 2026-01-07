@@ -28,7 +28,7 @@ spec:
     spec:
       securityContext:
         fsGroup: 10001
-      hostUsers: false
+      runtimeClassName: gvisor
       volumes:
         - name: data
           persistentVolumeClaim:

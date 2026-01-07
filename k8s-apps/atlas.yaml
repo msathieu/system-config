@@ -92,6 +92,7 @@ spec:
       labels:
         app: atlas-valkey
     spec:
+      runtimeClassName: gvisor
       containers:
         - name: atlas-valkey
           image: docker.io/valkey/valkey:9.0.1
@@ -111,7 +112,7 @@ spec:
       labels:
         app: atlas-api
     spec:
-      hostUsers: false
+      runtimeClassName: gvisor
       containers:
         - name: atlas-api
           image: git.strypsteen.com/infra/atlas
@@ -143,7 +144,7 @@ spec:
       labels:
         app: atlas-master
     spec:
-      hostUsers: false
+      runtimeClassName: gvisor
       containers:
         - name: atlas-master
           image: git.strypsteen.com/infra/atlas
@@ -176,7 +177,7 @@ spec:
       labels:
         app: atlas-web
     spec:
-      hostUsers: false
+      runtimeClassName: gvisor
       containers:
         - name: atlas-web
           image: git.strypsteen.com/infra/atlas

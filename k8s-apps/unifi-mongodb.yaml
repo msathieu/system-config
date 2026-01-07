@@ -25,6 +25,7 @@ spec:
         app: unifi-mongodb
     spec:
       nodeName: k8s-1
+      runtimeClassName: gvisor
       volumes:
         - name: data
           persistentVolumeClaim:
