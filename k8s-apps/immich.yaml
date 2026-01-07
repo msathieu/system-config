@@ -3,13 +3,21 @@ kind: Cluster
 metadata:
   name: immich-db
 spec:
-  imageName: ghcr.io/tensorchord/cloudnative-vectorchord:18.0-0.5.3
+  imageName: ghcr.io/cloudnative-pg/postgresql:18.1-standard-trixie
   instances: 2
   enablePDB: false
   storage:
     storageClass: local-path
     size: 10Gi
   postgresql:
+    extensions:
+      - name: vchord
+        image:
+          reference: ghcr.io/tensorchord/vchord-scratch:pg18-v0.5.3
+        dynamic_library_path:
+          - /usr/lib/postgresql/18/lib
+        extension_control_path:
+          - /usr/share/postgresql/18
     shared_preload_libraries:
       - vchord.so
   plugins:

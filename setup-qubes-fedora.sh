@@ -5,7 +5,7 @@ dnf config-manager setopt qubes-vm-r4.3-security-testing.enabled=true
 dnf config-manager setopt qubes-vm-r4.3-current-testing.enabled=true
 dnf config-manager setopt rpmfusion-free.enabled=true
 dnf config-manager setopt rpmfusion-free-updates.enabled=true
-dnf install --allowerasing bash-color-prompt bind-utils butane default-fonts fcitx5-anthy fcitx5-autostart fedora-flathub-remote ffmpeg file-roller fuse-sshfs helm htop kubernetes1.34-client netcat qubes-ctap ShellCheck tigervnc toolbox whois xdg-desktop-portal-gtk
+dnf install --allowerasing bash-color-prompt bind-utils butane default-fonts fcitx5-anthy fcitx5-autostart fedora-flathub-remote ffmpeg file-roller fuse-sshfs helm htop kubernetes1.35-client netcat qubes-ctap ShellCheck tigervnc toolbox whois xdg-desktop-portal-gtk
 dnf remove cheese evolution-data-server firefox gnome-software gnome-weather PackageKit-command-not-found rpmfusion-nonfree-release thunderbird totem
 bash setup-desktop.sh
 sudo systemctl enable --global ssh-agent.socket
