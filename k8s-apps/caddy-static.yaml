@@ -82,7 +82,7 @@ spec:
       labels:
         app: caddy-static
     spec:
-      hostUsers: false
+      runtimeClassName: gvisor
       volumes:
         - name: config
           configMap:

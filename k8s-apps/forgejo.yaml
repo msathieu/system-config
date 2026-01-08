@@ -58,7 +58,7 @@ spec:
       labels:
         app: forgejo
     spec:
-      hostUsers: false
+      runtimeClassName: gvisor
       volumes:
         - name: config
           configMap:

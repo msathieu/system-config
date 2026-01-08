@@ -8,7 +8,7 @@ spec:
   enablePDB: false
   storage:
     storageClass: local-path
-    size: 5Gi
+    size: 10Gi
   plugins:
     - name: barman-cloud.cloudnative-pg.io
       isWALArchiver: true

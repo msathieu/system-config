@@ -12,7 +12,7 @@ spec:
       labels:
         app: browserless
     spec:
-      hostUsers: false
+      runtimeClassName: gvisor
       containers:
         - name: browserless
           image: ghcr.io/browserless/chromium:v2.38.2
