@@ -110,7 +110,7 @@ spec:
       labels:
         app: synapse
     spec:
-      hostUsers: false
+      runtimeClassName: gvisor
       volumes:
         - name: config
           configMap:

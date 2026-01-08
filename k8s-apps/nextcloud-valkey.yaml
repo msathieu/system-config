@@ -26,7 +26,7 @@ spec:
       labels:
         app: nextcloud-valkey
     spec:
-      hostUsers: false
+      runtimeClassName: gvisor
       volumes:
         - name: data
           persistentVolumeClaim:

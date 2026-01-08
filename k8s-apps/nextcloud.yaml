@@ -78,7 +78,7 @@ spec:
       labels:
         app: nextcloud
     spec:
-      hostUsers: false
+      runtimeClassName: gvisor
       volumes:
         - name: data
           persistentVolumeClaim:
