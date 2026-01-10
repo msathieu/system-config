@@ -4,4 +4,4 @@ KbdInteractiveAuthentication no
 PasswordAuthentication no
 KexAlgorithms mlkem768x25519-sha256,sntrup761x25519-sha512@openssh.com
 Subsystem sftp internal-sftp
-Include /usr/etc/ssh/sshd_config.d/40-ssh-key-dir.conf
+Include /usr/etc/ssh/sshd_config.d/40-authorized-keys-file.conf
