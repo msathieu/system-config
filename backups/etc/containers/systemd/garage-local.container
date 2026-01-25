@@ -1,5 +1,5 @@
 [Container]
-Image=docker.io/dxflrs/garage:v2.1.0
+Image=docker.io/dxflrs/garage:v2.2.0
 Volume=systemd-garage-local:/var/lib/garage:Z
 Volume=/var/lib/system-config/container-config/garage/garage.toml:/etc/garage.toml:z,ro
 PublishPort=3900:3900
