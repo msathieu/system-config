@@ -1,7 +1,7 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "kubernetes": {
-    "managerFilePatterns": ["/k8s-apps/.+\\.yaml$/"]
+    "managerFilePatterns": ["/k8s-apps/.+\\.yaml$/", "/k8s-devel/.+\\.yaml$/"]
   },
   "argocd": {
     "managerFilePatterns": ["/k8s-infra/.+\\.yaml$/"]
