@@ -13,7 +13,7 @@ spec:
     extensions:
       - name: vchord
         image:
-          reference: ghcr.io/tensorchord/vchord-scratch:pg18-v0.5.3
+          reference: ghcr.io/tensorchord/vchord-scratch:pg18-v1.0.0
         dynamic_library_path:
           - /usr/lib/postgresql/18/lib
         extension_control_path:
@@ -96,7 +96,7 @@ spec:
             claimName: immich
       containers:
         - name: immich
-          image: ghcr.io/immich-app/immich-server:v2.4.1
+          image: ghcr.io/immich-app/immich-server:v2.5.0
           env:
             - name: IMMICH_PORT
               value: "8080"
