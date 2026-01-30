@@ -1,3 +1,0 @@
-docker:
-  git.strypsteen.com:
-    use-sigstore-attachments: true
