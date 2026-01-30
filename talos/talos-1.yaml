@@ -3,21 +3,7 @@ kind: HostnameConfig
 hostname: k8s-1.server.home.arpa
 ---
 apiVersion: v1alpha1
-kind: PCIDriverRebindConfig
-targetDriver: vfio-pci
-name: "0000:02:00.0"
----
-apiVersion: v1alpha1
-kind: RawVolumeConfig
-name: gpu
-provisioning:
-  diskSelector:
-    match: system_disk
-  minSize: 750GB
-  maxSize: 750GB
----
-apiVersion: v1alpha1
 kind: VolumeConfig
 name: EPHEMERAL
 provisioning:
-  maxSize: 700GiB
+  maxSize: 500GiB

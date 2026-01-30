@@ -5,7 +5,6 @@ machine:
     image: factory.talos.dev/metal-installer-secureboot/dd58116b0ff6569f26baefcb118ffc984853b54ae907a6cf7585c7ffd77761d3:v1.12.2
     disk: /dev/nvme0n1
   sysctls:
-    kernel.split_lock_mitigate: 0
     user.max_user_namespaces: 10000
   files:
     - path: /etc/cri/conf.d/20-customization.part
@@ -14,10 +13,6 @@ machine:
         [plugins]
           [plugins."io.containerd.cri.v1.runtime"]
             device_ownership_from_security_context = true
-  kernel:
-    modules:
-      - name: vfio-pci
-      - name: vfio_iommu_type1
 cluster:
   allowSchedulingOnControlPlanes: true
   network:
