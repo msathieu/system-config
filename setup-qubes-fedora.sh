@@ -10,4 +10,4 @@ dnf remove cheese evolution-data-server firefox gnome-software gnome-weather Pac
 bash setup-desktop.sh
 sudo systemctl enable --global ssh-agent.socket
 all_proxy=127.0.0.1:8082 flatpak remote-add --if-not-exists flathub /usr/lib/fedora-third-party/conf.d/fedora-flathub.flatpakrepo
-all_proxy=127.0.0.1:8082 flatpak install com.github.johnfactotum.Foliate com.github.tchx84.Flatseal com.github.xournalpp.xournalpp com.moonlight_stream.Moonlight com.yubico.yubioath im.riot.Riot io.mpv.Mpv net.cozic.joplin_desktop net.mullvad.MullvadBrowser org.chromium.Chromium org.freedesktop.Platform.ffmpeg-full/x86_64/24.08 org.gimp.GIMP org.gnome.Evolution org.libreoffice.LibreOffice org.mozilla.firefox
+all_proxy=127.0.0.1:8082 flatpak install com.github.johnfactotum.Foliate com.github.tchx84.Flatseal com.github.xournalpp.xournalpp com.moonlight_stream.Moonlight com.yubico.yubioath im.riot.Riot io.mpv.Mpv net.cozic.joplin_desktop net.mullvad.MullvadBrowser org.chromium.Chromium org.freedesktop.Platform.ffmpeg-full/x86_64/24.08 org.gimp.GIMP org.gnome.Evolution org.libreoffice.LibreOffice org.mozilla.firefox org.virt_manager.virt-manager

@@ -8,7 +8,7 @@ ExitOnForwardFailure yes
 Host backups
   HostName 192.168.253.32
 Host gpu
-  HostName 192.168.253.33
+  HostName gpu.server.home.arpa
 Host home-gw
   HostName home-gw.strypsteen.com
 Host router

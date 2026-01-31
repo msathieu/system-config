@@ -35,7 +35,7 @@ spec:
             osd:
               requests:
                 cpu: 100m
-                memory: 2Gi
+                memory: 1Gi
           storage:
             useAllDevices: false
             storageClassDeviceSets:
