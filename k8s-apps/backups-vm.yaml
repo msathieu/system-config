@@ -15,7 +15,7 @@ spec:
           model: host-passthrough
         resources:
           requests:
-            memory: 3Gi
+            memory: 2Gi
         devices:
           disks:
             #- name: installer

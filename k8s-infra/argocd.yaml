@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://argoproj.github.io/argo-helm
     chart: argo-cd
-    targetRevision: 9.3.7
+    targetRevision: 9.4.0
     helm:
       releaseName: argocd
       values: |
@@ -25,3 +25,4 @@ spec:
     automated: {}
     syncOptions:
       - CreateNamespace=true
+      - ServerSideApply=true

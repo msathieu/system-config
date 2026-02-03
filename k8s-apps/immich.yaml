@@ -89,6 +89,7 @@ spec:
       labels:
         app: immich
     spec:
+      nodeName: k8s-1
       hostUsers: false
       volumes:
         - name: data

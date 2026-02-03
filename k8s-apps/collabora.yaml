@@ -12,6 +12,7 @@ spec:
       labels:
         app: collabora
     spec:
+      nodeName: k8s-1
       hostUsers: false
       volumes:
         - name: config

@@ -26,6 +26,7 @@ spec:
       labels:
         app: immich-valkey
     spec:
+      nodeName: k8s-1
       runtimeClassName: gvisor
       volumes:
         - name: data

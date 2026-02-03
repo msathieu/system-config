@@ -12,6 +12,7 @@ spec:
       labels:
         app: browserless
     spec:
+      nodeName: k8s-1
       runtimeClassName: gvisor
       containers:
         - name: browserless
