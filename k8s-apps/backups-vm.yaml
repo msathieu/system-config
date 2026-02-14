@@ -14,11 +14,8 @@ spec:
           cores: 2
           model: host-passthrough
         resources:
-          overcommitGuestOverhead: true
           requests:
-            memory: 1Gi
-        memory:
-          guest: 4Gi
+            memory: 4Gi
         devices:
           disks:
             #- name: installer
