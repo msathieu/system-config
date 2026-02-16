@@ -11,11 +11,11 @@ spec:
     spec:
       domain:
         cpu:
-          cores: 2
+          cores: 3
           model: host-passthrough
         resources:
           requests:
-            memory: 4Gi
+            memory: 3Gi
         devices:
           disks:
             #- name: installer
