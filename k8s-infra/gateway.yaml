@@ -186,13 +186,6 @@ spec:
       tls:
         certificateRefs:
           - name: gw-network.strypsteen.com
-    - name: https-imagegen
-      protocol: HTTPS
-      port: 443
-      hostname: imagegen.strypsteen.com
-      tls:
-        certificateRefs:
-          - name: gw-imagegen.strypsteen.com
     - name: https-office
       protocol: HTTPS
       port: 443
@@ -200,20 +193,6 @@ spec:
       tls:
         certificateRefs:
           - name: gw-office.strypsteen.com
-    - name: https-textgen
-      protocol: HTTPS
-      port: 443
-      hostname: textgen.strypsteen.com
-      tls:
-        certificateRefs:
-          - name: gw-textgen.strypsteen.com
-    - name: https-remote-desktop
-      protocol: HTTPS
-      port: 443
-      hostname: remote-desktop.strypsteen.com
-      tls:
-        certificateRefs:
-          - name: gw-remote-desktop.strypsteen.com
     - name: https-code
       protocol: HTTPS
       port: 443

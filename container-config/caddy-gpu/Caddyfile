@@ -1,0 +1,9 @@
+imagegen.strypsteen.com {
+  basic_auth {
+    mathieu {$INVOKEAI_PASSWORD}
+  }
+  reverse_proxy http://systemd-invokeai:9090
+}
+textgen.strypsteen.com {
+  reverse_proxy http://localhost:8080
+}

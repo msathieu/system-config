@@ -1,5 +1,5 @@
 #!/bin/sh
-set -e
+set -euo pipefail
 certbot register --agree-tos --no-eff-email -m mathieu@strypsteen.me
 certbot certonly --standalone -d vps.strypsteen.com
 cp /etc/letsencrypt/live/*/fullchain.pem /etc/certificates
