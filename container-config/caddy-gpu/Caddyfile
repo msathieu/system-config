@@ -1,9 +1,17 @@
+(tls) {
+  tls {
+    dns cloudflare {$CLOUDFLARE_API_KEY}
+    resolvers 1.1.1.1
+  }
+}
 imagegen.strypsteen.com {
+  import tls
   basic_auth {
     mathieu {$INVOKEAI_PASSWORD}
   }
   reverse_proxy http://systemd-invokeai:9090
 }
 textgen.strypsteen.com {
-  reverse_proxy http://localhost:8080
+  import tls
+  reverse_proxy http://host.containers.internal:8080
 }
