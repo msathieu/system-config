@@ -2,12 +2,10 @@
 Image=git.strypsteen.com/infra/sandboxed-toolbox
 SeccompProfile=unconfined
 SecurityLabelDisable=true
-AddCapability=CAP_SYS_ADMIN
 UserNS=keep-id:uid=1000,gid=1000
 User=0
 Network=host
 AddDevice=/dev/dri
 Volume=%h/sandbox:/home/mathieu
-Volume=%t/pipewire-0:/run/pipewire-0
 Volume=%t/wayland-0:/run/wayland-0
 AutoUpdate=registry
