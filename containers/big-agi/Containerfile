@@ -1,9 +1,0 @@
-FROM fedora:43
-RUN dnf install -y git nodejs
-RUN curl -L https://github.com/enricoros/big-AGI/archive/refs/tags/v2.0.3.tar.gz | tar xz && mv big-AGI-* big-agi
-WORKDIR big-agi
-ENV NEXT_TELEMETRY_DISABLED 1
-RUN mv middleware_BASIC_AUTH.ts middleware.ts
-RUN npm ci
-RUN npm run build
-CMD ["npx", "next", "start"]
