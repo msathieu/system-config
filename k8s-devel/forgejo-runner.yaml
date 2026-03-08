@@ -65,7 +65,7 @@ spec:
               mountPath: /etc/forgejo-runner/config.yaml
               subPath: config.yaml
         - name: podman
-          image: quay.io/podman/stable:v5.7.1
+          image: quay.io/podman/stable:v5.8.0
           command: ['bash', '-c', 'rm /etc/containers/containers.conf && rm /home/podman/.config/containers/containers.conf && sudo -u podman -- podman system service -t0 tcp://127.0.0.1:8888']
           securityContext:
             procMount: Unmasked

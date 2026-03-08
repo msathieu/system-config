@@ -89,7 +89,7 @@ spec:
             name: caddy-static
       containers:
         - name: caddy-static
-          image: docker.io/caddy:2.11.1
+          image: docker.io/caddy:2.11.2
           volumeMounts:
             - name: config
               mountPath: /etc/caddy/Caddyfile
