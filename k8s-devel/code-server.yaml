@@ -43,6 +43,7 @@ data:
       "terminal.integrated.stickyScroll.enabled": false,
       "workbench.colorTheme": "Default Dark Modern",
       "workbench.editor.empty.hint": "hidden",
+      "workbench.localHistory.enabled": false,
       "workbench.settings.enableNaturalLanguageSearch": false,
       "workbench.startupEditor": "none"
     }
