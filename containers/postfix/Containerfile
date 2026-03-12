@@ -1,4 +1,4 @@
-FROM fedora:43
+FROM fedora:44
 RUN dnf up -y
 RUN dnf install -y postfix
 COPY postfix /etc/postfix

@@ -1,4 +1,4 @@
-FROM fedora:43
+FROM fedora:44
 RUN dnf up -y
 RUN dnf install -y dovecot-pigeonhole
 COPY dovecot.conf /etc/dovecot/dovecot.conf
