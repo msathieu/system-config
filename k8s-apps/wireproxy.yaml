@@ -19,7 +19,7 @@ spec:
             secretName: wireproxy
       containers:
         - name: wireproxy
-          image: ghcr.io/whyvl/wireproxy
+          image: ghcr.io/windtf/wireproxy
           volumeMounts:
             - name: config
               mountPath: /etc/wireproxy/config
