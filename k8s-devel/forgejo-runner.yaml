@@ -56,7 +56,7 @@ spec:
           ip: 127.0.0.1
       containers:
         - name: forgejo-runner
-          image: code.forgejo.org/forgejo/runner:12.7.1
+          image: code.forgejo.org/forgejo/runner:12.7.2
           command: ['forgejo-runner', 'daemon', '-c', '/etc/forgejo-runner/config.yaml']
           volumeMounts:
             - name: data
@@ -65,7 +65,7 @@ spec:
               mountPath: /etc/forgejo-runner/config.yaml
               subPath: config.yaml
         - name: podman
-          image: quay.io/podman/stable:v5.8.0
+          image: quay.io/podman/stable:v5.8.1
           command: ['bash', '-c', 'rm /etc/containers/containers.conf && rm /home/podman/.config/containers/containers.conf && sudo -u podman -- podman system service -t0 tcp://127.0.0.1:8888']
           securityContext:
             procMount: Unmasked
