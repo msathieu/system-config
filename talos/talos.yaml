@@ -2,7 +2,7 @@ version: v1alpha1
 machine:
   install:
     # gvisor, intel-ucode, realtek-firmware
-    image: factory.talos.dev/metal-installer-secureboot/dd58116b0ff6569f26baefcb118ffc984853b54ae907a6cf7585c7ffd77761d3:v1.12.5
+    image: factory.talos.dev/metal-installer-secureboot/dd58116b0ff6569f26baefcb118ffc984853b54ae907a6cf7585c7ffd77761d3:v1.12.6
     disk: /dev/nvme0n1
   sysctls:
     user.max_user_namespaces: 10000
