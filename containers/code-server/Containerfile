@@ -1,10 +1,11 @@
 FROM quay.io/fedora/fedora-toolbox:44
 RUN dnf up -y
-RUN dnf install -y bash-color-prompt direnv podman netcat tini vim-enhanced
-RUN dnf install -y https://github.com/coder/code-server/releases/download/v4.111.0/code-server-4.111.0-amd64.rpm
+RUN dnf install -y bash-color-prompt direnv podman netcat nix tini vim-enhanced
+RUN dnf install -y https://github.com/coder/code-server/releases/download/v4.112.0/code-server-4.112.0-amd64.rpm
 RUN setcap cap_setuid=ep /usr/bin/newuidmap
 RUN setcap cap_setgid=ep /usr/bin/newgidmap
 RUN useradd coder
+RUN chown -Rh coder:coder /nix
 RUN echo "coder ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 COPY subuid /etc/subuid
 COPY subuid /etc/subgid
@@ -12,6 +13,4 @@ COPY gitconfig /etc/gitconfig
 COPY ssh_config /etc/ssh/ssh_config
 USER coder
 RUN mkdir -p /home/coder/.local/share
-RUN sh <(curl -L https://nixos.org/nix/install) --no-daemon
-COPY --chown=coder nix.conf /home/coder/.config/nix/nix.conf
 CMD tini -- ssh-agent code-server --bind-addr 0.0.0.0:8080 --disable-telemetry --proxy-domain $PROXY_DOMAIN

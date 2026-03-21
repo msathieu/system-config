@@ -1,12 +1,10 @@
 FROM quay.io/fedora/fedora-toolbox:44
 RUN dnf up -y
-RUN dnf install -y bash-color-prompt libglvnd-gles libglvnd-opengl netcat systemd-container vim-enhanced xdg-desktop-portal-gtk xdg-utils
+RUN dnf install -y bash-color-prompt libglvnd-gles libglvnd-opengl netcat nix systemd-container vim-enhanced xdg-desktop-portal-gtk xdg-utils
 RUN useradd mathieu
 RUN echo "mathieu ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 RUN echo WAYLAND_DISPLAY=/run/wayland-0 >> /etc/environment
 RUN echo XDG_CURRENT_DESKTOP=GNOME >> /etc/environment
+RUN systemctl enable nix-daemon
 COPY vimrc /etc/vimrc
-USER mathieu
-RUN sh <(curl -L https://nixos.org/nix/install) --no-daemon
-USER root
 ENTRYPOINT ["/sbin/init"]

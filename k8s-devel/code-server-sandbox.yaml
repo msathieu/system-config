@@ -12,6 +12,18 @@ spec:
     requests:
       storage: 100Gi
 ---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: code-server-sandbox-nix
+spec:
+  storageClassName: ceph-block
+  accessModes:
+    - ReadWriteOncePod
+  resources:
+    requests:
+      storage: 100Gi
+---
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
@@ -35,6 +47,9 @@ spec:
         - name: data
           persistentVolumeClaim:
             claimName: code-server-sandbox
+        - name: nix
+          persistentVolumeClaim:
+            claimName: code-server-sandbox-nix
       containers:
         - name: code-server-sandbox
           image: git.strypsteen.com/infra/code-server
@@ -63,6 +78,8 @@ spec:
             - name: data
               mountPath: /home/coder/projects
               subPath: projects
+            - name: nix
+              mountPath: /nix
           resources:
             limits:
               squat.ai/fuse: 1
