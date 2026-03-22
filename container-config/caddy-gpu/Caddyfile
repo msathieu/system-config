@@ -15,3 +15,11 @@ textgen.strypsteen.com {
   import tls
   reverse_proxy http://host.containers.internal:8080
 }
+remote-desktop.strypsteen.com {
+  import tls
+  reverse_proxy https://localhost:47990 {
+    transport http {
+      tls_insecure_skip_verify
+    }
+  }
+}

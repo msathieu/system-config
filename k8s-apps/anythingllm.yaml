@@ -72,3 +72,5 @@ spec:
     - backendRefs:
         - name: anythingllm
           port: 3001
+      timeouts:
+        request: 600s
