@@ -18,6 +18,7 @@ set system static-host-mapping host-name k8s-gw-internal.strypsteen.com alias co
 set system static-host-mapping host-name k8s-gw-internal.strypsteen.com alias code-sandbox.strypsteen.com
 set system static-host-mapping host-name k8s-gw-internal.strypsteen.com alias llm.strypsteen.com
 set system static-host-mapping host-name k8s-gw-internal.strypsteen.com alias monitoring.strypsteen.com
+set system static-host-mapping host-name k8s-gw-internal.strypsteen.com alias music.strypsteen.com
 set system static-host-mapping host-name k8s-gw-internal.strypsteen.com alias network.strypsteen.com
 set system static-host-mapping host-name k8s-gw-internal.strypsteen.com alias office.strypsteen.com
 set system static-host-mapping host-name k8s-gw-internal.strypsteen.com alias photos.strypsteen.com

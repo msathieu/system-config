@@ -1,0 +1,73 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: navidrome
+  labels:
+    velero-backup: replicated
+spec:
+  storageClassName: ceph-block
+  accessModes:
+    - ReadWriteOncePod
+  resources:
+    requests:
+      storage: 50Gi
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: navidrome
+spec:
+  selector:
+    matchLabels:
+      app: navidrome
+  template:
+    metadata:
+      name: navidrome
+      labels:
+        app: navidrome
+    spec:
+      runtimeClassName: gvisor
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: navidrome
+      containers:
+        - name: navidrome
+          image: docker.io/deluan/navidrome:0.60.3
+          env:
+            - name: ND_ENABLEEXTERNALSERVICES
+              value: 'false'
+          volumeMounts:
+            - name: data
+              mountPath: /data
+              subPath: data
+            - name: data
+              mountPath: /music
+              subPath: music
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: navidrome
+spec:
+  selector:
+    app: navidrome
+  ports:
+    - name: web
+      port: 4533
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: navidrome
+spec:
+  parentRefs:
+    - name: envoy-internal
+  hostnames:
+    - music.strypsteen.com
+  rules:
+    - backendRefs:
+        - name: navidrome
+          port: 4533
+      timeouts:
+        request: 600s
