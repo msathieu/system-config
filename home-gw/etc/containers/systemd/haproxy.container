@@ -1,5 +1,5 @@
 [Container]
-Image=docker.io/haproxy
+Image=docker.io/haproxy:3.3.6
 UserNS=auto
 AddCapability=CAP_NET_BIND_SERVICE
 Network=haproxy.network

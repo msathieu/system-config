@@ -1,5 +1,5 @@
 [Container]
-Image=docker.io/clamav/clamav
+Image=docker.io/clamav/clamav:1.5.2
 UserNS=auto
 Network=mail.network
 AutoUpdate=registry
