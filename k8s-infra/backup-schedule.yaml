@@ -1,0 +1,43 @@
+apiVersion: velero.io/v1
+kind: Schedule
+metadata:
+  name: local
+  namespace: velero
+spec:
+  schedule: 0 1 * * *
+  template:
+    labelSelector:
+      matchLabels:
+        velero-backup: local
+    snapshotMoveData: true
+    storageLocation: garage-local
+    ttl: 300h
+---
+apiVersion: velero.io/v1
+kind: Schedule
+metadata:
+  name: replicated
+  namespace: velero
+spec:
+  schedule: 0 1 * * *
+  template:
+    labelSelector:
+      matchLabels:
+        velero-backup: replicated
+    snapshotMoveData: true
+    storageLocation: garage-replicated
+    ttl: 300h
+---
+apiVersion: velero.io/v1
+kind: Schedule
+metadata:
+  name: secrets
+  namespace: velero
+spec:
+  schedule: 0 1 * * *
+  template:
+    includedResources:
+      - secrets
+      - configmaps
+    storageLocation: garage-replicated
+    ttl: 300h
