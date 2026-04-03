@@ -28,6 +28,8 @@ data:
     ROOT_URL = https://git.strypsteen.com/
     START_SSH_SERVER = true
     SSH_PORT = 2222
+    [repository]
+    DISABLE_DOWNLOAD_SOURCE_ARCHIVES = true
     [service]
     DISABLE_REGISTRATION = true
     [log]

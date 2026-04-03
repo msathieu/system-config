@@ -53,7 +53,7 @@ data:
       "git.confirmSync": false,
       "search.smartCase": true,
       "terminal.integrated.stickyScroll.enabled": false,
-      "workbench.colorTheme": "Default Dark Modern",
+      "workbench.colorTheme": "VS Code Dark",
       "workbench.editor.empty.hint": "hidden",
       "workbench.localHistory.enabled": false,
       "workbench.settings.enableNaturalLanguageSearch": false,
