@@ -28,8 +28,6 @@ data:
     ROOT_URL = https://git.strypsteen.com/
     START_SSH_SERVER = true
     SSH_PORT = 2222
-    [repository]
-    DISABLE_DOWNLOAD_SOURCE_ARCHIVES = true
     [service]
     DISABLE_REGISTRATION = true
     [log]
@@ -45,6 +43,29 @@ data:
     ENABLED = true
     [service]
     ENABLE_INTERNAL_SIGNIN = false
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: forgejo-anubis
+data:
+  config.yaml: |
+    status_codes:
+      CHALLENGE: 403
+      DENY: 403
+    bots:
+      - import: (data)/common/keep-internet-working.yaml
+      - name: allow_api
+        expression: path.startsWith("/api/")
+        action: ALLOW
+      - name: allow_git
+        expression: 'userAgent.contains("git") || userAgent.contains("Git")'
+        action: ALLOW
+      - name: default
+        expression: 'true'
+        action: WEIGH
+        weight:
+          adjust: 10
 ---
 apiVersion: apps/v1
 kind: StatefulSet
@@ -71,6 +92,9 @@ spec:
         - name: secret
           secret:
             secretName: forgejo
+        - name: anubis-config
+          configMap:
+            name: forgejo-anubis
       containers:
         - name: forgejo
           image: codeberg.org/forgejo/forgejo:14.0.3-rootless
@@ -85,6 +109,17 @@ spec:
               subPath: forgejo.ini
             - name: secret
               mountPath: /etc/forgejo-secret
+        - name: anubis
+          image: ghcr.io/techarohq/anubis:v1.25.0
+          env:
+            - name: TARGET
+              value: http://localhost:3000
+            - name: POLICY_FNAME
+              value: /config.yaml
+          volumeMounts:
+            - name: anubis-config
+              mountPath: /config.yaml
+              subPath: config.yaml
 ---
 apiVersion: v1
 kind: Service
@@ -95,7 +130,7 @@ spec:
     app: forgejo
   ports:
     - name: web
-      port: 3000
+      port: 8923
     - name: ssh
       port: 2222
 ---
@@ -124,6 +159,6 @@ spec:
   rules:
     - backendRefs:
         - name: forgejo
-          port: 3000
+          port: 8923
       timeouts:
         request: 600s

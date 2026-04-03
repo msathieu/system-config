@@ -307,6 +307,9 @@ spec:
     earlyRequestHeaders:
       remove:
         - X-Forwarded-For
+      set:
+        - name: X-Real-IP
+          value: "%DOWNSTREAM_REMOTE_ADDRESS_WITHOUT_PORT%"
     lateResponseHeaders:
       set:
         - name: X-Frame-Options
