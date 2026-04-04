@@ -6,9 +6,6 @@
 }
 imagegen.strypsteen.com {
   import tls
-  basic_auth {
-    mathieu {$INVOKEAI_PASSWORD}
-  }
   reverse_proxy http://systemd-invokeai:9090
 }
 textgen.strypsteen.com {

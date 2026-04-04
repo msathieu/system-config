@@ -1,11 +1,11 @@
 [Container]
 Image=ghcr.io/caddybuilds/caddy-cloudflare:2.11.2
+UserNS=auto
 Network=caddy.network
-Volume=/var/lib/system-config/container-config/caddy-gpu:/etc/caddy:z,ro
+Volume=/var/lib/system-config/container-config/caddy-home-gw:/etc/caddy:z,ro
 Volume=systemd-caddy:/data:U,Z
-PublishPort=80:80
-PublishPort=443:443
-PublishPort=443:443/udp
+PublishPort=444:444
+PublishPort=444:444/udp
 Secret=CLOUDFLARE_API_KEY,type=env
 AutoUpdate=registry
 [Install]

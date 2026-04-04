@@ -1,0 +1,8 @@
+[Container]
+Image=docker.io/netbirdio/dashboard:v2.36.0
+UserNS=auto
+EnvironmentFile=/var/lib/container-data/dashboard.env
+Network=caddy.network
+AutoUpdate=registry
+[Install]
+WantedBy=multi-user.target

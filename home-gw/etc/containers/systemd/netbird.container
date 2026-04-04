@@ -4,6 +4,7 @@ AddCapability=CAP_NET_ADMIN
 AddCapability=CAP_NET_RAW
 Network=host
 Volume=systemd-netbird:/var/lib/netbird:U,Z
+Environment=NB_MANAGEMENT_URL=https://vpn.strypsteen.com:444
 AutoUpdate=registry
 [Install]
 WantedBy=multi-user.target

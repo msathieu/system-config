@@ -1,0 +1,9 @@
+(tls) {
+  tls {
+    dns cloudflare {$CLOUDFLARE_API_KEY}
+    resolvers 1.1.1.1
+  }
+}
+vpn.strypsteen.com:444 {
+  import tls
+}

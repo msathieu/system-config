@@ -24,7 +24,6 @@ set system static-host-mapping host-name k8s-gw-internal.strypsteen.com alias of
 set system static-host-mapping host-name k8s-gw-internal.strypsteen.com alias photos.strypsteen.com
 set system static-host-mapping host-name k8s-test.strypsteen.com inet 192.168.253.36
 set system sysctl parameter net.ipv6.conf.eth0.use_tempaddr value 2
-set system time-zone Europe/Brussels
 set system update-check url https://raw.githubusercontent.com/vyos/vyos-nightly-build/refs/heads/current/version.json
 
 set interfaces ethernet eth0 address dhcp
@@ -110,6 +109,7 @@ set nat66 source rule 1 translation address masquerade
 set container name netbird image netbirdio/netbird
 set container name netbird volume netbird source /config/netbird
 set container name netbird volume netbird destination /var/lib/netbird
+set container name netbird environment NB_MANAGEMENT_URL value https://vpn.strypsteen.com:444
 set container name netbird allow-host-networks
 set container name netbird capability net-admin
 set container name netbird capability net-raw

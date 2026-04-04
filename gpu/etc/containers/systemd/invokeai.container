@@ -6,6 +6,7 @@ Network=caddy.network
 AddDevice=nvidia.com/gpu=all
 Volume=systemd-invokeai:/invokeai:U,Z
 Environment=CONTAINER_UID=999
+Environment=INVOKEAI_MULTIUSER=true
 PublishPort=127.0.0.1:9090:9090
 AutoUpdate=registry
 [Install]

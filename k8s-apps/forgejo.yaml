@@ -58,8 +58,8 @@ data:
       - name: allow_api
         expression: path.startsWith("/api/")
         action: ALLOW
-      - name: allow_git
-        expression: 'userAgent.contains("git") || userAgent.contains("Git")'
+      - name: allow_tools
+        expression: 'userAgent.contains("git") || userAgent.contains("Git") || userAgent.contains("containerd")'
         action: ALLOW
       - name: default
         expression: 'true'

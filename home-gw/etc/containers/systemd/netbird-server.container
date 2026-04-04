@@ -1,0 +1,9 @@
+[Container]
+Image=docker.io/netbirdio/netbird-server:0.67.3
+UserNS=auto
+Volume=/var/lib/container-data/netbird.yaml:/etc/netbird/config.yaml:z,ro
+Volume=systemd-netbird-server:/var/lib/netbird:U,Z
+Network=caddy.network
+AutoUpdate=registry
+[Install]
+WantedBy=multi-user.target
