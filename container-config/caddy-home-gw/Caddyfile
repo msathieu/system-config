@@ -6,4 +6,9 @@
 }
 vpn.strypsteen.com:444 {
   import tls
+  @server path /api/* /oauth2/* /relay* /ws-proxy/*
+  reverse_proxy @server http://systemd-netbird-server
+  @grpc header Content-Type application/grpc*
+  reverse_proxy @grpc h2c://systemd-netbird-server
+  reverse_proxy http://systemd-netbird-dashboard
 }
