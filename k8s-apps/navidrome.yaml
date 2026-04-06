@@ -33,7 +33,7 @@ spec:
             claimName: navidrome
       containers:
         - name: navidrome
-          image: docker.io/deluan/navidrome:0.61.0
+          image: docker.io/deluan/navidrome:0.61.1
           env:
             - name: ND_ENABLEEXTERNALSERVICES
               value: 'false'

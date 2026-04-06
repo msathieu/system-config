@@ -13,7 +13,7 @@
       "ExcludedDomains": ["strypsteen.com"],
       "Fallback": false,
       "Locked": true,
-      "ProviderURL": "https://dns.quad9.net/dns-query"
+      "ProviderURL": "https://cloudflare-dns.com/dns-query"
     },
     "EnableTrackingProtection": {
       "Value": true,
