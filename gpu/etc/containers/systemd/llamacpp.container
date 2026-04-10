@@ -1,0 +1,11 @@
+[Service]
+ExecStartPre=sleep 5
+[Container]
+Image=ghcr.io/ggml-org/llama.cpp:full-cuda13
+Network=caddy.network
+Exec=--server --host 0.0.0.0 --models-dir /models -ctk q8_0 -ctv q8_0 --sleep-idle-seconds 600 -c 32768
+AddDevice=nvidia.com/gpu=all
+Volume=systemd-llamacpp:/models:U,Z
+AutoUpdate=registry
+[Install]
+WantedBy=multi-user.target
