@@ -118,9 +118,9 @@ spec:
               mountPath: /nix
           resources:
             limits:
-              squat.ai/fuse: 1
-              squat.ai/kvm: 1
-              squat.ai/tun: 1
+              devic.es/fuse: 1
+              devic.es/kvm: 1
+              devic.es/tun: 1
       imagePullSecrets:
         - name: git-strypsteen-com
 ---

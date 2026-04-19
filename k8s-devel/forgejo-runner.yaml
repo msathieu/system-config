@@ -65,7 +65,7 @@ spec:
               mountPath: /etc/forgejo-runner/config.yaml
               subPath: config.yaml
         - name: podman
-          image: quay.io/podman/stable:v5.8.1
+          image: quay.io/podman/stable:v5.8.2
           command: ['bash', '-c', 'rm /etc/containers/containers.conf && rm /home/podman/.config/containers/containers.conf && sudo -u podman -- podman system service -t0 tcp://127.0.0.1:8888']
           securityContext:
             procMount: Unmasked
@@ -76,4 +76,4 @@ spec:
               mountPath: /home/podman/.local/share/containers
           resources:
             limits:
-              squat.ai/tun: 1
+              devic.es/tun: 1
