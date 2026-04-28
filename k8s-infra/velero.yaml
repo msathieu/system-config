@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://vmware-tanzu.github.io/helm-charts
     chart: velero
-    targetRevision: 12.0.0
+    targetRevision: 12.0.1
     helm:
       values: |
         configuration:
@@ -37,9 +37,6 @@ spec:
           volumeSnapshotLocation:
             - name: csi
               provider: csi
-        kubectl:
-          image:
-            repository: public.ecr.aws/bitnami/kubectl
         deployNodeAgent: true
         initContainers:
           - name: velero-plugin-for-aws
