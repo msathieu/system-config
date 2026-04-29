@@ -90,6 +90,7 @@ data:
     turn_allow_guests: false
     delete_stale_devices_after: 1y
     max_upload_size: 500M
+    default_room_version: 12
   log_config.yaml: |
     version: 1
     root:
@@ -123,7 +124,7 @@ spec:
             claimName: synapse
       containers:
         - name: synapse
-          image: ghcr.io/element-hq/synapse:v1.151.0
+          image: ghcr.io/element-hq/synapse:v1.152.0
           args: ['run', '--config-path', '/etc/synapse/homeserver.yaml', '--config-path', '/etc/synapse.yaml']
           env:
             - name: tmp_http_proxy
