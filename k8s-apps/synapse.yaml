@@ -111,6 +111,8 @@ spec:
       labels:
         app: synapse
     spec:
+      securityContext:
+        fsGroup: 991
       runtimeClassName: gvisor
       volumes:
         - name: config
