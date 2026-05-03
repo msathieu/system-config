@@ -5,7 +5,7 @@ dnf config-manager setopt qubes-vm-r4.3-security-testing.enabled=true
 dnf config-manager setopt qubes-vm-r4.3-current-testing.enabled=true
 dnf config-manager setopt rpmfusion-free.enabled=true
 dnf config-manager setopt rpmfusion-free-updates.enabled=true
-dnf install --allowerasing bash-color-prompt bind-utils default-fonts fcitx5-anthy fcitx5-autostart fedora-flathub-remote ffmpeg helm kubernetes1.35-client netcat nix qubes-ctap ShellCheck tigervnc toolbox xdg-desktop-portal-gtk
+dnf install --allowerasing bash-color-prompt bind-utils default-fonts fcitx5-anthy fcitx5-autostart fedora-flathub-remote ffmpeg git helm kubernetes1.35-client netcat nix qubes-ctap ShellCheck tigervnc toolbox vim-enhanced xdg-desktop-portal-gtk
 dnf remove cheese evolution-data-server firefox gnome-software gnome-weather PackageKit-command-not-found rpmfusion-nonfree-release thunderbird totem
 bash setup-desktop.sh
 sudo systemctl enable nix-daemon

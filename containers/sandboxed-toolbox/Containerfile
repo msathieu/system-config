@@ -6,4 +6,4 @@ RUN echo WAYLAND_DISPLAY=/run/wayland-0 >> /etc/environment
 RUN echo XDG_CURRENT_DESKTOP=GNOME >> /etc/environment
 RUN systemctl enable nix-daemon
 COPY vimrc /etc/vimrc
-ENTRYPOINT ["/sbin/init"]
+CMD ["/sbin/init"]

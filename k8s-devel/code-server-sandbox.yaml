@@ -82,7 +82,6 @@ spec:
               mountPath: /nix
           resources:
             limits:
-              devic.es/fuse: 1
               devic.es/kvm: 1
               devic.es/tun: 1
       imagePullSecrets:

@@ -6,6 +6,6 @@ cp ../common/etc/ssh/ssh_config code-server
 cp ../common/etc/vimrc sandboxed-toolbox
 for container in */; do
   container=${container%/}
-  id=$(podman build --pull=always --ulimit nofile=-1:-1 -q "$container")
+  id=$(podman build --pull=always -q "$container")
   podman push --compress "$id" git.strypsteen.com/infra/"$container"
 done
