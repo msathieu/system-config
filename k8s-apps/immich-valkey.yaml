@@ -34,7 +34,7 @@ spec:
             claimName: immich-valkey
       containers:
         - name: immich-valkey
-          image: docker.io/valkey/valkey:9.0.3
+          image: docker.io/valkey/valkey:9.0.4
           volumeMounts:
             - name: data
               mountPath: /data

@@ -95,7 +95,7 @@ spec:
       runtimeClassName: gvisor
       containers:
         - name: atlas-valkey
-          image: docker.io/valkey/valkey:9.0.3
+          image: docker.io/valkey/valkey:9.0.4
 ---
 apiVersion: apps/v1
 kind: Deployment
