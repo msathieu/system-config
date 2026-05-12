@@ -1,5 +1,5 @@
 [Container]
-Image=docker.io/certbot/dns-cloudflare:v5.5.0
+Image=docker.io/certbot/dns-cloudflare:v5.6.0
 Network=certbot.network
 Entrypoint=run-certbot
 Volume=systemd-certificates:/etc/certificates:U,z
