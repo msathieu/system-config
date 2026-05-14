@@ -1,5 +1,5 @@
 [Container]
-Image=ghcr.io/caddybuilds/caddy-cloudflare:2.11.2
+Image=ghcr.io/caddybuilds/caddy-cloudflare:2.11.3
 UserNS=auto
 Network=caddy.network
 Volume=/var/lib/system-config/container-config/caddy-home-gw:/etc/caddy:z,ro

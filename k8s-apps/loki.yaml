@@ -35,7 +35,7 @@ spec:
             claimName: loki
       containers:
         - name: loki
-          image: docker.io/grafana/loki:3.7.1
+          image: docker.io/grafana/loki:3.7.2
           args: ['-config.file=/etc/loki/local-config.yaml', '-log.level=warn', '-reporting.enabled=false', '-querier.split-queries-by-interval=24h']
           volumeMounts:
             - name: data
