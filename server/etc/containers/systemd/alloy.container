@@ -1,5 +1,5 @@
 [Container]
-Image=docker.io/grafana/alloy:v1.16.1
+Image=docker.io/grafana/alloy:v1.16.2
 PodmanArgs=--pid=host
 Unmask=ALL
 Network=host
