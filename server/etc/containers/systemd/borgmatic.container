@@ -2,7 +2,7 @@
 ExecStartPre=btrfs subvolume snapshot -r /sysroot /var/snapshot
 ExecStopPost=btrfs subvolume delete /var/snapshot
 [Container]
-Image=ghcr.io/borgmatic-collective/borgmatic:2.1.5
+Image=ghcr.io/borgmatic-collective/borgmatic:2.1.6
 SecurityLabelDisable=true
 HostName=%H
 Entrypoint=borgmatic
