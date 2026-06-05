@@ -1,5 +1,1 @@
-GTK_IM_MODULE=fcitx
-QT_IM_MODULE=fcitx
-XMODIFIERS=@im=fcitx
-SSH_AUTH_SOCK=/run/user/1000/ssh-agent.socket
 GSK_RENDERER=gl
