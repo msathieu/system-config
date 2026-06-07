@@ -165,6 +165,13 @@ spec:
           selector:
             matchLabels:
               kubernetes.io/metadata.name: envoy-gateway-system
+    - name: https-aigw
+      protocol: HTTPS
+      port: 443
+      hostname: aigw.strypsteen.com
+      tls:
+        certificateRefs:
+          - name: gw-aigw.strypsteen.com
     - name: https-music
       protocol: HTTPS
       port: 443
