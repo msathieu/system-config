@@ -35,12 +35,10 @@ spec:
             claimName: anythingllm
       containers:
         - name: anythingllm
-          image: docker.io/mintplexlabs/anythingllm:1.13.0
+          image: docker.io/mintplexlabs/anythingllm:1.14.0
           env:
             - name: STORAGE_DIR
               value: /app/server/storage
-            - name: PROVIDER_SUPPORTS_NATIVE_TOOL_CALLING
-              value: generic-openai,openrouter
           volumeMounts:
             - name: data
               subPath: storage
