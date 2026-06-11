@@ -32,7 +32,7 @@ spec:
             claimName: unifi-mongodb
       containers:
         - name: unifi-mongodb
-          image: docker.io/mongo:8.3.2
+          image: docker.io/mongo:8.3.3
           volumeMounts:
             - name: data
               mountPath: /data/db
