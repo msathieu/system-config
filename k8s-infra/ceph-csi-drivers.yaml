@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: ceph-csi-drivers
+  namespace: argocd
+spec:
+  project: default
+  sources:
+    - repoURL: https://ceph.github.io/ceph-csi-operator
+      chart: ceph-csi-drivers
+      targetRevision: 1.0.1
+      helm:
+        valueFiles:
+          - $rook/deploy/charts/ceph-csi-drivers/values.yaml
+    - repoURL: https://github.com/rook/rook
+      targetRevision: release-1.20
+      ref: rook
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: rook-ceph
+  syncPolicy:
+    automated: {}
+    syncOptions:
+      - ServerSideApply=true
