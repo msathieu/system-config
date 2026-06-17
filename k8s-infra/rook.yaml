@@ -12,7 +12,7 @@ spec:
     helm:
       values: |
         cephImage:
-          tag: v20.2.1
+          tag: v20.2.2
           imagePullPolicy: IfNotPresent
         cephClusterSpec:
           cephConfig:
