@@ -35,7 +35,7 @@ spec:
             claimName: bifrost
       containers:
         - name: bifrost
-          image: docker.io/maximhq/bifrost:v1.5.13
+          image: docker.io/maximhq/bifrost:v1.5.15
           volumeMounts:
             - name: data
               mountPath: /app/data
