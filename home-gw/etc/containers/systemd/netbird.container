@@ -1,5 +1,5 @@
 [Container]
-Image=docker.io/netbirdio/netbird:0.72.4
+Image=docker.io/netbirdio/netbird:0.73.0
 AddCapability=CAP_NET_ADMIN
 AddCapability=CAP_NET_RAW
 Network=host
