@@ -8,13 +8,10 @@ spec:
   source:
     repoURL: https://argoproj.github.io/argo-helm
     chart: argo-cd
-    targetRevision: 9.7.0
+    targetRevision: 10.0.0
     helm:
       releaseName: argocd
       values: |
-        global:
-          networkPolicy:
-            create: true
         configs:
           cm:
             exec.enabled: true
