@@ -1,5 +1,5 @@
 [Container]
-Image=docker.io/netbirdio/netbird-server:0.73.2
+Image=docker.io/netbirdio/netbird-server:0.74.0
 UserNS=auto
 Volume=/var/lib/container-data/netbird.yaml:/etc/netbird/config.yaml:z,ro
 Volume=systemd-netbird-server:/var/lib/netbird:U,Z
