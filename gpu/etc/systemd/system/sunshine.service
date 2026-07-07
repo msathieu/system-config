@@ -1,7 +1,0 @@
-[Service]
-ExecStart=flatpak run dev.lizardbyte.app.Sunshine
-ExecStartPre=sleep 10
-Environment=FLATPAK_BWRAP=/root/bwrap
-Environment=PULSE_SERVER=unix:/run/user/1001/pulse/native
-[Install]
-WantedBy=multi-user.target
