@@ -96,6 +96,13 @@ spec:
       containers:
         - name: atlas-valkey
           image: docker.io/valkey/valkey:9.1.0
+          command: ['/bin/sh', '-c', 'valkey-server --requirepass "$VALKEY_PASSWORD"']
+          env:
+            - name: VALKEY_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: atlas-valkey-password
+                  key: password
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -126,6 +133,11 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: atlas-db-app
+                  key: password
+            - name: VALKEY_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: atlas-valkey-password
                   key: password
       imagePullSecrets:
         - name: git-strypsteen-com
@@ -159,6 +171,11 @@ spec:
                 secretKeyRef:
                   name: atlas-db-app
                   key: password
+            - name: VALKEY_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: atlas-valkey-password
+                  key: password
       imagePullSecrets:
         - name: git-strypsteen-com
 ---
@@ -191,6 +208,11 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: atlas-db-app
+                  key: password
+            - name: VALKEY_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: atlas-valkey-password
                   key: password
       imagePullSecrets:
         - name: git-strypsteen-com
