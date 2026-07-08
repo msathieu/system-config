@@ -23,7 +23,9 @@ set system static-host-mapping host-name k8s-gw-internal.strypsteen.com alias mu
 set system static-host-mapping host-name k8s-gw-internal.strypsteen.com alias network.strypsteen.com
 set system static-host-mapping host-name k8s-gw-internal.strypsteen.com alias office.strypsteen.com
 set system static-host-mapping host-name k8s-gw-internal.strypsteen.com alias photos.strypsteen.com
-set system static-host-mapping host-name k8s-test.strypsteen.com inet 192.168.253.36
+set system static-host-mapping host-name gpu.strypsteen.com inet 192.168.253.50
+set system static-host-mapping host-name gpu.strypsteen.com alias textgen.strypsteen.com
+set system static-host-mapping host-name gpu.strypsteen.com alias imagegen.strypsteen.com
 set system sysctl parameter net.ipv6.conf.eth0.use_tempaddr value 2
 set system update-check url https://raw.githubusercontent.com/vyos/vyos-nightly-build/refs/heads/rolling/version.json
 
