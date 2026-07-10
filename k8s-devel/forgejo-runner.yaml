@@ -56,7 +56,7 @@ spec:
           ip: 127.0.0.1
       containers:
         - name: forgejo-runner
-          image: code.forgejo.org/forgejo/runner:12.12.0
+          image: code.forgejo.org/forgejo/runner:12.13.0
           command: ['forgejo-runner', 'daemon', '-c', '/etc/forgejo-runner/config.yaml']
           volumeMounts:
             - name: data

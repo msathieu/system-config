@@ -97,7 +97,7 @@ spec:
             name: forgejo-anubis
       containers:
         - name: forgejo
-          image: codeberg.org/forgejo/forgejo:15.0.3-rootless
+          image: codeberg.org/forgejo/forgejo:15.0.4-rootless
           env:
             - name: GITEA_APP_INI
               value: /etc/forgejo.ini
