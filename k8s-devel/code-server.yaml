@@ -60,6 +60,11 @@ data:
       "workbench.startupEditor": "none"
     }
 ---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: code-server
+---
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
@@ -74,6 +79,7 @@ spec:
       labels:
         app: code-server
     spec:
+      serviceAccountName: code-server
       nodeName: k8s-1
       hostUsers: false
       volumes:
@@ -131,7 +137,10 @@ spec:
   selector:
     app: code-server
   ports:
-    - port: 8080
+    - name: code-server
+      port: 8080
+    - name: atlas-api
+      port: 8612
 ---
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
@@ -148,3 +157,17 @@ spec:
     - backendRefs:
         - name: code-server
           port: 8080
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: code-server
+spec:
+  podSelector:
+    matchLabels:
+      app: code-server
+  policyTypes:
+    - Ingress
+  ingress:
+    - ports:
+        - port: 8612
