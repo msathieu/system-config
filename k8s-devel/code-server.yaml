@@ -138,7 +138,7 @@ spec:
     app: code-server
   ports:
     - name: code-server
-      port: 8080
+      port: 9000
     - name: atlas-api
       port: 8612
 ---
@@ -156,7 +156,7 @@ spec:
   rules:
     - backendRefs:
         - name: code-server
-          port: 8080
+          port: 9000
 ---
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
