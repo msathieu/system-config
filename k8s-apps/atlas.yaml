@@ -51,6 +51,9 @@ spec:
           app: atlas-web
     - podSelector:
         matchLabels:
+          app: atlas-devproxy
+    - podSelector:
+        matchLabels:
           cnpg.io/cluster: atlas-db
     - namespaceSelector:
         matchLabels:
@@ -77,6 +80,9 @@ spec:
     - podSelector:
         matchLabels:
           app: atlas-web
+    - podSelector:
+        matchLabels:
+          app: atlas-devproxy
 ---
 apiVersion: apps/v1
 kind: StatefulSet
@@ -218,6 +224,44 @@ spec:
       imagePullSecrets:
         - name: git-strypsteen-com
 ---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: atlas-devproxy
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: atlas-devproxy
+  template:
+    metadata:
+      name: atlas-devproxy
+      labels:
+        app: atlas-devproxy
+    spec:
+      runtimeClassName: gvisor
+      containers:
+        - name: atlas-devproxy
+          image: git.strypsteen.com/infra/atlas
+          command: ['/devproxy']
+          env:
+            - name: VALKEY_HOST
+              value: atlas-valkey
+            - name: DATABASE_HOST
+              value: atlas-db-rw
+            - name: DATABASE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: atlas-db-app
+                  key: password
+            - name: VALKEY_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: atlas-valkey-password
+                  key: password
+      imagePullSecrets:
+        - name: git-strypsteen-com
+---
 apiVersion: v1
 kind: Service
 metadata:
@@ -248,6 +292,16 @@ spec:
   ports:
     - port: 8000
 ---
+apiVersion: v1
+kind: Service
+metadata:
+  name: atlas-devproxy
+spec:
+  selector:
+    app: atlas-devproxy
+  ports:
+    - port: 8001
+---
 apiVersion: gateway.networking.k8s.io/v1alpha2
 kind: TCPRoute
 metadata:
@@ -270,11 +324,24 @@ spec:
     - name: envoy
   hostnames:
     - console.strypsteen.com
-    - "*.dev.console.strypsteen.com"
   rules:
     - backendRefs:
         - name: atlas-web
           port: 8000
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: atlas-devproxy
+spec:
+  parentRefs:
+    - name: envoy
+  hostnames:
+    - "*.dev.console.strypsteen.com"
+  rules:
+    - backendRefs:
+        - name: atlas-devproxy
+          port: 8001
 ---
 apiVersion: v1
 kind: ServiceAccount
