@@ -15,8 +15,6 @@ set system static-host-mapping host-name k8s-gw.strypsteen.com alias mta-sts.str
 set system static-host-mapping host-name k8s-gw-internal.strypsteen.com inet 192.168.253.35
 set system static-host-mapping host-name k8s-gw-internal.strypsteen.com alias unifi
 set system static-host-mapping host-name k8s-gw-internal.strypsteen.com alias aigw.strypsteen.com
-set system static-host-mapping host-name k8s-gw-internal.strypsteen.com alias code.strypsteen.com
-set system static-host-mapping host-name k8s-gw-internal.strypsteen.com alias code-sandbox.strypsteen.com
 set system static-host-mapping host-name k8s-gw-internal.strypsteen.com alias llm.strypsteen.com
 set system static-host-mapping host-name k8s-gw-internal.strypsteen.com alias monitoring.strypsteen.com
 set system static-host-mapping host-name k8s-gw-internal.strypsteen.com alias music.strypsteen.com
@@ -100,6 +98,11 @@ set service dns forwarding dnssec validate
 set service dns forwarding allow-from 192.168.0.0/16
 set service dns forwarding allow-from 100.81.0.0/16
 set service dns forwarding allow-from fc00::/7
+set service dns forwarding authoritative-domain dev.console.strypsteen.com records a any address 192.168.253.34
+set service dns forwarding authoritative-domain code.strypsteen.com records a any address 192.168.253.35
+set service dns forwarding authoritative-domain code.strypsteen.com records a @ address 192.168.253.35
+set service dns forwarding authoritative-domain code-sandbox.strypsteen.com records a any address 192.168.253.35
+set service dns forwarding authoritative-domain code-sandbox.strypsteen.com records a @ address 192.168.253.35
 set service tftp-server directory /config/tftp
 set service tftp-server listen-address 192.168.253.1
 set service lldp

@@ -328,6 +328,8 @@ spec:
     - backendRefs:
         - name: atlas-web
           port: 8000
+      sessionPersistence:
+        type: Cookie
 ---
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
