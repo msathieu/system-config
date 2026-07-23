@@ -101,7 +101,7 @@ spec:
       runtimeClassName: gvisor
       containers:
         - name: atlas-valkey
-          image: docker.io/valkey/valkey:9.1.0
+          image: docker.io/valkey/valkey:9.1.1
           command: ['/bin/sh', '-c', 'valkey-server --requirepass "$VALKEY_PASSWORD"']
           env:
             - name: VALKEY_PASSWORD
