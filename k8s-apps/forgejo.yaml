@@ -53,6 +53,8 @@ data:
     status_codes:
       CHALLENGE: 403
       DENY: 403
+    honeypot:
+      enabled: false
     bots:
       - import: (data)/common/keep-internet-working.yaml
       - name: allow_api
@@ -110,7 +112,7 @@ spec:
             - name: secret
               mountPath: /etc/forgejo-secret
         - name: anubis
-          image: ghcr.io/techarohq/anubis:v1.25.0
+          image: ghcr.io/techarohq/anubis:v1.26.0
           env:
             - name: TARGET
               value: http://localhost:3000
