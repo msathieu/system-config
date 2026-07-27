@@ -112,6 +112,13 @@ spec:
       tls:
         certificateRefs:
           - name: gw-console-dev.strypsteen.com
+    - name: https-console-devproxy
+      protocol: HTTPS
+      port: 443
+      hostname: "*.devproxy.console.strypsteen.com"
+      tls:
+        certificateRefs:
+          - name: gw-console-devproxy.strypsteen.com
     - name: https-strypsteen-com
       protocol: HTTPS
       port: 443
