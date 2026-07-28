@@ -60,11 +60,6 @@ data:
       "workbench.startupEditor": "none"
     }
 ---
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: code-server
----
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
@@ -79,7 +74,6 @@ spec:
       labels:
         app: code-server
     spec:
-      serviceAccountName: code-server
       nodeName: k8s-1
       hostUsers: false
       volumes:
