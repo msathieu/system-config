@@ -126,7 +126,7 @@ spec:
             claimName: synapse
       containers:
         - name: synapse
-          image: ghcr.io/element-hq/synapse:v1.157.1
+          image: ghcr.io/element-hq/synapse:v1.157.2
           args: ['run', '--config-path', '/etc/synapse/homeserver.yaml', '--config-path', '/etc/synapse.yaml']
           env:
             - name: tmp_http_proxy

@@ -13,7 +13,7 @@ spec:
         valueFiles:
           - $rook/deploy/charts/ceph-csi-drivers/values.yaml
     - repoURL: https://github.com/rook/rook
-      targetRevision: v1.20.2
+      targetRevision: v1.20.3
       ref: rook
   destination:
     server: https://kubernetes.default.svc
