@@ -15,6 +15,8 @@ machine:
             device_ownership_from_security_context = true
 cluster:
   allowSchedulingOnControlPlanes: true
+  proxy:
+    disabled: true
   network:
     cni:
       name: none
