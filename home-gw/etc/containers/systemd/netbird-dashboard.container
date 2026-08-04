@@ -1,5 +1,5 @@
 [Container]
-Image=docker.io/netbirdio/dashboard:v2.90.8
+Image=docker.io/netbirdio/dashboard:v2.90.9
 UserNS=auto
 EnvironmentFile=/var/lib/container-data/dashboard.env
 Network=caddy.network

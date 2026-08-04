@@ -57,7 +57,14 @@ data:
       "workbench.editor.empty.hint": "hidden",
       "workbench.localHistory.enabled": false,
       "workbench.settings.enableNaturalLanguageSearch": false,
-      "workbench.startupEditor": "none"
+      "workbench.startupEditor": "none",
+      "terminal.integrated.profiles.linux": {
+        "bash": {
+          "path": "/usr/bin/bash",
+          "icon": "terminal-bash"
+        }
+      },
+      "terminal.integrated.defaultProfile.linux": "bash"
     }
 ---
 apiVersion: apps/v1
