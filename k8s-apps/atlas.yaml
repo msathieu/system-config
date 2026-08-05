@@ -9,6 +9,9 @@ spec:
   storage:
     storageClass: local-path
     size: 5Gi
+  postgresql:
+    parameters:
+      max_connections: "250"
   plugins:
     - name: barman-cloud.cloudnative-pg.io
       isWALArchiver: true
