@@ -1,0 +1,116 @@
+apiVersion: kubevirt.io/v1
+kind: VirtualMachine
+metadata:
+  name: unifi
+spec:
+  runStrategy: Always
+  template:
+    metadata:
+      labels:
+        app: unifi-vm
+    spec:
+      domain:
+        cpu:
+          cores: 2
+          model: host-passthrough
+        resources:
+          requests:
+            memory: 3Gi
+        devices:
+          disks:
+            - name: root
+              disk:
+                bus: virtio
+          rng: {}
+          tpm:
+            persistent: true
+        features:
+          smm:
+            enabled: true
+        firmware:
+          bootloader:
+            efi: {}
+      volumes:
+        - name: root
+          dataVolume:
+            name: unifi-root
+  dataVolumeTemplates:
+    - metadata:
+        name: unifi-root
+      spec:
+        storage:
+          accessModes:
+            - ReadWriteOncePod
+          storageClassName: ceph-block
+          resources:
+            requests:
+              storage: 25Gi
+        source:
+          http:
+            url: "https://cloud.debian.org/images/cloud/trixie/latest/debian-13-nocloud-amd64.qcow2"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: unifi
+spec:
+  selector:
+    app: unifi-vm
+  ports:
+    - name: web
+      port: 8443
+    - name: device
+      port: 8080
+---
+apiVersion: gateway.envoyproxy.io/v1alpha1
+kind: Backend
+metadata:
+  name: unifi
+spec:
+  endpoints:
+    - fqdn:
+        hostname: unifi.apps.svc.cluster.local
+        port: 8443
+  tls:
+    insecureSkipVerify: true
+---
+apiVersion: gateway.networking.k8s.io/v1alpha2
+kind: TCPRoute
+metadata:
+  name: unifi-api
+spec:
+  parentRefs:
+    - name: envoy-internal
+      sectionName: unifi-api
+  rules:
+    - backendRefs:
+        - name: unifi
+          port: 8080
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: unifi
+spec:
+  parentRefs:
+    - name: envoy-internal
+  hostnames:
+    - network.strypsteen.com
+  rules:
+    - backendRefs:
+        - group: gateway.envoyproxy.io
+          kind: Backend
+          name: unifi
+      timeouts:
+        request: 600s
+---
+apiVersion: gateway.envoyproxy.io/v1alpha1
+kind: BackendTrafficPolicy
+metadata:
+  name: unifi
+spec:
+  targetRefs:
+    - group: gateway.networking.k8s.io
+      kind: HTTPRoute
+      name: unifi
+  useClientProtocol: true

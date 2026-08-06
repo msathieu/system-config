@@ -1,5 +1,5 @@
 [Container]
-Image=docker.io/coturn/coturn:4.16.0
+Image=docker.io/coturn/coturn:4.17.0
 UserNS=auto
 Exec=--use-auth-secret --no-tcp-relay --denied-peer-ip=10.0.0.0-10.255.255.255 --denied-peer-ip=192.168.0.0-192.168.255.255 --realm=turn.strypsteen.com --user-quota=16 --total-quota=64 --no-multicast-peers --static-auth-secret=$COTURN_SECRET
 Network=host
