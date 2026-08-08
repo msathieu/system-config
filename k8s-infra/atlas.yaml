@@ -11,9 +11,12 @@ spec:
     helm:
       values: |
         image: git.strypsteen.com/infra/atlas
+        imageIDE: git.strypsteen.com/infra/atlas-ide
         imagePullSecret: git-strypsteen-com
         namespace: apps
         barmanObjectName: garage-replicated
+        apiserverHost: console.strypsteen.com
+        webserverHost: console.strypsteen.com
   destination:
     server: https://kubernetes.default.svc
     namespace: apps
