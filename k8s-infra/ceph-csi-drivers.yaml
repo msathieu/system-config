@@ -12,6 +12,10 @@ spec:
       helm:
         valueFiles:
           - $rook/deploy/charts/ceph-csi-drivers/values.yaml
+        values: |
+          drivers:
+            rbd:
+              snapshotPolicy: volumeSnapshot
     - repoURL: https://github.com/rook/rook
       targetRevision: v1.20.3
       ref: rook

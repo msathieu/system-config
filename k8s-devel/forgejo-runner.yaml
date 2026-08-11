@@ -48,8 +48,6 @@ spec:
         - name: config
           configMap:
             name: forgejo-runner
-        - name: containers
-          emptyDir: {}
       hostAliases:
         - hostnames:
             - host.containers.internal
@@ -71,9 +69,6 @@ spec:
             procMount: Unmasked
             seccompProfile:
               type: Unconfined
-          volumeMounts:
-            - name: containers
-              mountPath: /home/podman/.local/share/containers
           resources:
             limits:
               devic.es/tun: 1

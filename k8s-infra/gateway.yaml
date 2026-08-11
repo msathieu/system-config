@@ -179,6 +179,13 @@ spec:
           selector:
             matchLabels:
               kubernetes.io/metadata.name: envoy-gateway-system
+    - name: https-agent
+      protocol: HTTPS
+      port: 443
+      hostname: agent.strypsteen.com
+      tls:
+        certificateRefs:
+          - name: gw-agent.strypsteen.com
     - name: https-aigw
       protocol: HTTPS
       port: 443
