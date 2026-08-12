@@ -60,6 +60,13 @@ spec:
       tls:
         certificateRefs:
           - name: gw-git.strypsteen.com
+    - name: https-agent-webhook
+      protocol: HTTPS
+      port: 443
+      hostname: agent-webhook.strypsteen.com
+      tls:
+        certificateRefs:
+          - name: gw-agent-webhook.strypsteen.com
     - name: https-matrix
       protocol: HTTPS
       port: 443

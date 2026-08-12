@@ -52,6 +52,9 @@ spec:
         - name: podman
           image: quay.io/podman/stable:v5.8.2
           command: ['bash', '-c', 'rm /etc/containers/containers.conf && rm /home/podman/.config/containers/containers.conf && sudo -u podman -- podman system service -t0 tcp://127.0.0.1:8888']
+          volumeMounts:
+            - name: data
+              mountPath: /opt/data
           securityContext:
             procMount: Unmasked
             seccompProfile:
@@ -68,7 +71,10 @@ spec:
   selector:
     app: hermes
   ports:
-    - port: 9119
+    - name: web
+      port: 9119
+    - name: webhook
+      port: 8644
 ---
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
@@ -85,3 +91,17 @@ spec:
           port: 9119
       timeouts:
         request: 600s
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: hermes-webhook
+spec:
+  parentRefs:
+    - name: envoy
+  hostnames:
+    - agent-webhook.strypsteen.com
+  rules:
+    - backendRefs:
+        - name: hermes
+          port: 8644
