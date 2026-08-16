@@ -2,7 +2,7 @@
 Requires=clamav.service valkey.service unbound.service
 After=clamav.service valkey.service unbound.service
 [Container]
-Image=docker.io/rspamd/rspamd:4.1.4
+Image=docker.io/rspamd/rspamd:4.1.5
 UserNS=auto
 Network=mail.network
 DNS=10.89.255.254
