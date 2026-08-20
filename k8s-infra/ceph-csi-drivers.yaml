@@ -17,7 +17,7 @@ spec:
             rbd:
               snapshotPolicy: volumeSnapshot
     - repoURL: https://github.com/rook/rook
-      targetRevision: v1.20.4
+      targetRevision: v1.20.5
       ref: rook
   destination:
     server: https://kubernetes.default.svc
