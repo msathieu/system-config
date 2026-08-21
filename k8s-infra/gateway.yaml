@@ -112,6 +112,13 @@ spec:
       tls:
         certificateRefs:
           - name: gw-console.strypsteen.com
+    - name: https-console-agent
+      protocol: HTTPS
+      port: 443
+      hostname: "*.agent.console.strypsteen.com"
+      tls:
+        certificateRefs:
+          - name: gw-console-agent.strypsteen.com
     - name: https-console-dev
       protocol: HTTPS
       port: 443

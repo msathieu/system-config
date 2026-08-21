@@ -100,6 +100,7 @@ set service dns forwarding dnssec validate
 set service dns forwarding allow-from 192.168.0.0/16
 set service dns forwarding allow-from 100.81.0.0/16
 set service dns forwarding allow-from fc00::/7
+set service dns forwarding authoritative-domain agent.console.strypsteen.com records a any address 192.168.253.34
 set service dns forwarding authoritative-domain dev.console.strypsteen.com records a any address 192.168.253.34
 set service dns forwarding authoritative-domain devproxy.console.strypsteen.com records a any address 192.168.253.34
 set service dns forwarding authoritative-domain code.strypsteen.com records a any address 192.168.253.35
