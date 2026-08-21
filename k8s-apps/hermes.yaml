@@ -26,6 +26,7 @@ spec:
       labels:
         app: hermes
     spec:
+      nodeName: k8s-1
       hostUsers: false
       volumes:
         - name: data
