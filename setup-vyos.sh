@@ -3,7 +3,6 @@
 set system name-server 1.1.1.1
 set system static-host-mapping host-name trace.svc.ui.com inet 0.0.0.1
 set system static-host-mapping host-name k8s-gw.strypsteen.com inet 192.168.253.34
-set system static-host-mapping host-name k8s-gw.strypsteen.com alias agent-webhook.strypsteen.com
 set system static-host-mapping host-name k8s-gw.strypsteen.com alias auth.strypsteen.com
 set system static-host-mapping host-name k8s-gw.strypsteen.com alias cloud.strypsteen.com
 set system static-host-mapping host-name k8s-gw.strypsteen.com alias console.strypsteen.com
@@ -15,7 +14,6 @@ set system static-host-mapping host-name k8s-gw.strypsteen.com alias vault.stryp
 set system static-host-mapping host-name k8s-gw.strypsteen.com alias mta-sts.strypsteen.me
 set system static-host-mapping host-name k8s-gw-internal.strypsteen.com inet 192.168.253.35
 set system static-host-mapping host-name k8s-gw-internal.strypsteen.com alias unifi
-set system static-host-mapping host-name k8s-gw-internal.strypsteen.com alias agent.strypsteen.com
 set system static-host-mapping host-name k8s-gw-internal.strypsteen.com alias aigw.strypsteen.com
 set system static-host-mapping host-name k8s-gw-internal.strypsteen.com alias llm.strypsteen.com
 set system static-host-mapping host-name k8s-gw-internal.strypsteen.com alias monitoring.strypsteen.com

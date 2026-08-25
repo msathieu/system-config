@@ -60,13 +60,6 @@ spec:
       tls:
         certificateRefs:
           - name: gw-git.strypsteen.com
-    - name: https-agent-webhook
-      protocol: HTTPS
-      port: 443
-      hostname: agent-webhook.strypsteen.com
-      tls:
-        certificateRefs:
-          - name: gw-agent-webhook.strypsteen.com
     - name: https-matrix
       protocol: HTTPS
       port: 443
@@ -193,13 +186,6 @@ spec:
           selector:
             matchLabels:
               kubernetes.io/metadata.name: envoy-gateway-system
-    - name: https-agent
-      protocol: HTTPS
-      port: 443
-      hostname: agent.strypsteen.com
-      tls:
-        certificateRefs:
-          - name: gw-agent.strypsteen.com
     - name: https-aigw
       protocol: HTTPS
       port: 443
