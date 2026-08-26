@@ -1,7 +1,7 @@
 [Service]
 ExecStartPre=sleep 5
 [Container]
-Image=ghcr.io/invoke-ai/invokeai:6.13.8-cuda
+Image=ghcr.io/invoke-ai/invokeai:6.14.0-cuda
 Network=caddy.network
 AddDevice=nvidia.com/gpu=all
 Volume=systemd-invokeai:/invokeai:U,Z

@@ -12,6 +12,7 @@ spec:
       values: |
         image: git.strypsteen.com/infra/atlas
         imageIDE: git.strypsteen.com/infra/atlas-ide
+        imageAgent: git.strypsteen.com/infra/atlas-agent
         imagePullSecret: git-strypsteen-com
         namespace: apps
         barmanObjectName: garage-replicated
