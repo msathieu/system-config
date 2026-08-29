@@ -35,7 +35,7 @@ spec:
             claimName: anythingllm
       containers:
         - name: anythingllm
-          image: docker.io/mintplexlabs/anythingllm:1.16.0
+          image: docker.io/mintplexlabs/anythingllm:1.16.1
           env:
             - name: STORAGE_DIR
               value: /app/server/storage
