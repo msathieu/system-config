@@ -228,32 +228,6 @@ spec:
       tls:
         certificateRefs:
           - name: gw-office.strypsteen.com
-    - name: https-code
-      protocol: HTTPS
-      port: 443
-      hostname: code.strypsteen.com
-      tls:
-        certificateRefs:
-          - name: gw-code.strypsteen.com
-      allowedRoutes:
-        namespaces:
-          from: Selector
-          selector:
-            matchLabels:
-              kubernetes.io/metadata.name: development
-    - name: https-code-proxy
-      protocol: HTTPS
-      port: 443
-      hostname: "*.code.strypsteen.com"
-      tls:
-        certificateRefs:
-          - name: gw-code-proxy.strypsteen.com
-      allowedRoutes:
-        namespaces:
-          from: Selector
-          selector:
-            matchLabels:
-              kubernetes.io/metadata.name: development
     - name: https-code-sandbox
       protocol: HTTPS
       port: 443
@@ -261,19 +235,6 @@ spec:
       tls:
         certificateRefs:
           - name: gw-code-sandbox.strypsteen.com
-      allowedRoutes:
-        namespaces:
-          from: Selector
-          selector:
-            matchLabels:
-              kubernetes.io/metadata.name: development
-    - name: https-code-sandbox-proxy
-      protocol: HTTPS
-      port: 443
-      hostname: "*.code-sandbox.strypsteen.com"
-      tls:
-        certificateRefs:
-          - name: gw-code-sandbox-proxy.strypsteen.com
       allowedRoutes:
         namespaces:
           from: Selector

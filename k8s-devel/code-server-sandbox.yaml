@@ -53,13 +53,7 @@ spec:
       containers:
         - name: code-server-sandbox
           image: git.strypsteen.com/infra/code-server
-          securityContext:
-            procMount: Unmasked
-            seccompProfile:
-              type: Unconfined
           env:
-            - name: PROXY_DOMAIN
-              value: code-sandbox.strypsteen.com
             - name: PASSWORD
               valueFrom:
                 secretKeyRef:
@@ -80,10 +74,6 @@ spec:
               subPath: projects
             - name: nix
               mountPath: /nix
-          resources:
-            limits:
-              devic.es/kvm: 1
-              devic.es/tun: 1
       imagePullSecrets:
         - name: git-strypsteen-com
 ---
@@ -107,7 +97,6 @@ spec:
       name: envoy-internal
   hostnames:
     - code-sandbox.strypsteen.com
-    - "*.code-sandbox.strypsteen.com"
   rules:
     - backendRefs:
         - name: code-server-sandbox

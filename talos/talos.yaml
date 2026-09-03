@@ -2,40 +2,59 @@ version: v1alpha1
 machine:
   install:
     # gvisor, intel-ucode, realtek-firmware
-    image: factory.talos.dev/metal-installer-secureboot/dd58116b0ff6569f26baefcb118ffc984853b54ae907a6cf7585c7ffd77761d3:v1.13.9
+    image: factory.talos.dev/metal-installer-secureboot/dd58116b0ff6569f26baefcb118ffc984853b54ae907a6cf7585c7ffd77761d3:v1.14.0
     disk: /dev/nvme0n1
-  sysctls:
-    user.max_user_namespaces: 10000
-  files:
-    - path: /etc/cri/conf.d/20-customization.part
-      op: create
-      content: |
-        [plugins]
-          [plugins."io.containerd.cri.v1.runtime"]
-            device_ownership_from_security_context = true
 cluster:
   allowSchedulingOnControlPlanes: true
-  proxy:
-    disabled: true
-  network:
-    cni:
-      name: none
-    podSubnets:
-      - 10.244.0.0/16
-      - fd08::/56
-    serviceSubnets:
-      - 10.96.0.0/12
-      - fd09::/112
 ---
 apiVersion: v1alpha1
 kind: TimeSyncConfig
 bootTimeout: 1m
 ---
 apiVersion: v1alpha1
+kind: CRICustomizationConfig
+name: device-ownership
+content: |
+  [plugins]
+    [plugins."io.containerd.cri.v1.runtime"]
+      device_ownership_from_security_context = true
+---
+apiVersion: v1alpha1
+kind: KubeNetworkConfig
+podSubnets:
+ - 10.244.0.0/16
+ - fd08::/56
+serviceSubnets:
+  - 10.96.0.0/12
+  - fd09::/112
+---
+apiVersion: v1alpha1
+kind: SysctlConfig
+params:
+  user.max_user_namespaces: 10000
+---
+apiVersion: v1alpha1
+kind: KubeProxyConfig
+enabled: false
+---
+apiVersion: v1alpha1
+kind: KubeFlannelCNIConfig
+$patch: delete
+---
+apiVersion: v1alpha1
+kind: UnattendedInstallConfig
+$patch: delete
+---
+apiVersion: v1alpha1
+kind: KubeNodeConfig
+$patch: delete
+---
+apiVersion: v1alpha1
 kind: VolumeConfig
 name: STATE
 encryption:
   provider: luks2
+  allowDiscards: true
   keys:
     - slot: 0
       tpm: {}
@@ -45,6 +64,7 @@ kind: VolumeConfig
 name: EPHEMERAL
 encryption:
   provider: luks2
+  allowDiscards: true
   keys:
     - slot: 1
       tpm: {}
@@ -63,6 +83,7 @@ provisioning:
   minSize: 400GiB
 encryption:
   provider: luks2
+  allowDiscards: true
   keys:
     - slot: 1
       tpm: {}
