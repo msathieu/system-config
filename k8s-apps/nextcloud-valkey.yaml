@@ -33,7 +33,7 @@ spec:
             claimName: nextcloud-valkey
       containers:
         - name: nextcloud-valkey
-          image: docker.io/valkey/valkey:9.1.1
+          image: docker.io/valkey/valkey:9.1.2
           volumeMounts:
             - name: data
               mountPath: /data

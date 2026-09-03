@@ -1,5 +1,5 @@
 [Container]
-Image=docker.io/valkey/valkey:9.1.1
+Image=docker.io/valkey/valkey:9.1.2
 UserNS=auto
 Network=mail.network
 Volume=systemd-valkey:/data:U,Z
